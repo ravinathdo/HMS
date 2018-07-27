@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>AROGYA HOSPITAL MANAGEMENT SYSTEM</title>
+
         <link href="<?php echo base_url('css/style.css'); ?>" rel="stylesheet" type="text/css"  media="all" />
         <link href="<?php echo base_url('css/bootstrap.css'); ?>" rel="stylesheet" type="text/css"/>
         <!--<link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>-->
@@ -22,19 +23,18 @@
     </head>
     <body>
         <!---start-wrap---->
-
         <!---start-header---->
         <div class="header">
-<!--            <div class="top-header">
+            <div class="top-header">
                 <div class="wrap">
-                    <?php // $this->load->view('_head_pre'); ?>
+                       <?php $this->load->view('_head_pre');?>
                     <div class="clear"> </div>
                 </div>
-            </div>-->
+            </div>
             <div class="main-header">
                 <div class="wrap">
                     <div class="logo">
-                        <a href="#"><img src="<?php echo base_url('images/logo.png'); ?>" title="logo" /></a>
+                        <a href="index.html"><img src="<?php echo base_url('images/logo.png'); ?>" title="logo" /></a>
                     </div>
                     <div class="social-links">
                         <ul>
@@ -62,8 +62,63 @@
         <!----start-content----->
         <div class="content">
             <div class="row">
-                <div class="col-md-8">.col-md-8</div>
-                <div class="col-md-4">.col-md-4</div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+
+                    <h2 style="text-align: center">Patient Registration</h2>
+                    <?= $msg ?>
+                    <form class="form-horizontal" action="<?php echo base_url('/Patient_Controller/patientRegister') ?>" method="post">
+                        <div class="form-group">
+                            <label class="control-label col-xs-4" for="first_name">First Name</label> 
+                            <div class="col-xs-8">
+                                <input id="first_name" name="first_name" type="text" class="form-control" required="required">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="last_name" class="control-label col-xs-4">Last Name</label> 
+                            <div class="col-xs-8">
+                                <input id="last_name" name="last_name" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone" class="control-label col-xs-4">Telephone Number</label> 
+                            <div class="col-xs-8">
+                                <input id="telephone" name="telephone" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone" class="control-label col-xs-4">Date of Birth</label> 
+                            <div class="col-xs-8">
+                                <input id="dob" name="dob" type="date" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="control-label col-xs-4">Email</label> 
+                            <div class="col-xs-8">
+                                <input id="email" name="email" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pword" class="control-label col-xs-4">Password</label> 
+                            <div class="col-xs-8">
+                                <input id="pword" name="pword" type="text" class="form-control" required="required">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="repword" class="control-label col-xs-4">Retype Password</label> 
+                            <div class="col-xs-8">
+                                <input id="repword" name="repword" type="text" class="form-control">
+                            </div>
+                        </div> 
+                        <div class="form-group row">
+                            <div class="col-xs-offset-4 col-xs-8">
+                                <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="col-md-4"></div>
             </div>
         </div>
         <!----End-content----->

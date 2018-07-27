@@ -84,8 +84,6 @@ class Magazine extends CI_Controller {
         echo '<tt><pre>'.var_export($magazines, TRUE).'</pre></tt>';
         $this->load->view('magazines', array('magazines'=>$magazines));
     }
-    
-    
 
     public function add() {
         //populate Publication Model

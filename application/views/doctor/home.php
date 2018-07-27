@@ -2,13 +2,13 @@
 <html>
     <head>
         <title>AROGYA HOSPITAL MANAGEMENT SYSTEM</title>
-        <link href="<?php echo base_url('css/style.css'); ?>" rel="stylesheet" type="text/css"  media="all" />
+          <link href="<?php echo base_url('css/style.css'); ?>" rel="stylesheet" type="text/css"  media="all" />
         <link href="<?php echo base_url('css/bootstrap.css'); ?>" rel="stylesheet" type="text/css"/>
         <!--<link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>-->
         <link rel="stylesheet" href="<?php echo base_url('css/responsiveslides.css') ?>">
         <script src="<?php echo base_url('js/jquery.min.js'); ?>"></script>		
         <script src="<?php echo base_url('js/responsiveslides.min.js'); ?>"></script>
-
+        
         <script>
             // You can also use "$(window).load(function() {"
             $(function () {
@@ -22,28 +22,11 @@
     </head>
     <body>
         <!---start-wrap---->
-
         <!---start-header---->
         <div class="header">
-<!--            <div class="top-header">
-                <div class="wrap">
-                    <?php // $this->load->view('_head_pre'); ?>
-                    <div class="clear"> </div>
-                </div>
-            </div>-->
             <div class="main-header">
                 <div class="wrap">
-                    <div class="logo">
-                        <a href="#"><img src="<?php echo base_url('images/logo.png'); ?>" title="logo" /></a>
-                    </div>
-                    <div class="social-links">
-                        <ul>
-                            <li><a href="#"><img src="<?php echo base_url('images/facebook.png'); ?>" title="facebook" /></a></li>
-                            <li><a href="#"><img src="<?php echo base_url('images/twitter.png'); ?>" title="twitter" /></a></li>
-                            <li><a href="#"><img src="<?php echo base_url('images/feed.png'); ?>" title="Rss" /></a></li>
-                            <div class="clear"> </div>
-                        </ul>
-                    </div>
+                    <?php $this->load->view('admin/_head_admin'); ?>
                     <div class="clear"> </div>
                 </div>
             </div>
@@ -51,7 +34,7 @@
             <div class="top-nav">
                 <div class="wrap">
                     <ul>
-                        <?php $this->load->view('_menu_pre'); ?>
+                         <?php $this->load->view('admin/_menu_admin'); ?>
                         <div class="clear"> </div>
                     </ul>
                 </div>
@@ -62,8 +45,10 @@
         <!----start-content----->
         <div class="content">
             <div class="row">
-                <div class="col-md-8">.col-md-8</div>
-                <div class="col-md-4">.col-md-4</div>
+                <div class="col-md-2"> 
+                     <?php $this->load->view('admin/_tree_admin'); ?>
+                </div>
+                <div class="col-md-10">.col-md-4</div>
             </div>
         </div>
         <!----End-content----->
