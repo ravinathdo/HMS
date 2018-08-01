@@ -37,6 +37,17 @@ class MY_Model extends CI_Model{
     }
     
     
+     public function getFromID($id) {
+        $query = $this->db->get_where($this::DB_TABLE,array(
+        $this::DB_TABLE_PK => $id,
+        ));
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+    
     public function delete() {
         $this->db->delete($this::DB_TABLE,array(
         $this::DB_TABLE_PK => $this->{$this::DB_TABLE_PK}, 

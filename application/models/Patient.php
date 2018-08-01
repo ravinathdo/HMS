@@ -33,8 +33,7 @@ class Patient extends MY_Model {
         }
         return $data;
     }
-    
-    
+
     public function getPostData() {
         $this->first_name = $this->input->post('first_name');
         $this->last_name = $this->input->post('last_name');
@@ -43,6 +42,25 @@ class Patient extends MY_Model {
         $this->pword = $this->input->post('pword');
         $this->status_code = 'ACTIVE';
         $this->user_role = 'PATIENT';
+    }
+
+    
+    public function newAppointment($param) {
+        
+    }
+    
+    public function getAppointment($patient_id) {
+        $this->db->select('hms_doctor_availability.*');
+        $this->db->from('hms_doctor_availability');
+        $where = " doctor_id = '" . $doctor_id . "'";
+        $this->db->where($where);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
     }
 
 }

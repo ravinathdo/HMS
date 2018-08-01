@@ -12,7 +12,84 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
  * @author ravi
  */
+require_once(APPPATH . 'libraries/DoctorPayment.php');
+
+
 class Patient_Controller extends CI_Controller {
+
+    public function loadAppointment() {
+        //get my available appointment
+        $this->load->model(array('Doctor'));
+        $doctor = new Doctor();
+
+        $data['doctorList'] = $doctor->get();
+        $this->load->view('patient/patient-appointment', $data);
+    }
+
+    public function appointment() {
+        $this->load->model(array('Doctor', 'DoctorAppointment'));
+        $doctor = new Doctor();
+        $doctorappointment = new DoctorAppointment();
+        //get my available appointment
+
+        $userbean = $this->session->userdata('userbean');
+        $doctorappointment->doctor_id = $this->input->post('doctor_id');
+        $doctorappointment->created_user = $userbean->id;
+
+        //get the doctor details by ID
+        $doctorDetail = $doctor->getDoctorDetails($doctorappointment->doctor_id);
+
+        //create the object
+        $doctorPayment = new DoctorPayment();
+        $doctorPayment->doctor_id = $doctorDetail[0]->id;
+        $doctorPayment->first_name = $doctorDetail[0]->first_name;
+        $doctorPayment->last_name = $doctorDetail[0]->last_name;
+        $doctorPayment->doc_fee = $doctorDetail[0]->doc_fee;
+        $doctorPayment->hospital_fee = 1000;
+        $doctorPayment->total_fee = $doctorPayment->doc_fee + $doctorPayment->hospital_fee;
+        $doctorPayment->specialist = $doctorDetail[0]->specialist;
+        $doctorPayment->appointment_date = $this->input->post('appointment_date');
+        $this->session->set_userdata('doctorPayment', $doctorPayment);
+        
+        
+        $data['doctorList'] = $doctor->get();
+        $data['doctorPayment'] = $doctorPayment;
+        $data['doctorappointment'] = $doctorappointment;
+
+
+
+        //test session data
+//        $game = new Game();
+//        echo $game->id;
+//        $this->session->set_userdata('game', $game);
+
+
+        //adding to session further usage
+        $newData = array('doctorPayment' => $doctorPayment, 'doctorappointment' => $doctorappointment);
+        $this->session->set_userdata($newData);
+        $_SESSION['doctorPayment'] = $doctorPayment;
+
+        $this->load->view('patient/patient-appointment-payment', $data);
+    }
+
+    public function setAppointment() {
+        $this->load->model(array('Doctor','DoctorAppointment'));
+
+        
+        $doctorPayment = $this->session->userdata('doctorPayment');
+        echo '<tt><pre>' . var_export($doctorPayment, TRUE) . '</pre></tt>';
+        $doctorappointment = $this->session->userdata('doctorappointment');
+        echo '<tt><pre>' . var_export($doctorappointment, TRUE) . '</pre></tt>';
+        $userbean = $this->session->userdata('userbean');
+
+
+        //insert into hms_doctor_appointment
+        $doctorAppointment = new DoctorAppointment();
+        $doctorAppointment->
+        
+        $data['msg'] = '';
+        $this->load->view('patient/patient-appointment-slip', $data);
+    }
 
     //put your code here
     public function loadPatientRegister() {
@@ -52,7 +129,6 @@ class Patient_Controller extends CI_Controller {
             );
             $this->session->set_userdata($newdata);
             $this->load->view('patient/home');
-            
         } else {
             $data['msg'] = '<p class="text-danger">Invalid username or password</p>';
             $this->load->view('patient/patient-login', $data);
@@ -62,6 +138,7 @@ class Patient_Controller extends CI_Controller {
     public function loadHome() {
         $this->load->view('patient/home');
     }
+
     public function index() {
         echo 'Index';
     }

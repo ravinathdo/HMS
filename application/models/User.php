@@ -37,7 +37,6 @@ class User extends MY_Model {
             return FALSE;
         }
     }
-
     
     public function getAdminLogin($formData) {
         $this->db->select('hms_user.*');
@@ -53,6 +52,7 @@ class User extends MY_Model {
             return FALSE;
         }
     }
+    
     public function getDoctorLogin($formData) {
         $this->db->select('hms_doctor.*');
         $this->db->from('hms_doctor');

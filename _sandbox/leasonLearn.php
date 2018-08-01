@@ -3,6 +3,43 @@
 <!--Set Session Variable on controller-->
 <!--Access Session Variable in view-->
 <!--Logout-->
+<!--Day of the Date -->
+<!--Search where from table -->
+
+
+
+<!--Search where from table -->
+<?php 
+public function getDocAvailability($doctor_id) {
+        $this->db->select('hms_doctor_availability.*');
+        $this->db->from('hms_doctor_availability');
+        $where = " doctor_id = '" . $doctor_id . "'";
+        $this->db->where($where);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+    ?>
+<!--Search where from table END-->
+
+
+<!--Day of the Date -->
+<?php 
+//Our YYYY-MM-DD date string.
+        $date = "2018-07-28";
+//Convert the date string into a unix timestamp.
+        $unixTimestamp = strtotime($date);
+//Get the day of the week using PHP's date function.
+        $dayOfWeek = date("l", $unixTimestamp);
+//Print out the day that our date fell on.
+        echo $date . ' fell on a ' . $dayOfWeek;
+        ?>
+<!--Day of the Date END-->
+
 
 
 

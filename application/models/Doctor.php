@@ -47,4 +47,31 @@ class Doctor extends MY_Model {
         $this->user_role = 'DOCTOR';
     }
 
+    public function array_from_post($fields) {
+        $data = array();
+        foreach ($fields as $field) {
+            $data[$field] = $this->input->post($field);
+        }
+        return $data;
+    }
+
+    /**
+     * get doctor details with special details
+     * @param type $doctor_id
+     */
+    public function getDoctorDetails($doctor_id) {
+        $this->db->select('hms_doctor.*,hms_specialist.specialist');
+        $this->db->from('hms_doctor');
+        $this->db->join('hms_specialist','hms_specialist.id = hms_doctor.specialist_id');
+        $where = " hms_doctor.id = '" . $doctor_id . "'";
+        $this->db->where($where);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+
 }

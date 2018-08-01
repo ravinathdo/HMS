@@ -66,7 +66,7 @@
                 <div class="col-md-4">
                     <h2 style="text-align: center">Doctor Login</h2>
                     <?= $msg?>
-                    <form class="form-horizontal" action="<?php echo base_url('Admin_Controller/adminLogin');?>" method="post">
+                    <form class="form-horizontal" action="<?php echo base_url('Doctor_Controller/doctorLogin');?>" method="post">
                         <div class="form-group">
                             <label for="email" class="control-label col-xs-4">NIC</label> 
                             <div class="col-xs-8">

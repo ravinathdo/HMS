@@ -26,7 +26,7 @@
         <div class="header">
             <div class="main-header">
                 <div class="wrap">
-                    <?php $this->load->view('admin/_head_admin'); ?>
+                    <?php $this->load->view('doctor/_head_doctor'); ?>
                     <div class="clear"> </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
             <div class="top-nav">
                 <div class="wrap">
                     <ul>
-                         <?php $this->load->view('admin/_menu_admin'); ?>
+                         <?php $this->load->view('doctor/_menu_doctor'); ?>
                         <div class="clear"> </div>
                     </ul>
                 </div>
@@ -46,7 +46,7 @@
         <div class="content">
             <div class="row">
                 <div class="col-md-2"> 
-                     <?php $this->load->view('admin/_tree_admin'); ?>
+                     <?php $this->load->view('doctor/_tree_doctor'); ?>
                 </div>
                 <div class="col-md-10">.col-md-4</div>
             </div>

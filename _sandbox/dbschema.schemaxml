@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemadesigner version="6.5">
+<source>
+<database charset="latin1" collation="latin1_swedish_ci">hmsdb_relation</database>
+</source>
+<canvas zoom="100">
+<tables>
+<table name="hms_doctor_appointment" view="colnames">
+<left>390</left>
+<top>7</top>
+<width>149</width>
+<height>226</height>
+<sql_create_table>CREATE TABLE `hms_doctor_appointment` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `doctor_id` int(5) DEFAULT NULL,
+  `patient_id` int(5) DEFAULT NULL,
+  `appointment_date` varchar(30) DEFAULT NULL,
+  `status_code` varchar(20) DEFAULT NULL,
+  `doctor_comment` text,
+  `fee` int(5) DEFAULT NULL,
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_user` int(5) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_hms_doctor_appointment` (`doctor_id`),
+  KEY `FK_hms_doctor_appointment_patient` (`patient_id`),
+  CONSTRAINT `FK_hms_doctor_appointment_patient` FOREIGN KEY (`patient_id`) REFERENCES `hms_patient` (`id`),
+  CONSTRAINT `FK_hms_doctor_appointment` FOREIGN KEY (`doctor_id`) REFERENCES `hms_doctor` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="hms_doctor" view="colnames">
+<left>202</left>
+<top>3</top>
+<width>124</width>
+<height>329</height>
+<sql_create_table>CREATE TABLE `hms_doctor` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(100) DEFAULT NULL,
+  `last_name` varchar(100) DEFAULT NULL,
+  `nic` varchar(12) DEFAULT NULL,
+  `pword` text,
+  `email` varchar(50) DEFAULT NULL,
+  `telephone` varchar(20) DEFAULT NULL,
+  `degree` varchar(200) DEFAULT NULL,
+  `specialist_id` int(5) DEFAULT NULL,
+  `doc_fee` int(5) DEFAULT NULL,
+  `slmc_no` varchar(20) DEFAULT NULL,
+  `status_code` varchar(20) DEFAULT 'ACTIVE',
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_user` int(5) DEFAULT NULL,
+  `user_role` varchar(20) DEFAULT 'DOCTOR',
+  PRIMARY KEY (`id`),
+  KEY `FK_hms_doctor_specialist` (`specialist_id`),
+  CONSTRAINT `FK_hms_doctor_specialist` FOREIGN KEY (`specialist_id`) REFERENCES `hms_specialist` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="hms_doctor_availability" view="colnames">
+<left>25</left>
+<top>11</top>
+<width>129</width>
+<height>124</height>
+<sql_create_table>CREATE TABLE `hms_doctor_availability` (
+  `doctor_id` int(5) NOT NULL,
+  `day_available` varchar(60) NOT NULL,
+  `time_available` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`doctor_id`,`day_available`),
+  CONSTRAINT `FK_hms_doctor_availability` FOREIGN KEY (`doctor_id`) REFERENCES `hms_doctor` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="hms_hms_vehicle_request" view="colnames">
+<left>736</left>
+<top>424</top>
+<width>121</width>
+<height>192</height>
+<sql_create_table>CREATE TABLE `hms_hms_vehicle_request` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `request_by` int(5) DEFAULT NULL,
+  `comment` text,
+  `status_code` varchar(20) DEFAULT 'PENDING',
+  `vehicle_id` int(5) DEFAULT '0',
+  `created_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_user` int(5) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_hms_hms_vehicle_request` (`vehicle_id`),
+  KEY `FK_hms_hms_vehicle_request_user` (`created_user`),
+  CONSTRAINT `FK_hms_hms_vehicle_request_user` FOREIGN KEY (`created_user`) REFERENCES `hms_user` (`id`),
+  CONSTRAINT `FK_hms_hms_vehicle_request` FOREIGN KEY (`vehicle_id`) REFERENCES `hms_vehicle` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="hms_patient" view="colnames">
+<left>582</left>
+<top>12</top>
+<width>121</width>
+<height>243</height>
+<sql_create_table>CREATE TABLE `hms_patient` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(100) DEFAULT NULL,
+  `last_name` varchar(100) DEFAULT NULL,
+  `telephone` varchar(20) DEFAULT NULL,
+  `dob` varchar(25) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `pword` text,
+  `status_code` varchar(20) DEFAULT 'ACTIVE',
+  `user_role` varchar(20) DEFAULT 'PATIENT',
+  `created_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="hms_purchase" view="colnames">
+<left>874</left>
+<top>109</top>
+<width>140</width>
+<height>192</height>
+<sql_create_table>CREATE TABLE `hms_purchase` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `purchasing_item` varchar(50) DEFAULT NULL,
+  `status_code` varchar(20) DEFAULT NULL,
+  `request_by` int(5) DEFAULT NULL,
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_user` int(5) DEFAULT NULL,
+  `amount` double(10,2) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_hms_purchase` (`created_user`),
+  CONSTRAINT `FK_hms_purchase` FOREIGN KEY (`created_user`) REFERENCES `hms_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="hms_specialist" view="colnames">
+<left>56</left>
+<top>149</top>
+<width>98</width>
+<height>107</height>
+<sql_create_table>CREATE TABLE `hms_specialist` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `specialist` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="hms_user" view="colnames">
+<left>585</left>
+<top>265</top>
+<width>121</width>
+<height>260</height>
+<sql_create_table>CREATE TABLE `hms_user` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(100) DEFAULT NULL,
+  `last_name` varchar(100) DEFAULT NULL,
+  `nic` varchar(12) DEFAULT NULL,
+  `pword` text,
+  `user_role` varchar(20) DEFAULT NULL,
+  `telephone` varchar(20) DEFAULT NULL,
+  `empno` varchar(10) DEFAULT NULL,
+  `status_code` varchar(20) DEFAULT NULL,
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_user` int(5) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="hms_vehicle" view="colnames">
+<left>882</left>
+<top>343</top>
+<width>137</width>
+<height>107</height>
+<sql_create_table>CREATE TABLE `hms_vehicle` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `vehicle_number` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="hms_ward" view="colnames">
+<left>387</left>
+<top>247</top>
+<width>138</width>
+<height>124</height>
+<sql_create_table>CREATE TABLE `hms_ward` (
+  `ward_no` int(5) NOT NULL,
+  `ward_name` varchar(50) DEFAULT NULL,
+  `doctor_incharge` int(5) DEFAULT NULL,
+  PRIMARY KEY (`ward_no`),
+  KEY `FK_hms_ward` (`doctor_incharge`),
+  CONSTRAINT `FK_hms_ward` FOREIGN KEY (`doctor_incharge`) REFERENCES `hms_doctor` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="hms_ward_patient" view="colnames">
+<left>730</left>
+<top>60</top>
+<width>121</width>
+<height>192</height>
+<sql_create_table>CREATE TABLE `hms_ward_patient` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `ward_id` int(5) DEFAULT NULL,
+  `patient_id` int(5) DEFAULT NULL,
+  `ward_patient` int(10) DEFAULT NULL,
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_user` int(5) DEFAULT NULL,
+  `status_code` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_hms_ward_patient` (`ward_id`),
+  KEY `FK_hms_ward_patient_ward` (`patient_id`),
+  CONSTRAINT `FK_hms_ward_patient_ward` FOREIGN KEY (`patient_id`) REFERENCES `hms_patient` (`id`),
+  CONSTRAINT `FK_hms_ward_patient` FOREIGN KEY (`ward_id`) REFERENCES `hms_ward` (`ward_no`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="hms_ward_staff" view="colnames">
+<left>229</left>
+<top>364</top>
+<width>121</width>
+<height>141</height>
+<sql_create_table>CREATE TABLE `hms_ward_staff` (
+  `ward_id` int(5) NOT NULL,
+  `staff_id` int(5) NOT NULL,
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `responsibility` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`ward_id`,`staff_id`),
+  KEY `FK_hms_ward_staff_user` (`staff_id`),
+  CONSTRAINT `FK_hms_ward_staff_user` FOREIGN KEY (`staff_id`) REFERENCES `hms_user` (`id`),
+  CONSTRAINT `FK_hms_ward_staff` FOREIGN KEY (`ward_id`) REFERENCES `hms_ward` (`ward_no`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="hms_drug" view="colnames">
+<left>401</left>
+<top>439</top>
+<width>121</width>
+<height>141</height>
+<sql_create_table>CREATE TABLE `hms_drug` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `drug_name` varchar(50) DEFAULT NULL,
+  `qty` int(5) DEFAULT NULL,
+  `created_user` int(5) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `FK_hms_drug` FOREIGN KEY (`id`) REFERENCES `hms_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+</tables>
+</canvas>
+</schemadesigner>
