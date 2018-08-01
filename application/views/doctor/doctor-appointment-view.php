@@ -59,19 +59,19 @@
                                 <tbody>
                                     <tr>
                                         <td>Appointment Number</td>
-                                        <td>21</td>
+                                        <td>  <?= $appointmentDetail->id ?></td>
                                     </tr>
                                     <tr>
                                         <td>Appointment Date</td>
-                                        <td>2018-01-05</td>
+                                        <td><?= $appointmentDetail->appointment_date ?></td>
                                     </tr>
                                     <tr>
                                         <td>Patient Name</td>
-                                        <td>Ravinath Fernando</td>
+                                        <td><?= $appointmentDetail->first_name ?></td>
                                     </tr>
                                     <tr>
                                         <td>Status</td>
-                                        <td>OPEN</td>
+                                        <td><?= $appointmentDetail->status_code ?></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -80,14 +80,14 @@
 
 
                             <br>
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" action="<?= base_url('/Doctor_Controller/completeAppointment'); ?>" method="post">
                                 <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-4 control-label">Doctor Comment</label>
                                     <div class="col-sm-8">
-                                        <textarea class="form-control"> </textarea>
+                                        <textarea class="form-control" name="comment"> </textarea>
                                     </div>
                                 </div>
-
+                                <input type="hidden" name="appo_id" value="<?= $appointmentDetail->id ?>" />
                                 <div class="form-group">
                                     <div class="col-sm-offset-2 col-sm-10">
                                         <button type="submit" class="btn btn-success">Complete</button>

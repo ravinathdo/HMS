@@ -29,6 +29,14 @@ class DoctorAppointment extends MY_Model {
     public $created_date;
     public $created_user;
 
+    public function array_from_post($fields) {
+        $data = array();
+        foreach ($fields as $field) {
+            $data[$field] = $this->input->post($field);
+        }
+        return $data;
+    }
+
     public function getPostData() {
         $this->doctor_id = $this->input->post('doctor_id');
         $this->appointment_date = $this->input->post('appointment_date');
@@ -53,7 +61,7 @@ class DoctorAppointment extends MY_Model {
     public function getAppointmentDetails($param) {
         $this->db->select('hms_doctor_appointment.*,hms_patient.first_name');
         $this->db->from('hms_doctor_appointment');
-        $this->db->join('hms_patient','hms_patient.id = hms_doctor_appointment.patient_id');
+        $this->db->join('hms_patient', 'hms_patient.id = hms_doctor_appointment.patient_id');
         $where = " hms_doctor_appointment.id = '" . $param . "'";
         $this->db->where($where);
         $query = $this->db->get();
@@ -65,12 +73,11 @@ class DoctorAppointment extends MY_Model {
         }
     }
 
-    
-   
-    public function setAppointmentCompete($appo_id,$comm) {
-        
+    public function setAppointmentCompete($appo_id, $comm) {
+        $this->db->set('doctor_comment', $comm);
+        $this->db->set('status_code', 'COMPLETE');
+        $this->db->where('id', $appo_id);
+        $this->db->update('hms_doctor_appointment');
     }
-    
-    
-    
+
 }
