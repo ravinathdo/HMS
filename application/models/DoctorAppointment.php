@@ -23,6 +23,8 @@ class DoctorAppointment extends MY_Model {
     public $appointment_date;
     public $status_code;
     public $doctor_comment;
+    public $doctor_fee;
+    public $hospital_fee;
     public $fee;
     public $created_date;
     public $created_user;
@@ -34,6 +36,40 @@ class DoctorAppointment extends MY_Model {
         $this->fee = $this->input->post('fee');
     }
 
+    public function getDocAppointmentList($doctor_id) {
+        $this->db->select('hms_doctor_appointment.*');
+        $this->db->from('hms_doctor_appointment');
+        $where = " doctor_id = '" . $doctor_id . "'";
+        $this->db->where($where);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function getAppointmentDetails($param) {
+        $this->db->select('hms_doctor_appointment.*,hms_patient.first_name');
+        $this->db->from('hms_doctor_appointment');
+        $this->db->join('hms_patient','hms_patient.id = hms_doctor_appointment.patient_id');
+        $where = " hms_doctor_appointment.id = '" . $param . "'";
+        $this->db->where($where);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+
+    
+   
+    public function setAppointmentCompete($appo_id,$comm) {
+        
+    }
     
     
     

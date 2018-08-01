@@ -62,7 +62,7 @@
                         </tr>
                         <tr>
                             <td>Appointment Date</td>
-                            <td><?= $doctorappointment->appointment_date ?></td>
+                            <td><?= $doctorPayment->appointment_date ?></td>
                         </tr>
                         <tr>
                             <td colspan="2"><b>Patient Information</b></td>

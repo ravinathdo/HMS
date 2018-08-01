@@ -11,4 +11,12 @@ class User_Controller extends CI_Controller {
         $this->load->view('Welcome');
     }
 
+    /**
+     * 
+     * @param type $param 
+     */
+    public function loadHome() {
+        
+    }
+    
 }

@@ -1,2 +1,2 @@
-<li><a href="<?php echo base_url('Patient_Controller/loadHome');?>">Home</a></li>
-<li><a href="<?php echo base_url('Patient_Controller/');?>">New Appointment</a></li>
+<li><a href="<?php echo base_url('User_Controller/loadHome');?>">Home</a></li>
+<li><a href="<?php echo base_url('Doctor_Controller/getAppointmentList');?>/<?php echo $this->session->userdata('userbean')->id ?>">View Appointment</a></li>

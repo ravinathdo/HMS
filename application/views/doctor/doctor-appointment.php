@@ -26,7 +26,7 @@
         <div class="header">
             <div class="main-header">
                 <div class="wrap">
-                    <?php $this->load->view('patient/_head_patient'); ?>
+                    <?php $this->load->view('doctor/_head_doctor'); ?>
                     <div class="clear"> </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
             <div class="top-nav">
                 <div class="wrap">
                     <ul>
-                        <?php $this->load->view('patient/_menu_patient'); ?>
+                        <?php $this->load->view('doctor/_menu_doctor'); ?>
                         <div class="clear"> </div>
                     </ul>
                 </div>
@@ -45,113 +45,50 @@
         <!----start-content----->
         <div class="content">
             <div class="row">
-                <div class="col-md-4"> 
+                <div class="col-md-2"> 
+                    <?php $this->load->view('doctor/_tree_doctor'); ?>
+                </div>
+                <div class="col-md-10">
+                    <h3>Appointment List</h3>
+
+                    <table id="example" class="display" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Appointment Date</th>
+                                <th>Doctor Fee</th>
+                                <th>Status</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            if ($docAppointmentList != null)
+                                foreach ($docAppointmentList as $value) {
+                                    ?>
+                                    <tr>
+                                        <td><?= $value->id ?></td>
+                                        <td><?= $value->appointment_date ?></td>
+                                        <td><?= $value->doctor_fee ?></td>
+                                        <td><?= $value->status_code ?></td>
+                                        <td><a href="<?= base_url('Doctor_Controller/getAppointmentDetail')?>/<?= $value->id ?>">view</a> </td>
+                                    </tr>
+                                    <?php
+                                }
+                            ?>
+                        </tbody>
+                    </table>
+                    <link href="<?php echo base_url('css/jquery.dataTables.min.css'); ?>" rel="stylesheet" type="text/css"/>
+                    <script src="<?php echo base_url('js/jquery.dataTables.min.js'); ?>" type="text/javascript"></script>
+                    <script type="text/javascript">
+            $(document).ready(function () {
+                $('#example').DataTable();
+            });
+                    </script>
 
                 </div>
-
-                <div class="col-md-5" >
-
-                    <?= $msg ?>
-                    <div id="printdiv">
-
-
-                        <table style="width: 100%" class="table-bordered">
-                            <tr>
-                                <td colspan="2"><b>Doctor Appointment Information</b></td>
-                            </tr>
-                            <tr>
-                                <td> </td>
-                                <td>No <?= $appointmentNo; ?></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td><?= $appointmentDate; ?></td>
-                            </tr>
-                            <tr>
-                                <td> </td>
-                                <td>&nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td>Doctor </td>
-                                <td><?= $this->session->userdata('doctorPayment')->first_name ?></td>
-                            </tr>
-                            <tr>
-                                <td>Specialist</td>
-                                <td><?= $this->session->userdata('doctorPayment')->specialist ?></td>
-                            </tr>
-                            <tr>
-                                <td>Appointment Date</td>
-                                <td><?= $this->session->userdata('doctorPayment')->appointment_date ?></td>
-                            </tr>
-                            <tr>
-                                <td colspan="2"><b>Patient Information</b></td>
-                            </tr>
-                            <tr>
-                                <td>Patinet Name</td>
-                                <td><?= $this->session->userdata('userbean')->first_name ?></td>
-                            </tr>
-                            <tr>
-                                <td>Telephone Number</td>
-                                <td><?= $this->session->userdata('userbean')->telephone ?></td>
-                            </tr>
-                        </table>
-                        <br>
-                        <table style="width: 100%" class="table-bordered">
-                            <tr>
-                                <td>Doctor Fee</td>
-                                <td><h4><?= $this->session->userdata('doctorPayment')->doc_fee ?></h4></td>
-                            </tr>
-                            <tr>
-                                <td>Hospital Fee</td>
-                                <td><h4><?= $this->session->userdata('doctorPayment')->hospital_fee ?></h4></td>
-                            </tr>
-                            <tr>
-                                <td>Total Fee</td>
-                                <td><h3><?= $this->session->userdata('doctorPayment')->total_fee ?></h3></td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" style="text-align: center"></td>
-                            </tr>
-
-                        </table>
-
-
-
-                        <a href="#" onclick="PrintElem('printdiv')">print</a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-
-                    <br>
-
-                </div>
-
             </div>
         </div>
-
-        <script type="text/javascript">
-            function PrintElem(elem)
-            {
-                var mywindow = window.open('', 'PRINT', 'height=400,width=600');
-
-                mywindow.document.write('<html><head><title>' + document.title + '</title>');
-                mywindow.document.write('</head><body >');
-                mywindow.document.write('<h1>' + document.title + '</h1>');
-                mywindow.document.write(document.getElementById(elem).innerHTML);
-                mywindow.document.write('</body></html>');
-
-                mywindow.document.close(); // necessary for IE >= 10
-                mywindow.focus(); // necessary for IE >= 10*/
-
-                mywindow.print();
-                mywindow.close();
-
-                return true;
-            }
-        </script>
-
-
-
         <!----End-content----->
         <!---End-wrap---->
         <!---start-footer---->

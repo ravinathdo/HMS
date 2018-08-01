@@ -14,7 +14,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 require_once(APPPATH . 'libraries/DoctorPayment.php');
 
-
 class Patient_Controller extends CI_Controller {
 
     public function loadAppointment() {
@@ -50,8 +49,8 @@ class Patient_Controller extends CI_Controller {
         $doctorPayment->specialist = $doctorDetail[0]->specialist;
         $doctorPayment->appointment_date = $this->input->post('appointment_date');
         $this->session->set_userdata('doctorPayment', $doctorPayment);
-        
-        
+
+
         $data['doctorList'] = $doctor->get();
         $data['doctorPayment'] = $doctorPayment;
         $data['doctorappointment'] = $doctorappointment;
@@ -62,8 +61,6 @@ class Patient_Controller extends CI_Controller {
 //        $game = new Game();
 //        echo $game->id;
 //        $this->session->set_userdata('game', $game);
-
-
         //adding to session further usage
         $newData = array('doctorPayment' => $doctorPayment, 'doctorappointment' => $doctorappointment);
         $this->session->set_userdata($newData);
@@ -73,21 +70,36 @@ class Patient_Controller extends CI_Controller {
     }
 
     public function setAppointment() {
-        $this->load->model(array('Doctor','DoctorAppointment'));
+        $this->load->model(array('Doctor', 'DoctorAppointment'));
 
-        
         $doctorPayment = $this->session->userdata('doctorPayment');
         echo '<tt><pre>' . var_export($doctorPayment, TRUE) . '</pre></tt>';
         $doctorappointment = $this->session->userdata('doctorappointment');
         echo '<tt><pre>' . var_export($doctorappointment, TRUE) . '</pre></tt>';
         $userbean = $this->session->userdata('userbean');
 
-
         //insert into hms_doctor_appointment
         $doctorAppointment = new DoctorAppointment();
-        $doctorAppointment->
-        
-        $data['msg'] = '';
+        $doctorAppointment->doctor_id = $doctorPayment->doctor_id;
+        $doctorAppointment->patient_id = $userbean->id;
+        $doctorAppointment->appointment_date = $doctorPayment->appointment_date;
+        $doctorAppointment->status_code = "OPEN";
+        $doctorAppointment->doctor_fee = $doctorPayment->doc_fee;
+        $doctorAppointment->hospital_fee = $doctorPayment->hospital_fee;
+        $doctorAppointment->fee = $doctorPayment->total_fee;
+        $doctorAppointment->created_user = $userbean->id;
+
+
+        $doctorAppointment->save();
+
+
+        date_default_timezone_set("Asia/Colombo");
+        $dt = date("Y-m-d h:i:sa");
+
+
+        $data['appointmentNo'] = $doctorAppointment->id;
+        $data['appointmentDate'] = $dt;
+        $data['msg'] = '<p class="text-success">New Appointment has been placed</p>';
         $this->load->view('patient/patient-appointment-slip', $data);
     }
 

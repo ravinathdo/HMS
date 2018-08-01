@@ -44,11 +44,10 @@ class Patient extends MY_Model {
         $this->user_role = 'PATIENT';
     }
 
-    
     public function newAppointment($param) {
         
     }
-    
+
     public function getAppointment($patient_id) {
         $this->db->select('hms_doctor_availability.*');
         $this->db->from('hms_doctor_availability');
@@ -56,6 +55,20 @@ class Patient extends MY_Model {
         $this->db->where($where);
         $query = $this->db->get();
 
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function getPatientMedicalHistory($patient_id) {
+        $this->db->select('hms_doctor_appointment.*,hms_doctor.first_name');
+        $this->db->from('hms_doctor_appointment');
+        $this->db->join('hms_doctor','hms_doctor.id = hms_doctor_appointment.doctor_id');
+        $where = " hms_doctor_appointment.patient_id = '" . $patient_id . "' AND hms_doctor_appointment.status_code = 'COMPLETE'";
+        $this->db->where($where);
+        $query = $this->db->get();
         if ($query->num_rows() > 0) {
             return $query->result();
         } else {

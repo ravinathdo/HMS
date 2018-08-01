@@ -57,7 +57,7 @@ class Doctor_Controller extends CI_Controller {
         $dayOfWeek = date("l", $unixTimestamp);
 //Print out the day that our date fell on.
         echo $date . ' fell on a ' . $dayOfWeek;
-        
+
 
         //get availabiilty for the  doctor
         $userbean = $this->session->userdata('userbean');
@@ -82,18 +82,50 @@ class Doctor_Controller extends CI_Controller {
         try {
             if (!$result) {
                 $doctor_availability->save();
-                 $data['msg'] = '<p class="text-success">New Availability created successfuly</p>';
-            }else{
-                 $data['msg'] = '<p class="text-danger">Availability already available</p>';
+                $data['msg'] = '<p class="text-success">New Availability created successfuly</p>';
+            } else {
+                $data['msg'] = '<p class="text-danger">Availability already available</p>';
             }
         } catch (Exception $e) {
             //alert the user.
             echo 'Error';
         }
-       
+
         $docAvilabilityList = $doctor_availability->getDocAvailability($userbean->id);
         $data['docAvilabilityList'] = $docAvilabilityList;
         $this->load->view('doctor/doctor-availability', $data);
+    }
+
+    /**
+     * get the details of the appointment 
+     * @param type $param
+     */
+    public function getAppointmentDetail($appo_id) {
+         $this->load->model(array('DoctorAppointment','Patient'));
+        $doctorAppointment = new DoctorAppointment();
+        $patient = new Patient();
+        $data['appointmentDetail'] = $doctorAppointment->getAppointmentDetails($appo_id);
+        
+        
+        //get patient history
+        $patientMedicalHistory = $patient->getPatientMedicalHistory(8);
+        echo '<tt><pre>' . var_export($patientMedicalHistory, TRUE) . '</pre></tt>';
+        $data['patientMedicalHistory'] = $patientMedicalHistory;
+        $this->load->view('doctor/doctor-appointment-view', $data);
+    }
+    
+    public function getAppointmentList($doctor_id) {
+        //get the doctor id from get 
+        $this->load->model(array('DoctorAppointment'));
+        $doctorAppointment = new DoctorAppointment();
+        $data['docAppointmentList'] = $doctorAppointment->getDocAppointmentList($doctor_id);
+        $this->load->view('doctor/doctor-appointment', $data);
+    }
+    
+    
+    
+    public function completeAppointment($param) {
+         $this->load->model(array('DoctorAppointment'));
     }
 
 }
