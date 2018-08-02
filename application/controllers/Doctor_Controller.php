@@ -101,17 +101,17 @@ class Doctor_Controller extends CI_Controller {
      * @param type $param
      */
     public function getAppointmentDetail($appo_id) {
-        echo 'Appointment ID:'.$appo_id;
+        //echo 'Appointment ID:'.$appo_id;
          $this->load->model(array('DoctorAppointment','Patient'));
         $doctorAppointment = new DoctorAppointment();
         $patient = new Patient();
         $data['appointmentDetail'] = $doctorAppointment->getAppointmentDetails($appo_id)[0];
-                echo '<tt><pre>' . var_export($data['appointmentDetail'], TRUE) . '</pre></tt>';
+                //echo '<tt><pre>' . var_export($data['appointmentDetail'], TRUE) . '</pre></tt>';
 
         
         //get patient history
         $patientMedicalHistory = $patient->getPatientMedicalHistory(8);
-        echo '<tt><pre>' . var_export($patientMedicalHistory, TRUE) . '</pre></tt>';
+        //echo '<tt><pre>' . var_export($patientMedicalHistory, TRUE) . '</pre></tt>';
         $data['patientMedicalHistory'] = $patientMedicalHistory;
         $this->load->view('doctor/doctor-appointment-view', $data);
     }
@@ -128,13 +128,29 @@ class Doctor_Controller extends CI_Controller {
          $this->load->model(array('DoctorAppointment'));
          $doctorAppointment = new DoctorAppointment();
          $array_from_post = $doctorAppointment->array_from_post(array('appo_id','comment'));
-         echo '<tt><pre>' . var_export($response, TRUE) . '</pre></tt>';
+         echo '<tt><pre>' . var_export($array_from_post, TRUE) . '</pre></tt>';
          echo 'Updating.....';
          $doctorAppointment->setAppointmentCompete($array_from_post['appo_id'], $array_from_post['comment']);
          
          
          //get appoinment details again
-         //redirect('/Doctor_Controller/getAppointmentDetail/'.$appo_id);
+         redirect('/Doctor_Controller/getAppointmentDetail/'.$array_from_post['appo_id']);
     }
 
+    
+    public function rejectAppointment() {
+        $this->load->model(array('DoctorAppointment'));
+         $doctorAppointment = new DoctorAppointment();
+         $array_from_post = $doctorAppointment->array_from_post(array('appo_id'));
+         echo '<tt><pre>' . var_export($array_from_post, TRUE) . '</pre></tt>';
+//         echo 'Updating.....';
+         $doctorAppointment->setAppointmentReject($array_from_post['appo_id']);
+         
+         
+         //get appoinment details again
+         redirect('/Doctor_Controller/getAppointmentDetail/'.$array_from_post['appo_id']);
+    }
+    
+    
+    
 }

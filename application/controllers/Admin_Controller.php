@@ -26,7 +26,15 @@ class Admin_Controller extends CI_Controller {
 
 //            echo '<tt><pre>' . var_export($newdata, TRUE) . '</pre></tt>';
             $this->session->set_userdata($newdata);
-            $this->load->view('admin/home');
+            switch ($newdata['userbean']->user_role) {
+                case 'ADMIN':
+                    $this->load->view('admin/home');
+                    break;
+                case 'OPD':
+                    $this->load->view('opd/home');
+                    break;
+            }
+            //redirecting to ADMIN/OPD
         } else {
             $data['msg'] = '<p class="text-danger">Invalid username or password</p>';
             $this->load->view('admin/admin-login', $data);
@@ -51,11 +59,11 @@ class Admin_Controller extends CI_Controller {
     public function DoctorRegistration() {
         $this->load->model(array('Doctor'));
         //get session data 
-        
+
         $doctor = new Doctor();
         $doctor->getPostData();
-        $doctor->created_user = $this->session->userdata('userbean')->id;        
-        
+        $doctor->created_user = $this->session->userdata('userbean')->id;
+
         //echo '<tt><pre>' . var_export($doctor, TRUE) . '</pre></tt>';
         $doctor->save();
 

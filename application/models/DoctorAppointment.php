@@ -79,5 +79,10 @@ class DoctorAppointment extends MY_Model {
         $this->db->where('id', $appo_id);
         $this->db->update('hms_doctor_appointment');
     }
+    public function setAppointmentReject($appo_id, $comm) {
+        $this->db->set('status_code', 'REJECT');
+        $this->db->where('id', $appo_id);
+        $this->db->update('hms_doctor_appointment');
+    }
 
 }

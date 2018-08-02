@@ -80,31 +80,32 @@
 
 
                             <br>
-                            <form class="form-horizontal" action="<?= base_url('/Doctor_Controller/completeAppointment'); ?>" method="post">
-                                <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-4 control-label">Doctor Comment</label>
-                                    <div class="col-sm-8">
-                                        <textarea class="form-control" name="comment"> </textarea>
+                            <?php if ($appointmentDetail->status_code == 'OPEN') { ?> 
+                                <form class="form-horizontal" action="<?= base_url('/Doctor_Controller/completeAppointment'); ?>" method="post">
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-4 control-label">Doctor Comment</label>
+                                        <div class="col-sm-8">
+                                            <textarea class="form-control" name="comment"> </textarea>
+                                        </div>
                                     </div>
-                                </div>
-                                <input type="hidden" name="appo_id" value="<?= $appointmentDetail->id ?>" />
-                                <div class="form-group">
-                                    <div class="col-sm-offset-2 col-sm-10">
-                                        <button type="submit" class="btn btn-success">Complete</button>
+                                    <input type="hidden" name="appo_id" value="<?= $appointmentDetail->id ?>" />
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            <button type="submit" class="btn btn-success">Complete</button>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
+                                <h3>or</h3>
+                                <form class="form-horizontal" action="<?= base_url('/Doctor_Controller/rejectAppointment'); ?>" method="post">
+                                    <input type="hidden" name="appo_id" value="<?= $appointmentDetail->id ?>" />
 
-                            <h3>or</h3>
-                            <form action="" class="form-horizontal">
-                                <div class="form-group">
-                                    <div class="col-sm-offset-2 col-sm-10">
-                                        <button type="submit" class="btn btn-danger">Reject</button>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            <button type="submit" class="btn btn-danger">Reject</button>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
-
-
+                                </form>
+                            <?php } ?>
 
                         </div>
                         <div class="col-md-6">
@@ -124,7 +125,7 @@
                                     }
                                     ?>
 
-                                  
+
                                 </div>
                             </div>
 

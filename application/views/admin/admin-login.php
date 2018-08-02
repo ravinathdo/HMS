@@ -64,7 +64,7 @@
             <div class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
-                    <h2 style="text-align: center">Admin Login</h2>
+                    <h2 style="text-align: center">HMS Login</h2>
                     <?= $msg?>
                     <form class="form-horizontal" action="<?php echo base_url('Admin_Controller/adminLogin');?>" method="post">
                         <div class="form-group">

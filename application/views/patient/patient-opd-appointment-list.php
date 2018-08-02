@@ -2,13 +2,13 @@
 <html>
     <head>
         <title>AROGYA HOSPITAL MANAGEMENT SYSTEM</title>
-          <link href="<?php echo base_url('css/style.css'); ?>" rel="stylesheet" type="text/css"  media="all" />
+        <link href="<?php echo base_url('css/style.css'); ?>" rel="stylesheet" type="text/css"  media="all" />
         <link href="<?php echo base_url('css/bootstrap.css'); ?>" rel="stylesheet" type="text/css"/>
         <!--<link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>-->
         <link rel="stylesheet" href="<?php echo base_url('css/responsiveslides.css') ?>">
         <script src="<?php echo base_url('js/jquery.min.js'); ?>"></script>		
         <script src="<?php echo base_url('js/responsiveslides.min.js'); ?>"></script>
-        
+
         <script>
             // You can also use "$(window).load(function() {"
             $(function () {
@@ -34,7 +34,7 @@
             <div class="top-nav">
                 <div class="wrap">
                     <ul>
-                         <?php $this->load->view('patient/_menu_patient'); ?>
+                        <?php $this->load->view('patient/_menu_patient'); ?>
                         <div class="clear"> </div>
                     </ul>
                 </div>
@@ -46,14 +46,44 @@
         <div class="content">
             <div class="row">
                 <div class="col-md-2">.col-md-4</div>
-                <div class="col-md-10"> 
-                    <a href="<?php echo base_url('Patient_Controller/loadAppointment');?>">
-                        <img src="<?= base_url('/images/icon-applointment.png')?>" alt="..." class="img-thumbnail">
-                    </a>
-                   
-                    <a href="<?php echo base_url('Patient_Controller/loadMyAppointment');?>">
-                        <img src="<?= base_url('/images/icon-applointment.png')?>" alt="..." class="img-thumbnail">
-                    </a>
+                <div class="col-md-5"> 
+                    <h3>OPD Appointment List</h3>
+                     <?php //echo '<tt><pre>' . var_export($patientAppointmentList, TRUE) . '</pre></tt>'; ?>
+                    <table id="example" class="display" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Date</th>
+                                <th>fee</th>
+                                <th>status_code</th>
+                                <th>created_date</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($patientAppointmentList as $value) {
+                                ?>
+                            <tr>
+                                <td><?= $value->id ?></td>
+                                <td><?= $value->appointment_date ?></td>
+                                <td><?= $value->fee ?></td>
+                                <td><?= $value->status_code ?></td>
+                                <td><?= $value->created_date ?></td>
+                                <td></td>
+                            </tr>
+                            <?php
+                            }?>
+                        </tbody>
+                    </table>
+                    <link href="<?= base_url('css/jquery.dataTables.min.css') ?>" rel="stylesheet" type="text/css"/>
+                    <script src="<?= base_url('js/jquery.dataTables.min.js') ?>" type="text/javascript"></script>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            $('#example').DataTable();
+                        });
+                    </script>
+                </div>
+                <div class="col-md-5"> 
                 </div>
             </div>
         </div>

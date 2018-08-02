@@ -64,7 +64,7 @@ CREATE TABLE `hms_doctor_appointment` (
 
 /*Data for the table `hms_doctor_appointment` */
 
-insert  into `hms_doctor_appointment`(`id`,`doctor_id`,`patient_id`,`appointment_date`,`status_code`,`doctor_comment`,`doctor_fee`,`hospital_fee`,`fee`,`created_date`,`created_user`) values (1,4,8,'2018-08-25','OPEN',NULL,NULL,NULL,33432,'2018-08-01 14:40:31',8),(2,4,8,'2018-08-23','COMPLETE','On the Insert tab, the galleries include items that are designed to coordinate with the overall look of your document. You can use these galleries to insert tables, headers, footers, lists, cover pages, and other document building blocks',32432,1000,33432,'2018-08-01 14:49:45',8),(3,4,8,'2018-08-30','OPEN',NULL,32432,1000,33432,'2018-08-01 15:01:34',8),(4,4,8,'2018-08-30','OPEN',NULL,32432,1000,33432,'2018-08-01 15:01:54',8);
+insert  into `hms_doctor_appointment`(`id`,`doctor_id`,`patient_id`,`appointment_date`,`status_code`,`doctor_comment`,`doctor_fee`,`hospital_fee`,`fee`,`created_date`,`created_user`) values (1,4,8,'2018-08-25','OPEN',NULL,NULL,NULL,33432,'2018-08-01 14:40:31',8),(2,4,8,'2018-08-23','COMPLETE','On the Insert tab, the galleries include items that are designed to coordinate with the overall look of your document. You can use these galleries to insert tables, headers, footers, lists, cover pages, and other document building blocks',32432,1000,33432,'2018-08-01 14:49:45',8),(3,4,8,'2018-08-30','COMPLETE',' thi sis samdfdsfj jksdfjksld fjksldjafkljdskf',32432,1000,33432,'2018-08-01 15:01:34',8),(4,4,8,'2018-08-30','REJECT',' ravvvvv',32432,1000,33432,'2018-08-01 15:01:54',8);
 
 /*Table structure for table `hms_doctor_availability` */
 
@@ -94,22 +94,25 @@ CREATE TABLE `hms_drug` (
 
 /*Data for the table `hms_drug` */
 
-/*Table structure for table `hms_hms_vehicle_request` */
+/*Table structure for table `hms_opd_appointment` */
 
-DROP TABLE IF EXISTS `hms_hms_vehicle_request`;
+DROP TABLE IF EXISTS `hms_opd_appointment`;
 
-CREATE TABLE `hms_hms_vehicle_request` (
+CREATE TABLE `hms_opd_appointment` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
-  `request_by` int(5) DEFAULT NULL,
-  `comment` text DEFAULT NULL,
-  `status_code` varchar(20) DEFAULT 'PENDING',
-  `vehicle_id` int(5) DEFAULT 0,
-  `created_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  `patient_id` int(5) DEFAULT NULL,
+  `appointment_date` varchar(30) DEFAULT NULL,
+  `status_code` varchar(20) DEFAULT NULL,
+  `created_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `created_user` int(5) DEFAULT NULL,
+  `updated_user` int(5) DEFAULT NULL,
+  `fee` int(5) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
-/*Data for the table `hms_hms_vehicle_request` */
+/*Data for the table `hms_opd_appointment` */
+
+insert  into `hms_opd_appointment`(`id`,`patient_id`,`appointment_date`,`status_code`,`created_date`,`created_user`,`updated_user`,`fee`) values (1,NULL,'2018-08-17','OPEN','2018-08-02 11:39:57',8,NULL,NULL),(2,NULL,'2018-08-19','OPEN','2018-08-02 11:40:22',8,NULL,NULL),(3,8,'2018-08-19','OPEN','2018-08-02 11:40:47',8,NULL,NULL),(4,8,'2018-08-28','OPEN','2018-08-02 13:07:45',8,NULL,850),(5,8,NULL,'OPEN','2018-08-02 13:21:27',8,NULL,NULL),(6,8,NULL,'OPEN','2018-08-02 13:21:29',8,NULL,NULL),(7,8,NULL,'OPEN','2018-08-02 13:21:29',8,NULL,NULL),(8,8,NULL,'OPEN','2018-08-02 13:21:32',8,NULL,NULL);
 
 /*Table structure for table `hms_patient` */
 
@@ -181,11 +184,11 @@ CREATE TABLE `hms_user` (
   `created_date` timestamp NOT NULL DEFAULT current_timestamp(),
   `created_user` int(5) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Data for the table `hms_user` */
 
-insert  into `hms_user`(`id`,`first_name`,`last_name`,`nic`,`pword`,`user_role`,`telephone`,`empno`,`status_code`,`created_date`,`created_user`) values (1,'kumara','pathirana','88','86f7e437faa5a7fce15d1ddcb9eaeaea377667b8','ADMIN','0111','2255','ACTIVE','2018-07-27 21:20:34',1);
+insert  into `hms_user`(`id`,`first_name`,`last_name`,`nic`,`pword`,`user_role`,`telephone`,`empno`,`status_code`,`created_date`,`created_user`) values (1,'kumara','pathirana','88','86f7e437faa5a7fce15d1ddcb9eaeaea377667b8','ADMIN','0111','2255','ACTIVE','2018-07-27 21:20:34',1),(2,'Shalini','Tha','89','86f7e437faa5a7fce15d1ddcb9eaeaea377667b8','OPD',NULL,'2266','ACTIVE','2018-08-02 12:01:43',1);
 
 /*Table structure for table `hms_vehicle` */
 
@@ -198,6 +201,23 @@ CREATE TABLE `hms_vehicle` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `hms_vehicle` */
+
+/*Table structure for table `hms_vehicle_request` */
+
+DROP TABLE IF EXISTS `hms_vehicle_request`;
+
+CREATE TABLE `hms_vehicle_request` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `request_by` int(5) DEFAULT NULL,
+  `comment` text DEFAULT NULL,
+  `status_code` varchar(20) DEFAULT 'PENDING',
+  `vehicle_id` int(5) DEFAULT 0,
+  `created_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_user` int(5) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `hms_vehicle_request` */
 
 /*Table structure for table `hms_ward` */
 
@@ -221,6 +241,7 @@ CREATE TABLE `hms_ward_patient` (
   `ward_id` int(5) DEFAULT NULL,
   `patient_id` int(5) DEFAULT NULL,
   `ward_patient` int(10) DEFAULT NULL,
+  `comment` varchar(250) DEFAULT NULL,
   `created_date` timestamp NOT NULL DEFAULT current_timestamp(),
   `created_user` int(5) DEFAULT NULL,
   `status_code` varchar(20) DEFAULT NULL,

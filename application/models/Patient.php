@@ -62,12 +62,39 @@ class Patient extends MY_Model {
         }
     }
 
+    /**
+     * get patient medical record history by providing patient id
+     * @param type $patient_id
+     * @return boolean
+     */
     public function getPatientMedicalHistory($patient_id) {
         $this->db->select('hms_doctor_appointment.*,hms_doctor.first_name');
         $this->db->from('hms_doctor_appointment');
-        $this->db->join('hms_doctor','hms_doctor.id = hms_doctor_appointment.doctor_id');
+        $this->db->join('hms_doctor', 'hms_doctor.id = hms_doctor_appointment.doctor_id');
         $where = " hms_doctor_appointment.patient_id = '" . $patient_id . "' AND hms_doctor_appointment.status_code = 'COMPLETE'";
         $this->db->where($where);
+        $this->db->order_by("hms_doctor_appointment.id", "desc");
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+
+    
+    /**
+     * load patient appointment list 
+     * @param type $patient_id
+     * @return boolean
+     */
+    public function getPatientAppointmentList($patient_id) {
+        $this->db->select('hms_doctor_appointment.*,hms_doctor.first_name');
+        $this->db->from('hms_doctor_appointment');
+        $this->db->join('hms_doctor','hms_doctor.id = hms_doctor_appointment.doctor_id');
+        $where = " hms_doctor_appointment.patient_id = '" . $patient_id . "'";
+        $this->db->where($where);
+        $this->db->order_by('hms_doctor_appointment.id','desc');
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
             return $query->result();

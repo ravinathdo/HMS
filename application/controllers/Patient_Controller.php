@@ -16,6 +16,18 @@ require_once(APPPATH . 'libraries/DoctorPayment.php');
 
 class Patient_Controller extends CI_Controller {
 
+    public function loadMyAppointment() {
+        //session user
+        $this->load->model(array('Patient'));
+        $patient = new Patient();
+        $userbean = $this->session->userdata('userbean');
+        $patientAppointmentList = $patient->getPatientAppointmentList($userbean->id);
+        $data['myAppointmentList'] = $patientAppointmentList;
+
+//        echo '<tt><pre>' . var_export($patientAppointmentList, TRUE) . '</pre></tt>';
+        $this->load->view('patient/patient-appointment-list', $data);
+    }
+
     public function loadAppointment() {
         //get my available appointment
         $this->load->model(array('Doctor'));
@@ -151,6 +163,47 @@ class Patient_Controller extends CI_Controller {
         $this->load->view('patient/home');
     }
 
+    public function loadOPDAppointment() {
+        $data['msg'] = '';
+        $data['opd_fee'] = 850;
+        $this->load->view('patient/patient-opd-appointment',$data);
+    }
+
+    
+    /**
+     * create OPD appointment
+     */
+    public function OPDAppointment() {
+        $this->load->model(array('OPDAppointment'));
+        
+        $appointment_date = $this->input->post('appointment_date');
+        $opd_fee = $this->input->post('opd_fee');
+
+        $opdAppointment = new OPDAppointment();
+        $opdAppointment->appointment_date = $appointment_date;
+        $opdAppointment->patient_id = $this->session->userdata('userbean')->id;
+        $opdAppointment->created_user = $this->session->userdata('userbean')->id;
+        $opdAppointment->status_code = "OPEN";
+        $opdAppointment->fee = $opd_fee;
+        
+        $opdAppointment->save();
+        
+        $data['msg'] = '<p class="text-success">OPD Appointment created successfully, No:'.$opdAppointment->id.'  </p>';
+        $data['opd_fee'] = $opd_fee;
+        $this->load->view('patient/patient-opd-appointment', $data);
+    }
+
+    
+    public function getOPDPAtientAppointmentList() {
+        $this->load->model(array('OPDAppointment'));
+        $oPDAppointment0 = new OPDAppointment();
+        $userbean = $this->session->userdata('userbean');
+        $data['patientAppointmentList'] = $oPDAppointment0->getOPDPatientAppointmentList($userbean->id);
+        $this->load->view('patient/patient-opd-appointment-list',$data);
+    } 
+    
+    
+    
     public function index() {
         echo 'Index';
     }

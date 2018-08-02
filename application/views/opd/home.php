@@ -26,7 +26,7 @@
         <div class="header">
             <div class="main-header">
                 <div class="wrap">
-                    <?php $this->load->view('patient/_head_patient'); ?>
+                    <?php $this->load->view('opd/_head_opd'); ?>
                     <div class="clear"> </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
             <div class="top-nav">
                 <div class="wrap">
                     <ul>
-                         <?php $this->load->view('patient/_menu_patient'); ?>
+                         <?php $this->load->view('opd/_menu_opd'); ?>
                         <div class="clear"> </div>
                     </ul>
                 </div>
@@ -45,15 +45,12 @@
         <!----start-content----->
         <div class="content">
             <div class="row">
-                <div class="col-md-2">.col-md-4</div>
-                <div class="col-md-10"> 
-                    <a href="<?php echo base_url('Patient_Controller/loadAppointment');?>">
-                        <img src="<?= base_url('/images/icon-applointment.png')?>" alt="..." class="img-thumbnail">
-                    </a>
-                   
-                    <a href="<?php echo base_url('Patient_Controller/loadMyAppointment');?>">
-                        <img src="<?= base_url('/images/icon-applointment.png')?>" alt="..." class="img-thumbnail">
-                    </a>
+                <div class="col-md-2"> 
+                     <?php $this->load->view('opd/_tree_opd'); ?>
+                </div>
+                <div class="col-md-10">
+                    <h3>OPD Home</h3>
+                    
                 </div>
             </div>
         </div>

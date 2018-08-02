@@ -48,7 +48,9 @@
                 <div class="col-md-2"> 
                      <?php $this->load->view('admin/_tree_admin'); ?>
                 </div>
-                <div class="col-md-10">.col-md-4</div>
+                <div class="col-md-10">
+                      <h3>Admin Home</h3>
+                </div>
             </div>
         </div>
         <!----End-content----->

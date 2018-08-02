@@ -3,6 +3,7 @@ AROGYA HOSPITAL MANAGEMENT SYSTEM
 https://bootstrapformbuilder.com/
 
 
+
 <p class="text-muted">...</p>
 <p class="text-primary">...</p>
 <p class="text-success">...</p>
@@ -11,11 +12,16 @@ https://bootstrapformbuilder.com/
 <p class="text-danger">...</p>
 
 
-
-
-
 doctor place availability
 
+$this->session->userdata('userbean')
+
+cisearchwhere   
+cibase          <?= base_url('') ?>
+cimethod
 
 
-cisearchwhere
+
+
+
+http://localhost:81/HMS/Admin_Controller/
