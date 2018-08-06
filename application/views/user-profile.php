@@ -26,7 +26,7 @@
         <div class="header">
             <div class="main-header">
                 <div class="wrap">
-                    <?php $this->load->view('patient/_head_patient'); ?>
+                    <?php $this->load->view('admin/_head_admin'); ?>
                     <div class="clear"> </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
             <div class="top-nav">
                 <div class="wrap">
                     <ul>
-                        <?php $this->load->view('patient/_menu_patient'); ?>
+                        <?php $this->load->view('_menu'); ?>
                         <div class="clear"> </div>
                     </ul>
                 </div>
@@ -46,34 +46,100 @@
         <div class="content">
             <div class="row">
                 <div class="col-md-2"> 
+                    <?php //$this->load->view('admin/_tree_admin'); ?>
                 </div>
                 <div class="col-md-5">
 
                     <div class="panel panel-warning">
                         <div class="panel-heading ">
-                            <h3><img src="<?= base_url('/images/icon-applointment.png') ?>" style="width: 30px" /> New Doctor Appointment</h3>
+                            <h3><img src="<?= base_url('/images/icon-profile.png') ?>" style="width: 30px" /> Profile</h3>
+
                         </div>
                         <div class="panel-body">
-                            
-                                  <form class="form-horizontal" action="<?= base_url('Patient_Controller/appointment') ?>" method="post">
+
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="text" class="control-label col-xs-4">First Name</label> 
+                                    <div class="col-xs-8">
+                                        <input id="text" name="text" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="text1" class="control-label col-xs-4">Last Name</label> 
+                                    <div class="col-xs-8">
+                                        <input id="text1" name="text1" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="text2" class="control-label col-xs-4">NIC</label> 
+                                    <div class="col-xs-8">
+                                        <input id="text2" name="text2" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="control-label col-xs-4">User Role</label> 
+                                    <div class="col-xs-8">
+                                        <input id="" name="" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="text3" class="control-label col-xs-4">Telephone</label> 
+                                    <div class="col-xs-8">
+                                        <input id="text3" name="text3" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="text4" class="control-label col-xs-4">Employee No</label> 
+                                    <div class="col-xs-8">
+                                        <input id="text4" name="text4" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="text5" class="control-label col-xs-4">Status</label> 
+                                    <div class="col-xs-8">
+                                        <input id="text5" name="text5" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="text6" class="control-label col-xs-4">Created Date</label> 
+                                    <div class="col-xs-8">
+                                        <input id="text6" name="text6" type="text" class="form-control">
+                                    </div>
+                                </div> 
+                                <div class="form-group row">
+                                    <div class="col-xs-offset-4 col-xs-8">
+                                        <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+                <div class="col-md-4">
+
+                    <h3>Change Password</h3>
+                    <form class="form-horizontal">
                         <div class="form-group">
-                            <label for="doctor_id" class="control-label col-xs-4">Doctor</label> 
+                            <label for="text" class="control-label col-xs-4">Old Password</label> 
                             <div class="col-xs-8">
-                                <select id="doctor_id" name="doctor_id" class="select form-control">
-                                    <?php
-                                    foreach ($doctorList as $value) {
-                                        ?>  
-                                        <option value="<?= $value->id ?>"><?= $value->first_name ?></option> 
-                                        <?php
-                                    }
-                                    ?>
-                                </select>
+                                <input id="text" name="text" type="text" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="appointment_date" class="control-label col-xs-4">Appointment Date</label> 
+                            <label for="text1" class="control-label col-xs-4">New Password</label> 
                             <div class="col-xs-8">
-                                <input id="appointment_date" name="appointment_date" type="date" class="form-control">
+                                <input id="text1" name="text1" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="text2" class="control-label col-xs-4">Retype Password</label> 
+                            <div class="col-xs-8">
+                                <input id="text2" name="text2" type="text" class="form-control">
                             </div>
                         </div> 
                         <div class="form-group row">
@@ -82,16 +148,9 @@
                             </div>
                         </div>
                     </form>
-                            
-                        </div>
-                    </div>
-
-              
 
                 </div>
-
-                <div class="col-md-5">
-                </div>
+                <div class="col-md-1"></div>
             </div>
         </div>
         <!----End-content----->

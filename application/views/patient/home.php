@@ -45,16 +45,40 @@
         <!----start-content----->
         <div class="content">
             <div class="row">
-                <div class="col-md-2">.col-md-4</div>
-                <div class="col-md-10"> 
+                <div class="col-md-2"></div>
+                <div class="col-md-8"> 
+                    <h2>Patient</h2>
+                    <a href="<?php echo base_url('Patient_Controller/loadSearchDoctors');?>">
+                        <img src="<?= base_url('/images/icon-doctor.png')?>" alt="..." class="img-thumbnail" title="View Specialist Doctor">
+                    </a>
+                    <a href="<?php echo base_url('Patient_Controller/loadOPDAppointment');?>">
+                        <img src="<?= base_url('/images/icon-opd-applointment.png')?>" alt="..." class="img-thumbnail" title="OPD Appointment">
+                    </a>
                     <a href="<?php echo base_url('Patient_Controller/loadAppointment');?>">
-                        <img src="<?= base_url('/images/icon-applointment.png')?>" alt="..." class="img-thumbnail">
+                        <img src="<?= base_url('/images/icon-applointment.png')?>" alt="..." title="Doctor Appointment" class="img-thumbnail">
                     </a>
-                   
                     <a href="<?php echo base_url('Patient_Controller/loadMyAppointment');?>">
-                        <img src="<?= base_url('/images/icon-applointment.png')?>" alt="..." class="img-thumbnail">
+                        <img src="<?= base_url('/images/icon-my-applointment.png')?>" alt="..." title="My Appointment" class="img-thumbnail">
                     </a>
+                    <a href="<?php echo base_url('Patient_Controller/loadViewLabTestCenters');?>">
+                        <img src="<?= base_url('/images/icon-lab-test.png')?>" alt="..." title="Lab Test" class="img-thumbnail">
+                    </a>
+<!--                    <a href="<?php echo base_url('#');?>">
+                        <img src="<?= base_url('/images/icon-manage-applointment.png')?>" alt="..." title="Manage Appointment" class="img-thumbnail">
+                    </a>-->
+                    <a href="<?php echo base_url('Patient_Controller/loadFeedback');?>">
+                        <img src="<?= base_url('/images/icon-feedback.png')?>" alt="..." title="Feedback" class="img-thumbnail">
+                    </a>
+                    <a href="<?php echo base_url('#');?>">
+                        <img src="<?= base_url('/images/icon-report.png')?>" alt="..." title="Report" class="img-thumbnail">
+                    </a>
+                    <a href="<?php echo base_url('User_Controller/loadProfile');?>">
+                        <img src="<?= base_url('/images/icon-profile.png')?>" alt="..." title="Profile" class="img-thumbnail">
+                    </a>
+                    <br>
+                    <br>
                 </div>
+                <div class="col-md-2"></div>
             </div>
         </div>
         <!----End-content----->

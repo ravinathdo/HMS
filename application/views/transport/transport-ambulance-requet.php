@@ -26,7 +26,7 @@
         <div class="header">
             <div class="main-header">
                 <div class="wrap">
-                    <?php $this->load->view('patient/_head_patient'); ?>
+                    <?php $this->load->view('transport/_head_transport'); ?>
                     <div class="clear"> </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
             <div class="top-nav">
                 <div class="wrap">
                     <ul>
-                        <?php $this->load->view('patient/_menu_patient'); ?>
+                        <?php $this->load->view('transport/_menu_transport'); ?>
                         <div class="clear"> </div>
                     </ul>
                 </div>
@@ -45,53 +45,31 @@
         <!----start-content----->
         <div class="content">
             <div class="row">
-                <div class="col-md-2"> 
-                </div>
-                <div class="col-md-5">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
 
                     <div class="panel panel-warning">
                         <div class="panel-heading ">
-                            <h3><img src="<?= base_url('/images/icon-applointment.png') ?>" style="width: 30px" /> New Doctor Appointment</h3>
+                            <h3><img src="<?= base_url('/images/icon-ambulance-request.png') ?>" style="width: 30px" />  Ambulance Request</h3>
                         </div>
                         <div class="panel-body">
-                            
-                                  <form class="form-horizontal" action="<?= base_url('Patient_Controller/appointment') ?>" method="post">
-                        <div class="form-group">
-                            <label for="doctor_id" class="control-label col-xs-4">Doctor</label> 
-                            <div class="col-xs-8">
-                                <select id="doctor_id" name="doctor_id" class="select form-control">
-                                    <?php
-                                    foreach ($doctorList as $value) {
-                                        ?>  
-                                        <option value="<?= $value->id ?>"><?= $value->first_name ?></option> 
-                                        <?php
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="appointment_date" class="control-label col-xs-4">Appointment Date</label> 
-                            <div class="col-xs-8">
-                                <input id="appointment_date" name="appointment_date" type="date" class="form-control">
-                            </div>
-                        </div> 
-                        <div class="form-group row">
-                            <div class="col-xs-offset-4 col-xs-8">
-                                <button name="submit" type="submit" class="btn btn-primary">Submit</button>
-                            </div>
-                        </div>
-                    </form>
-                            
+
+                            <table style="width: 100%">
+                                <tr>
+                                    <td>CAP-4588</td>
+                                    <td><a href="">OPEN</a>  
+                                        <button type="button" class="btn btn-success btn-xs">Accept</button>
+                                        <button type="button" class="btn btn-danger btn-xs">Reject</button> </td>
+                                    <td><a href="">Jayanntha [0715566587]</a></td>
+                                </tr>
+                            </table>
+
+
+
                         </div>
                     </div>
-
-              
-
                 </div>
 
-                <div class="col-md-5">
-                </div>
             </div>
         </div>
         <!----End-content----->

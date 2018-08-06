@@ -8,14 +8,14 @@
               SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
         <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
         <!-- Custom Theme files -->
-        <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
-        <link href="css/style_front.css" type="text/css" rel="stylesheet" media="all"> 
-        <link rel="stylesheet" href="css/swipebox.css">     
-        <link href="css/animate.css" rel="stylesheet" type="text/css" media="all"> <!-- animation -->
-        <link href="css/font-awesome.css" rel="stylesheet"> <!-- font-awesome icons -->
+        <link href="<?php echo base_url('css/bootstrap.css'); ?>" type="text/css" rel="stylesheet" media="all">
+        <link href="<?php echo base_url('css/style_front.css'); ?>" type="text/css" rel="stylesheet" media="all"> 
+        <link rel="stylesheet" href="<?php echo base_url('css/swipebox.css'); ?>">     
+        <link href="<?php echo base_url('css/animate.css'); ?>" rel="stylesheet" type="text/css" media="all"> <!-- animation -->
+        <link href="<?php echo base_url('css/font-awesome.css'); ?>" rel="stylesheet"> <!-- font-awesome icons -->
         <!-- //Custom Theme files --> 
         <!-- js -->
-        <script src="js/jquery-2.2.3.min.js"></script> 
+        <script src="<?php echo base_url('js/jquery-2.2.3.min.js'); ?>"></script> 
         <!-- //js -->
         <!-- web-fonts -->
         <link href="//fonts.googleapis.com/css?family=Enriqueta:400,700" rel="stylesheet">
@@ -122,7 +122,7 @@
                 <div class="about-agileitsrow">
                     <div class="col-md-8 about-left wow slideInLeft animated" data-wow-delay=".5s">
                         <div class="col-md-4 col-sm-4 col-xs-4 about-img wow zoomInLeft animated" data-wow-delay=".9s">
-                            <img src="images/img1.jpg" alt="">
+                            <img src="<?php echo base_url('images/img1.jpg'); ?>" alt="">
                         </div>
                         <div class="col-md-8 col-sm-8 about-w3ls-text wow zoomInRight animated" data-wow-delay=".9s">
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rutrum iaculis enim, non convallis felis mattis at. Donec fringilla lacus eu pretium rutrum. Cras aliquet congue ullamcorper. Etiam mattis eros eu ullamcorper volutpat. Proin ut dui a urna efficitur varius. </p>
@@ -184,8 +184,8 @@
                     <div class="clearfix"> </div>
                 </div>
                 <!-- Stats-Number-Scroller-Animation-JavaScript -->
-                <script src="js/waypoints.min.js"></script> 
-                <script src="js/counterup.min.js"></script> 
+                <script src="<?php echo base_url('js/waypoints.min.js'); ?>"></script> 
+                <script src="<?php echo base_url('js/counterup.min.js'); ?>"></script> 
                 <script>
                     jQuery(document).ready(function ($) {
                         $('.w3-agile-counter').counterUp({
@@ -220,7 +220,7 @@
                         <p>Aenean pulvinar ac enimet posuere tincidunt velit tincidunt Utin  Porttitor vestibulum eu </p>
                     </div>					
                     <div class="col-md-3 team-grids wow zoomIn animated" data-wow-delay=".5s">
-                        <img class="img-responsive" src="images/img1.jpg" alt="">
+                        <img class="img-responsive" src="<?php echo base_url('images/img1.jpg'); ?>" alt="">
                         <div class="agileits-captn"> 
                             <div class="social-icons"> 
                                 <ul>
@@ -235,7 +235,7 @@
                         <p>Pulvinar ac aenean enimet posuere tincidunt velit tincidunt Utin  Porttitor vestibulum eu </p>
                     </div>	
                     <div class="col-md-3 team-grids wow zoomIn animated" data-wow-delay=".5s">
-                        <img class="img-responsive" src="images/t2.jpg" alt="">
+                        <img class="img-responsive" src="<?php echo base_url('images/t2.jpg'); ?>" alt="">
                         <div class="agileits-captn"> 
                             <div class="social-icons"> 
                                 <ul>
@@ -250,7 +250,7 @@
                         <p>Tincidunt aenean pulvinar acenimet posuere velit tincidunt Utin  Porttitor vestibulum eu </p>
                     </div>	
                     <div class="col-md-3 team-grids wow zoomIn animated" data-wow-delay=".5s">
-                        <img class="img-responsive" src="images/t3.jpg" alt="">
+                        <img class="img-responsive" src="<?php echo base_url('images/t3.jpg'); ?>" alt="">
                         <div class="agileits-captn"> 
                             <div class="social-icons"> 
                                 <ul>
@@ -288,8 +288,8 @@
                                 <div class="tab_img">
                                     <div class="col-md-4 col-sm-4 col-xs-6 portfolio-grids">
                                         <div class="agileinfo-effect wow fadeInUp animated" data-wow-delay=".5s">
-                                            <a href="images/g1.jpg" class="swipebox" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus tortor diam, ac lobortis justo rutrum quis. Praesent non purus fermentum, eleifend velit non">
-                                                <img src="images/g1.jpg" alt="" class="img-responsive" />
+                                            <a href="<?php echo base_url('images/g1.jpg'); ?>" class="swipebox" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus tortor diam, ac lobortis justo rutrum quis. Praesent non purus fermentum, eleifend velit non">
+                                                <img src="<?php echo base_url('images/g1.jpg'); ?>" alt="" class="img-responsive" />
                                                 <div class="figcaption">
                                                     <p>At veroeos accusamus </p>
                                                 </div>
@@ -298,8 +298,8 @@
                                     </div>
                                     <div class="col-md-4 col-sm-4 col-xs-6 portfolio-grids">
                                         <div class="agileinfo-effect  wow fadeInUp animated" data-wow-delay=".7s">
-                                            <a href="images/g2.jpg" class="swipebox" title="Duis maximus tortor diam, ac lobortis justo rutrum quis. Praesent non purus fermentum, eleifend velit non">
-                                                <img src="images/g2.jpg" alt="" class="img-responsive" />
+                                            <a href="<?php echo base_url('images/g2.jpg'); ?>" class="swipebox" title="Duis maximus tortor diam, ac lobortis justo rutrum quis. Praesent non purus fermentum, eleifend velit non">
+                                                <img src="<?php echo base_url('images/g2.jpg'); ?>" alt="" class="img-responsive" />
                                                 <div class="figcaption">
                                                     <p>Dignissimos ducimus vero</p>
                                                 </div>
@@ -308,8 +308,8 @@
                                     </div>
                                     <div class="col-md-4 col-sm-4 col-xs-6 portfolio-grids">
                                         <div class="agileinfo-effect  wow fadeInUp animated" data-wow-delay=".9s">
-                                            <a href="images/g3.jpg" class="swipebox" title="Maximus tortor diam, ac lobortis justo rutrum quis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non purus fermentum, eleifend velit non">
-                                                <img src="images/g3.jpg" alt="" class="img-responsive" />
+                                            <a href="<?php echo base_url('images/g3.jpg'); ?>" class="swipebox" title="Maximus tortor diam, ac lobortis justo rutrum quis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non purus fermentum, eleifend velit non">
+                                                <img src="<?php echo base_url('images/g3.jpg'); ?>" alt="" class="img-responsive" />
                                                 <div class="figcaption">
                                                     <p>Accusamus dignis ducimus</p>
                                                 </div>
@@ -318,8 +318,8 @@
                                     </div>
                                     <div class="col-md-4 col-sm-4 col-xs-6 portfolio-grids grid-mdl">
                                         <div class="agileinfo-effect  wow fadeInUp animated" data-wow-delay=".5s">
-                                            <a href="images/g4.jpg" class="swipebox" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus tortor diam, ac lobortis justo rutrum quis. Praesent non purus fermentum, eleifend velit non">
-                                                <img src="images/g4.jpg" alt="" class="img-responsive" />
+                                            <a href="<?php echo base_url('images/g4.jpg'); ?>" class="swipebox" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus tortor diam, ac lobortis justo rutrum quis. Praesent non purus fermentum, eleifend velit non">
+                                                <img src="<?php echo base_url('images/g4.jpg'); ?>" alt="" class="img-responsive" />
                                                 <div class="figcaption">
                                                     <p>Dignissimos ducimus vero</p>
                                                 </div>
@@ -328,8 +328,8 @@
                                     </div>
                                     <div class="col-md-4 col-sm-4 col-xs-6 portfolio-grids grid-mdl">
                                         <div class="agileinfo-effect  wow fadeInUp animated" data-wow-delay=".7s">
-                                            <a href="images/g5.jpg" class="swipebox" title="Duis maximus tortor diam, ac lobortis justo rutrum quis. Praesent non purus fermentum, eleifend velit non">
-                                                <img src="images/g5.jpg" alt="" class="img-responsive" />
+                                            <a href="<?php echo base_url('images/g5.jpg'); ?>" class="swipebox" title="Duis maximus tortor diam, ac lobortis justo rutrum quis. Praesent non purus fermentum, eleifend velit non">
+                                                <img src="<?php echo base_url('images/g5.jpg'); ?>" alt="" class="img-responsive" />
                                                 <div class="figcaption">
                                                     <p>Ccusaamus dignis ducimus</p>
                                                 </div>
@@ -338,8 +338,8 @@
                                     </div>
                                     <div class="col-md-4 col-sm-4 col-xs-6 portfolio-grids grid-mdl">
                                         <div class="agileinfo-effect  wow fadeInUp animated" data-wow-delay=".9s">
-                                            <a href="images/g6.jpg" class="swipebox" title="Consectetur adipiscing elit. Lorem ipsum dolor sit amet, duis maximus tortor diam, ac lobortis justo rutrum quis. Praesent non purus fermentum, eleifend velit non">
-                                                <img src="images/g6.jpg" alt="" class="img-responsive" />
+                                            <a href="<?php echo base_url('images/g6.jpg'); ?>" class="swipebox" title="Consectetur adipiscing elit. Lorem ipsum dolor sit amet, duis maximus tortor diam, ac lobortis justo rutrum quis. Praesent non purus fermentum, eleifend velit non">
+                                                <img src="<?php echo base_url('images/g6.jpg'); ?>" alt="" class="img-responsive" />
                                                 <div class="figcaption">
                                                     <p>Musaccusa dignis ducimus</p>
                                                 </div>
@@ -348,8 +348,8 @@
                                     </div>
                                     <div class="col-md-4 col-sm-4 col-xs-6 portfolio-grids">
                                         <div class="agileinfo-effect  wow fadeInUp animated" data-wow-delay=".5s">
-                                            <a href="images/g7.jpg" class="swipebox" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus tortor diam, ac lobortis justo rutrum quis. Praesent non purus fermentum, eleifend velit non">
-                                                <img src="images/g7.jpg" alt="" class="img-responsive" />
+                                            <a href="<?php echo base_url('images/g7.jpg'); ?>" class="swipebox" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus tortor diam, ac lobortis justo rutrum quis. Praesent non purus fermentum, eleifend velit non">
+                                                <img src="<?php echo base_url('images/g7.jpg'); ?>" alt="" class="img-responsive" />
                                                 <div class="figcaption">
                                                     <p>Qignissimos ducimus vero</p>
                                                 </div>
@@ -358,8 +358,8 @@
                                     </div>
                                     <div class="col-md-4 col-sm-4 col-xs-6 portfolio-grids">
                                         <div class="agileinfo-effect  wow fadeInUp animated" data-wow-delay=".7s">
-                                            <a href="images/g8.jpg" class="swipebox" title="Duis maximus tortor diam, ac lobortis justo rutrum quis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non purus fermentum, eleifend velit non">
-                                                <img src="images/g8.jpg" alt="" class="img-responsive" />
+                                            <a href="<?php echo base_url('images/g8.jpg'); ?>" class="swipebox" title="Duis maximus tortor diam, ac lobortis justo rutrum quis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non purus fermentum, eleifend velit non">
+                                                <img src="<?php echo base_url('images/g8.jpg'); ?>" alt="" class="img-responsive" />
                                                 <div class="figcaption">
                                                     <p>Dignissimos ducimus vero</p>
                                                 </div>
@@ -368,8 +368,8 @@
                                     </div>
                                     <div class="col-md-4 col-sm-4 col-xs-6 portfolio-grids">
                                         <div class="agileinfo-effect  wow fadeInUp animated" data-wow-delay=".9s">
-                                            <a href="images/g9.jpg" class="swipebox" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus tortor diam, ac lobortis justo rutrum quis. Praesent non purus fermentum, eleifend velit non">
-                                                <img src="images/g9.jpg" alt="" class="img-responsive" />
+                                            <a href="<?php echo base_url('images/g9.jpg'); ?>" class="swipebox" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus tortor diam, ac lobortis justo rutrum quis. Praesent non purus fermentum, eleifend velit non">
+                                                <img src="<?php echo base_url('images/g9.jpg'); ?>" alt="" class="img-responsive" />
                                                 <div class="figcaption">
                                                     <p>Accusamus digni ducimus</p>
                                                 </div>
@@ -383,8 +383,8 @@
                                 <div class="tab_img">
                                     <div class="col-md-4 col-sm-4 col-xs-6 portfolio-grids">
                                         <div class="agileinfo-effect fadeInUp animated" data-wow-delay=".5s">
-                                            <a href="images/g3.jpg" class="swipebox" title="Duis maximus tortor diam, ac lobortis justo rutrum quis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non purus fermentum, eleifend velit non">
-                                                <img src="images/g3.jpg" alt="" class="img-responsive" />
+                                            <a href="<?php echo base_url('images/g3.jpg'); ?>" class="swipebox" title="Duis maximus tortor diam, ac lobortis justo rutrum quis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non purus fermentum, eleifend velit non">
+                                                <img src="<?php echo base_url('images/g3.jpg'); ?>" alt="" class="img-responsive" />
                                                 <div class="figcaption">
                                                     <p>Qignissimos ducimus vero</p>
                                                 </div>
@@ -393,8 +393,8 @@
                                     </div>
                                     <div class="col-md-4 col-sm-4 col-xs-6 portfolio-grids">
                                         <div class="agileinfo-effect fadeInUp animated" data-wow-delay=".7s">
-                                            <a href="images/g5.jpg" class="swipebox" title="Praesent non purus fermentum, eleifend velit non Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus tortor diam, ac lobortis justo rutrum quis. ">
-                                                <img src="images/g5.jpg" alt="" class="img-responsive" />
+                                            <a href="<?php echo base_url('images/g5.jpg'); ?>" class="swipebox" title="Praesent non purus fermentum, eleifend velit non Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus tortor diam, ac lobortis justo rutrum quis. ">
+                                                <img src="<?php echo base_url('images/g5.jpg'); ?>" alt="" class="img-responsive" />
                                                 <div class="figcaption">
                                                     <p>Dignissimos ducimus vero</p>
                                                 </div>
@@ -403,8 +403,8 @@
                                     </div>
                                     <div class="col-md-4 col-sm-4 col-xs-6 portfolio-grids">
                                         <div class="agileinfo-effect fadeInUp animated" data-wow-delay=".9s">
-                                            <a href="images/g7.jpg" class="swipebox" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus tortor diam, ac lobortis justo rutrum quis. Praesent non purus fermentum, eleifend velit non">
-                                                <img src="images/g7.jpg" alt="" class="img-responsive" />
+                                            <a href="<?php echo base_url('images/g7.jpg'); ?>" class="swipebox" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus tortor diam, ac lobortis justo rutrum quis. Praesent non purus fermentum, eleifend velit non">
+                                                <img src="<?php echo base_url('images/g7.jpg'); ?>" alt="" class="img-responsive" />
                                                 <div class="figcaption">
                                                     <p>Accusamus digni ducimus</p>
                                                 </div>
@@ -418,8 +418,8 @@
                                 <div class="tab_img">
                                     <div class="col-md-4 col-sm-4 col-xs-6 portfolio-grids">
                                         <div class="agileinfo-effect fadeInUp animated" data-wow-delay=".5s">
-                                            <a href="images/g1.jpg" class="swipebox" title="Duis maximus tortor diam, ac lobortis justo rutrum quis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non purus fermentum, eleifend velit non">
-                                                <img src="images/g1.jpg" alt="" class="img-responsive" />
+                                            <a href="<?php echo base_url('images/g1.jpg'); ?>" class="swipebox" title="Duis maximus tortor diam, ac lobortis justo rutrum quis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non purus fermentum, eleifend velit non">
+                                                <img src="<?php echo base_url('images/g1.jpg'); ?>" alt="" class="img-responsive" />
                                                 <div class="figcaption">
                                                     <p>Qignissimos ducimus vero</p>
                                                 </div>
@@ -428,8 +428,8 @@
                                     </div>
                                     <div class="col-md-4 col-sm-4 col-xs-6 portfolio-grids">
                                         <div class="agileinfo-effect fadeInUp animated" data-wow-delay=".7s">
-                                            <a href="images/g7.jpg" class="swipebox" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus tortor diam, ac lobortis justo rutrum quis. Praesent non purus fermentum, eleifend velit non">
-                                                <img src="images/g7.jpg" alt="" class="img-responsive" />
+                                            <a href="<?php echo base_url('images/g7.jpg'); ?>" class="swipebox" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus tortor diam, ac lobortis justo rutrum quis. Praesent non purus fermentum, eleifend velit non">
+                                                <img src="<?php echo base_url('images/g7.jpg'); ?>" alt="" class="img-responsive" />
                                                 <div class="figcaption">
                                                     <p>Accusamus digni ducimus</p>
                                                 </div>
@@ -443,8 +443,8 @@
                                 <div class="tab_img">
                                     <div class="col-md-4 col-sm-4 col-xs-6 portfolio-grids">
                                         <div class="agileinfo-effect fadeInUp animated" data-wow-delay=".5s">
-                                            <a href="images/g9.jpg" class="swipebox" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus tortor diam, ac lobortis justo rutrum quis. Praesent non purus fermentum, eleifend velit non">
-                                                <img src="images/g9.jpg" alt="" class="img-responsive" />
+                                            <a href="<?php echo base_url('images/g9.jpg'); ?>" class="swipebox" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus tortor diam, ac lobortis justo rutrum quis. Praesent non purus fermentum, eleifend velit non">
+                                                <img src="<?php echo base_url('images/g9.jpg'); ?>" alt="" class="img-responsive" />
                                                 <div class="figcaption">
                                                     <p>Qignissimos ducimus vero</p>
                                                 </div>
@@ -453,8 +453,8 @@
                                     </div>
                                     <div class="col-md-4 col-sm-4 col-xs-6 portfolio-grids">
                                         <div class="agileinfo-effect fadeInUp animated" data-wow-delay=".7s">
-                                            <a href="images/g1.jpg" class="swipebox" title="Consectetur adipiscing elit. Duis maximus tortor diam, ac lorem ipsum dolor sit amet, lobortis justo rutrum quis. Praesent non purus fermentum, eleifend velit non">
-                                                <img src="images/g1.jpg" alt="" class="img-responsive" />
+                                            <a href="<?php echo base_url('images/g1.jpg'); ?>" class="swipebox" title="Consectetur adipiscing elit. Duis maximus tortor diam, ac lorem ipsum dolor sit amet, lobortis justo rutrum quis. Praesent non purus fermentum, eleifend velit non">
+                                                <img src="<?php echo base_url('images/g1.jpg'); ?>" alt="" class="img-responsive" />
                                                 <div class="figcaption">
                                                     <p>Dignissimos ducimus vero</p>
                                                 </div>
@@ -468,8 +468,8 @@
                                 <div class="tab_img">
                                     <div class="col-md-4 col-sm-4 col-xs-6 portfolio-grids">
                                         <div class="agileinfo-effect fadeInUp animated" data-wow-delay=".5s">
-                                            <a href="images/g4.jpg" class="swipebox" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus tortor diam, ac lobortis justo rutrum quis. Praesent non purus fermentum, eleifend velit non">
-                                                <img src="images/g4.jpg" alt="" class="img-responsive" />
+                                            <a href="<?php echo base_url('images/g4.jpg'); ?>" class="swipebox" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus tortor diam, ac lobortis justo rutrum quis. Praesent non purus fermentum, eleifend velit non">
+                                                <img src="<?php echo base_url('images/g4.jpg'); ?>" alt="" class="img-responsive" />
                                                 <div class="figcaption">
                                                     <p>Qignissimos ducimus vero</p>
                                                 </div>
@@ -478,8 +478,8 @@
                                     </div>
                                     <div class="col-md-4 col-sm-4 col-xs-6 portfolio-grids">
                                         <div class="agileinfo-effect fadeInUp animated" data-wow-delay=".7s">
-                                            <a href="images/g6.jpg" class="swipebox" title="Duis maximus tortor diam, ac lobortis justo rutrum quis. Praesent non purus fermentum, eleifend velit non">
-                                                <img src="images/g6.jpg" alt="" class="img-responsive" />
+                                            <a href="<?php echo base_url('images/g6.jpg'); ?>" class="swipebox" title="Duis maximus tortor diam, ac lobortis justimages/g6.jpgo rutrum quis. Praesent non purus fermentum, eleifend velit non">
+                                                <img src="<?php echo base_url('images/g6.jpg'); ?>" alt="" class="img-responsive" />
                                                 <div class="figcaption">
                                                     <p>Dignissimos ducimus vero</p>
                                                 </div>
@@ -658,8 +658,8 @@
         </script>
         <!-- //animation --> 
         <!-- start-smooth-scrolling -->
-        <script type="text/javascript" src="js/move-top.js"></script>
-        <script type="text/javascript" src="js/easing.js"></script>	
+        <script type="text/javascript" src="<?php echo base_url('js/move-top.js'); ?>"></script>
+        <script type="text/javascript" src="<?php echo base_url('js/easing.js'); ?>"></script>	
         <script type="text/javascript">
                     jQuery(document).ready(function ($) {
                         $(".scroll").click(function (event) {
@@ -689,6 +689,6 @@
         <!-- Bootstrap core JavaScript
     ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
-        <script src="js/bootstrap.js"></script>
+        <script src="<?php echo base_url('js/bootstrap.js'); ?>"></script>
     </body>
 </html>

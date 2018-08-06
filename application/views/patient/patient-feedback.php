@@ -45,52 +45,53 @@
         <!----start-content----->
         <div class="content">
             <div class="row">
-                <div class="col-md-2"> 
-                </div>
+                <div class="col-md-2"></div>
                 <div class="col-md-5">
-
                     <div class="panel panel-warning">
                         <div class="panel-heading ">
-                            <h3><img src="<?= base_url('/images/icon-applointment.png') ?>" style="width: 30px" /> New Doctor Appointment</h3>
+                            <h3><img src="<?= base_url('/images/icon-feedback.png') ?>" style="width: 30px" />     Feedback</h3>
                         </div>
                         <div class="panel-body">
-                            
-                                  <form class="form-horizontal" action="<?= base_url('Patient_Controller/appointment') ?>" method="post">
-                        <div class="form-group">
-                            <label for="doctor_id" class="control-label col-xs-4">Doctor</label> 
-                            <div class="col-xs-8">
-                                <select id="doctor_id" name="doctor_id" class="select form-control">
-                                    <?php
-                                    foreach ($doctorList as $value) {
-                                        ?>  
-                                        <option value="<?= $value->id ?>"><?= $value->first_name ?></option> 
-                                        <?php
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="appointment_date" class="control-label col-xs-4">Appointment Date</label> 
-                            <div class="col-xs-8">
-                                <input id="appointment_date" name="appointment_date" type="date" class="form-control">
-                            </div>
-                        </div> 
-                        <div class="form-group row">
-                            <div class="col-xs-offset-4 col-xs-8">
-                                <button name="submit" type="submit" class="btn btn-primary">Submit</button>
-                            </div>
-                        </div>
-                    </form>
-                            
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="textarea" class="control-label col-xs-4">Feedback</label> 
+                                    <div class="col-xs-8">
+                                        <textarea id="textarea" name="textarea" cols="40" rows="5" class="form-control"></textarea>
+                                    </div>
+                                </div> 
+                                <div class="form-group row">
+                                    <div class="col-xs-offset-4 col-xs-8">
+                                        <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
-
-              
-
                 </div>
-
                 <div class="col-md-5">
+
+                    
+                    <table>
+                        <tr>
+                            <td>
+                                On the Insert tab, the galleries include items that are designed to coordinate with the overall look of your document. You can use these galleries to insert tables, headers, footers, lists, cover pages, and other document building blocks.
+                            </td>
+                            <td style="width: 10%">
+                                <span class="btn btn-default btn-xs">08/08/2018 10:11 pm</span>
+                                <img src="<?= base_url('images/details_close.png')?>" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                On the Insert tab, the galleries include items that are designed to coordinate with the overall look of your document. You can use these galleries to insert tables, headers, footers, lists, cover pages, and other document building blocks.
+                            </td>
+                            <td style="width: 10%">
+                                <span class="btn btn-default btn-xs">08/08/2018 10:11 pm</span>
+                                <img src="<?= base_url('images/details_close.png')?>" />
+                            </td>
+                        </tr>
+                    </table>
+                    
                 </div>
             </div>
         </div>

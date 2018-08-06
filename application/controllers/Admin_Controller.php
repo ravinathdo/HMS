@@ -17,6 +17,9 @@ class Admin_Controller extends CI_Controller {
         $post_data = $user->array_from_post(array('nic', 'pword'));
         $login = $user->getAdminLogin($post_data);
 
+//        echo '<tt><pre>' . var_export($login, TRUE) . '</pre></tt>';
+
+
         if ($login != null) {
             //login success
             $newdata = array(
@@ -24,11 +27,14 @@ class Admin_Controller extends CI_Controller {
                 'logged_in' => TRUE
             );
 
-//            echo '<tt><pre>' . var_export($newdata, TRUE) . '</pre></tt>';
+
             $this->session->set_userdata($newdata);
             switch ($newdata['userbean']->user_role) {
                 case 'ADMIN':
                     $this->load->view('admin/home');
+                    break;
+                case 'TRANSPORT':
+                    $this->load->view('transport/home');
                     break;
                 case 'OPD':
                     $this->load->view('opd/home');

@@ -47,38 +47,47 @@
             <div class="row">
                 <div class="col-md-2">.col-md-4</div>
                 <div class="col-md-5"> 
-                    <h3>OPD Appointment</h3>
-                    <?= $msg ?>
-                    <form class="form-horizontal" method="post" action="<?= base_url('Patient_Controller/OPDAppointment') ?>">
-                        <div class="form-group">
-                            <label for="text" class="control-label col-xs-4">Appointment Date</label> 
-                            <div class="col-xs-8">
-                                <input id="text" name="appointment_date" type="date" class="form-control">
-                            </div>
-                        </div> 
-                        <div class="form-group">
-                            <label for="text" class="control-label col-xs-4">OPD Fee</label> 
-                            <div class="col-xs-8">
-                                <input id="text" name="opd_fee" type="text" readonly="" value="<?= $opd_fee?>" class="form-control">
-                            </div>
-                        </div> 
-                        <div class="form-group">
-                            <label for="text" class="control-label col-xs-4">Card Number</label> 
-                            <div class="col-xs-8">
-                                <input id="text" name="" type="text"  class="form-control">
-                            </div>
-                        </div> 
-                        <div class="form-group row">
-                            <div class="col-xs-offset-4 col-xs-8">
-                                <button name="submit" type="submit" class="btn btn-primary">Pay</button>
-                            </div>
+
+                    <div class="panel panel-warning">
+                        <div class="panel-heading ">
+                            <h3><img src="<?= base_url('/images/icon-opd-applointment.png') ?>" style="width: 30px" />    OPD Appointment</h3>
                         </div>
-                    </form>
+                        <div class="panel-body">
+                             <?= $msg ?>
+                            <form class="form-horizontal" method="post" action="<?= base_url('Patient_Controller/OPDAppointment') ?>">
+                                <div class="form-group">
+                                    <label for="text" class="control-label col-xs-4">Appointment Date</label> 
+                                    <div class="col-xs-8">
+                                        <input id="text" name="appointment_date" type="date" class="form-control">
+                                    </div>
+                                </div> 
+                                <div class="form-group">
+                                    <label for="text" class="control-label col-xs-4">OPD Fee</label> 
+                                    <div class="col-xs-8">
+                                        <input id="text" name="opd_fee" type="text" readonly="" value="<?= $opd_fee ?>" class="form-control">
+                                    </div>
+                                </div> 
+                                <div class="form-group">
+                                    <label for="text" class="control-label col-xs-4">Card Number</label> 
+                                    <div class="col-xs-8">
+                                        <input id="text" name="" type="text"  class="form-control">
+                                    </div>
+                                </div> 
+                                <div class="form-group row">
+                                    <div class="col-xs-offset-4 col-xs-8">
+                                        <button name="submit" type="submit" class="btn btn-primary">Pay</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
 
                 </div>
-                                <div class="col-md-5"> 
-                                    <a href="<?= base_url('Patient_Controller/getOPDPAtientAppointmentList') ?>">OPD Appointment List</a>
-                                </div>
+                <div class="col-md-5"> 
+                    <a href="<?= base_url('Patient_Controller/getOPDPAtientAppointmentList') ?>">OPD Appointment List</a>
+                </div>
             </div>
         </div>
         <!----End-content----->

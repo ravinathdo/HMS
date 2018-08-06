@@ -45,52 +45,52 @@
         <!----start-content----->
         <div class="content">
             <div class="row">
-                <div class="col-md-2"> 
-                </div>
+                <div class="col-md-2"></div>
                 <div class="col-md-5">
 
                     <div class="panel panel-warning">
                         <div class="panel-heading ">
-                            <h3><img src="<?= base_url('/images/icon-applointment.png') ?>" style="width: 30px" /> New Doctor Appointment</h3>
+                            <h3><img src="<?= base_url('/images/icon-lab-test.png') ?>" style="width: 30px" />    Lab Test</h3>
                         </div>
                         <div class="panel-body">
-                            
-                                  <form class="form-horizontal" action="<?= base_url('Patient_Controller/appointment') ?>" method="post">
-                        <div class="form-group">
-                            <label for="doctor_id" class="control-label col-xs-4">Doctor</label> 
-                            <div class="col-xs-8">
-                                <select id="doctor_id" name="doctor_id" class="select form-control">
-                                    <?php
-                                    foreach ($doctorList as $value) {
-                                        ?>  
-                                        <option value="<?= $value->id ?>"><?= $value->first_name ?></option> 
-                                        <?php
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="appointment_date" class="control-label col-xs-4">Appointment Date</label> 
-                            <div class="col-xs-8">
-                                <input id="appointment_date" name="appointment_date" type="date" class="form-control">
-                            </div>
-                        </div> 
-                        <div class="form-group row">
-                            <div class="col-xs-offset-4 col-xs-8">
-                                <button name="submit" type="submit" class="btn btn-primary">Submit</button>
-                            </div>
-                        </div>
-                    </form>
-                            
+
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="select" class="control-label col-xs-4">Test</label> 
+                                    <div class="col-xs-8">
+                                        <select id="select" name="select" class="select form-control">
+                                            <option value="rabbit">Rabbit</option>
+                                            <option value="duck">Duck</option>
+                                            <option value="fish">Fish</option>
+                                        </select>
+                                    </div>
+                                </div> 
+                                <div class="form-group row">
+                                    <div class="col-xs-offset-4 col-xs-8">
+                                        <button name="submit" type="submit" class="btn btn-primary">View Centers</button>
+                                    </div>
+                                </div>
+                            </form>
+
                         </div>
                     </div>
 
-              
-
                 </div>
-
                 <div class="col-md-5">
+                    
+                    
+                    <table class="table-bordered" style="width: 100%">
+                        <tr>
+                            <td>Center Name</td>
+                            <td>Open Time</td>
+                            <td>Close Time</td>
+                        </tr>
+                        <tr>
+                            <td>Ragama</td>
+                            <td>10:00 pm</td>
+                            <td>12:00 pm</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>

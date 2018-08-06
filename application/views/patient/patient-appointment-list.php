@@ -49,34 +49,54 @@
                 <div class="col-md-10"> 
 
 
-                    <table id="example" class="display" cellspacing="0" width="100%">
-                        <thead>
-                            <tr>
-                                <th>Appo. No</th>
-                                <th>Appo. Date</th>
-                                <th>Fee</th>
-                                <th>Doctor</th>
-                                <th>Status</th>
-                                <th>Date Time</th>
-                                <th style="width: 30%">Comment</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($myAppointmentList as $value) {
-                                ?>
-                                <tr>
-                                    <td><?= $value->id ?></td>
-                                    <td><?= $value->appointment_date ?></td>
-                                    <td><?= $value->fee ?></td>
-                                    <td>Dr <?= $value->first_name ?></td>
-                                    <td><?= $value->status_code ?></td>
-                                    <td><?= $value->created_date?></td>
-                                    <td><?= $value->doctor_comment ?></td>
-                                </tr>
-                            <?php }
-                            ?>
-                        </tbody>
-                    </table>
+                    <div class="panel panel-warning">
+                        <div class="panel-heading ">
+                            <h3><img src="<?= base_url('/images/icon-my-applointment.png') ?>" style="width: 30px" />     My Appointments</h3>
+
+                        </div>
+                        <div class="panel-body">
+
+                            <table id="example" class="display" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Appo. No</th>
+                                        <th>Appo. Date</th>
+                                        <th>Fee</th>
+                                        <th>Doctor</th>
+                                        <th>Status</th>
+                                        <th>Date Time</th>
+                                        <th style="width: 30%">Comment</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($myAppointmentList as $value) {
+                                        ?>
+                                        <tr>
+                                            <td><?= $value->id ?></td>
+                                            <td><?= $value->appointment_date ?></td>
+                                            <td><?= $value->fee ?></td>
+                                            <td>Dr <?= $value->first_name ?></td>
+                                            <td><?php if ($value->status_code == 'OPEN') {
+                                            ?> 
+                                                    <button name="submit" type="submit" class="btn btn-sm btn-danger">Reject</button>
+                                                <?php }
+                                                ?>
+                                                <?= $value->status_code ?>
+
+                                            </td>
+                                            <td><?= $value->created_date ?></td>
+                                            <td><?= $value->doctor_comment ?></td>
+                                        </tr>
+                                    <?php }
+                                    ?>
+                                </tbody>
+                            </table>
+
+
+                        </div>
+                    </div>
+
+
                     <link href="<?= base_url('css/jquery.dataTables.min.css') ?>" rel="stylesheet" type="text/css"/>
                     <script src="<?= base_url('js/jquery.dataTables.min.js') ?>" type="text/javascript"></script>
                     <script type="text/javascript">

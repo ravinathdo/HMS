@@ -16,6 +16,24 @@ require_once(APPPATH . 'libraries/DoctorPayment.php');
 
 class Patient_Controller extends CI_Controller {
 
+    public function loadFeedback() {
+//        $this->load->model(array(''));
+        $data['msg'] = '';
+        $this->load->view('patient/patient-feedback', $data);
+    }
+    
+    public function loadViewLabTestCenters() {
+//        $this->load->model(array(''));
+        $data['msg'] = '';
+        $this->load->view('patient/patient-lab-test', $data);
+    }
+    
+    public function loadSearchDoctors() {
+//        $this->load->model(array(''));
+        $data['msg'] = '';
+        $this->load->view('patient/patient-search-doctors', $data);
+    }
+    
     public function loadMyAppointment() {
         //session user
         $this->load->model(array('Patient'));
