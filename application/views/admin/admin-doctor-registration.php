@@ -54,73 +54,87 @@
 
                     <div class="row">
                         <div class="col-md-8">
-                            <h2 style="text-align: center">Doctor Registration</h2>
-                            <?php echo $msg;?>
-                            <form class="form-horizontal"  action="<?php echo base_url('Admin_Controller/DoctorRegistration');?>" method="post" >
-                                <div class="form-group">
-                                    <label for="first_name" class="control-label col-xs-4">First Name</label> 
-                                    <div class="col-xs-8">
-                                        <input id="first_name" name="first_name" type="text" class="form-control">
-                                    </div>
+
+                            <div class="panel panel-warning">
+                                <div class="panel-heading ">
+
+                                    <h3> <img src="<?= base_url('/images/icon-doctor.png') ?>" style="width: 30px" /> Doctor Registration</h3>
+
                                 </div>
-                                <div class="form-group">
-                                    <label for="last_name" class="control-label col-xs-4">Last Name</label> 
-                                    <div class="col-xs-8">
-                                        <input id="last_name" name="last_name" type="text" class="form-control">
-                                    </div>
+                                <div class="panel-body">
+
+                                    <?php echo $msg; ?>
+                                    <form class="form-horizontal"  action="<?php echo base_url('Admin_Controller/DoctorRegistration'); ?>" method="post" >
+                                        <div class="form-group">
+                                            <label for="first_name" class="control-label col-xs-4">First Name</label> 
+                                            <div class="col-xs-8">
+                                                <input id="first_name" name="first_name" type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="last_name" class="control-label col-xs-4">Last Name</label> 
+                                            <div class="col-xs-8">
+                                                <input id="last_name" name="last_name" type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nic" class="control-label col-xs-4">NIC</label> 
+                                            <div class="col-xs-8">
+                                                <input id="nic" name="nic" type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nic" class="control-label col-xs-4"></label> 
+                                            <div class="col-xs-4">
+                                                <input id="email" name="email" type="text" class="form-control" placeholder="Email">
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <input id="telephone" name="telephone" type="text" class="form-control" placeholder="Telephone">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="degree" class="control-label col-xs-4">Degree</label> 
+                                            <div class="col-xs-8">
+                                                <input id="degree" name="degree" type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="specialist_id" class="control-label col-xs-4">Specialist</label> 
+                                            <div class="col-xs-8">
+                                                <select id="specialist_id" name="specialist_id" class="select form-control">
+                                                    <option value="duck">--select--</option>
+                                                    <?php foreach ($this->session->userdata('specialist_list') as $value) {
+                                                        ?> 
+                                                        <option value="<?php echo $value->id; ?>"><?php echo $value->specialist; ?></option>
+                                                    <?php }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="slmc_no" class="control-label col-xs-4">SLMS No</label> 
+                                            <div class="col-xs-8">
+                                                <input id="slmc_no" name="slmc_no" type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="doc_fee" class="control-label col-xs-4">Doctor Fee</label> 
+                                            <div class="col-xs-8">
+                                                <input id="doc_fee" name="doc_fee" type="text" class="form-control">
+                                            </div>
+                                        </div> 
+                                        <div class="form-group row">
+                                            <div class="col-xs-offset-4 col-xs-8">
+                                                <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                                            </div>
+                                        </div>
+                                    </form>
+
                                 </div>
-                                <div class="form-group">
-                                    <label for="nic" class="control-label col-xs-4">NIC</label> 
-                                    <div class="col-xs-8">
-                                        <input id="nic" name="nic" type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="nic" class="control-label col-xs-4"></label> 
-                                    <div class="col-xs-4">
-                                        <input id="email" name="email" type="text" class="form-control" placeholder="Email">
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <input id="telephone" name="telephone" type="text" class="form-control" placeholder="Telephone">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="degree" class="control-label col-xs-4">Degree</label> 
-                                    <div class="col-xs-8">
-                                        <input id="degree" name="degree" type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="specialist_id" class="control-label col-xs-4">Specialist</label> 
-                                    <div class="col-xs-8">
-                                        <select id="specialist_id" name="specialist_id" class="select form-control">
-                                            <option value="duck">--select--</option>
-                                            <?php foreach ($this->session->userdata('specialist_list') as $value) {
-                                                ?> 
-                                                <option value="<?php echo $value->id; ?>"><?php echo $value->specialist; ?></option>
-                                            <?php }
-                                            ?>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="slmc_no" class="control-label col-xs-4">SLMS No</label> 
-                                    <div class="col-xs-8">
-                                        <input id="slmc_no" name="slmc_no" type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="doc_fee" class="control-label col-xs-4">Doctor Fee</label> 
-                                    <div class="col-xs-8">
-                                        <input id="doc_fee" name="doc_fee" type="text" class="form-control">
-                                    </div>
-                                </div> 
-                                <div class="form-group row">
-                                    <div class="col-xs-offset-4 col-xs-8">
-                                        <button name="submit" type="submit" class="btn btn-primary">Submit</button>
-                                    </div>
-                                </div>
-                            </form></div>
+                            </div>
+
+
+                        </div>
                         <div class="col-md-4">.col-md-4</div>
                     </div>
 

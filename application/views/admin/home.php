@@ -2,13 +2,13 @@
 <html>
     <head>
         <title>AROGYA HOSPITAL MANAGEMENT SYSTEM</title>
-          <link href="<?php echo base_url('css/style.css'); ?>" rel="stylesheet" type="text/css"  media="all" />
+        <link href="<?php echo base_url('css/style.css'); ?>" rel="stylesheet" type="text/css"  media="all" />
         <link href="<?php echo base_url('css/bootstrap.css'); ?>" rel="stylesheet" type="text/css"/>
         <!--<link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>-->
         <link rel="stylesheet" href="<?php echo base_url('css/responsiveslides.css') ?>">
         <script src="<?php echo base_url('js/jquery.min.js'); ?>"></script>		
         <script src="<?php echo base_url('js/responsiveslides.min.js'); ?>"></script>
-        
+
         <script>
             // You can also use "$(window).load(function() {"
             $(function () {
@@ -34,7 +34,7 @@
             <div class="top-nav">
                 <div class="wrap">
                     <ul>
-                         <?php $this->load->view('admin/_menu_admin'); ?>
+                        <?php $this->load->view('admin/_menu_admin'); ?>
                         <div class="clear"> </div>
                     </ul>
                 </div>
@@ -46,10 +46,20 @@
         <div class="content">
             <div class="row">
                 <div class="col-md-2"> 
-                     <?php $this->load->view('admin/_tree_admin'); ?>
+                    <?php $this->load->view('admin/_tree_admin'); ?>
                 </div>
                 <div class="col-md-10">
-                      <h3>Admin Home</h3>
+                    <h2>Administrator</h2>
+                    <a href="<?php echo base_url('Admin_Controller/loadDoctorRegistration'); ?>">
+                        <img src="<?= base_url('/images/icon-doctor.png') ?>" alt="..." class="img-thumbnail" title="Doctor Registration">
+                    </a>
+                    <a href="<?php echo base_url('Admin_Controller/loadUserRegistration'); ?>">
+                        <img src="<?= base_url('/images/icon-hms-users.png') ?>"  alt="..." class="img-thumbnail" title="User Registration">
+                    </a>
+                    <a href="<?php echo base_url('Admin_Controller/loadItemPurchesing'); ?>">
+                        <img src="<?= base_url('/images/icon-purchasing.png') ?>"  alt="..." class="img-thumbnail" title="Item Purchasing">
+                    </a>
+
                 </div>
             </div>
         </div>

@@ -47,6 +47,12 @@ class Admin_Controller extends CI_Controller {
         }
     }
 
+    
+    public function loadHome() {
+        $this->load->view('admin/home');
+    }
+
+    
     public function loadDoctorRegistration() {
         $this->load->model(array('Specialist', 'Doctor'));
         $specialist = new Specialist();
@@ -80,4 +86,15 @@ class Admin_Controller extends CI_Controller {
         $this->load->view('admin/admin-doctor-registration', $data);
     }
 
+    public function loadUserRegistration() {
+//        $this->load->model(array(''));
+        $data['msg'] = '';
+        $this->load->view('admin/admin-user-registration', $data);
+    }
+    
+    public function loadItemPurchesing() {
+//        $this->load->model(array(''));
+        $data['msg'] = '';
+        $this->load->view('admin/admin-item-purchesing', $data);
+    }
 }

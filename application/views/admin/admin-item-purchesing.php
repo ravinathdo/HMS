@@ -2,13 +2,13 @@
 <html>
     <head>
         <title>AROGYA HOSPITAL MANAGEMENT SYSTEM</title>
-          <link href="<?php echo base_url('css/style.css'); ?>" rel="stylesheet" type="text/css"  media="all" />
+        <link href="<?php echo base_url('css/style.css'); ?>" rel="stylesheet" type="text/css"  media="all" />
         <link href="<?php echo base_url('css/bootstrap.css'); ?>" rel="stylesheet" type="text/css"/>
         <!--<link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>-->
         <link rel="stylesheet" href="<?php echo base_url('css/responsiveslides.css') ?>">
         <script src="<?php echo base_url('js/jquery.min.js'); ?>"></script>		
         <script src="<?php echo base_url('js/responsiveslides.min.js'); ?>"></script>
-        
+
         <script>
             // You can also use "$(window).load(function() {"
             $(function () {
@@ -26,7 +26,7 @@
         <div class="header">
             <div class="main-header">
                 <div class="wrap">
-                    <?php $this->load->view('transport/_head_transport'); ?>
+                    <?php $this->load->view('admin/_head_admin'); ?>
                     <div class="clear"> </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
             <div class="top-nav">
                 <div class="wrap">
                     <ul>
-                         <?php $this->load->view('transport/_menu_transport'); ?>
+                        <?php $this->load->view('admin/_menu_admin'); ?>
                         <div class="clear"> </div>
                     </ul>
                 </div>
@@ -45,45 +45,22 @@
         <!----start-content----->
         <div class="content">
             <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8"> 
-                    <h2>Transport Manager</h2>
-                    <a href="<?php echo base_url('Transport_Controller/loadAmbulance');?>">
-                        <img src="<?= base_url('/images/icon-ambulance.png')?>" alt="..." class="img-thumbnail" title="Ambulance Manage">
-                    </a>
-                    <a href="<?php echo base_url('Transport_Controller/loadAmbulanceRequestList');?>">
-                        <img src="<?= base_url('/images/icon-ambulance-request.png')?>"  alt="..." class="img-thumbnail" title="Ambulance Request">
-                    </a>
-<!--                    
-                    <a href="<?php echo base_url('Patient_Controller/loadOPDAppointment');?>">
-                        <img src="<?= base_url('/images/icon-opd-applointment.png')?>" alt="..." class="img-thumbnail" title="OPD Appointment">
-                    </a>
-                    <a href="<?php echo base_url('Patient_Controller/loadAppointment');?>">
-                        <img src="<?= base_url('/images/icon-applointment.png')?>" alt="..." title="Doctor Appointment" class="img-thumbnail">
-                    </a>
-                    <a href="<?php echo base_url('Patient_Controller/loadMyAppointment');?>">
-                        <img src="<?= base_url('/images/icon-my-applointment.png')?>" alt="..." title="My Appointment" class="img-thumbnail">
-                    </a>
-                    <a href="<?php echo base_url('Patient_Controller/loadViewLabTestCenters');?>">
-                        <img src="<?= base_url('/images/icon-lab-test.png')?>" alt="..." title="Lab Test" class="img-thumbnail">
-                    </a>
-
-                    <a href="<?php echo base_url('Patient_Controller/loadFeedback');?>">
-                        <img src="<?= base_url('/images/icon-feedback.png')?>" alt="..." title="Feedback" class="img-thumbnail">
-                    </a>
-                    <a href="<?php echo base_url('#');?>">
-                        <img src="<?= base_url('/images/icon-report.png')?>" alt="..." title="Report" class="img-thumbnail">
-                    </a>
-                    <a href="<?php echo base_url('User_Controller/loadProfile');?>">
-                        <img src="<?= base_url('/images/icon-profile.png')?>" alt="..." title="Profile" class="img-thumbnail">
-                    </a>
-                    
-                    -->
-                    
-                    <br>
-                    <br>
+                <div class="col-md-2"> 
+                    <?php $this->load->view('admin/_tree_admin'); ?>
                 </div>
-                <div class="col-md-2"></div>
+                <div class="col-md-10">
+
+                    <div class="panel panel-warning">
+                        <div class="panel-heading ">
+                            <h3> <img src="<?= base_url('/images/icon-purchasing.png') ?>" style="width: 30px" />  Item Purchasing </h3>
+                        </div>
+                        <div class="panel-body">
+                            
+                        </div>
+                    </div>
+
+
+                </div>
             </div>
         </div>
         <!----End-content----->
