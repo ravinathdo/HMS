@@ -32,4 +32,21 @@ class OPD_Controller extends CI_Controller {
         $this->load->view('opd/opd_appointment_detail', $data);
     }
 
+    
+    public function loadListPatient() {
+//        $this->load->model(array(''));
+        $data['msg'] = '';
+        $this->load->view('opd/opd-list-patient', $data);
+    }
+    
+    public function loadPatientOpdHistory() {
+//        $this->load->model(array(''));
+        $data['msg'] = '';
+        $this->load->view('opd/opd-patient-opd-history', $data);
+    }
+    public function loadAmbulanceRequest() {
+//        $this->load->model(array(''));
+        $data['msg'] = '';
+        $this->load->view('opd/opd-ambulance-request', $data);
+    }
 }

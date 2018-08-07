@@ -10,6 +10,10 @@ class Admin_Controller extends CI_Controller {
         $this->load->view('admin/admin-login', $data);
     }
 
+    
+    /**
+     * All user login for HMS staff
+     */
     public function adminLogin() {
         $this->load->model(array('User'));
         $user = new User();
@@ -38,6 +42,18 @@ class Admin_Controller extends CI_Controller {
                     break;
                 case 'OPD':
                     $this->load->view('opd/home');
+                    break;
+                case 'PHARMACIST':
+                    $this->load->view('pharmacist/home');
+                    break;
+                case 'ACCOUNTANT':
+                    $this->load->view('accountant/home');
+                    break;
+                case 'LAB':
+                    $this->load->view('lab/home');
+                    break;
+                case 'WARD':
+                    $this->load->view('ward/home');
                     break;
             }
             //redirecting to ADMIN/OPD
@@ -96,5 +112,15 @@ class Admin_Controller extends CI_Controller {
 //        $this->load->model(array(''));
         $data['msg'] = '';
         $this->load->view('admin/admin-item-purchesing', $data);
+    }
+    public function loadPatientRegistration() {
+//        $this->load->model(array(''));
+        $data['msg'] = '';
+        $this->load->view('admin/admin-patient-registration', $data);
+    }
+    public function loadPatientList() {
+//        $this->load->model(array(''));
+        $data['msg'] = '';
+        $this->load->view('admin/admin-patient-list', $data);
     }
 }

@@ -94,37 +94,6 @@ CREATE TABLE `hms_drug` (
 
 /*Data for the table `hms_drug` */
 
-/*Table structure for table `hms_employee_salary` */
-
-DROP TABLE IF EXISTS `hms_employee_salary`;
-
-CREATE TABLE `hms_employee_salary` (
-  `id` int(5) NOT NULL AUTO_INCREMENT,
-  `user_id` int(5) DEFAULT NULL,
-  `salary_month` varchar(20) DEFAULT NULL,
-  `salary_amount` varbinary(10) DEFAULT NULL,
-  `created_date` timestamp NOT NULL DEFAULT current_timestamp(),
-  `created_user` int(5) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Data for the table `hms_employee_salary` */
-
-/*Table structure for table `hms_inventory` */
-
-DROP TABLE IF EXISTS `hms_inventory`;
-
-CREATE TABLE `hms_inventory` (
-  `id` int(5) NOT NULL AUTO_INCREMENT,
-  `item_name` varchar(50) DEFAULT NULL,
-  `qty` int(5) DEFAULT NULL,
-  `created_date` timestamp NOT NULL DEFAULT current_timestamp(),
-  `created_user` int(5) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Data for the table `hms_inventory` */
-
 /*Table structure for table `hms_opd_appointment` */
 
 DROP TABLE IF EXISTS `hms_opd_appointment`;
@@ -174,7 +143,6 @@ DROP TABLE IF EXISTS `hms_purchase`;
 CREATE TABLE `hms_purchase` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `purchasing_item` varchar(50) DEFAULT NULL,
-  `qty` int(5) DEFAULT NULL,
   `status_code` varchar(20) DEFAULT NULL,
   `request_by` int(5) DEFAULT NULL,
   `created_date` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -216,11 +184,11 @@ CREATE TABLE `hms_user` (
   `created_date` timestamp NOT NULL DEFAULT current_timestamp(),
   `created_user` int(5) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 /*Data for the table `hms_user` */
 
-insert  into `hms_user`(`id`,`first_name`,`last_name`,`nic`,`pword`,`user_role`,`telephone`,`empno`,`status_code`,`created_date`,`created_user`) values (1,'kumara','pathirana','88','86f7e437faa5a7fce15d1ddcb9eaeaea377667b8','ADMIN','0111','2255','ACTIVE','2018-07-27 21:20:34',1),(2,'Shalini','Tha','89','86f7e437faa5a7fce15d1ddcb9eaeaea377667b8','OPD',NULL,'2266','ACTIVE','2018-08-02 12:01:43',1),(3,'Gaya','Siri','90','86f7e437faa5a7fce15d1ddcb9eaeaea377667b8','ACCOUNTANT',NULL,'2267','ACTIVE','2018-08-06 12:04:25',1),(4,'samatha','Perer','91','86f7e437faa5a7fce15d1ddcb9eaeaea377667b8','HR',NULL,'2268','ACTIVE','2018-08-06 12:06:04',1),(5,'Nuwa','Per','92','86f7e437faa5a7fce15d1ddcb9eaeaea377667b8','LAB',NULL,'2269','ACTIVE','2018-08-06 12:06:43',1),(6,'KK','ii','93','86f7e437faa5a7fce15d1ddcb9eaeaea377667b8','TRANSPORT',NULL,'2270','ACTIVE','2018-08-06 16:03:16',1),(7,'kkkl','lklkl','94','86f7e437faa5a7fce15d1ddcb9eaeaea377667b8','PHARMACIST',NULL,NULL,'ACTIVE','2018-08-07 12:38:30',1),(8,NULL,'kjkjk','95','86f7e437faa5a7fce15d1ddcb9eaeaea377667b8','WARD',NULL,NULL,'ACTIVE','2018-08-07 16:23:25',1);
+insert  into `hms_user`(`id`,`first_name`,`last_name`,`nic`,`pword`,`user_role`,`telephone`,`empno`,`status_code`,`created_date`,`created_user`) values (1,'kumara','pathirana','88','86f7e437faa5a7fce15d1ddcb9eaeaea377667b8','ADMIN','0111','2255','ACTIVE','2018-07-27 21:20:34',1),(2,'Shalini','Tha','89','86f7e437faa5a7fce15d1ddcb9eaeaea377667b8','OPD',NULL,'2266','ACTIVE','2018-08-02 12:01:43',1),(3,'Gaya','Siri','90','86f7e437faa5a7fce15d1ddcb9eaeaea377667b8','ACCOUNTANT',NULL,'2267','ACTIVE','2018-08-06 12:04:25',1),(4,'samatha','Perer','91','86f7e437faa5a7fce15d1ddcb9eaeaea377667b8','HR',NULL,'2268','ACTIVE','2018-08-06 12:06:04',1),(5,'Nuwa','Per','92','86f7e437faa5a7fce15d1ddcb9eaeaea377667b8','LAB',NULL,'2269','ACTIVE','2018-08-06 12:06:43',1),(6,'KK','ii','93','86f7e437faa5a7fce15d1ddcb9eaeaea377667b8','TRANSPORT',NULL,'2270','ACTIVE','2018-08-06 16:03:16',1);
 
 /*Table structure for table `hms_user_role` */
 
@@ -234,7 +202,7 @@ CREATE TABLE `hms_user_role` (
 
 /*Data for the table `hms_user_role` */
 
-insert  into `hms_user_role`(`user_role`,`description`) values ('ACCOUNTANT','Accountant'),('ADMIN','Administrator'),('DOCTOR','Doctor'),('HR','HR Manager'),('LAB','LAB Inchage'),('OPD','OPD User'),('PATIENT','Patient'),('PHARMACIST','Pharmacist'),('TRANSPORT','Transport Manager'),('WARD','Ward Management');
+insert  into `hms_user_role`(`user_role`,`description`) values ('ACCOUNTANT','Accountant'),('ADMIN','Administrator'),('DOCTOR','Doctor'),('HR','HR Manager'),('LAB','LAB Inchage'),('OPD','OPD User'),('PATIENT','Patient'),('PHARMACIST','Pharmacist'),('TRANSPORT','Transport Manager');
 
 /*Table structure for table `hms_vehicle` */
 

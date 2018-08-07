@@ -52,31 +52,36 @@
 
                     <div class="panel panel-warning">
                         <div class="panel-heading ">
-                            <h3> <img src="<?= base_url('/images/icon-purchasing.png') ?>" style="width: 30px" />  Item Purchasing </h3>
+                            <h3> <img src="<?= base_url('/images/icon-patient-list.png') ?>" style="width: 30px" />  Item Purchasing </h3>
                         </div>
                         <div class="panel-body">
-                            
+
                             <table class="table-bordered" style="width: 100%">
                                 <tr>
-                                    <td>Item Name</td>
-                                    <td>Qty</td>
+                                    <td>Fist Name</td>
+                                    <td>Last Name</td>
+                                    <td>NIC</td>
+                                    <td>DOB</td>
+                                    <td>Email</td>
                                     <td>Status</td>
                                     <td>Request Date</td>
-                                    <td>Request By</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
-                                    <td>Item Name</td>
-                                    <td>Qty</td>
+                                    <td>Fist Name</td>
+                                    <td>Last Name</td>
+                                    <td>NIC</td>
+                                    <td>DOB</td>
+                                    <td>Email</td>
                                     <td>Status</td>
                                     <td>Request Date</td>
                                     <td>
-                                        <button type="button" class="btn btn-warning btn-xs">Reject</button>
-                                        <button type="button" class="btn btn-success btn-xs">Accept</button>
+                                        <button type="button" class="btn btn-warning btn-xs">Rest</button>
                                     </td>
                                 </tr>
                             </table>
-                            
-                            
+
+
                         </div>
                     </div>
 

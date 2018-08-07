@@ -59,6 +59,12 @@
                     <a href="<?php echo base_url('Admin_Controller/loadItemPurchesing'); ?>">
                         <img src="<?= base_url('/images/icon-purchasing.png') ?>"  alt="..." class="img-thumbnail" title="Item Purchasing">
                     </a>
+                    <a href="<?php echo base_url('Admin_Controller/loadPatientRegistration'); ?>">
+                        <img src="<?= base_url('/images/icon-patient.png') ?>"  alt="..." class="img-thumbnail" title="Item Purchasing">
+                    </a>
+                    <a href="<?php echo base_url('Admin_Controller/loadPatientList'); ?>">
+                        <img src="<?= base_url('/images/icon-patient-list.png') ?>"  alt="..." class="img-thumbnail" title="Item Purchasing">
+                    </a>
 
                 </div>
             </div>

@@ -48,34 +48,63 @@
                 <div class="col-md-2"> 
                     <?php $this->load->view('admin/_tree_admin'); ?>
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-8">
 
                     <div class="panel panel-warning">
                         <div class="panel-heading ">
-                            <h3> <img src="<?= base_url('/images/icon-purchasing.png') ?>" style="width: 30px" />  Item Purchasing </h3>
+                            <h3> <img src="<?= base_url('/images/icon-patient.png') ?>" style="width: 30px" />  Patient Registration</h3>
                         </div>
                         <div class="panel-body">
                             
-                            <table class="table-bordered" style="width: 100%">
-                                <tr>
-                                    <td>Item Name</td>
-                                    <td>Qty</td>
-                                    <td>Status</td>
-                                    <td>Request Date</td>
-                                    <td>Request By</td>
-                                </tr>
-                                <tr>
-                                    <td>Item Name</td>
-                                    <td>Qty</td>
-                                    <td>Status</td>
-                                    <td>Request Date</td>
-                                    <td>
-                                        <button type="button" class="btn btn-warning btn-xs">Reject</button>
-                                        <button type="button" class="btn btn-success btn-xs">Accept</button>
-                                    </td>
-                                </tr>
-                            </table>
-                            
+                              <form class="form-horizontal" action="<?php echo base_url('/Patient_Controller/patientRegister') ?>" method="post">
+                        <div class="form-group">
+                            <label class="control-label col-xs-4" for="first_name">First Name</label> 
+                            <div class="col-xs-8">
+                                <input id="first_name" name="first_name" type="text" class="form-control" required="required">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="last_name" class="control-label col-xs-4">Last Name</label> 
+                            <div class="col-xs-8">
+                                <input id="last_name" name="last_name" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone" class="control-label col-xs-4">Telephone Number</label> 
+                            <div class="col-xs-8">
+                                <input id="telephone" name="telephone" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone" class="control-label col-xs-4">Date of Birth</label> 
+                            <div class="col-xs-8">
+                                <input id="dob" name="dob" type="date" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="control-label col-xs-4">Email</label> 
+                            <div class="col-xs-8">
+                                <input id="email" name="email" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pword" class="control-label col-xs-4">Password</label> 
+                            <div class="col-xs-8">
+                                <input id="pword" name="pword" type="text" class="form-control" required="required">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="repword" class="control-label col-xs-4">Retype Password</label> 
+                            <div class="col-xs-8">
+                                <input id="repword" name="repword" type="text" class="form-control">
+                            </div>
+                        </div> 
+                        <div class="form-group row">
+                            <div class="col-xs-offset-4 col-xs-8">
+                                <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </form>
                             
                         </div>
                     </div>

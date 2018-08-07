@@ -26,7 +26,7 @@
         <div class="header">
             <div class="main-header">
                 <div class="wrap">
-                    <?php $this->load->view('admin/_head_admin'); ?>
+                    <?php $this->load->view('opd/_head_opd'); ?>
                     <div class="clear"> </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
             <div class="top-nav">
                 <div class="wrap">
                     <ul>
-                        <?php $this->load->view('admin/_menu_admin'); ?>
+                        <?php $this->load->view('opd/_menu_opd'); ?>
                         <div class="clear"> </div>
                     </ul>
                 </div>
@@ -46,41 +46,51 @@
         <div class="content">
             <div class="row">
                 <div class="col-md-2"> 
-                    <?php $this->load->view('admin/_tree_admin'); ?>
+                    <?php $this->load->view('opd/_tree_opd'); ?>
                 </div>
-                <div class="col-md-10">
-
+                <div class="col-md-5">
                     <div class="panel panel-warning">
                         <div class="panel-heading ">
-                            <h3> <img src="<?= base_url('/images/icon-purchasing.png') ?>" style="width: 30px" />  Item Purchasing </h3>
+                            <h3> <img src="<?= base_url('/images/icon-patient.png') ?>" style="width: 30px" />  Patient OPD history </h3>
                         </div>
                         <div class="panel-body">
-                            
-                            <table class="table-bordered" style="width: 100%">
-                                <tr>
-                                    <td>Item Name</td>
-                                    <td>Qty</td>
-                                    <td>Status</td>
-                                    <td>Request Date</td>
-                                    <td>Request By</td>
-                                </tr>
-                                <tr>
-                                    <td>Item Name</td>
-                                    <td>Qty</td>
-                                    <td>Status</td>
-                                    <td>Request Date</td>
-                                    <td>
-                                        <button type="button" class="btn btn-warning btn-xs">Reject</button>
-                                        <button type="button" class="btn btn-success btn-xs">Accept</button>
-                                    </td>
-                                </tr>
-                            </table>
-                            
-                            
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="Amount" class="control-label col-xs-4">Patient No</label> 
+                                    <div class="col-xs-8">
+                                        <input id="Amount" name="Amount" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="text" class="control-label col-xs-4">Date From</label> 
+                                    <div class="col-xs-8">
+                                        <input id="text" name="text" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="text1" class="control-label col-xs-4">Date To</label> 
+                                    <div class="col-xs-8">
+                                        <input id="text1" name="text1" type="text" class="form-control">
+                                    </div>
+                                </div> 
+                                <div class="form-group row">
+                                    <div class="col-xs-offset-4 col-xs-8">
+                                        <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
+                </div>
+                <div class="col-md-5">
 
-
+                    <table class="table-bordered" style="width: 100%">
+                        <tr>
+                            <td>Appointment Date</td>
+                            <td>Status</td>
+                            <td>Fee</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>

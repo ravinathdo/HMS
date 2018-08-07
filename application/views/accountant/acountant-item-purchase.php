@@ -26,7 +26,7 @@
         <div class="header">
             <div class="main-header">
                 <div class="wrap">
-                    <?php $this->load->view('admin/_head_admin'); ?>
+                    <?php $this->load->view('accountant/_head_accountant'); ?>
                     <div class="clear"> </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
             <div class="top-nav">
                 <div class="wrap">
                     <ul>
-                        <?php $this->load->view('admin/_menu_admin'); ?>
+                        <?php $this->load->view('accountant/_menu_accountant'); ?>
                         <div class="clear"> </div>
                     </ul>
                 </div>
@@ -46,40 +46,40 @@
         <div class="content">
             <div class="row">
                 <div class="col-md-2"> 
-                    <?php $this->load->view('admin/_tree_admin'); ?>
+                    <?php $this->load->view('accountant/_tree_accountant'); ?>
                 </div>
                 <div class="col-md-10">
 
                     <div class="panel panel-warning">
                         <div class="panel-heading ">
                             <h3> <img src="<?= base_url('/images/icon-purchasing.png') ?>" style="width: 30px" />  Item Purchasing </h3>
+
+
+
+
                         </div>
                         <div class="panel-body">
-                            
-                            <table class="table-bordered" style="width: 100%">
+                            <table class="table-bordered" style="width: 80%">
                                 <tr>
-                                    <td>Item Name</td>
+                                    <td>Item name</td>
                                     <td>Qty</td>
-                                    <td>Status</td>
-                                    <td>Request Date</td>
                                     <td>Request By</td>
+                                    <td>Status</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
-                                    <td>Item Name</td>
-                                    <td>Qty</td>
-                                    <td>Status</td>
-                                    <td>Request Date</td>
-                                    <td>
-                                        <button type="button" class="btn btn-warning btn-xs">Reject</button>
-                                        <button type="button" class="btn btn-success btn-xs">Accept</button>
-                                    </td>
+                                    <td>Bin</td>
+                                    <td>2</td>
+                                    <td></td>
+                                    <td>Approved</td>
+                                    <td><form>
+                                            <input type="text" />
+                                            <button type="button" class="btn btn-default btn-xs">Purchase</button>
+                                        </form></td>
                                 </tr>
                             </table>
-                            
-                            
                         </div>
                     </div>
-
 
                 </div>
             </div>
