@@ -27,14 +27,14 @@
         <div class="header">
             <div class="top-header">
                 <div class="wrap">
-                       <?php $this->load->view('_head_pre');?>
+                    <?php $this->load->view('_head_pre'); ?>
                     <div class="clear"> </div>
                 </div>
             </div>
             <div class="main-header">
                 <div class="wrap">
                     <div class="logo">
-                        <a href="index.html"><img src="<?php echo base_url('images/logo.png'); ?>" title="logo" /></a>
+                        <a href="<?= base_url('/') ?>"><img src="<?php echo base_url('images/logo.png'); ?>" title="logo" /></a>
                     </div>
                     <div class="social-links">
                         <ul>
@@ -67,11 +67,13 @@
 
                     <h2 style="text-align: center">Patient Registration</h2>
                     <?= $msg ?>
+                    <?php echo validation_errors(); ?>
                     <form class="form-horizontal" action="<?php echo base_url('/Patient_Controller/patientRegister') ?>" method="post">
+                        <span class="mando-msg">* fields are mandatory</span>
                         <div class="form-group">
-                            <label class="control-label col-xs-4" for="first_name">First Name</label> 
+                            <label class="control-label col-xs-4" for="first_name">First Name <span class="mando-msg">*</span></label> 
                             <div class="col-xs-8">
-                                <input id="first_name" name="first_name" type="text" class="form-control" required="required">
+                                <input id="first_name" name="first_name" type="text" class="form-control" required="required" >
                             </div>
                         </div>
                         <div class="form-group">
@@ -93,22 +95,34 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="email" class="control-label col-xs-4">Email</label> 
+                            <label for="email"  class="control-label col-xs-4">Email  <span class="mando-msg">*</span></label> 
                             <div class="col-xs-8">
-                                <input id="email" name="email" type="text" class="form-control">
+                                <input id="email" required="" name="email" type="email" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="pword" class="control-label col-xs-4">Password</label> 
+                            <label for="pword" class="control-label col-xs-4">Password  <span class="mando-msg">*</span></label> 
                             <div class="col-xs-8">
-                                <input id="pword" name="pword" type="text" class="form-control" required="required">
+                                <input  id="pword" name="pword" type="password" class="form-control" required="required" placeholder="Min 6 characters">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="repword" class="control-label col-xs-4">Retype Password</label> 
                             <div class="col-xs-8">
-                                <input id="repword" name="repword" type="text" class="form-control">
+                                <input name="repword" required="required" type="password" class="form-control" id="repword" oninput="check(this)" />
                             </div>
+
+                            <script language='javascript' type='text/javascript'>
+                                function check(input) {
+                                    if (input.value != document.getElementById('pword').value) {
+                                        input.setCustomValidity('Password Must be Matching.');
+                                    } else {
+                                        // input is valid -- reset the error message
+                                        input.setCustomValidity('');
+                                    }
+                                }
+                            </script>
+
                         </div> 
                         <div class="form-group row">
                             <div class="col-xs-offset-4 col-xs-8">

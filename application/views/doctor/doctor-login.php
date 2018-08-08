@@ -34,7 +34,7 @@
             <div class="main-header">
                 <div class="wrap">
                     <div class="logo">
-                        <a href="index.html"><img src="<?php echo base_url('images/logo.png'); ?>" title="logo" /></a>
+                        <a href="<?= base_url('/') ?>"><img src="<?php echo base_url('images/logo.png'); ?>" title="logo" /></a>
                     </div>
                     <div class="social-links">
                         <ul>

@@ -21,19 +21,19 @@ class Patient_Controller extends CI_Controller {
         $data['msg'] = '';
         $this->load->view('patient/patient-feedback', $data);
     }
-    
+
     public function loadViewLabTestCenters() {
 //        $this->load->model(array(''));
         $data['msg'] = '';
         $this->load->view('patient/patient-lab-test', $data);
     }
-    
+
     public function loadSearchDoctors() {
 //        $this->load->model(array(''));
         $data['msg'] = '';
         $this->load->view('patient/patient-search-doctors', $data);
     }
-    
+
     public function loadMyAppointment() {
         //session user
         $this->load->model(array('Patient'));
@@ -145,10 +145,51 @@ class Patient_Controller extends CI_Controller {
 
         //collect the post data from the page
         $patient->getPostData();
-        $patient->pword = sha1($patient->pword);
-        $patient->save();
-        $data['msg'] = '<p class="text-success">New registration has been successful, please login ,<br> Patient Reg No ' . $patient->id . ' </p>';
-        $this->load->view('patient/patient-register', $data);
+
+        //---------form validation
+        $this->load->library('form_validation');
+        $this->form_validation->set_message('password_validation', 'Invlaid password length');
+        $this->form_validation->set_rules(array(
+            array(
+                'field' => 'first_name',
+                'label' => 'firstname',
+                'rules' => 'trim|required',
+            ), array(
+                'field' => 'pword',
+                'label' => 'pword',
+                'rules' => 'trim|required|callback_password_validation', //custome call back function
+            )
+        ));
+//        $this->form_validation->set_rules('repword', 'Confirm Password', 'required|matches[pword]');
+
+
+//        echo '<tt><pre>' . var_export($patient, TRUE) . '</pre></tt>';
+
+        $this->form_validation->set_error_delimiters('<p style="color:red">', '</p>');
+        if (!$this->form_validation->run()) {
+            $data['msg'] = '';
+            $this->load->view('patient/patient-register', $data);
+        } else {
+//            unset($patient['repword']);
+            $patient->pword = sha1($patient->pword);
+            $patient->save();
+            $db_error = $this->db->error();
+//            echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
+            if (!empty($db_error)) {
+                $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
+            } else {
+                $data['msg'] = '<p class="text-success">New registration has been successful, please login ,<br> Patient Reg No ' . $patient->id . ' </p>';
+            }
+            $this->load->view('patient/patient-register', $data);
+        }
+    }
+
+    public function password_validation($input) {
+        if (strlen($input) >= 6) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function loadPatientLogin() {
@@ -184,16 +225,15 @@ class Patient_Controller extends CI_Controller {
     public function loadOPDAppointment() {
         $data['msg'] = '';
         $data['opd_fee'] = 850;
-        $this->load->view('patient/patient-opd-appointment',$data);
+        $this->load->view('patient/patient-opd-appointment', $data);
     }
 
-    
     /**
      * create OPD appointment
      */
     public function OPDAppointment() {
         $this->load->model(array('OPDAppointment'));
-        
+
         $appointment_date = $this->input->post('appointment_date');
         $opd_fee = $this->input->post('opd_fee');
 
@@ -203,25 +243,22 @@ class Patient_Controller extends CI_Controller {
         $opdAppointment->created_user = $this->session->userdata('userbean')->id;
         $opdAppointment->status_code = "OPEN";
         $opdAppointment->fee = $opd_fee;
-        
+
         $opdAppointment->save();
-        
-        $data['msg'] = '<p class="text-success">OPD Appointment created successfully, No:'.$opdAppointment->id.'  </p>';
+
+        $data['msg'] = '<p class="text-success">OPD Appointment created successfully, No:' . $opdAppointment->id . '  </p>';
         $data['opd_fee'] = $opd_fee;
         $this->load->view('patient/patient-opd-appointment', $data);
     }
 
-    
     public function getOPDPAtientAppointmentList() {
         $this->load->model(array('OPDAppointment'));
         $oPDAppointment0 = new OPDAppointment();
         $userbean = $this->session->userdata('userbean');
         $data['patientAppointmentList'] = $oPDAppointment0->getOPDPatientAppointmentList($userbean->id);
-        $this->load->view('patient/patient-opd-appointment-list',$data);
-    } 
-    
-    
-    
+        $this->load->view('patient/patient-opd-appointment-list', $data);
+    }
+
     public function index() {
         echo 'Index';
     }

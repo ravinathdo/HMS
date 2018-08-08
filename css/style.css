@@ -30,6 +30,10 @@ img{max-width:100%;}
 body{
 	background: #F6F6F6;
 }
+.mando-msg{
+color: red;    
+}
+
 .wrap{
 	width:80%;
 	margin:0 auto;

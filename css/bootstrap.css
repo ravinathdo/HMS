@@ -1352,6 +1352,11 @@ a.text-primary:hover {
     font-weight: bold;
     text-align: center;
 }
+.text-error {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
 a.text-success:hover {
     color: #2b542c;
 

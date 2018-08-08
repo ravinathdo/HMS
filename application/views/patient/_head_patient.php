@@ -1,5 +1,5 @@
 <div class="logo">
-    <a href="#"><img src="<?php echo base_url('images/logo.png');?>" title="logo" /></a>
+    <a href="<?= base_url('') ?>"><img src="<?php echo base_url('images/logo.png');?>" title="logo" /></a>
 </div>
 <div class="social-links">
     <ul>
