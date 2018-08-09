@@ -55,7 +55,7 @@
                         <img src="<?= base_url('/images/icon-opd-applointment.png')?>" alt="..." class="img-thumbnail" title="OPD Appointment">
                     </a>
                     <a href="<?php echo base_url('Patient_Controller/loadAppointment');?>">
-                        <img src="<?= base_url('/images/icon-applointment.png')?>" alt="..." title="Doctor Appointment" class="img-thumbnail">
+                        <img src="<?= base_url('/images/icon-applointment.png')?>" alt="..." title="Doctor Clinic Appointment" class="img-thumbnail">
                     </a>
                     <a href="<?php echo base_url('Patient_Controller/loadMyAppointment');?>">
                         <img src="<?= base_url('/images/icon-my-applointment.png')?>" alt="..." title="My Appointment" class="img-thumbnail">

@@ -17,20 +17,124 @@ require_once(APPPATH . 'libraries/DoctorPayment.php');
 class Patient_Controller extends CI_Controller {
 
     public function loadFeedback() {
-//        $this->load->model(array(''));
+        $this->load->model(array('Feedback'));
         $data['msg'] = '';
+        $feedback = new Feedback();
+        $userFeedback = $feedback->getUserFeedback($this->session->userdata('userbean')->id);
+        $data['userFeedback'] = $userFeedback;
+//        echo '<tt><pre>' . var_export($userFeedback, TRUE) . '</pre></tt>';
+        $this->load->view('patient/patient-feedback', $data);
+    }
+
+    public function feedback() {
+        $this->load->model(array('Feedback'));
+        $data['msg'] = '';
+        $feedb = $this->input->post('feedback');
+        $feedback = new Feedback();
+
+        $feedback->feedback = $feedb;
+        $feedback->created_user = $this->session->userdata('userbean')->id;
+
+        $feedback->save();
+        $data['msg'] = '<p class="text-success">New Feedback created</p>';
+
+        $userFeedback = $feedback->getUserFeedback($this->session->userdata('userbean')->id);
+        $data['userFeedback'] = $userFeedback;
+
         $this->load->view('patient/patient-feedback', $data);
     }
 
     public function loadViewLabTestCenters() {
-//        $this->load->model(array(''));
+        $this->load->model(array('LabTest', 'Center'));
         $data['msg'] = '';
+
+        $labTest = new LabTest();
+        $center = new Center();
+
+        $centerList = $center->get();
+        $newData = array('centerList' => $centerList);
+        $this->session->set_userdata($newData);
+
+
+        $labCenterDetails = $labTest->get();
+        $data['labCenterDetails'] = $labCenterDetails;
+
+        $this->load->view('patient/patient-lab-test', $data);
+    }
+
+    public function viewLabTestCenters() {
+        $this->load->model(array('LabTest', 'Center'));
+        $data['msg'] = '';
+        $center = new Center();
+        $labTest = new LabTest();
+
+        $centerList = $center->get();
+        $newData = array('centerList' => $centerList);
+        $this->session->set_userdata($newData);
+
+        $center_name = $this->input->post('center_name');
+        $labCenterDetails = $labTest->getLabCenterDetails($center_name);
+
+        $data['labCenterDetails'] = $labCenterDetails;
+//        echo '<tt><pre>' . var_export($labCenterDetails, TRUE) . '</pre></tt>';
         $this->load->view('patient/patient-lab-test', $data);
     }
 
     public function loadSearchDoctors() {
-//        $this->load->model(array(''));
+        $this->load->model(array('Specialist'));
         $data['msg'] = '';
+
+        //get specialize list
+        $specialist = new Specialist();
+        $specialistList = $specialist->get();
+
+//        get the doctor list 
+//        $doctor = new Doctor();
+//        $docList = $doctor->get();
+        $doctorList = $this->session->userdata('doctorList');
+//        echo '<tt><pre>' . var_export($doctorList, TRUE) . '</pre></tt>';
+        //add to session
+        $newdata = array('specialistList' => $specialistList);
+        $this->session->set_userdata($newdata);
+
+        $this->load->view('patient/patient-search-doctors', $data);
+    }
+
+    /**
+     * get specialized-doctor against to specialized id
+     */
+    public function getSpecialistDoctors() {
+        $this->load->model(array('Doctor', 'Specialist'));
+        $doctor = new Doctor();
+        $specialist = new Specialist();
+
+        $specialistList = $specialist->get();
+        $specialist_id = $this->input->post('specialist_id');
+
+        $data['msg'] = '';
+//      get the doctor list 
+        $docList = $doctor->getSpecializeDoctorsList($specialist_id);
+
+//        echo '<tt><pre>' . var_export($docList, TRUE) . '</pre></tt>';
+        //add to session
+        $newdata = array('doctorList' => $docList, 'specialistList' => $specialistList);
+        $this->session->set_userdata($newdata);
+//        echo '<tt><pre>' . var_export($docList, TRUE) . '</pre></tt>';
+        $this->load->view('patient/patient-search-doctors', $data);
+    }
+
+    public function getDoctorAvailability($doctor_id) {
+        $this->load->model(array('DoctorAvailability', 'Specialist'));
+        $doctorAvailability = new DoctorAvailability();
+        $specialist = new Specialist();
+
+        $docAvailabilityList = $doctorAvailability->getDocAvailability($doctor_id);
+        $data['docAvailabilityList'] = $docAvailabilityList;
+
+        $specialistList = $specialist->get();
+        $newdata = array('specialistList' => $specialistList);
+        $this->session->set_userdata($newdata);
+//        echo '<tt><pre>' . var_export($docAvailabilityList, TRUE) . '</pre></tt>';
         $this->load->view('patient/patient-search-doctors', $data);
     }
 
@@ -99,13 +203,28 @@ class Patient_Controller extends CI_Controller {
         $this->load->view('patient/patient-appointment-payment', $data);
     }
 
+    public function rejectAppointment($appo_id) {
+        echo 'x';
+        echo $appo_id;
+        echo 'x';
+        $this->load->model(array('DoctorAppointment'));
+        //collect data into array 
+        $doctorAppointment = new DoctorAppointment();
+
+        $newData = array('status_code' => 'REJECT');
+        $doctorAppointment->rejectAppointment($newData, $appo_id);
+
+        echo 'rejectAppointment';
+//        redirect('Patient_Controller/loadMyAppointment');
+    }
+
     public function setAppointment() {
         $this->load->model(array('Doctor', 'DoctorAppointment'));
 
         $doctorPayment = $this->session->userdata('doctorPayment');
-        echo '<tt><pre>' . var_export($doctorPayment, TRUE) . '</pre></tt>';
+//        echo '<tt><pre>' . var_export($doctorPayment, TRUE) . '</pre></tt>';
         $doctorappointment = $this->session->userdata('doctorappointment');
-        echo '<tt><pre>' . var_export($doctorappointment, TRUE) . '</pre></tt>';
+//        echo '<tt><pre>' . var_export($doctorappointment, TRUE) . '</pre></tt>';
         $userbean = $this->session->userdata('userbean');
 
         //insert into hms_doctor_appointment
@@ -161,8 +280,6 @@ class Patient_Controller extends CI_Controller {
             )
         ));
 //        $this->form_validation->set_rules('repword', 'Confirm Password', 'required|matches[pword]');
-
-
 //        echo '<tt><pre>' . var_export($patient, TRUE) . '</pre></tt>';
 
         $this->form_validation->set_error_delimiters('<p style="color:red">', '</p>');
@@ -206,9 +323,13 @@ class Patient_Controller extends CI_Controller {
 
         if ($login != null) {
             //login success
+            date_default_timezone_set('Asia/Colombo');
+            $today = date("Y-m-d", time());
+
             $newdata = array(
                 'userbean' => $login[0],
-                'logged_in' => TRUE
+                'logged_in' => TRUE,
+                'today' => $today
             );
             $this->session->set_userdata($newdata);
             $this->load->view('patient/home');
@@ -223,8 +344,15 @@ class Patient_Controller extends CI_Controller {
     }
 
     public function loadOPDAppointment() {
+        $this->load->model(array('Doctor'));
         $data['msg'] = '';
         $data['opd_fee'] = 850;
+
+        $doctor = new Doctor();
+        $categoryDoctorList = $doctor->getCategoryDoctorList('OPD');
+        //get OPD doctor list
+        $newdata = array('categoryDoctorList' => $categoryDoctorList);
+        $this->session->set_userdata($newdata);
         $this->load->view('patient/patient-opd-appointment', $data);
     }
 
@@ -236,6 +364,7 @@ class Patient_Controller extends CI_Controller {
 
         $appointment_date = $this->input->post('appointment_date');
         $opd_fee = $this->input->post('opd_fee');
+        $doctor_id = $this->input->post('doctor_id');
 
         $opdAppointment = new OPDAppointment();
         $opdAppointment->appointment_date = $appointment_date;
@@ -243,6 +372,8 @@ class Patient_Controller extends CI_Controller {
         $opdAppointment->created_user = $this->session->userdata('userbean')->id;
         $opdAppointment->status_code = "OPEN";
         $opdAppointment->fee = $opd_fee;
+        $opdAppointment->doctor_id = $doctor_id;
+
 
         $opdAppointment->save();
 

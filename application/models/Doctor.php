@@ -29,6 +29,7 @@ class Doctor extends MY_Model {
     public $specialist_id;
     public $doc_fee;
     public $slmc_no;
+    public $category;
     public $created_date;
     public $created_user;
 
@@ -43,6 +44,7 @@ class Doctor extends MY_Model {
         $this->specialist_id = $this->input->post('specialist_id');
         $this->doc_fee = $this->input->post('doc_fee');
         $this->slmc_no = $this->input->post('slmc_no');
+        $this->category = $this->input->post('category');
         $this->status_code = 'ACTIVE';
         $this->user_role = 'DOCTOR';
     }
@@ -62,7 +64,7 @@ class Doctor extends MY_Model {
     public function getDoctorDetails($doctor_id) {
         $this->db->select('hms_doctor.*,hms_specialist.specialist');
         $this->db->from('hms_doctor');
-        $this->db->join('hms_specialist','hms_specialist.id = hms_doctor.specialist_id');
+        $this->db->join('hms_specialist', 'hms_specialist.id = hms_doctor.specialist_id');
         $where = " hms_doctor.id = '" . $doctor_id . "'";
         $this->db->where($where);
         $query = $this->db->get();
@@ -74,4 +76,43 @@ class Doctor extends MY_Model {
         }
     }
 
+    
+    
+    public function getSpecializeDoctorsList($specialist_id) {
+        $this->db->select('hms_doctor.*');
+        $this->db->from('hms_doctor');
+        $where = " specialist_id = '" . $specialist_id . "'";
+        $this->db->where($where);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+
+    
+    /**
+     * Get the doctor by category
+     * @param type $category
+     * @return boolean
+     */
+    public function getCategoryDoctorList($category) {
+        $this->db->select('hms_doctor.*');
+        $this->db->from('hms_doctor');
+        $where = " category = '" . $category . "'";
+        $this->db->where($where);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+        
+    }
+  
+    
+    
 }

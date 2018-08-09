@@ -45,7 +45,10 @@
         <!----start-content----->
         <div class="content">
             <div class="row">
-                <div class="col-md-2">.col-md-4</div>
+                <div class="col-md-2">
+                    <?php $this->load->view('patient/_tree_patient'); ?>
+
+                </div>
                 <div class="col-md-10"> 
 
 
@@ -69,25 +72,26 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($myAppointmentList as $value) {
-                                        ?>
-                                        <tr>
-                                            <td><?= $value->id ?></td>
-                                            <td><?= $value->appointment_date ?></td>
-                                            <td><?= $value->fee ?></td>
-                                            <td>Dr <?= $value->first_name ?></td>
-                                            <td><?php if ($value->status_code == 'OPEN') {
-                                            ?> 
-                                                    <button name="submit" type="submit" class="btn btn-sm btn-danger">Reject</button>
-                                                <?php }
-                                                ?>
-                                                <?= $value->status_code ?>
+                                    <?php
+                                    if ($myAppointmentList)
+                                        foreach ($myAppointmentList as $value) {
+                                            ?>
+                                            <tr>
+                                                <td><?= $value->id ?></td>
+                                                <td><?= $value->appointment_date ?></td>
+                                                <td><?= $value->fee ?></td>
+                                                <td>Dr <?= $value->first_name ?></td>
+                                                <td><?php if ($value->status_code == 'OPEN') {
+                                                    ?> <a href="<?= base_url('Patient_Controller/rejectAppointment/'.$value->id) ?> " class="btn btn-sm btn-danger">Reject</a>
+                                                    <?php }
+                                                    ?>
+                                                    <?= $value->status_code ?>
 
-                                            </td>
-                                            <td><?= $value->created_date ?></td>
-                                            <td><?= $value->doctor_comment ?></td>
-                                        </tr>
-                                    <?php }
+                                                </td>
+                                                <td><?= $value->created_date ?></td>
+                                                <td><?= $value->doctor_comment ?></td>
+                                            </tr>
+                                        <?php }
                                     ?>
                                 </tbody>
                             </table>

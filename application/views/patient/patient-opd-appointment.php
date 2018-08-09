@@ -45,7 +45,9 @@
         <!----start-content----->
         <div class="content">
             <div class="row">
-                <div class="col-md-2">.col-md-4</div>
+                <div class="col-md-2">
+                    <?php $this->load->view('patient/_tree_patient'); ?>
+                </div>
                 <div class="col-md-5"> 
 
                     <div class="panel panel-warning">
@@ -53,12 +55,23 @@
                             <h3><img src="<?= base_url('/images/icon-opd-applointment.png') ?>" style="width: 30px" />    OPD Appointment</h3>
                         </div>
                         <div class="panel-body">
-                             <?= $msg ?>
+                            <?= $msg ?>
                             <form class="form-horizontal" method="post" action="<?= base_url('Patient_Controller/OPDAppointment') ?>">
                                 <div class="form-group">
                                     <label for="text" class="control-label col-xs-4">Appointment Date</label> 
                                     <div class="col-xs-8">
-                                        <input id="text" name="appointment_date" type="date" class="form-control">
+                                        <input id="text" required="" name="appointment_date" min="<?php echo $this->session->userdata('today')?>" type="date" class="form-control">
+                                    </div>
+                                </div> 
+                                <div class="form-group">
+                                    <label for="text" class="control-label col-xs-4">OPD Doctor</label> 
+                                    <div class="col-xs-8">
+                                        <select id="select" name="doctor_id" class="select form-control" required="" >
+                                            <option value="">--select doctor--</option>
+                                            <?php foreach ($this->session->userdata('categoryDoctorList') as $value) {
+                                                ?><option value="<?= $value->id ?>"><?= $value->first_name ?></option> <?php }
+                                            ?>
+                                        </select>
                                     </div>
                                 </div> 
                                 <div class="form-group">
@@ -70,7 +83,7 @@
                                 <div class="form-group">
                                     <label for="text" class="control-label col-xs-4">Card Number</label> 
                                     <div class="col-xs-8">
-                                        <input id="text" name="" type="text"  class="form-control">
+                                        <input id="text" required="" name="" type="text"  class="form-control">
                                     </div>
                                 </div> 
                                 <div class="form-group row">

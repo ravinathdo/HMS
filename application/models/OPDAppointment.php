@@ -19,6 +19,7 @@ class OPDAppointment extends MY_Model {
 
     public $id;
     public $patient_id;
+    public $doctor_id;
     public $appointment_date;
     public $status_code;
     public $created_date;
@@ -29,7 +30,7 @@ class OPDAppointment extends MY_Model {
     public function getOPDAppointmentList() {
         $this->db->select('hms_opd_appointment.*,hms_patient.first_name');
         $this->db->from('hms_opd_appointment');
-        $this->db->join('hms_patient','hms_patient.id = hms_opd_appointment.patient_id');
+        $this->db->join('hms_patient', 'hms_patient.id = hms_opd_appointment.patient_id');
         $this->db->order_by('hms_opd_appointment.id', 'desc');
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
@@ -38,7 +39,7 @@ class OPDAppointment extends MY_Model {
             return FALSE;
         }
     }
-    
+
     public function getOPDPatientAppointmentList($patient_id) {
         $this->db->select('hms_opd_appointment.*');
         $this->db->from('hms_opd_appointment');
@@ -51,5 +52,7 @@ class OPDAppointment extends MY_Model {
             return FALSE;
         }
     }
+
+ 
 
 }

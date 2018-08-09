@@ -61,25 +61,29 @@
                                 <div class="form-group">
                                     <label for="text" class="control-label col-xs-4">First Name</label> 
                                     <div class="col-xs-8">
-                                        <input id="text" name="text" type="text" class="form-control">
+                                        <input id="text" name="text" type="text" class="form-control" readonly="" value="<?php echo $this->session->userdata('userbean')->first_name?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="text1" class="control-label col-xs-4">Last Name</label> 
                                     <div class="col-xs-8">
-                                        <input id="text1" name="text1" type="text" class="form-control">
+                                        <input id="text1" name="text1" type="text" class="form-control" readonly="" value="<?php echo $this->session->userdata('userbean')->last_name?>">
                                     </div>
                                 </div>
+                                
+                                
                                 <div class="form-group">
                                     <label for="text2" class="control-label col-xs-4">NIC</label> 
                                     <div class="col-xs-8">
-                                        <input id="text2" name="text2" type="text" class="form-control">
+                                        <input id="text2" name="text2" type="text" class="form-control" >
                                     </div>
                                 </div>
+                                
+                                
                                 <div class="form-group">
                                     <label for="" class="control-label col-xs-4">User Role</label> 
                                     <div class="col-xs-8">
-                                        <input id="" name="" type="text" class="form-control">
+                                        <input id="" name="" type="text" class="form-control" readonly="" value="<?php echo $this->session->userdata('userbean')->user_role?>">
                                     </div>
                                 </div>
                                 <div class="form-group">

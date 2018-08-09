@@ -10,7 +10,6 @@ class Admin_Controller extends CI_Controller {
         $this->load->view('admin/admin-login', $data);
     }
 
-    
     /**
      * All user login for HMS staff
      */
@@ -23,12 +22,15 @@ class Admin_Controller extends CI_Controller {
 
 //        echo '<tt><pre>' . var_export($login, TRUE) . '</pre></tt>';
 
-
+        date_default_timezone_set('Asia/Colombo');
+        $today = date("YYYY-mm-dd", time());
+        
         if ($login != null) {
             //login success
             $newdata = array(
                 'userbean' => $login[0],
-                'logged_in' => TRUE
+                'logged_in' => TRUE,
+                'today' => $today
             );
 
 
@@ -63,12 +65,10 @@ class Admin_Controller extends CI_Controller {
         }
     }
 
-    
     public function loadHome() {
         $this->load->view('admin/home');
     }
 
-    
     public function loadDoctorRegistration() {
         $this->load->model(array('Specialist', 'Doctor'));
         $specialist = new Specialist();
@@ -107,20 +107,23 @@ class Admin_Controller extends CI_Controller {
         $data['msg'] = '';
         $this->load->view('admin/admin-user-registration', $data);
     }
-    
+
     public function loadItemPurchesing() {
 //        $this->load->model(array(''));
         $data['msg'] = '';
         $this->load->view('admin/admin-item-purchesing', $data);
     }
+
     public function loadPatientRegistration() {
 //        $this->load->model(array(''));
         $data['msg'] = '';
         $this->load->view('admin/admin-patient-registration', $data);
     }
+
     public function loadPatientList() {
 //        $this->load->model(array(''));
         $data['msg'] = '';
         $this->load->view('admin/admin-patient-list', $data);
     }
+
 }

@@ -46,6 +46,8 @@
         <div class="content">
             <div class="row">
                 <div class="col-md-2"> 
+                                            <?php $this->load->view('patient/_tree_patient'); ?>
+
                 </div>
                 <div class="col-md-5">
                     <table>
@@ -97,7 +99,7 @@
                         </tr>
                         <tr>
                             <td>Card Number </td>
-                            <td><input id="text" name="text" type="cardno" class="form-control"></td>
+                            <td><input id="text" name="cardno" required="" type="number" class="form-control"></td>
                         </tr>
                         <tr>
                             <td></td>

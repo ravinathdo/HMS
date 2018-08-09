@@ -54,14 +54,19 @@
                         </div>
                         <div class="panel-body">
 
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" action="<?= base_url('Patient_Controller/viewLabTestCenters') ?>" method="post">
                                 <div class="form-group">
-                                    <label for="select" class="control-label col-xs-4">Test</label> 
+                                    <label for="select" class="control-label col-xs-4">Center</label> 
                                     <div class="col-xs-8">
-                                        <select id="select" name="select" class="select form-control">
-                                            <option value="rabbit">Rabbit</option>
-                                            <option value="duck">Duck</option>
-                                            <option value="fish">Fish</option>
+                                        <select id="center_name" required="" name="center_name" class="select form-control">
+                                            <option value="">--select--</option>
+                                            <?php
+                                            if ($this->session->userdata('centerList'))
+                                                foreach ($this->session->userdata('centerList') as $value) {
+                                                    ?>
+                                                    <option value="<?= $value->center_name ?>"><?= $value->center_name ?></option>
+                                                <?php }
+                                            ?>
                                         </select>
                                     </div>
                                 </div> 
@@ -77,19 +82,28 @@
 
                 </div>
                 <div class="col-md-5">
-                    
-                    
+
+
                     <table class="table-bordered" style="width: 100%">
-                        <tr>
-                            <td>Center Name</td>
-                            <td>Open Time</td>
-                            <td>Close Time</td>
-                        </tr>
-                        <tr>
-                            <td>Ragama</td>
-                            <td>10:00 pm</td>
-                            <td>12:00 pm</td>
-                        </tr>
+                        <thead>
+                            <tr>
+                                <td>Test</td>
+                                <td>Center Name</td>
+                                <td>Description</td>
+                            </tr></thead>
+                        <?php
+                        if ($labCenterDetails)
+                            foreach ($labCenterDetails as $value) {
+                                ?> 
+                                <tr>
+                                    <td><?= $value->lab_test ?></td>
+                                    <td><?= $value->center_name ?></td>
+                                    <td><?= $value->description ?></td>
+                                </tr>
+                                <?php
+                            }
+                        ?>
+
                     </table>
                 </div>
             </div>

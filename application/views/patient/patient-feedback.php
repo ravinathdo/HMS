@@ -52,11 +52,11 @@
                             <h3><img src="<?= base_url('/images/icon-feedback.png') ?>" style="width: 30px" />     Feedback</h3>
                         </div>
                         <div class="panel-body">
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" action="<?= base_url('Patient_Controller/feedback') ?>" method="post">
                                 <div class="form-group">
                                     <label for="textarea" class="control-label col-xs-4">Feedback</label> 
                                     <div class="col-xs-8">
-                                        <textarea id="textarea" name="textarea" cols="40" rows="5" class="form-control"></textarea>
+                                        <textarea id="textarea" name="feedback" cols="40" rows="5" class="form-control"></textarea>
                                     </div>
                                 </div> 
                                 <div class="form-group row">
@@ -70,28 +70,28 @@
                 </div>
                 <div class="col-md-5">
 
-                    
+<?= $msg?>
                     <table>
-                        <tr>
-                            <td>
-                                On the Insert tab, the galleries include items that are designed to coordinate with the overall look of your document. You can use these galleries to insert tables, headers, footers, lists, cover pages, and other document building blocks.
-                            </td>
-                            <td style="width: 10%">
-                                <span class="btn btn-default btn-xs">08/08/2018 10:11 pm</span>
-                                <img src="<?= base_url('images/details_close.png')?>" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                On the Insert tab, the galleries include items that are designed to coordinate with the overall look of your document. You can use these galleries to insert tables, headers, footers, lists, cover pages, and other document building blocks.
-                            </td>
-                            <td style="width: 10%">
-                                <span class="btn btn-default btn-xs">08/08/2018 10:11 pm</span>
-                                <img src="<?= base_url('images/details_close.png')?>" />
-                            </td>
-                        </tr>
+
+
+                        <?php 
+                        if($userFeedback)
+                        foreach ($userFeedback as $value) {
+                            ?> 
+                            <tr>
+                                <td>
+                                    <?= $value->feedback ?>
+                                </td>
+                                <td style="width: 10%">
+                                    <span class="btn btn-default btn-xs"><?= $value->created_date ?></span>
+                                    <img src="<?= base_url('images/details_close.png') ?>" />
+                                </td>
+                            </tr>
+                        <?php }
+                        ?>
+
                     </table>
-                    
+
                 </div>
             </div>
         </div>

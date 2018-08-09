@@ -45,45 +45,50 @@
         <!----start-content----->
         <div class="content">
             <div class="row">
-                <div class="col-md-2">.col-md-4</div>
-                <div class="col-md-5"> 
+                <div class="col-md-2">
+                                        <?php $this->load->view('patient/_tree_patient'); ?>
+
+                </div>
+                <div class="col-md-7"> 
                     <h3>OPD Appointment List</h3>
-                     <?php //echo '<tt><pre>' . var_export($patientAppointmentList, TRUE) . '</pre></tt>'; ?>
+                    <?php //echo '<tt><pre>' . var_export($patientAppointmentList, TRUE) . '</pre></tt>'; ?>
                     <table id="example" class="display" cellspacing="0" width="100%">
                         <thead>
                             <tr>
                                 <th>No</th>
                                 <th>Date</th>
-                                <th>fee</th>
-                                <th>status_code</th>
-                                <th>created_date</th>
+                                <th>Fee</th>
+                                <th>Status Code</th>
+                                <th>Created Date</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($patientAppointmentList as $value) {
-                                ?>
-                            <tr>
-                                <td><?= $value->id ?></td>
-                                <td><?= $value->appointment_date ?></td>
-                                <td><?= $value->fee ?></td>
-                                <td><?= $value->status_code ?></td>
-                                <td><?= $value->created_date ?></td>
-                                <td></td>
-                            </tr>
                             <?php
-                            }?>
+                            if ($patientAppointmentList)
+                                foreach ($patientAppointmentList as $value) {
+                                    ?>
+                                    <tr>
+                                        <td><?= $value->id ?></td>
+                                        <td><?= $value->appointment_date ?></td>
+                                        <td><?= $value->fee ?></td>
+                                        <td><?= $value->status_code ?></td>
+                                        <td><?= $value->created_date ?></td>
+                                        <td></td>
+                                    </tr>
+                                    <?php }
+                            ?>
                         </tbody>
                     </table>
                     <link href="<?= base_url('css/jquery.dataTables.min.css') ?>" rel="stylesheet" type="text/css"/>
                     <script src="<?= base_url('js/jquery.dataTables.min.js') ?>" type="text/javascript"></script>
                     <script type="text/javascript">
-                        $(document).ready(function () {
-                            $('#example').DataTable();
-                        });
+            $(document).ready(function () {
+                $('#example').DataTable();
+            });
                     </script>
                 </div>
-                <div class="col-md-5"> 
+                <div class="col-md-3"> 
                 </div>
             </div>
         </div>

@@ -12,34 +12,32 @@ class User_Controller extends CI_Controller {
         $this->load->view('index');
     }
 
-    public function index(){
+    public function index() {
         $this->load->view('');
     }
-    
-    
-    
+
     public function loadProfile() {
 //        $this->load->model(array(''));
         $data['msg'] = '';
+
+        // load according to user role
         $this->load->view('user-profile', $data);
     }
-    
-    
-    
+
     /**
      * load home according to each HMS user
      * @param type $param 
      */
     public function loadHome() {
         $userbean = $this->session->userdata('userbean');
-         switch ($userbean->user_role) {
-                case 'ADMIN':
-                    $this->load->view('admin/home');
-                    break;
-                case 'OPD':
-                    $this->load->view('opd/home');
-                    break;
-            }
+        switch ($userbean->user_role) {
+            case 'ADMIN':
+                $this->load->view('admin/home');
+                break;
+            case 'OPD':
+                $this->load->view('opd/home');
+                break;
+        }
     }
-    
+
 }

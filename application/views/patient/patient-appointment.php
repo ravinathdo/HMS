@@ -51,42 +51,43 @@
 
                     <div class="panel panel-warning">
                         <div class="panel-heading ">
-                            <h3><img src="<?= base_url('/images/icon-applointment.png') ?>" style="width: 30px" /> New Doctor Appointment</h3>
+                            <h3><img src="<?= base_url('/images/icon-applointment.png') ?>" style="width: 30px" /> New Doctor Clinic Appointment</h3>
                         </div>
                         <div class="panel-body">
-                            
-                                  <form class="form-horizontal" action="<?= base_url('Patient_Controller/appointment') ?>" method="post">
-                        <div class="form-group">
-                            <label for="doctor_id" class="control-label col-xs-4">Doctor</label> 
-                            <div class="col-xs-8">
-                                <select id="doctor_id" name="doctor_id" class="select form-control">
-                                    <?php
-                                    foreach ($doctorList as $value) {
-                                        ?>  
-                                        <option value="<?= $value->id ?>"><?= $value->first_name ?></option> 
-                                        <?php
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="appointment_date" class="control-label col-xs-4">Appointment Date</label> 
-                            <div class="col-xs-8">
-                                <input id="appointment_date" name="appointment_date" type="date" class="form-control">
-                            </div>
-                        </div> 
-                        <div class="form-group row">
-                            <div class="col-xs-offset-4 col-xs-8">
-                                <button name="submit" type="submit" class="btn btn-primary">Submit</button>
-                            </div>
-                        </div>
-                    </form>
-                            
+
+                            <form class="form-horizontal" action="<?= base_url('Patient_Controller/appointment') ?>" method="post">
+                                <div class="form-group">
+                                    <label for="doctor_id" class="control-label col-xs-4">Doctor</label> 
+                                    <div class="col-xs-8">
+                                        <select id="doctor_id" required="" name="doctor_id" class="select form-control">
+                                            <option value="">--seletc doctor--</option> 
+                                            <?php
+                                            foreach ($doctorList as $value) {
+                                                ?>  
+                                                <option value="<?= $value->id ?>"><?= $value->first_name ?></option> 
+                                                <?php
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="appointment_date" class="control-label col-xs-4">Appointment Date</label> 
+                                    <div class="col-xs-8">
+                                        <input id="appointment_date" name="appointment_date" type="date" min="<?php echo $this->session->userdata('today') ?>" class="form-control">
+                                    </div>
+                                </div> 
+                                <div class="form-group row">
+                                    <div class="col-xs-offset-4 col-xs-8">
+                                        <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+
                         </div>
                     </div>
 
-              
+
 
                 </div>
 

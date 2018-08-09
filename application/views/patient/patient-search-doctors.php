@@ -49,72 +49,75 @@
                     <?php $this->load->view('patient/_tree_patient'); ?>
                 </div>
                 <div class="col-md-4">
-                    
+
                     <div class="panel panel-warning">
                         <div class="panel-heading ">
-                            <h3> <img src="<?= base_url('/images/icon-doctor.png')?>" style="width: 30px" /> Seach Doctors</h3>
+                            <h3> <img src="<?= base_url('/images/icon-doctor.png') ?>" style="width: 30px" /> Seach Doctors</h3>
                         </div>
                         <div class="panel-body">
-                            <form class="form-horizontal">
-                        <div class="form-group">
-                            <label for="select" class="control-label col-xs-4">Specialize</label> 
-                            <div class="col-xs-8">
-                                <select id="select" name="select" class="select form-control">
-                                    <option value="rabbit">Rabbit</option>
-                                    <option value="duck">Duck</option>
-                                    <option value="fish">Fish</option>
-                                </select>
-                            </div>
-                        </div> 
-                        <div class="form-group row">
-                            <div class="col-xs-offset-4 col-xs-8">
-                                <button name="submit" type="submit" class="btn btn-primary">View</button>
-                            </div>
-                        </div>
-                    </form>
+                            <form class="form-horizontal" method="post" action="<?= base_url('Patient_Controller/getSpecialistDoctors') ?>" >
+                                <div class="form-group">
+                                    <label for="select" class="control-label col-xs-4">Specialize</label> 
+                                    <div class="col-xs-8">
+
+                                        <select id="select" name="specialist_id" class="select form-control" required="" >
+                                            <option value="">--select doctor--</option>
+
+
+                                            <?php foreach ($this->session->userdata('specialistList') as $value) {
+                                                ?><option value="<?= $value->id ?>"><?= $value->specialist ?></option> <?php }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div> 
+                                <div class="form-group row">
+                                    <div class="col-xs-offset-4 col-xs-8">
+                                        <button name="submit" type="submit" class="btn btn-primary">View</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+
                     <ul>
-                        <li><a href="">Dr. Sumanadasa</a></li>
-                        <li><a href="">Dr. Prera</a></li>
-                        <li><a href="">Dr. Kumarage</a></li>
+                        <?php
+                        $doctorList = $this->session->userdata('doctorList');
+                        if ($doctorList != null)
+                            foreach ($this->session->userdata('doctorList') as $value) {
+                                ?><li><a href="<?= base_url('Patient_Controller/getDoctorAvailability/' . $value->id) ?>">Dr. <?= $value->first_name ?> <?= $value->last_name ?></a></li> <?php
+                            }
+                        ?>
                     </ul>
-                    
+
                 </div>
                 <div class="col-md-6">
-                    
-                    
+
+
                     <div class="panel panel-primary">
                         <div class="panel-heading ">Doctor Schedule</div>
                         <div class="panel-body">
-                            
-                                 <table class="table-bordered" style="width: 100%">
-                        <tr>
-                            <td>Sunday</td>
-                            <td>10:45 AM</td>
-                        </tr>
-                        <tr>
-                            <td>Monday</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>Tuesday</td>
-                            <td></td>
-                        </tr>
-                    </table>
-                            
+
+                            <table class="table-bordered" style="width: 100%">
+                                <?php
+                                if (isset($docAvailabilityList) && $docAvailabilityList)
+                                    foreach ($docAvailabilityList as $value) {
+                                        ?>
+                                        <tr>
+                                            <td><?= $value->day_available ?></td>
+                                            <td><?= $value->time_available ?></td>
+                                        </tr>
+                                        <?php
+                                    } else {
+                                    echo 'No Data Found';
+                                }
+                                ?>
+                            </table>
+
                         </div>
                     </div>
-               
-                    
-                    
+
+
+
                 </div>
             </div>
         </div>
@@ -168,7 +171,7 @@
                 <div class="clear"> </div>
                 <!---start-copy-right----->
                 <div class="copy-tight">
-                    <p>Copyright &copy; Medica. All Rights Reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+                    <p>Copyright &copy; Medica. All Rights Reserved | Design by <a href="#">W3layouts</a></p>
                 </div>
                 <!---End-copy-right----->
             </div>
