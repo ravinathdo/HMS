@@ -51,8 +51,13 @@
                 <div class="col-md-10">
                
 
-                    <h3>Drug Availability</h3>
 
+                    <div class="panel panel-warning">
+                        <div class="panel-heading ">
+                             <h3> <img src="<?= base_url('/images/icon-drug.png') ?>" style="width: 30px" />  Drug Availability </h3>
+                        </div>
+                        <div class="panel-body">
+                            
                     <table id="example" class="display" cellspacing="0" width="100%">
                         <thead>
                             <tr>
@@ -82,6 +87,8 @@
                 $('#example').DataTable();
             });
                     </script>
+                        </div>
+                    </div>
 
                 </div>
             </div>

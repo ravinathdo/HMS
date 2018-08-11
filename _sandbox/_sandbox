@@ -41,3 +41,29 @@ http://localhost:81/HMS/Admin_Controller/
                         <div class="panel-heading ">
                             <h3> <img src="<?= base_url('/images/icon-patient-list.png') ?>" style="width: 30px" />  Item Purchasing </h3>
                         </div>
+
+
+
+ $this->db->select('hms_doctor_appointment.*');
+        $this->db->from('hms_doctor_appointment');
+        $where = " doctor_id = '" . $doctor_id . "'";
+        $this->db->where($where);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+
+
+
+
+$patient->save();
+            $db_error = $this->db->error();
+//            echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
+            if (!empty($db_error)) {
+                $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
+            } else {
+                $data['msg'] = '<p class="text-success">New registration has been successful, please login ,<br> Patient Reg No ' . $patient->id . ' </p>';
+            }

@@ -48,23 +48,89 @@
                 <div class="col-md-2"> 
                     <?php $this->load->view('doctor/_tree_doctor'); ?>
                 </div>
-                <div class="col-md-10">
-                    <a href="<?php echo base_url('Doctor_Controller/loadAvailability'); ?>">
-                        <img src="<?= base_url('/images/icon-doctor.png') ?>" alt="..." class="img-thumbnail" title="My Availability">
-                    </a>
-                    <a href="<?php echo base_url('Doctor_Controller/getAppointmentList');?>/<?php echo $this->session->userdata('userbean')->id ?>">
-                        <img src="<?= base_url('/images/icon-manage-applointment.png') ?>" alt="..." class="img-thumbnail" title="My Availability">
-                    </a>
-                    <a href="<?php echo base_url('Doctor_Controller/loadDrugDetails');?>">
-                        <img src="<?= base_url('/images/icon-drug.png') ?>" alt="..." class="img-thumbnail" title="Drug Availability">
-                    </a>
-                    <a href="<?php echo base_url('Doctor_Controller/loadWard');?>">
-                        <img src="<?= base_url('/images/icon-ward.png') ?>" alt="..." class="img-thumbnail" title="Drug Availability">
-                    </a>
-                    <a href="<?php echo base_url('Doctor_Controller/loadPatientList');?>">
-                        <img src="<?= base_url('/images/icon-patient.png') ?>" alt="..." class="img-thumbnail" title="Patient Details">
-                    </a>
+                <div class="col-md-4">
+                    <div class="panel panel-warning">
+                        <div class="panel-heading ">
+                            <h3> <img src="<?= base_url('/images/icon-ward.png') ?>" style="width: 30px" /> Admit Patient</h3>
+                        </div>
+                        <div class="panel-body">
+
+                            <form class="form-horizontal" action="<?= base_url('Doctor_Controller/admitPatient') ?>" method="post">
+                                <div class="form-group">
+                                    <label for="text" class="control-label col-xs-4">Ward Number</label> 
+                                    <div class="col-xs-8">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-address-card"></i>
+                                            </div> 
+                                            <input id="text" readonly="" name="ward_id" type="text" class="form-control" value="<?= $ward_id ?>">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="select" class="control-label col-xs-4">Patient</label> 
+                                    <div class="col-xs-8">
+                                        <select id="select" name="patient_id" required="" class="select form-control">
+                                            <option value="rabbit">--select patient--</option>
+                                            <?php
+                                            foreach ($PatientList as $value) {
+                                                ?>
+                                                <option value="<?= $value->id ?>">[<?= $value->id ?>] <?= $value->first_name ?> <?= $value->last_name ?></option>
+                                                <?php
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="textarea" class="control-label col-xs-4">Remark</label> 
+                                    <div class="col-xs-8">
+                                        <textarea id="textarea" name="comment" cols="40" rows="5" class="form-control"></textarea>
+                                    </div>
+                                </div> 
+                                <div class="form-group row">
+                                    <div class="col-xs-offset-4 col-xs-8">
+                                        <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+
                 </div>
+                <div class="col-md-6">
+                    <table border="1" class="table-bordered table-condensed table-hover">
+                        <thead>
+                            <tr>
+                                <th>Ward No</th>
+                                <th>Patient</th>
+                                <th>Admit Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <?php
+//                            echo '<tt><pre>' . var_export($doctorWardPatient, TRUE) . '</pre></tt>';
+                            if ($doctorWardPatient)
+                                foreach ($doctorWardPatient as $value) {
+                                    ?>
+                                    <tr>
+                                        <td><?= $value->ward_id ?></td>
+                                        <td><?= $value->first_name ?> <?= $value->last_name ?></td>
+                                        <td><?= $value->created_date ?></td>
+                                        <td><?= $value->status_code ?></td>
+                                    </tr>
+                                    <?php
+                                }
+                            ?>
+
+
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
         </div>
         <!----End-content----->

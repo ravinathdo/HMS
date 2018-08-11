@@ -14,6 +14,75 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class Doctor_Controller extends CI_Controller {
 
+    public function loadPatientList() {
+        $this->load->model(array('Patient'));
+        $patient = new Patient();
+        $data['msg'] = '';
+        $patientList = $patient->get();
+        $data['patientList'] = $patientList;
+        
+        $this->load->view('doctor/doctor-patient-details', $data);
+    }
+
+    public function loadAdmitPatient($ward_id) {
+        $this->load->model(array('Patient', 'WardPatient'));
+        $patient = new Patient();
+        $wardPatient = new WardPatient();
+
+        $data['ward_id'] = $ward_id;
+        $data['PatientList'] = $patient->get();
+
+        //load patient list
+        $doctor_id = $this->session->userdata('userbean')->id;
+        $doctorWardPatient = $wardPatient->getDoctorWardPatient($doctor_id);
+        $data['doctorWardPatient'] = $doctorWardPatient;
+
+        $this->load->view('doctor/doctor-patient-admit', $data);
+    }
+
+    public function admitPatient() {
+        $this->load->model(array('Ward', 'Patient', 'WardPatient'));
+        $ward = new Ward();
+        $doctor_id = $this->session->userdata('userbean')->id;
+
+        $wardPatient0 = new WardPatient();
+
+        $wardPatient0->ward_id = $this->input->post('ward_id');
+        $wardPatient0->patient_id = $this->input->post('patient_id');
+        $wardPatient0->comment = $this->input->post('comment');
+        $wardPatient0->status_code = 'ADMIT';
+        $wardPatient0->created_user = $doctor_id;
+
+
+        $wardPatient0->save();
+        $db_error = $this->db->error();
+        echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
+        if (!empty($db_error)) {
+            if ($db_error['code'] == 0) {
+                $data['msg'] = '<p class="text-success">Patient admit has been success</p>';
+            } else {
+                $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
+            }
+        }
+
+        echo '<tt><pre>' . var_export($wardPatient0, TRUE) . '</pre></tt>';
+
+        $wardList = $ward->getDoctorWards($doctor_id);
+        $data['wardList'] = $wardList;
+        $this->load->view('doctor/doctor-ward', $data);
+    }
+
+    public function loadWard() {
+        $this->load->model(array('Ward'));
+
+        $doctor_id = $this->session->userdata('userbean')->id;
+        $data['msg'] = '';
+        $ward = new Ward();
+        $wardList = $ward->getDoctorWards($doctor_id);
+        $data['wardList'] = $wardList;
+        $this->load->view('doctor/doctor-ward', $data);
+    }
+
     public function loadDrugDetails() {
         $this->load->model(array('Drug'));
         $drug = new Drug();

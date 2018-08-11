@@ -49,21 +49,58 @@
                     <?php $this->load->view('doctor/_tree_doctor'); ?>
                 </div>
                 <div class="col-md-10">
-                    <a href="<?php echo base_url('Doctor_Controller/loadAvailability'); ?>">
-                        <img src="<?= base_url('/images/icon-doctor.png') ?>" alt="..." class="img-thumbnail" title="My Availability">
-                    </a>
-                    <a href="<?php echo base_url('Doctor_Controller/getAppointmentList');?>/<?php echo $this->session->userdata('userbean')->id ?>">
-                        <img src="<?= base_url('/images/icon-manage-applointment.png') ?>" alt="..." class="img-thumbnail" title="My Availability">
-                    </a>
-                    <a href="<?php echo base_url('Doctor_Controller/loadDrugDetails');?>">
-                        <img src="<?= base_url('/images/icon-drug.png') ?>" alt="..." class="img-thumbnail" title="Drug Availability">
-                    </a>
-                    <a href="<?php echo base_url('Doctor_Controller/loadWard');?>">
-                        <img src="<?= base_url('/images/icon-ward.png') ?>" alt="..." class="img-thumbnail" title="Drug Availability">
-                    </a>
-                    <a href="<?php echo base_url('Doctor_Controller/loadPatientList');?>">
-                        <img src="<?= base_url('/images/icon-patient.png') ?>" alt="..." class="img-thumbnail" title="Patient Details">
-                    </a>
+
+
+
+                    <div class="panel panel-warning">
+                        <div class="panel-heading ">
+                            <h3> <img src="<?= base_url('/images/icon-patient.png') ?>" style="width: 30px" />  Patient List </h3>
+                        </div>
+                        <div class="panel-body">
+                            <?= $msg ?>
+                            <table id="example" class="display" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Telephone</th>
+                                        <th>Date of Birth</th>
+                                        <th>Email</th>
+                                        <th>status</th>
+                                        <th>status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    if ($patientList != null)
+                                        foreach ($patientList as $value) {
+                                            ?>
+                                            <tr>    
+                                                <td><?= $value->id ?></td>
+                                                <td><?= $value->first_name ?></td>
+                                                <td><?= $value->last_name ?></td>
+                                                <td><?= $value->telephone ?></td>
+                                                <td><?= $value->dob ?></td>
+                                                <td><?= $value->email ?></td>
+                                                <td><?= $value->status_code ?></td>
+                                                <td><?= $value->created_date ?></td>
+                                            </tr>
+                                            <?php
+                                        }
+                                    ?>
+                                </tbody>
+                            </table>
+                            <link href="<?php echo base_url('css/jquery.dataTables.min.css'); ?>" rel="stylesheet" type="text/css"/>
+                            <script src="<?php echo base_url('js/jquery.dataTables.min.js'); ?>" type="text/javascript"></script>
+                            <script type="text/javascript">
+            $(document).ready(function () {
+                $('#example').DataTable();
+            });
+                            </script>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
