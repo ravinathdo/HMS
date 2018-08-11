@@ -28,7 +28,7 @@
             <div class="container">
                 <div class="wthree-header">
                     <div class="agileits-logo navbar-left">
-                        <h1 class="wow swing animated" data-wow-delay=".5s"><a href="index.html">Surgeon</a></h1>
+                        <h1 class="wow swing animated" data-wow-delay=".5s"><a href="index.html">Arogya</a></h1>
                     </div>
                     <div class="navbar-right social-icons wow fadeInRight animated" data-wow-delay=".5s"> 
                         <ul>

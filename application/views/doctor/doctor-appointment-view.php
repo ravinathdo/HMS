@@ -116,6 +116,7 @@
                                 <div class="panel-body">
 
                                     <?php
+                                    if($patientMedicalHistory)
                                     foreach ($patientMedicalHistory as $value) {
                                         ?>
                                         <span class="btn-sm btn-success"><?= $value->appointment_date ?></span> <span class="btn-sm btn-success">Dr <?= $value->first_name ?></span> 

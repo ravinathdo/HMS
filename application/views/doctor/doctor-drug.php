@@ -49,15 +49,40 @@
                     <?php $this->load->view('doctor/_tree_doctor'); ?>
                 </div>
                 <div class="col-md-10">
-                    <a href="<?php echo base_url('Doctor_Controller/loadAvailability'); ?>">
-                        <img src="<?= base_url('/images/icon-doctor.png') ?>" alt="..." class="img-thumbnail" title="My Availability">
-                    </a>
-                    <a href="<?php echo base_url('Doctor_Controller/getAppointmentList');?>/<?php echo $this->session->userdata('userbean')->id ?>">
-                        <img src="<?= base_url('/images/icon-manage-applointment.png') ?>" alt="..." class="img-thumbnail" title="My Availability">
-                    </a>
-                    <a href="<?php echo base_url('Doctor_Controller/loadDrugDetails');?>">
-                        <img src="<?= base_url('/images/icon-drug.png') ?>" alt="..." class="img-thumbnail" title="Drug Availability">
-                    </a>
+               
+
+                    <h3>Drug Availability</h3>
+
+                    <table id="example" class="display" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>Drug Name</th>
+                                <th>qty</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            
+                            if ($drugList != null)
+                                foreach ($drugList as $value) {
+                                    ?>
+                                    <tr>
+                                        <td><?= $value->drug_name ?></td>
+                                        <td><?= $value->qty ?></td>
+                                    </tr>
+                                    <?php
+                                }
+                            ?>
+                        </tbody>
+                    </table>
+                    <link href="<?php echo base_url('css/jquery.dataTables.min.css'); ?>" rel="stylesheet" type="text/css"/>
+                    <script src="<?php echo base_url('js/jquery.dataTables.min.js'); ?>" type="text/javascript"></script>
+                    <script type="text/javascript">
+            $(document).ready(function () {
+                $('#example').DataTable();
+            });
+                    </script>
+
                 </div>
             </div>
         </div>

@@ -34,6 +34,9 @@ class User_Controller extends CI_Controller {
             case 'ADMIN':
                 $this->load->view('admin/home');
                 break;
+            case 'DOCTOR':
+                $this->load->view('doctor/home');
+                break;
             case 'OPD':
                 $this->load->view('opd/home');
                 break;
