@@ -61,9 +61,7 @@
                                     <label for="select" class="control-label col-xs-4">Doctor</label> 
                                     <div class="col-xs-8">
                                         <select id="select" name="select" class="select form-control">
-                                            <option value="rabbit">Rabbit</option>
-                                            <option value="duck">Duck</option>
-                                            <option value="fish">Fish</option>
+                                            <option value="">--select--</option>
                                         </select>
                                     </div>
                                 </div>

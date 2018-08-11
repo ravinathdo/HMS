@@ -74,8 +74,8 @@
                                     <label for="Amount" class="control-label col-xs-4">Transaction</label> 
                                     <div class="col-xs-8">
                                         <select id="select" name="select" class="select form-control">
-                                            <option value="rabbit">Credit</option>
-                                            <option value="duck">Debit</option>
+                                            <option value="">Credit</option>
+                                            <option value="">Debit</option>
                                         </select>
                                     </div>
                                 </div>

@@ -102,7 +102,7 @@
                                             <label for="specialist_id" class="control-label col-xs-4">Specialist</label> 
                                             <div class="col-xs-8">
                                                 <select id="specialist_id" name="specialist_id" class="select form-control">
-                                                    <option value="duck">--select--</option>
+                                                    <option value="">--select--</option>
                                                     <?php foreach ($this->session->userdata('specialist_list') as $value) {
                                                         ?> 
                                                         <option value="<?php echo $value->id; ?>"><?php echo $value->specialist; ?></option>
