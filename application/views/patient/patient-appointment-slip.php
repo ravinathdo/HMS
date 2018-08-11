@@ -46,6 +46,7 @@
         <div class="content">
             <div class="row">
                 <div class="col-md-4"> 
+                    <?php $this->load->view('patient/_tree_patient'); ?>
 
                 </div>
 
@@ -120,7 +121,7 @@
                         <a href="#" onclick="PrintElem('printdiv')">print</a>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
 
                     <br>
 

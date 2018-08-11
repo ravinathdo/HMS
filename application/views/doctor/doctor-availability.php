@@ -50,7 +50,7 @@
                 </div>
                 <div class="col-md-5">
                     <?= $msg ?>
-                    <div class="panel panel-primary">
+                    <div class="panel panel-warning">
                         <div class="panel-heading ">My Availability</div>
                         <div class="panel-body">
                             <form class="form-horizontal" action="<?php echo base_url('Doctor_Controller/availability'); ?>" method="post">

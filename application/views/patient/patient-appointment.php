@@ -46,6 +46,8 @@
         <div class="content">
             <div class="row">
                 <div class="col-md-2"> 
+                                        <?php $this->load->view('patient/_tree_patient'); ?>
+
                 </div>
                 <div class="col-md-5">
 

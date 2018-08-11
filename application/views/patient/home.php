@@ -45,7 +45,10 @@
         <!----start-content----->
         <div class="content">
             <div class="row">
-                <div class="col-md-2"></div>
+                <div class="col-md-2">
+                                        <?php $this->load->view('patient/_tree_patient'); ?>
+
+                </div>
                 <div class="col-md-7"> 
                     <h2>Patient</h2>
                     <a href="<?php echo base_url('Patient_Controller/loadSearchDoctors'); ?>">
