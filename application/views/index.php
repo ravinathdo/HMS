@@ -56,9 +56,9 @@
                             <ul class="nav navbar-nav navbar-center w3l-effect">
                                 <li><a href="#">Home</a></li>
                                 <li><a href="#about" class="scroll">About</a></li> 
-                                <li><a href="#services" class="scroll">Services</a></li> 
-                                <li><a href="#team" class="scroll">Team</a></li>
-                                <li><a href="#portfolio" class="scroll">Portfolio</a></li>
+                                <li><a href="#services" class="scroll">Facilities & Services </a></li> 
+                                <li><a href="#team" class="scroll">Careers</a></li>
+                                <li><a href="#portfolio" class="scroll">Discover Medical Specialties </a></li>
                                 <li><a href="#contact" class="scroll">Contact</a></li>
                             </ul>	
                             <div class="clearfix"> </div>
@@ -622,7 +622,7 @@
                 </div>
             </div>
             <div class="agileits-w3layouts-map wow zoomIn animated" data-wow-delay=".5s">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.9503398796587!2d-73.9940307!3d40.719109700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a27e2f24131%3A0x64ffc98d24069f02!2sCANADA!5e0!3m2!1sen!2sin!4v1441710758555" allowfullscreen></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9694.868798014066!2d80.48939722811521!3d6.9917141309394095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae39fd1182a74ef%3A0xb92ff5cc1e0cb781!2sAROGYA+MEDICLE+CENTRE!5e0!3m2!1sen!2slk!4v1533989954062" allowfullscreen></iframe>
             </div>
         </div>
         <!-- //contact -->	
