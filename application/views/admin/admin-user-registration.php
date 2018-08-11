@@ -80,9 +80,7 @@
                                     <label for="select" class="control-label col-xs-4">User Role</label> 
                                     <div class="col-xs-8">
                                         <select id="select" name="select" class="select form-control">
-                                            <option value="rabbit">Rabbit</option>
-                                            <option value="duck">Duck</option>
-                                            <option value="fish">Fish</option>
+                                            <option value="">--select--</option>
                                         </select>
                                     </div>
                                 </div>
@@ -108,9 +106,8 @@
                                     <label for="select1" class="control-label col-xs-4">Status</label> 
                                     <div class="col-xs-8">
                                         <select id="select1" name="select1" class="select form-control">
-                                            <option value="rabbit">Rabbit</option>
-                                            <option value="duck">Duck</option>
-                                            <option value="fish">Fish</option>
+                                            <option value="ACTIVE">ACTIVE</option>
+                                            <option value="DEACTIVE">DEACTIVE</option>
                                         </select>
                                     </div>
                                 </div> 
@@ -130,7 +127,7 @@
 
 
             <div class="row">
-                <div class="col-md-2">.col-md-8</div>
+                <div class="col-md-2"></div>
                 <div class="col-md-10">
 
                     <table id="example" class="display" cellspacing="0" width="100%">
