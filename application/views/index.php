@@ -28,7 +28,7 @@
             <div class="container">
                 <div class="wthree-header">
                     <div class="agileits-logo navbar-left">
-                        <h1 class="wow swing animated" data-wow-delay=".5s"><a href="index.html">Arogya</a></h1>
+                        <h1 class="wow swing animated" data-wow-delay=".5s"><a href="index.html">AROGYA HOSPITAL</a></h1>
                     </div>
                     <div class="navbar-right social-icons wow fadeInRight animated" data-wow-delay=".5s"> 
                         <ul>
@@ -54,7 +54,7 @@
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav navbar-center w3l-effect">
-                                <li><a href="index.html">Home</a></li>
+                                <li><a href="#">Home</a></li>
                                 <li><a href="#about" class="scroll">About</a></li> 
                                 <li><a href="#services" class="scroll">Services</a></li> 
                                 <li><a href="#team" class="scroll">Team</a></li>
@@ -75,21 +75,21 @@
         <!-- welcome -->
         <div class="welcome" id="welcome">
             <div class="container">
-                <h3 class="w3layouts-title wow fadeInDown animated" data-wow-delay=".5s">Welcome </h3>			
+                <h3 class="w3layouts-title wow fadeInDown animated" data-wow-delay=".5s">Welcome to Our Arogya Hospital</h3>			
                 <div class="welcome-info">
                     <h2 class="wow fadeInLeft animated" data-wow-delay=".5s">Our Hospitality Specializations </h2>			
-                    <p class="wel-text wow fadeInRight animated" data-wow-delay=".5s">Nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.</p>			
+                    <p class="wel-text wow fadeInRight animated" data-wow-delay=".5s">We are for you, for future generation, for a healthy generation.</p>			
                     <div class="welcome-row">
                         <div class="col-md-3 welcome-grids wow zoomIn animated" data-wow-delay=".5s">
-                            <h5>OUR OBJECTIVE</h5>
-                            <p class="text">Lorem ipsum dolor sit amet, consectetur adipi est eligendi scing elit</p>
+                            <h5>OUR VISION</h5>
+                            <p class="text">Improving health through trusted information</p>
                             <div class="welcome-w3lsicon">
                                 <span><i class="glyphicon glyphicon-briefcase"></i> </span>
                             </div>
                         </div>
                         <div class="col-md-3 welcome-grids welcome-mdl wow zoomIn animated" data-wow-delay=".5s">
-                            <h5>RESOURCES</h5>
-                            <p class="text">Lorem ipsum dolor sit amet, consectetur adipi est eligendi scing elit</p>
+                            <h5>OUR MISSION</h5>
+                            <p class="text">Transforming healthcare by leading Arogya, informatics, and information governance.</p>
                             <div class="welcome-w3lsicon">
                                 <span><i class="glyphicon glyphicon-check"></i></span>
                             </div>
@@ -102,12 +102,19 @@
                             </div>
                         </div>
                         <div class="col-md-3 welcome-grids wow zoomIn animated" data-wow-delay=".5s">
-                            <h5>OUR SERVICES</h5>
-                            <p class="text">Lorem ipsum dolor sit amet, consectetur adipi est eligendi scing elit</p>
+                            <h5>OUR OBJECTIVE</h5>
+                            <p class="text">Generating a healthy generation</p>
                             <div class="welcome-w3lsicon">
                                 <span><i class="glyphicon glyphicon-thumbs-up"></i></span>
                             </div>
                         </div> 
+<!--                        <div class="col-md-3 welcome-grids wow zoomIn animated" data-wow-delay=".5s">
+                            <h5>OUR VALUES</h5>
+                            <p class="text">Respect Excellence Leadership Integrity</p>
+                            <div class="welcome-w3lsicon">
+                                <span><i class="glyphicon glyphicon-thumbs-up"></i></span>
+                            </div>
+                        </div> -->
                         <div class="clearfix"> </div>
                     </div>
                 </div>
@@ -125,20 +132,21 @@
                             <img src="<?php echo base_url('images/img1.jpg'); ?>" alt="">
                         </div>
                         <div class="col-md-8 col-sm-8 about-w3ls-text wow zoomInRight animated" data-wow-delay=".9s">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rutrum iaculis enim, non convallis felis mattis at. Donec fringilla lacus eu pretium rutrum. Cras aliquet congue ullamcorper. Etiam mattis eros eu ullamcorper volutpat. Proin ut dui a urna efficitur varius. </p>
-                            <p>Quisque molestie cursus mi et congue consectetur adipiscing elit cras rutrum iaculis enim, Lorem ipsum dolor sit amet, non convallis felis mattis at.</p>
+                            <p>Arogya Hospitals is the most accredited hospital in the Sri Lankan healthcare sector. Since 2002, Arogya Hospitals has revolutionized the healthcare industry through infrastructure development and advancement of products and services, with a view to deliver healthcare that is on par with global medical standards.</p>
+                            <p>Arogya Hospitals is committed to provide compassionate care and excellent service that transcends conventional healthcare.</p>
                         </div>
                         <div class="clearfix"> </div>
                     </div>
                     <div class="col-md-4 about-right w3-agileits wow slideInRight animated" data-wow-delay=".5s">
-                        <h4>Our Advantages </h4>
+                        <h4>Our Advantages / Services</h4>
                         <ul>
-                            <li><span class="glyphicon glyphicon-menu-right"></span>Sed eu augue eget massa gravida</li>
-                            <li><span class="glyphicon glyphicon-menu-right"></span>Vivamus finibus velit quis orci</li>
-                            <li><span class="glyphicon glyphicon-menu-right"></span>Donec et nibh massa viverra luctus.</li>
-                            <li><span class="glyphicon glyphicon-menu-right"></span>Lorem ipsum dolor sit consectetur </li>
-                            <li><span class="glyphicon glyphicon-menu-right"></span>Sed eu augue eget massa gravida</li>
-                            <li><span class="glyphicon glyphicon-menu-right"></span>Vivamus finibus velit quis orci</li>
+                            <li><span class="glyphicon glyphicon-menu-right"></span>On call Facility</li>
+                            <li><span class="glyphicon glyphicon-menu-right"></span>Lowest hospital rates</li>
+                            <li><span class="glyphicon glyphicon-menu-right"></span>Skilled doctor service</li>
+                            <li><span class="glyphicon glyphicon-menu-right"></span>Pharmacy</li>
+                            <li><span class="glyphicon glyphicon-menu-right"></span>Lab facilities</li>
+                            <li><span class="glyphicon glyphicon-menu-right"></span>Quick reports</li>
+                            <li><span class="glyphicon glyphicon-menu-right"></span>24 x 7 service</li>
                         </ul>
                     </div>
                     <div class="clearfix"> </div>
@@ -156,29 +164,29 @@
                     <div class="col-md-3 col-sm-3 col-xs-6 services-agile-grid">
                         <span class="glyphicon glyphicon-check wthree-effect" aria-hidden="true"></span>
                         <div class="services-text w3-agileits">
-                            <h5 class="w3-agile-counter">89,147</h5> 
-                            <p>Vivamus finibus</p>
+                            <h5 class="w3-agile-counter">592</h5> 
+                            <p>NON-CLINICAL STAFF</p>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-3 col-xs-6 services-agile-grid">
                         <span class="glyphicon glyphicon-user wthree-effect" aria-hidden="true"></span>
                         <div class="services-text">
-                            <h5 class="w3-agile-counter">1,85,147</h5>
-                            <p>Itaque ear</p>
+                            <h5 class="w3-agile-counter">524</h5>
+                            <p>MEDICAL STAFF</p>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-3 col-xs-6 services-agile-grid">
                         <span class="glyphicon glyphicon-heart-empty wthree-effect" aria-hidden="true"></span>
                         <div class="services-text w3-agileits">
-                            <h5 class="w3-agile-counter">5,896</h5> 
-                            <p>Mauris a quam</p>
+                            <h5 class="w3-agile-counter">50</h5> 
+                            <p>HEALTH CARE CENTER</p>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-3 col-xs-6 services-agile-grid">
                         <span class="glyphicon glyphicon-bookmark wthree-effect" aria-hidden="true"></span>
                         <div class="services-text">
-                            <h5 class="w3-agile-counter">2,85,147</h5> 
-                            <p>Lorem ipsum dolor</p>
+                            <h5 class="w3-agile-counter">790</h5> 
+                            <p>SUPPORT STAFF</p>
                         </div>
                     </div>
                     <div class="clearfix"> </div>
@@ -216,11 +224,11 @@
                                 </ul>  
                             </div>
                         </div>
-                        <h4>Tincidun</h4>
-                        <p>Aenean pulvinar ac enimet posuere tincidunt velit tincidunt Utin  Porttitor vestibulum eu </p>
+                        <h4>Dr. R.M.L.C. Ratnayake</h4>
+                        <p>MBBS(Sri Lanka) SLMC Reg.No.25555 </p>
                     </div>					
                     <div class="col-md-3 team-grids wow zoomIn animated" data-wow-delay=".5s">
-                        <img class="img-responsive" src="<?php echo base_url('images/img1.jpg'); ?>" alt="">
+                        <img class="img-responsive" src="<?php echo base_url('images/img1_1.jpg'); ?>" alt="">
                         <div class="agileits-captn"> 
                             <div class="social-icons"> 
                                 <ul>
@@ -231,8 +239,8 @@
                                 </ul>  
                             </div>
                         </div>
-                        <h4>Velit uti</h4>
-                        <p>Pulvinar ac aenean enimet posuere tincidunt velit tincidunt Utin  Porttitor vestibulum eu </p>
+                        <h4>Dr. W.C.N. Wimalasooriya</h4>
+                        <p>MBBS(Sri Lanka) SLMC Reg.No.25658</p>
                     </div>	
                     <div class="col-md-3 team-grids wow zoomIn animated" data-wow-delay=".5s">
                         <img class="img-responsive" src="<?php echo base_url('images/t2.jpg'); ?>" alt="">
@@ -246,8 +254,8 @@
                                 </ul>  
                             </div>
                         </div>
-                        <h4>Posuere</h4>
-                        <p>Tincidunt aenean pulvinar acenimet posuere velit tincidunt Utin  Porttitor vestibulum eu </p>
+                        <h4>Dr. P.D.T. Padeniya</h4>
+                        <p>MBBS(Sri Lanka), MD (Dermatology) SLMC Reg.No.23695</p>
                     </div>	
                     <div class="col-md-3 team-grids wow zoomIn animated" data-wow-delay=".5s">
                         <img class="img-responsive" src="<?php echo base_url('images/t3.jpg'); ?>" alt="">
@@ -261,8 +269,8 @@
                                 </ul>  
                             </div>
                         </div> 
-                        <h4>Augc sfe</h4>
-                        <p>Aenean pulvinar ac enimet posuere tincidunt velit tincidunt Utin  Porttitor vestibulum eu </p>
+                        <h4>Dr. A.G. Wanigaratne</h4>
+                        <p>MBBS(Sri Lanka), VP, SLMC Reg.No.25178</p>
                     </div>	
                     <div class="clearfix"> </div>
                 </div> 
@@ -272,15 +280,15 @@
         <!-- portfolio -->
         <div id="portfolio" class="portfolio">
             <div class="container">
-                <h3 class="w3layouts-title wow fadeInDown animated" data-wow-delay=".5s">Portfolio</h3>   
+                <h3 class="w3layouts-title wow fadeInDown animated" data-wow-delay=".5s">DISCOVER MEDICAL SPECIALTIES</h3>   
                 <div class="sap_tabs">			
                     <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
                         <ul class="resp-tabs-list wow fadeInUp animated" data-wow-delay=".7s">
                             <li class="resp-tab-item"><span>All</span></li>
-                            <li class="resp-tab-item"><span>Category1</span></li>
-                            <li class="resp-tab-item"><span>Category2</span></li>
-                            <li class="resp-tab-item"><span>Category3</span></li>
-                            <li class="resp-tab-item"><span>Category4</span></li>					
+                            <li class="resp-tab-item"><span>Dental Care</span></li>
+                            <li class="resp-tab-item"><span>General Medicine</span></li>
+                            <li class="resp-tab-item"><span>Cardiac Care</span></li>
+                            <li class="resp-tab-item"><span>Ophthalmology</span></li>					
                         </ul>	
                         <div class="clearfix"> </div>	
                         <div class="resp-tabs-container">
@@ -535,9 +543,8 @@
                                         <img src="images/t4.jpg" alt="" />
                                     </div>
                                     <div class="testimonial-right">
-                                        <h5>Jark Kohnson</h5>
-                                        <p><span>"</span> Lorem ipsum dolor sit amet consec tetuer adi piscing elit Praesent vestibulum 
-                                            molestie lacus consec tetuer adi piscing elit Praesent vestibulum molestie lacus <span>"</span>
+                                        <h5>U.G. Bandara</h5>
+                                        <p><span>"</span> Best hospital service, recommend 100%.   <span>"</span>
                                         </p>
                                     </div>
                                     <div class="clearfix"> </div>
@@ -551,9 +558,8 @@
                                         <img src="images/t5.jpg" alt="" />
                                     </div>
                                     <div class="testimonial-right">
-                                        <h5>Geo Mehak</h5>
-                                        <p><span>"</span> Lorem ipsum dolor sit amet consec tetuer adi piscing elit Praesent vestibulum 
-                                            molestie lacus consec tetuer adi piscing elit Praesent vestibulum molestie lacus <span>"</span>
+                                        <h5>K.L. Sampath</h5>
+                                        <p><span>"</span> Great service and best place to go with the best doctors in the area. <span>"</span>
                                         </p>
                                     </div>
                                     <div class="clearfix"> </div>
@@ -567,9 +573,8 @@
                                         <img src="images/t6.jpg" alt="" />
                                     </div>
                                     <div class="testimonial-right">
-                                        <h5>David Smith</h5>
-                                        <p><span>"</span> Lorem ipsum dolor sit amet consec tetuer adi piscing elit Praesent vestibulum 
-                                            molestie lacus consec tetuer adi piscing elit Praesent vestibulum molestie lacus <span>"</span>
+                                        <h5>I.G. Ranjani</h5>
+                                        <p><span>"</span> Very good service of all the staff. Fully satisfied. <span>"</span>
                                         </p>
                                     </div>
                                     <div class="clearfix"> </div>
@@ -589,7 +594,7 @@
                 <div class="contact-form">
                     <div class="col-md-7 contact-right wow fadeInRight animated" data-wow-delay=".5s">
                         <h5>Miscellaneous information:</h5>
-                        <p>Landitiis atque corrupti quos dolores et quas molestias excepturim </p>
+                        <p>Post your Comments and Suggestions here…</p>
                         <form action="#" method="post">  
                             <input type="text" name="Name" placeholder="Name" required="">
                             <input type="text" class="email" name="Email" placeholder="Email" required="">
@@ -601,16 +606,16 @@
                     <div class="col-md-5 contact-left">
                         <div class="address wow fadeInLeft animated" data-wow-delay=".5s">
                             <h5>Address:</h5>
-                            <p><i class="glyphicon glyphicon-home"></i> 333 Broome St New York, NY 10002, </p>
+                            <p><i class="glyphicon glyphicon-home"></i> No.43, Colombo Rd, Ginigathena. </p>
                         </div>
                         <div class="address address-mdl wow fadeInLeft animated" data-wow-delay=".5s">
                             <h5>Phones:</h5>
-                            <p><i class="glyphicon glyphicon-earphone"></i> +9900887766</p>
-                            <p><i class="glyphicon glyphicon-phone"></i> +11 222 333</p>
+                            <p><i class="glyphicon glyphicon-earphone"></i> +94 51 2242238</p>
+                            <p><i class="glyphicon glyphicon-phone"></i> +94 71 7856342</p>
                         </div>
                         <div class="address wow fadeInLeft animated" data-wow-delay=".5s">
                             <h5>Email:</h5>
-                            <p><i class="glyphicon glyphicon-envelope"></i> <a href="mailto:info@example.com">mail@example.com</a></p>
+                            <p><i class="glyphicon glyphicon-envelope"></i> <a href="mailto:info@example.com">arogyahospital@gmail.com</a></p>
                         </div>
                     </div>
                     <div class="clearfix"></div>
@@ -625,8 +630,8 @@
         <div class="footer">
             <div class="container">
                 <div class="col-md-4 footer-grids wow fadeInLeft animated" data-wow-delay=".5s">
-                    <h3>About :</h3>
-                    <p>Sed ut turpis elit ullamcorper in auctor non, accumsan vel lacus nulla auctor cursus nunc. Maecenas ultricies dolor in urna tempus, id egestas erat finibus  interdum lectus eget scelerisque.</p>
+                    <h3>Small Description about our hospital :</h3>
+                    <p>Arogya Hospital is a private hospital committed to delivering exceptional healthcare across a range of specialties </p>
                 </div>
                 <div class="col-md-4 footer-grids wow fadeInRight animated" data-wow-delay=".5s">
                     <h3>Newsletter :</h3>
@@ -634,11 +639,14 @@
                         <input type="email" name="Email" placeholder="Email" required="">
                         <input type="submit" value="Submit">
                     </form>
+                    <h3>Get the App :</h3>
+                    <img src="<?= base_url('images/app.png')?>"/>
                 </div>
                 <div class="col-md-4 footer-grids wow fadeInLeft animated" data-wow-delay=".5s">
                     <h3>Office Hours :</h3>
-                    <h5><b>Mon-Fri:</b> 10am-9pm </h5>
-                    <h5><b>Sat-Sun:</b> By Special Appointment</h5>
+                    <h5>24 x 7 service </h5>
+                    <h5><b>Mon-Fri:</b> 7.00am – 8.00pm </h5>
+                    <h5><b>Sat-Sun:</b> 7.00 am – 9.00 pm</h5>
                 </div>
                 <div class="clearfix"> </div>
             </div>
@@ -647,7 +655,7 @@
         <!-- copy right -->
         <div class="footer-bottom">
             <div class="container"> 
-                <p>© 2017 Surgeon . All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+                <p>© 2018 . All rights reserved | Design by <a href="#">AROGYA HOSPITAL</a></p>
             </div>
         </div>  
         <!-- //copy right -->
