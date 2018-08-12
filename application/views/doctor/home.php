@@ -49,6 +49,7 @@
                     <?php $this->load->view('doctor/_tree_doctor'); ?>
                 </div>
                 <div class="col-md-6">
+                    <h2>Doctor</h2>
                     <a href="<?php echo base_url('Doctor_Controller/loadAvailability'); ?>">
                         <img src="<?= base_url('/images/icon-doctor.png') ?>" alt="..." class="img-thumbnail tile-icon" title="My Availability">
                     </a>
@@ -63,6 +64,12 @@
                     </a>
                     <a href="<?php echo base_url('Doctor_Controller/loadPatientList');?>">
                         <img src="<?= base_url('/images/icon-patient.png') ?>" alt="..." class="img-thumbnail tile-icon" title="Patient Details">
+                    </a>
+                      <a href="<?php echo base_url('#'); ?>">
+                        <img src="<?= base_url('/images/icon-report.png') ?>" alt="..." title="Report" class="img-thumbnail tile-icon">
+                    </a>
+                    <a href="<?php echo base_url('#'); ?>">
+                        <img src="<?= base_url('/images/icon-profile.png') ?>" alt="..." title="Profile" class="img-thumbnail tile-icon">
                     </a>
                 </div>
                 <div class="col-md-4">
