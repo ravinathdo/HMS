@@ -49,9 +49,18 @@
                     <?php $this->load->view('ward/_tree_ward'); ?>
                 </div>
                 <div class="col-md-10">
-                    <h2>LAB</h2>
+                    <h2>WARD</h2>
                     <a href="<?php echo base_url('WARD_Controller/loadWardManage'); ?>">
                         <img src="<?= base_url('/images/icon-ward.png') ?>" alt="..." class="img-thumbnail tile-icon" title="Purchasing Items">
+                    </a>
+                    <a href="<?php echo base_url('#'); ?>">
+                        <img src="<?= base_url('/images/icon-ambulance-request.png') ?>" alt="..." class="img-thumbnail tile-icon" title="Ambulance Request">
+                    </a>
+                    <a href="<?php echo base_url('#'); ?>">
+                        <img src="<?= base_url('/images/icon-hms-users.png') ?>" alt="..." class="img-thumbnail tile-icon" title="Staff Manage">
+                    </a>
+                    <a href="<?php echo base_url('#'); ?>">
+                        <img src="<?= base_url('/images/icon-patient-list.png') ?>" alt="..." class="img-thumbnail tile-icon" title="Approve Patients">
                     </a>
                 </div>
             </div>
