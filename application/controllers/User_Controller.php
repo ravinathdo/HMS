@@ -11,6 +11,16 @@ class User_Controller extends CI_Controller {
 //        $this->load->view('Welcome');
         $this->load->view('index');
     }
+    
+    
+    
+     public function logoutHMS() {
+        $this->session->unset_userdata('userbean');
+        $this->session->unset_userdata('logged_in');
+//        $this->load->view('Welcome');
+//        $this->load->view('Admin_Controller');
+        redirect('/Admin_Controller/');
+    }
 
     public function index() {
         $this->load->view('');
