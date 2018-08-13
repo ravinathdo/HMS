@@ -56,10 +56,11 @@
                             <h3><img src="<?= base_url('/images/icon-applointment.png') ?>" style="width: 30px" /> New Doctor Clinic Appointment</h3>
                         </div>
                         <div class="panel-body">
+                        <span class="mando-msg">* fields are mandatory</span>
 
                             <form class="form-horizontal" action="<?= base_url('Patient_Controller/appointment') ?>" method="post">
                                 <div class="form-group">
-                                    <label for="doctor_id" class="control-label col-xs-4">Doctor</label> 
+                                    <label for="doctor_id" class="control-label col-xs-4">Doctor <span class="mando-msg">*</span></label> 
                                     <div class="col-xs-8">
                                         <select id="doctor_id" required="" name="doctor_id" class="select form-control">
                                             <option value="">--seletc doctor--</option> 
@@ -74,9 +75,9 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="appointment_date" class="control-label col-xs-4">Appointment Date</label> 
+                                    <label for="appointment_date" class="control-label col-xs-4">Appointment Date <span class="mando-msg">*</span></label> 
                                     <div class="col-xs-8">
-                                        <input id="appointment_date" name="appointment_date" type="date" min="<?php echo $this->session->userdata('today') ?>" class="form-control">
+                                        <input id="appointment_date" required="" name="appointment_date" type="date" min="<?php echo $this->session->userdata('today') ?>" class="form-control">
                                     </div>
                                 </div> 
                                 <div class="form-group row">

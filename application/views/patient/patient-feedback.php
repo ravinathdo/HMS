@@ -87,7 +87,7 @@
                                 </td>
                                 <td style="width: 10%">
                                     <span class="btn btn-default btn-xs"><?= $value->created_date ?></span>
-                                    <img src="<?= base_url('images/details_close.png') ?>" />
+                                    <a href="<?= base_url('Patient_Controller/removeFeedback')?>/<?= $value->id ?>"<img src="<?= base_url('images/details_close.png') ?>" />
                                 </td>
                             </tr>
                         <?php }

@@ -56,17 +56,18 @@
                         </div>
                         <div class="panel-body">
                             <?= $msg ?>
+                            <span class="mando-msg">* fields are mandatory</span>
                             <form class="form-horizontal" method="post" action="<?= base_url('Patient_Controller/OPDAppointment') ?>">
                                 <div class="form-group">
-                                    <label for="text" class="control-label col-xs-4">Appointment Date</label> 
+                                    <label for="text" class="control-label col-xs-4">Appointment Date <span class="mando-msg">*</span></label> 
                                     <div class="col-xs-8">
                                         <input id="text" required="" name="appointment_date" min="<?php echo $this->session->userdata('today')?>" type="date" class="form-control">
                                     </div>
                                 </div> 
                                 <div class="form-group">
-                                    <label for="text" class="control-label col-xs-4">OPD Doctor</label> 
+                                    <label for="text" class="control-label col-xs-4">OPD Doctor  <span class="mando-msg">*</span></label> 
                                     <div class="col-xs-8">
-                                        <select id="select" name="doctor_id" class="select form-control" required="" >
+                                        <select id="select"  name="doctor_id" class="select form-control" required="" >
                                             <option value="">--select doctor--</option>
                                             <?php foreach ($this->session->userdata('categoryDoctorList') as $value) {
                                                 ?><option value="<?= $value->id ?>"><?= $value->first_name ?></option> <?php }
@@ -81,9 +82,9 @@
                                     </div>
                                 </div> 
                                 <div class="form-group">
-                                    <label for="text" class="control-label col-xs-4">Card Number</label> 
+                                    <label for="text" class="control-label col-xs-4">Card Number  <span class="mando-msg">*</span></label> 
                                     <div class="col-xs-8">
-                                        <input id="text" required="" name="" type="text"  class="form-control">
+                                        <input id="text" required="" name="" type="number"  class="form-control">
                                     </div>
                                 </div> 
                                 <div class="form-group row">

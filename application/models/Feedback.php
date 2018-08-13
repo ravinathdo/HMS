@@ -23,6 +23,12 @@ class Feedback extends MY_Model {
     public $created_date;
     public $created_user;
 
+    
+    public function deleteFeedback($param) {
+        $this->db->where('id',$param);
+        $this->db->delete('hms_feedback');
+    }
+    
     public function getUserFeedback($userid) {
         $this->db->select('hms_feedback.*');
         $this->db->from('hms_feedback');

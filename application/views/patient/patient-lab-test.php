@@ -86,8 +86,11 @@
                 </div>
                 <div class="col-md-5">
 
+                    
+                    
+                    
 
-                    <table class="table-bordered" style="width: 100%">
+                    <table class="table-bordered" id="example" style="width: 100%">
                         <thead>
                             <tr>
                                 <td>Test</td>
@@ -108,6 +111,15 @@
                         ?>
 
                     </table>
+               
+                    <link href="<?= base_url('css/jquery.dataTables.min.css')?>" rel="stylesheet" type="text/css"/>
+                    <script src="<?= base_url('js/jquery.dataTables.min.js')?>" type="text/javascript"></script>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            $('#example').DataTable();
+                        });
+                    </script>
+                    
                 </div>
             </div>
         </div>

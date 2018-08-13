@@ -44,6 +44,18 @@ class Patient_Controller extends CI_Controller {
         $this->load->view('patient/patient-feedback', $data);
     }
 
+    public function removeFeedback($feed_id) {
+        $this->load->model(array('Feedback'));
+        $data['msg'] = '';
+        $feedback = new Feedback();
+        $feedback->deleteFeedback($feed_id);
+        
+        $userFeedback = $feedback->getUserFeedback($this->session->userdata('userbean')->id);
+        $data['userFeedback'] = $userFeedback;
+//        echo '<tt><pre>' . var_export($userFeedback, TRUE) . '</pre></tt>';
+        $this->load->view('patient/patient-feedback', $data);
+    }
+
     public function loadViewLabTestCenters() {
         $this->load->model(array('LabTest', 'Center'));
         $data['msg'] = '';
@@ -172,6 +184,8 @@ class Patient_Controller extends CI_Controller {
         //get the doctor details by ID
         $doctorDetail = $doctor->getDoctorDetails($doctorappointment->doctor_id);
 
+
+//        echo '<tt><pre>' . var_export($doctorDetail, TRUE) . '</pre></tt>';
         //create the object
         $doctorPayment = new DoctorPayment();
         $doctorPayment->doctor_id = $doctorDetail[0]->id;
