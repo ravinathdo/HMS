@@ -55,59 +55,102 @@
                             <h3> <img src="<?= base_url('/images/icon-patient.png') ?>" style="width: 30px" />  Patient Registration</h3>
                         </div>
                         <div class="panel-body">
-                            
-                              <form class="form-horizontal" action="<?php echo base_url('/Patient_Controller/patientRegister') ?>" method="post">
-                        <div class="form-group">
-                            <label class="control-label col-xs-4" for="first_name">First Name</label> 
-                            <div class="col-xs-8">
-                                <input id="first_name" name="first_name" type="text" class="form-control" required="required">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="last_name" class="control-label col-xs-4">Last Name</label> 
-                            <div class="col-xs-8">
-                                <input id="last_name" name="last_name" type="text" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="telephone" class="control-label col-xs-4">Telephone Number</label> 
-                            <div class="col-xs-8">
-                                <input id="telephone" name="telephone" type="text" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="telephone" class="control-label col-xs-4">Date of Birth</label> 
-                            <div class="col-xs-8">
-                                <input id="dob" name="dob" type="date" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="control-label col-xs-4">Email</label> 
-                            <div class="col-xs-8">
-                                <input id="email" name="email" type="text" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="pword" class="control-label col-xs-4">Password</label> 
-                            <div class="col-xs-8">
-                                <input id="pword" name="pword" type="text" class="form-control" required="required">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="repword" class="control-label col-xs-4">Retype Password</label> 
-                            <div class="col-xs-8">
-                                <input id="repword" name="repword" type="text" class="form-control">
-                            </div>
-                        </div> 
-                        <div class="form-group row">
-                            <div class="col-xs-offset-4 col-xs-8">
-                                <button name="submit" type="submit" class="btn btn-primary">Submit</button>
-                            </div>
-                        </div>
-                    </form>
-                            
+                            <?= $msg ?>
+                            <form class="form-horizontal" action="<?php echo base_url('/Admin_Controller/patientRegistration') ?>" method="post">
+                                <div class="form-group">
+                                    <label class="control-label col-xs-4" for="first_name">First Name</label> 
+                                    <div class="col-xs-8">
+                                        <input id="first_name" name="first_name" type="text" class="form-control" required="required">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="last_name" class="control-label col-xs-4">Last Name</label> 
+                                    <div class="col-xs-8">
+                                        <input id="last_name" name="last_name" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="telephone" class="control-label col-xs-4">Telephone Number</label> 
+                                    <div class="col-xs-8">
+                                        <input id="telephone" name="telephone" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="telephone" class="control-label col-xs-4">Date of Birth</label> 
+                                    <div class="col-xs-8">
+                                        <input id="dob" name="dob" type="date" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" class="control-label col-xs-4">Email</label> 
+                                    <div class="col-xs-8">
+                                        <input id="email" name="email" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pword" class="control-label col-xs-4">Password</label> 
+                                    <div class="col-xs-8">
+                                        Email ID will be the default password
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-xs-offset-4 col-xs-8">
+                                        <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+
                         </div>
                     </div>
+
+
+
+
+                    <table id="example" class="display" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>Patient No</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Telephone</th>
+                                <th>Date of Birth</th>
+                                <th>Email</th>
+                                <th>Status</th>
+                                <th>Role</th>
+                                <th>Created Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            foreach ($patientList as $value) {
+                                ?>
+                                <tr>
+                                    <td><?= $value->first_name ?></td>
+                                    <td><?= $value->first_name  ?></td>
+                                    <td><?= $value->first_name  ?></td>
+                                    <td><?= $value->first_name  ?></td>
+                                    <td><?= $value->first_name  ?></td>
+                                    <td><?= $value->first_name  ?></td>
+                                    <td><?= $value->first_name  ?></td>
+                                    <td><?= $value->first_name  ?></td>
+                                    <td><a href="admin_update_item.php?id=<?= $row['id']; ?>">Update</a></td>
+                                </tr>
+                                <?php
+                            }
+                            ?>
+
+                        </tbody>
+                    </table>
+                    <link href="css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+                    <script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+            $(document).ready(function () {
+                $('#example').DataTable();
+            });
+                    </script>
+
+
 
 
                 </div>

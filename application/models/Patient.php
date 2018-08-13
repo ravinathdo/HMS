@@ -21,6 +21,7 @@ class Patient extends MY_Model {
     public $first_name;
     public $last_name;
     public $telephone;
+    public $dob;
     public $email;
     public $pword;
     public $status_code;
@@ -39,7 +40,8 @@ class Patient extends MY_Model {
         $this->last_name = $this->input->post('last_name');
         $this->telephone = $this->input->post('telephone');
         $this->email = $this->input->post('email');
-        $this->pword = $this->input->post('pword');
+        $this->dob = $this->input->post('dob');
+        $this->pword = sha1($this->input->post('pword')); 
 //        $this->repword = $this->input->post('repword');
         $this->status_code = 'ACTIVE';
         $this->user_role = 'PATIENT';

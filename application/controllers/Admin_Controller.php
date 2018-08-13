@@ -24,7 +24,7 @@ class Admin_Controller extends CI_Controller {
 
         date_default_timezone_set('Asia/Colombo');
         $today = date("YYYY-mm-dd", time());
-        
+
         if ($login != null) {
             //login success
             $newdata = array(
@@ -92,10 +92,18 @@ class Admin_Controller extends CI_Controller {
         $doctor->getPostData();
         $doctor->created_user = $this->session->userdata('userbean')->id;
 
-        //echo '<tt><pre>' . var_export($doctor, TRUE) . '</pre></tt>';
-        $doctor->save();
+        $save = $doctor->save();
+        $db_error = $this->db->error();
+//        echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
+        if (!empty($db_error)) {
+            $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
+        } else {
+            $data['msg'] = '<p class="text-success">New registration has been successful, please login ,<br> Patient Reg No ' . $patient->id . ' </p>';
+        }
 
         $doctor_list = $doctor->get();
+
+
 
         $data['doctor_list'] = $doctor_list;
         $data['msg'] = '<p class="text-success">New Doctor Registered Successfuly</p>';
@@ -103,8 +111,33 @@ class Admin_Controller extends CI_Controller {
     }
 
     public function loadUserRegistration() {
-//        $this->load->model(array(''));
+        $this->load->model(array('User'));
+        $user = new User();
         $data['msg'] = '';
+
+        $data['userList'] = $user->get();
+        $this->load->view('admin/admin-user-registration', $data);
+    }
+
+    public function userRegistration() {
+        $this->load->model(array('User'));
+        $user = new User();
+        $data['msg'] = '';
+
+        //collect the user input
+        $user->getPostData();
+        $user->created_user = $this->session->userdata('userbean')->id;
+        $user->save();
+
+        $db_error = $this->db->error();
+//        echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
+        if ($db_error['code'] == 0) {
+            $data['msg'] = '<p class="text-success">New registration has been successful </p>';
+        } else {
+            $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
+        }
+
+        $data['userList'] = $user->get();
         $this->load->view('admin/admin-user-registration', $data);
     }
 
@@ -115,11 +148,40 @@ class Admin_Controller extends CI_Controller {
     }
 
     public function loadPatientRegistration() {
-//        $this->load->model(array(''));
+        $this->load->model(array('Patient'));
         $data['msg'] = '';
+        $patient0 = new Patient();
+
+        $data['patientList'] = $patient0->get();
         $this->load->view('admin/admin-patient-registration', $data);
     }
 
+    
+    
+    public function patientRegistration() {
+        $this->load->model(array('Patient'));
+        $data['msg'] = '';
+        $patient0 = new Patient();
+
+        //collect input
+        $patient0->getPostData();
+        
+        $patient0->pword = sha1($this->input->post('email'));
+        $patient0->save();
+        
+        $db_error = $this->db->error();
+//        echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
+        if ($db_error['code'] == 0) {
+            $data['msg'] = '<p class="text-success"> New registration has been successful </p>';
+        } else {
+            $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
+        }
+        $data['patientList'] = $patient0->get();
+        $this->load->view('admin/admin-patient-registration', $data);
+    }
+
+    
+    
     public function loadPatientList() {
 //        $this->load->model(array(''));
         $data['msg'] = '';

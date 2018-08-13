@@ -13,7 +13,20 @@
  */
 class User extends MY_Model {
 
-    //put your code here
+//put your code here
+    const DB_TABLE = 'hms_user';
+    const DB_TABLE_PK = 'id';
+
+    public $id;
+    public $first_name;
+    public $last_name;
+    public $nic;
+    public $user_role;
+    public $telephone;
+    public $email;
+    public $empno;
+    public $status_code;
+    public $created_user;
 
     public function array_from_post($fields) {
         $data = array();
@@ -21,6 +34,18 @@ class User extends MY_Model {
             $data[$field] = $this->input->post($field);
         }
         return $data;
+    }
+
+    public function getPostData() {
+        $this->first_name = $this->input->post('first_name');
+        $this->last_name = $this->input->post('last_name');
+        $this->nic = $this->input->post('nic');
+        $this->pword = sha1($this->input->post('nic'));
+        $this->user_role =  $this->input->post('user_role');
+        $this->telephone = $this->input->post('telephone');
+        $this->email = $this->input->post('email');
+        $this->empno = $this->input->post('empno');
+        $this->status_code = 'ACTIVE';
     }
 
     public function getPatientLogin($formData) {
@@ -37,7 +62,7 @@ class User extends MY_Model {
             return FALSE;
         }
     }
-    
+
     public function getAdminLogin($formData) {
         $this->db->select('hms_user.*');
         $this->db->from('hms_user');
@@ -52,7 +77,7 @@ class User extends MY_Model {
             return FALSE;
         }
     }
-    
+
     public function getDoctorLogin($formData) {
         $this->db->select('hms_doctor.*');
         $this->db->from('hms_doctor');

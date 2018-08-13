@@ -45,6 +45,7 @@ class Doctor extends MY_Model {
         $this->doc_fee = $this->input->post('doc_fee');
         $this->slmc_no = $this->input->post('slmc_no');
         $this->category = $this->input->post('category');
+        $this->category = $this->input->post('opd');
         $this->status_code = 'ACTIVE';
         $this->user_role = 'DOCTOR';
     }

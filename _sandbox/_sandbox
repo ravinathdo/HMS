@@ -60,10 +60,10 @@ http://localhost:81/HMS/Admin_Controller/
 
 
 $patient->save();
-            $db_error = $this->db->error();
-//            echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
-            if (!empty($db_error)) {
-                $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
-            } else {
-                $data['msg'] = '<p class="text-success">New registration has been successful, please login ,<br> Patient Reg No ' . $patient->id . ' </p>';
-            }
+   $db_error = $this->db->error();
+            echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
+        if ($db_error['code'] == 0) {
+            $data['msg'] = '<p class="text-success">New registration has been successful </p>';
+        } else {
+            $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
+        }

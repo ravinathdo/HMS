@@ -57,55 +57,57 @@
 
                         </div>
                         <div class="panel-body">
-                            <form class="form-horizontal">
+                            <?= $msg ?>
+                            <form class="form-horizontal" action="<?= base_url('Admin_Controller/userRegistration') ?>" method="post">
                                 <div class="form-group">
                                     <label for="text" class="control-label col-xs-4">First Name</label> 
                                     <div class="col-xs-8">
-                                        <input id="text" name="text" type="text" class="form-control">
+                                        <input id="text" name="first_name" type="text"  class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="text1" class="control-label col-xs-4">Last Name</label> 
                                     <div class="col-xs-8">
-                                        <input id="text1" name="text1" type="text" class="form-control">
+                                        <input id="text1" name="last_name" type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="text2" class="control-label col-xs-4">NIC</label> 
                                     <div class="col-xs-8">
-                                        <input id="text2" name="text2" type="text" class="form-control">
+                                        <input id="text2" name="nic" type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="select" class="control-label col-xs-4">User Role</label> 
                                     <div class="col-xs-8">
-                                        <select id="select" name="select" class="select form-control">
+                                        <select id="select" name="user_role" class="select form-control">
                                             <option value="">--select--</option>
+                                            <option value="ADMIN">ADMIN</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="text3" class="control-label col-xs-4">Telephone</label> 
                                     <div class="col-xs-8">
-                                        <input id="text3" name="text3" type="text" class="form-control">
+                                        <input id="text3" name="telephone" type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="text4" class="control-label col-xs-4">Email</label> 
                                     <div class="col-xs-8">
-                                        <input id="text4" name="text4" type="text" class="form-control">
+                                        <input id="text4" name="email" type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="text5" class="control-label col-xs-4">Employee No</label> 
                                     <div class="col-xs-8">
-                                        <input id="text5" name="text5" type="text" class="form-control">
+                                        <input id="text5" name="empno" type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="select1" class="control-label col-xs-4">Status</label> 
                                     <div class="col-xs-8">
-                                        <select id="select1" name="select1" class="select form-control">
+                                        <select id="select1" name="status_code" class="select form-control">
                                             <option value="ACTIVE">ACTIVE</option>
                                             <option value="DEACTIVE">DEACTIVE</option>
                                         </select>
@@ -129,7 +131,7 @@
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-10">
-
+                    <?php // echo '<tt><pre>' . var_export($userList, TRUE) . '</pre></tt>'; ?>
                     <table id="example" class="display" cellspacing="0" width="100%">
                         <thead>
                             <tr>
@@ -142,21 +144,29 @@
                                 <th>Status</th>
                                 <th>Created Date</th>
                                 <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-default btn-xs">Reset</button>
-                                </td>
+                            <?php
+                            foreach ($userList as $value) {
+                                ?>
+                                <tr>
+                                    <td><?= $value->first_name ?></td>
+                                    <td><?= $value->last_name ?></td>
+                                    <td><?= $value->nic ?></td>
+                                    <td><?= $value->user_role?></td>
+                                    <td><?= $value->telephone?></td>
+                                    <td><?= $value->email?></td>
+                                    <td><?= $value->empno ?></td>
+                                    <td><?= $value->status_code ?></td>
+                                    <td><?= $value->created_date ?></td>
+                                    <td>
+                                        <a href="" class="btn btn-default btn-xs" >Rest</a>
+                                    </td>
+                                    <?php
+                                }
+                                ?>
                             </tr>
                         </tbody>
                     </table>
