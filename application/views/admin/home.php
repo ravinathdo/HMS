@@ -60,11 +60,9 @@
                         <img src="<?= base_url('/images/icon-purchasing.png') ?>"  alt="..." class="img-thumbnail tile-icon" title="Item Purchasing">
                     </a>
                     <a href="<?php echo base_url('Admin_Controller/loadPatientRegistration'); ?>">
-                        <img src="<?= base_url('/images/icon-patient.png') ?>"  alt="..." class="img-thumbnail tile-icon" title="Item Purchasing">
+                        <img src="<?= base_url('/images/icon-patient.png') ?>"  alt="..." class="img-thumbnail tile-icon" title="Patient Registration">
                     </a>
-                    <a href="<?php echo base_url('Admin_Controller/loadPatientList'); ?>">
-                        <img src="<?= base_url('/images/icon-patient-list.png') ?>"  alt="..." class="img-thumbnail tile-icon" title="Item Purchasing">
-                    </a>
+                    
                     <a href="<?php echo base_url('#'); ?>">
                         <img src="<?= base_url('/images/icon-report.png') ?>" alt="..." title="Report" class="img-thumbnail tile-icon">
                     </a>

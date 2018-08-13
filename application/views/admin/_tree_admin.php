@@ -11,9 +11,7 @@
     <li><a href="<?php echo base_url('Admin_Controller/loadPatientRegistration'); ?>">
             <img src="<?= base_url('/images/icon-patient.png') ?>"  alt="..." class="img-thumbnail menu-icon" title="Patients Registration"> Patients Registration
         </a></li>
-    <li><a href="<?php echo base_url('Admin_Controller/loadPatientList'); ?>">
-            <img src="<?= base_url('/images/icon-patient-list.png') ?>"  alt="..." class="img-thumbnail menu-icon" title="Patients"> Patients
-        </a></li>
+  
         <li> 
         <a href="<?php echo base_url('#'); ?>">
             <img src="<?= base_url('/images/icon-report.png') ?>" alt="..." class="img-thumbnail menu-icon" title="Patient Details"> Reports

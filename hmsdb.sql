@@ -1,6 +1,6 @@
 /*
 SQLyog Ultimate v8.55 
-MySQL - 5.5.5-10.2.7-MariaDB : Database - hmsdb
+MySQL - 5.5.54 : Database - hmsdb
 *********************************************************************
 */
 
@@ -38,7 +38,7 @@ CREATE TABLE `hms_doctor` (
   `first_name` varchar(100) DEFAULT NULL,
   `last_name` varchar(100) DEFAULT NULL,
   `nic` varchar(12) DEFAULT NULL,
-  `pword` text DEFAULT NULL,
+  `pword` text,
   `email` varchar(50) DEFAULT NULL,
   `telephone` varchar(20) DEFAULT NULL,
   `degree` varchar(200) DEFAULT NULL,
@@ -47,7 +47,7 @@ CREATE TABLE `hms_doctor` (
   `slmc_no` varchar(20) DEFAULT NULL,
   `status_code` varchar(20) DEFAULT 'ACTIVE',
   `category` varchar(20) DEFAULT 'OPD',
-  `created_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `created_user` int(5) DEFAULT NULL,
   `user_role` varchar(20) DEFAULT 'DOCTOR',
   PRIMARY KEY (`id`)
@@ -67,11 +67,11 @@ CREATE TABLE `hms_doctor_appointment` (
   `patient_id` int(5) DEFAULT NULL,
   `appointment_date` varchar(30) DEFAULT NULL,
   `status_code` varchar(20) DEFAULT 'OPEN',
-  `doctor_comment` text DEFAULT NULL,
+  `doctor_comment` text,
   `doctor_fee` int(5) DEFAULT NULL,
   `hospital_fee` int(5) DEFAULT NULL,
   `fee` int(5) DEFAULT NULL,
-  `created_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `created_user` int(5) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
@@ -117,7 +117,7 @@ CREATE TABLE `hms_employee_salary` (
   `user_id` int(5) DEFAULT NULL,
   `salary_month` varchar(20) DEFAULT NULL,
   `salary_amount` varbinary(10) DEFAULT NULL,
-  `created_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `created_user` int(5) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -130,8 +130,8 @@ DROP TABLE IF EXISTS `hms_feedback`;
 
 CREATE TABLE `hms_feedback` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
-  `feedback` text DEFAULT NULL,
-  `created_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `feedback` text,
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `created_user` int(5) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
@@ -148,7 +148,7 @@ CREATE TABLE `hms_inventory` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `item_name` varchar(50) DEFAULT NULL,
   `qty` int(5) DEFAULT NULL,
-  `created_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `created_user` int(5) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -181,7 +181,7 @@ CREATE TABLE `hms_opd_appointment` (
   `doctor_id` int(5) DEFAULT NULL,
   `appointment_date` varchar(30) DEFAULT NULL,
   `status_code` varchar(20) DEFAULT NULL,
-  `created_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `created_user` int(5) DEFAULT NULL,
   `updated_user` int(5) DEFAULT NULL,
   `fee` int(5) DEFAULT NULL,
@@ -201,17 +201,17 @@ CREATE TABLE `hms_patient` (
   `telephone` varchar(20) DEFAULT NULL,
   `dob` varchar(25) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
-  `pword` text DEFAULT NULL,
+  `pword` text,
   `status_code` varchar(20) DEFAULT 'ACTIVE',
   `user_role` varchar(20) DEFAULT 'PATIENT',
-  `created_date` timestamp NULL DEFAULT current_timestamp(),
+  `created_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `NewIndex1_email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 /*Data for the table `hms_patient` */
 
-insert  into `hms_patient`(`id`,`first_name`,`last_name`,`telephone`,`dob`,`email`,`pword`,`status_code`,`user_role`,`created_date`) values (1,NULL,NULL,NULL,NULL,'f',NULL,'ACTIVE','PATIENT',NULL),(2,'Ravinath','Fernando','333',NULL,'ff','sss','ACTIVE','PATIENT',NULL),(3,'Ravinath','Fernando','112312321',NULL,'fg','112233','ACTIVE','PATIENT',NULL),(4,'Ravinath','Fernando','112312321',NULL,'ggg','112233','ACTIVE','PATIENT',NULL),(5,'Ravinath','Fernando','213213',NULL,'h','12','ACTIVE','PATIENT',NULL),(6,'Ravinath','Fernando','345345',NULL,'hj','retret','ACTIVE','PATIENT',NULL),(7,'Ravinath','Fernando','3423432',NULL,'kk','1111','ACTIVE','PATIENT','2018-07-27 16:35:10'),(8,'Ravinath','Fernando','2222',NULL,'d','86f7e437faa5a7fce15d1ddcb9eaeaea377667b8','ACTIVE','PATIENT','2018-07-27 16:42:28'),(9,'         ','','',NULL,'kkl','78f8bb4c43c7c3e4e5883e8e9b18518c89d965ff','ACTIVE','PATIENT','2018-08-08 14:37:15'),(10,'kjkkkjk','','',NULL,'s','65aea98c57dcd2a1ffb0d35ca20603caaf7d9f03','ACTIVE','PATIENT','2018-08-08 14:39:39'),(11,'Ravinath','Fernando','0715833470',NULL,'ravinathdo@gmail.com','7c4a8d09ca3762af61e59520943dc26494f8941b','ACTIVE','PATIENT','2018-08-08 15:37:56'),(12,'sadsadsad','sadsad','34234234',NULL,'ravinathdoxxx@gmail.com','a','ACTIVE','PATIENT','2018-08-13 16:18:08');
+insert  into `hms_patient`(`id`,`first_name`,`last_name`,`telephone`,`dob`,`email`,`pword`,`status_code`,`user_role`,`created_date`) values (1,NULL,NULL,NULL,NULL,'f',NULL,'ACTIVE','PATIENT',NULL),(2,'Ravinath','Fernando','333',NULL,'ff','sss','ACTIVE','PATIENT',NULL),(3,'Ravinath','Fernando','112312321',NULL,'fg','112233','ACTIVE','PATIENT',NULL),(4,'Ravinath','Fernando','112312321',NULL,'ggg','112233','ACTIVE','PATIENT',NULL),(5,'Ravinath','Fernando','213213',NULL,'h','12','ACTIVE','PATIENT',NULL),(6,'Ravinath','Fernando','345345',NULL,'hj','retret','ACTIVE','PATIENT',NULL),(7,'Ravinath','Fernando','3423432',NULL,'kk','1111','ACTIVE','PATIENT','2018-07-27 16:35:10'),(8,'Ravinath','Fernando','2222',NULL,'d','86f7e437faa5a7fce15d1ddcb9eaeaea377667b8','ACTIVE','PATIENT','2018-07-27 16:42:28'),(9,'         ','','',NULL,'kkl','78f8bb4c43c7c3e4e5883e8e9b18518c89d965ff','ACTIVE','PATIENT','2018-08-08 14:37:15'),(10,'kjkkkjk','','',NULL,'s','65aea98c57dcd2a1ffb0d35ca20603caaf7d9f03','ACTIVE','PATIENT','2018-08-08 14:39:39'),(11,'Ravinath','Fernando','0715833470',NULL,'ravinathdo@gmail.com','7c4a8d09ca3762af61e59520943dc26494f8941b','ACTIVE','PATIENT','2018-08-08 15:37:56'),(12,'sadsadsad','sadsad','34234234',NULL,'ravinathdoxxx@gmail.com','a','ACTIVE','PATIENT','2018-08-13 16:18:08'),(16,'adasdasd','asdasd','334444','2018-08-16','ravinathdoxxxxx@gmail.com','53608b35d62b0ae0ee4cfffcf1b4e1b7dc006cd6','ACTIVE','PATIENT','2018-08-13 21:00:10');
 
 /*Table structure for table `hms_purchase` */
 
@@ -223,7 +223,7 @@ CREATE TABLE `hms_purchase` (
   `qty` int(5) DEFAULT NULL,
   `status_code` varchar(20) DEFAULT NULL,
   `request_by` int(5) DEFAULT NULL,
-  `created_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `created_user` int(5) DEFAULT NULL,
   `amount` double(10,2) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -254,13 +254,13 @@ CREATE TABLE `hms_user` (
   `first_name` varchar(100) DEFAULT NULL,
   `last_name` varchar(100) DEFAULT NULL,
   `nic` varchar(12) DEFAULT NULL,
-  `pword` text DEFAULT NULL,
+  `pword` text,
   `user_role` varchar(20) DEFAULT NULL,
   `telephone` varchar(20) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `empno` varchar(10) DEFAULT NULL,
   `status_code` varchar(20) DEFAULT NULL,
-  `created_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `created_user` int(5) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `NewIndex1` (`nic`)
@@ -303,10 +303,10 @@ DROP TABLE IF EXISTS `hms_vehicle_request`;
 CREATE TABLE `hms_vehicle_request` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `request_by` int(5) DEFAULT NULL,
-  `comment` text DEFAULT NULL,
+  `comment` text,
   `status_code` varchar(20) DEFAULT 'PENDING',
-  `vehicle_id` int(5) DEFAULT 0,
-  `created_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  `vehicle_id` int(5) DEFAULT '0',
+  `created_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `created_user` int(5) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -337,7 +337,7 @@ CREATE TABLE `hms_ward_patient` (
   `ward_id` int(5) DEFAULT NULL,
   `patient_id` int(5) DEFAULT NULL,
   `comment` varchar(250) DEFAULT NULL,
-  `created_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `created_user` int(5) DEFAULT NULL,
   `status_code` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -355,7 +355,7 @@ DROP TABLE IF EXISTS `hms_ward_staff`;
 CREATE TABLE `hms_ward_staff` (
   `ward_id` int(5) NOT NULL,
   `staff_id` int(5) NOT NULL,
-  `created_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `responsibility` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`ward_id`,`staff_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
