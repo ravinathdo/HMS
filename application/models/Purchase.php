@@ -27,9 +27,10 @@ class Purchase extends MY_Model {
     
     //get pending item request
     public function getPendingRequest() {
-        $this->db->select('hms_purchase.*');
+        $this->db->select('hms_purchase.*,hms_user.first_name');
         $this->db->from('hms_purchase');
-        $where = " status_code = 'PENDING'";
+        $this->db->join('hms_user','hms_user.id = hms_purchase.request_by');
+        $where = " hms_purchase.status_code = 'PENDING'";
         $this->db->where($where);
         $query = $this->db->get();
 

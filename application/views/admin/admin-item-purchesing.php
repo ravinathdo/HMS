@@ -64,15 +64,16 @@
                                     <td>Request Date</td>
                                     <td>Request By</td>
                                 </tr>
-                                <?php foreach ($array as $value) { ?>
+                                <?php foreach ($purchasePendingList as $value) { ?>
                                     <tr>
-                                        <td>Item Name</td>
-                                        <td>Qty</td>
-                                        <td>Status</td>
-                                        <td>Request Date</td>
+                                        <td><?= $value->purchasing_item ?></td>
+                                        <td><?= $value->qty ?></td>
+                                        <td><?= $value->status_code ?></td>
+                                        <td><?= $value->created_date ?></td>
+                                        <td><?= $value->first_name ?></td>
                                         <td>
-                                            <button type="button" class="btn btn-warning btn-xs">Reject</button>
-                                            <button type="button" class="btn btn-success btn-xs">Accept</button>
+                                            <a href="<?= base_url('Admin_Controller/changeItemPurcheseStatus/REJECT/'.$value->id)?>" class="btn btn-warning btn-xs"> Reject </a>
+                                            <a href="" class="btn btn-success btn-xs"> Accept </a>
                                         </td>
                                     </tr>
                                 <?php } ?>

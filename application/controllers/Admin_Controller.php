@@ -144,14 +144,29 @@ class Admin_Controller extends CI_Controller {
     public function loadItemPurchesing() {
 //        $this->load->model(array(''));
         $data['msg'] = '';
-         $this->load->model(array('Purchase'));
+        $this->load->model(array('Purchase'));
         $data['msg'] = '';
-        
+
         $purchase = new Purchase();
-        $data['purchasePendingList'] =$purchase->getPendingRequest();
-        
+        $data['purchasePendingList'] = $purchase->getPendingRequest();
+
 //        $this->load->view('admin/admin-purchase-list', $data);
+
+        $this->load->view('admin/admin-item-purchesing', $data);
+    }
+
+    public function changeItemPurcheseStatus($status, $id) {
+        $data['msg'] = '';
+        $this->load->model(array('Purchase'));
+        $purchase = new Purchase();
         
+        //change status
+        echo $status;
+        echo $id;
+        
+
+        $data['purchasePendingList'] = $purchase->getPendingRequest();
+
         $this->load->view('admin/admin-item-purchesing', $data);
     }
 
