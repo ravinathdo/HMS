@@ -67,3 +67,6 @@ $patient->save();
         } else {
             $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
         }
+
+
+                        <span class="mando-msg">* fields are mandatory</span>

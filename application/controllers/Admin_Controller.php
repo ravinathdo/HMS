@@ -144,6 +144,14 @@ class Admin_Controller extends CI_Controller {
     public function loadItemPurchesing() {
 //        $this->load->model(array(''));
         $data['msg'] = '';
+         $this->load->model(array('Purchase'));
+        $data['msg'] = '';
+        
+        $purchase = new Purchase();
+        $data['purchasePendingList'] =$purchase->getPendingRequest();
+        
+//        $this->load->view('admin/admin-purchase-list', $data);
+        
         $this->load->view('admin/admin-item-purchesing', $data);
     }
 
@@ -156,8 +164,6 @@ class Admin_Controller extends CI_Controller {
         $this->load->view('admin/admin-patient-registration', $data);
     }
 
-    
-    
     public function patientRegistration() {
         $this->load->model(array('Patient'));
         $data['msg'] = '';
@@ -165,10 +171,10 @@ class Admin_Controller extends CI_Controller {
 
         //collect input
         $patient0->getPostData();
-        
+
         $patient0->pword = sha1($this->input->post('email'));
         $patient0->save();
-        
+
         $db_error = $this->db->error();
 //        echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
         if ($db_error['code'] == 0) {
@@ -180,8 +186,6 @@ class Admin_Controller extends CI_Controller {
         $this->load->view('admin/admin-patient-registration', $data);
     }
 
-    
-    
     public function loadPatientList() {
 //        $this->load->model(array(''));
         $data['msg'] = '';

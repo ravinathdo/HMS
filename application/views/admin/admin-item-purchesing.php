@@ -55,7 +55,7 @@
                             <h3> <img src="<?= base_url('/images/icon-purchasing.png') ?>" style="width: 30px" />  Item Purchasing </h3>
                         </div>
                         <div class="panel-body">
-                            
+                            <?php echo '<tt><pre>' . var_export($purchasePendingList, TRUE) . '</pre></tt>'; ?>
                             <table class="table-bordered" style="width: 100%">
                                 <tr>
                                     <td>Item Name</td>
@@ -64,19 +64,19 @@
                                     <td>Request Date</td>
                                     <td>Request By</td>
                                 </tr>
-                                <tr>
-                                    <td>Item Name</td>
-                                    <td>Qty</td>
-                                    <td>Status</td>
-                                    <td>Request Date</td>
-                                    <td>
-                                        <button type="button" class="btn btn-warning btn-xs">Reject</button>
-                                        <button type="button" class="btn btn-success btn-xs">Accept</button>
-                                    </td>
-                                </tr>
+                                <?php foreach ($array as $value) { ?>
+                                    <tr>
+                                        <td>Item Name</td>
+                                        <td>Qty</td>
+                                        <td>Status</td>
+                                        <td>Request Date</td>
+                                        <td>
+                                            <button type="button" class="btn btn-warning btn-xs">Reject</button>
+                                            <button type="button" class="btn btn-success btn-xs">Accept</button>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
                             </table>
-                            
-                            
                         </div>
                     </div>
 

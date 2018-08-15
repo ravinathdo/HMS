@@ -52,14 +52,14 @@
 
                     <div class="panel panel-warning">
                         <div class="panel-heading ">
-                            <h3> <img src="<?= base_url('/images/icon-patient.png') ?>" style="width: 30px" />  Patient Registration</h3>
+                            <h3><img src="<?= base_url('/images/icon-patient.png') ?>" style="width: 30px" /> Patient Registration </h3>
                         </div>
                         <div class="panel-body">
                             <?= $msg ?>
-                            
+                            <span class="mando-msg">* fields are mandatory</span>
                             <form class="form-horizontal" action="<?php echo base_url('/Admin_Controller/patientRegistration') ?>" method="post">
                                 <div class="form-group">
-                                    <label class="control-label col-xs-4" for="first_name">First Name</label> 
+                                    <label class="control-label col-xs-4" for="first_name">First Name <span class="mando-msg">*</span></label> 
                                     <div class="col-xs-8">
                                         <input id="first_name" name="first_name" type="text" class="form-control" required="required">
                                     </div>
@@ -83,13 +83,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="email" class="control-label col-xs-4">Email</label> 
+                                    <label for="email" class="control-label col-xs-4">Email <span class="mando-msg">*</span></label> 
                                     <div class="col-xs-8">
-                                        <input id="email" name="email" type="text" class="form-control">
+                                        <input id="email" name="email" type="text" class="form-control" required="">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="pword" class="control-label col-xs-4">Password</label> 
+                                    <label for="pword" class="control-label col-xs-4">Password </label> 
                                     <div class="col-xs-8">
                                         Email ID will be the default password
                                     </div>
@@ -161,9 +161,9 @@
                             <link href="<?= base_url('css/jquery.dataTables.min.css') ?>" rel="stylesheet" type="text/css"/>
                             <script src="<?= base_url('js/jquery.dataTables.min.js') ?>" type="text/javascript"></script>
                             <script type="text/javascript">
-                    $(document).ready(function () {
-                        $('#example').DataTable();
-                    });
+            $(document).ready(function () {
+                $('#example').DataTable();
+            });
                             </script>
                         </div>
                     </div>
