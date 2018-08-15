@@ -159,15 +159,33 @@ class Admin_Controller extends CI_Controller {
         $data['msg'] = '';
         $this->load->model(array('Purchase'));
         $purchase = new Purchase();
-        
+
         //change status
         echo $status;
         echo $id;
-        
 
-        $data['purchasePendingList'] = $purchase->getPendingRequest();
+        $setStatusChange = $purchase->setStatusChange(array('status_code' => $status), $id);
+        $db_error = $this->db->error();
+        echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
+        if ($db_error['code'] == 0) {
+            $data['msg'] = '<p class="text-success">Record updated successfully </p>';
+        } else {
+            $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
+        }
 
+        $data['purchasePendingList'] = $purchase->getPendingRequest($setStatusChange, $id);
         $this->load->view('admin/admin-item-purchesing', $data);
+    }
+
+    public function itemPurcheseHistory() {
+        $this->load->model(array('Purchase'));
+        $purchase = new Purchase();
+        $data['msg'] = '';
+
+        $get = $purchase->getItemHistory();
+        $data['itemHistory'] = $get;
+
+        $this->load->view('admin/admin-purchase-item-list', $data);
     }
 
     public function loadPatientRegistration() {

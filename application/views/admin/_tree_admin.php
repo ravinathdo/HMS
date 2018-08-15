@@ -8,6 +8,9 @@
     <li><a href="<?php echo base_url('Admin_Controller/loadItemPurchesing'); ?>">
             <img src="<?= base_url('/images/icon-purchasing.png') ?>"  alt="..." class="img-thumbnail menu-icon" title="Item Purchasing"> Item Purchasing
         </a></li>
+    <li><a href="<?php echo base_url('Admin_Controller/itemPurcheseHistory'); ?>">
+            <img src="<?= base_url('/images/icon-purchasing.png') ?>"  alt="..." class="img-thumbnail menu-icon" title="Item Purchasing"> Purchasing History
+        </a></li>
     <li><a href="<?php echo base_url('Admin_Controller/loadPatientRegistration'); ?>">
             <img src="<?= base_url('/images/icon-patient.png') ?>"  alt="..." class="img-thumbnail menu-icon" title="Patients Registration"> Patients Registration
         </a></li>

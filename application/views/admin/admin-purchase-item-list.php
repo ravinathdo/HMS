@@ -56,30 +56,32 @@
                         </div>
                         <div class="panel-body">
                             <?= $msg ?>
+                            
+                            
+
                             <table class="table-bordered" style="width: 100%">
-                                <tr>
-                                    <td>Item Name</td>
-                                    <td>Qty</td>
-                                    <td>Status</td>
-                                    <td>Request Date</td>
-                                    <td>Request By</td>
-                                    <td></td>
-                                </tr>
-                                <?php 
-                                if($purchasePendingList != null)
-                                foreach ($purchasePendingList as $value) { ?>
-                                    <tr>
-                                        <td><?= $value->purchasing_item ?></td>
-                                        <td><?= $value->qty ?></td>
-                                        <td><?= $value->status_code ?></td>
-                                        <td><?= $value->created_date ?></td>
-                                        <td><?= $value->first_name ?></td>
-                                        <td>
-                                            <a href="<?= base_url('Admin_Controller/changeItemPurcheseStatus/REJECT/'.$value->id)?>" class="btn btn-warning btn-xs"> Reject </a>
-                                            <a href="<?= base_url('Admin_Controller/changeItemPurcheseStatus/ACCEPT/'.$value->id)?>" class="btn btn-success btn-xs"> Accept </a>
-                                        </td>
+                                <thead>
+                                    <tr style="font-weight: bold">
+                                        <th>Item Name</th>
+                                        <th>Qty</th>
+                                        <th>Status</th>
+                                        <th>Request Date</th>
+                                        <th>Request By</th>
                                     </tr>
-                                <?php } ?>
+                                </thead>
+
+                                <?php
+                                if ($itemHistory != null)
+                                    foreach ($itemHistory as $value) {
+                                        ?>
+                                        <tr>
+                                            <td><?= $value->purchasing_item ?></td>
+                                            <td><?= $value->qty ?></td>
+                                            <td><?= $value->status_code ?></td>
+                                            <td><?= $value->created_date ?></td>
+                                            <td><?= $value->first_name ?></td>
+                                        </tr>
+                                    <?php } ?>
                             </table>
                         </div>
                     </div>

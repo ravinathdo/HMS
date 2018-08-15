@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="<?php echo base_url('css/responsiveslides.css') ?>">
         <script src="<?php echo base_url('js/jquery.min.js'); ?>"></script>		
         <script src="<?php echo base_url('js/responsiveslides.min.js'); ?>"></script>
-
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
         <script>
             // You can also use "$(window).load(function() {"
             $(function () {
@@ -51,22 +51,23 @@
                 <div class="col-md-7">
                     <h2>Administrator</h2>
                     <a href="<?php echo base_url('Admin_Controller/loadDoctorRegistration'); ?>">
-                        <img src="<?= base_url('/images/icon-doctor.png') ?>" alt="..." class="img-thumbnail tile-icon" title="Doctor Registration">
+                        <i class="fas fa-user-md fa-5x img-thumbnail tile-icon"></i>
+                        <!--<img src="" alt="..." class="img-thumbnail tile-icon" title="Doctor Registration">-->
                     </a>
                     <a href="<?php echo base_url('Admin_Controller/loadUserRegistration'); ?>">
-                        <img src="<?= base_url('/images/icon-hms-users.png') ?>"  alt="..." class="img-thumbnail tile-icon" title="User Registration">
+                        <i class="fas fa-users fa-5x img-thumbnail tile-icon"></i>
                     </a>
                     <a href="<?php echo base_url('Admin_Controller/loadItemPurchesing'); ?>">
-                        <img src="<?= base_url('/images/icon-purchasing.png') ?>"  alt="..." class="img-thumbnail tile-icon" title="Item Purchasing">
+                        <i class="fas fa-thermometer  fa-5x img-thumbnail tile-icon"></i>
+                    </a>
+                    <a href="<?php echo base_url('Admin_Controller/itemPurcheseHistory'); ?>">
+                        <i class="fas fa-archive fa-5x img-thumbnail tile-icon"></i>
                     </a>
                     <a href="<?php echo base_url('Admin_Controller/loadPatientRegistration'); ?>">
-                        <img src="<?= base_url('/images/icon-patient.png') ?>"  alt="..." class="img-thumbnail tile-icon" title="Item Purchasing">
+                        <i class="fab fa-accessible-icon  fa-5x img-thumbnail tile-icon"></i>
                     </a>
-<!--                    <a href="<?php // echo base_url('Admin_Controller/loadPurchasePendingList'); ?>">
-                        <img src="<?= base_url('/images/icon-item.png') ?>"  alt="..." class="img-thumbnail tile-icon" title="Item Purchasing">
-                    </a>-->
                     <a href="<?php echo base_url('#'); ?>">
-                        <img src="<?= base_url('/images/icon-report.png') ?>" alt="..." title="Report" class="img-thumbnail tile-icon">
+                        <i class="far fa-address-book   fa-5x img-thumbnail tile-icon"></i>
                     </a>
                     <a href="<?php echo base_url('#'); ?>">
                         <img src="<?= base_url('/images/icon-profile.png') ?>" alt="..." title="Profile" class="img-thumbnail tile-icon">

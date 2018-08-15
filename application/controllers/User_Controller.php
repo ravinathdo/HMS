@@ -11,10 +11,8 @@ class User_Controller extends CI_Controller {
 //        $this->load->view('Welcome');
         $this->load->view('index');
     }
-    
-    
-    
-     public function logoutHMS() {
+
+    public function logoutHMS() {
         $this->session->unset_userdata('userbean');
         $this->session->unset_userdata('logged_in');
 //        $this->load->view('Welcome');
@@ -29,9 +27,17 @@ class User_Controller extends CI_Controller {
     public function loadProfile() {
 //        $this->load->model(array(''));
         $data['msg'] = '';
-
+        $userbean = $this->session->userdata('userbean');
+        echo '<tt><pre>' . var_export($userbean, TRUE) . '</pre></tt>';
         // load according to user role
-        $this->load->view('user-profile', $data);
+        if ($userbean->user_role == 'DOCTOR') {
+            $this->load->view('doctor/user-profile', $data);
+        } else if ($userbean->user_role == 'PATIENT') {
+            $this->load->view('patient/user-profile', $data);
+        } else {
+            //hms users
+            $this->load->view('user-profile', $data);
+        }
     }
 
     /**
