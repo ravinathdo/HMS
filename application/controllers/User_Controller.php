@@ -40,6 +40,52 @@ class User_Controller extends CI_Controller {
         }
     }
 
+    public function changePassword() {
+        $this->load->model(array('User'));
+        $user = new User();
+        
+        $data['msg'] = '';
+        $old_password = $this->input->post('old_password');
+        $new_password = $this->input->post('new_password');
+        $retype_password = $this->input->post('retype_password');
+
+
+        //check the password is correct
+        if (strlen($new_password) >= 6 && $new_password == $retype_password) {
+            echo 'OKs';
+        } else {
+            $data['msg'] = '<p class="text-danger">Invalid password constrains</p>';
+        }
+
+        //check credentials are ok
+
+
+
+        $userbean = $this->session->userdata('userbean');
+        echo '<tt><pre>' . var_export($userbean, TRUE) . '</pre></tt>';
+        // load according to user role
+        if ($userbean->user_role == 'DOCTOR') {
+            $this->load->view('doctor/user-profile', $data);
+        } else if ($userbean->user_role == 'PATIENT') {
+            $this->load->view('patient/user-profile', $data);
+        } else {
+            //hms users
+
+            echo '---------';
+            $post_data = array("nic" => $userbean->nic, "pword" => $old_password);
+            echo '<tt><pre>' . var_export($post_data, TRUE) . '</pre></tt>';
+            echo '---------';
+            $login = $user->getAdminLogin($post_data);
+            if ($login != null) {
+                echo 'User Found';
+            } else {
+                echo 'user not found';
+            }
+
+            $this->load->view('user-profile', $data);
+        }
+    }
+
     /**
      * load home according to each HMS user
      * @param type $param 

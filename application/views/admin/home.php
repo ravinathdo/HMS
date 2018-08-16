@@ -69,7 +69,7 @@
                     <a href="<?php echo base_url('#'); ?>">
                         <i class="far fa-address-book   fa-5x img-thumbnail tile-icon"></i>
                     </a>
-                    <a href="<?php echo base_url('#'); ?>">
+                    <a href="<?php echo base_url('User_Controller/loadProfile'); ?>">
                         <img src="<?= base_url('/images/icon-profile.png') ?>" alt="..." title="Profile" class="img-thumbnail tile-icon">
                     </a>
 
