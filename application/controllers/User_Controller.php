@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User_Controller extends CI_Controller {
 
-    //put your code here
+    //put your code here sample
     public function logout() {
         $this->session->unset_userdata('userbean');
         $this->session->unset_userdata('logged_in');
