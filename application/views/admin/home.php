@@ -64,6 +64,9 @@
                         <i class="fas fa-archive fa-5x img-thumbnail tile-icon"></i>
                     </a>
                     <a href="<?php echo base_url('Admin_Controller/loadPatientRegistration'); ?>">
+                        <img src="<?= base_url('/images/icon-patient.png') ?>"  alt="..." class="img-thumbnail tile-icon" title="Patient Registration">
+                    </a>
+                    
                         <i class="fab fa-accessible-icon  fa-5x img-thumbnail tile-icon"></i>
                     </a>
                     <a href="<?php echo base_url('#'); ?>">
