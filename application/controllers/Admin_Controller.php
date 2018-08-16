@@ -206,10 +206,10 @@ class Admin_Controller extends CI_Controller {
         $patient0->getPostData();
 
         $patient0->pword = sha1($this->input->post('email'));
+//        echo '<tt><pre>' . var_export($patient0, TRUE) . '</pre></tt>';
         $patient0->save();
 
         $db_error = $this->db->error();
-//        echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
         if ($db_error['code'] == 0) {
             $data['msg'] = '<p class="text-success"> New registration has been successful </p>';
         } else {
