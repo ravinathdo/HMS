@@ -23,6 +23,11 @@ class User_Controller extends CI_Controller {
     public function index() {
         $this->load->view('');
     }
+    
+    
+    
+    
+    
 
     public function loadProfile() {
 //        $this->load->model(array(''));

@@ -59,30 +59,37 @@
                         <div class="panel-body">
                             <?= $msg ?>
                             <form class="form-horizontal" action="<?= base_url('Admin_Controller/userRegistration') ?>" method="post">
+                                <span class="mando-msg">* fields are mandatory</span>
                                 <div class="form-group">
-                                    <label for="text" class="control-label col-xs-4">First Name</label> 
+                                    <label for="text" class="control-label col-xs-4">First Name <span class="mando-msg">*</span></label> 
                                     <div class="col-xs-8">
-                                        <input id="text" name="first_name" type="text"  class="form-control">
+                                        <input id="text" name="first_name" type="text"  required="" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="text1" class="control-label col-xs-4">Last Name</label> 
+                                    <label for="text1" class="control-label col-xs-4">Last Name <span class="mando-msg">*</span></label> 
                                     <div class="col-xs-8">
-                                        <input id="text1" name="last_name" type="text" class="form-control">
+                                        <input id="text1" name="last_name" type="text" required="" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="text2" class="control-label col-xs-4">NIC</label> 
+                                    <label for="text2" class="control-label col-xs-4">NIC <span class="mando-msg">*</span></label> 
                                     <div class="col-xs-8">
-                                        <input id="text2" name="nic" type="text" class="form-control">
+                                        <input id="text2" name="nic" type="text" required="" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="select" class="control-label col-xs-4">User Role</label> 
                                     <div class="col-xs-8">
-                                        <select id="select" name="user_role" class="select form-control">
+                                        <select id="select" name="user_role" required="" class="select form-control">
                                             <option value="">--select--</option>
                                             <option value="ADMIN">ADMIN</option>
+                                            <option value="ACCOUNTANT">Accountant</option>
+                                            <option value="LAB">LAB incharge</option>
+                                            <option value="OPD">Patient</option>
+                                            <option value="PHARMACIST">Pharmacist</option>
+                                            <option value="TRANSPORT">Transport Manager</option>
+                                            <option value="WARD">Ward Management</option>
                                         </select>
                                     </div>
                                 </div>
@@ -99,9 +106,9 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="text5" class="control-label col-xs-4">Employee No</label> 
+                                    <label for="text5" class="control-label col-xs-4">Employee No <span class="mando-msg">*</span></label> 
                                     <div class="col-xs-8">
-                                        <input id="text5" name="empno" type="text" class="form-control">
+                                        <input id="text5" name="empno" type="text" required="" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group">

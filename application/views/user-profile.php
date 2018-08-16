@@ -75,7 +75,7 @@
                                 <div class="form-group">
                                     <label for="text2" class="control-label col-xs-4">NIC</label> 
                                     <div class="col-xs-8">
-                                        <input id="text2" name="text2" type="text" class="form-control" >
+                                        <input id="text2" name="text2" type="text" class="form-control" <?php echo $this->session->userdata('userbean')->nic?>>
                                     </div>
                                 </div>
                                 
@@ -89,25 +89,25 @@
                                 <div class="form-group">
                                     <label for="text3" class="control-label col-xs-4">Telephone</label> 
                                     <div class="col-xs-8">
-                                        <input id="text3" name="text3" type="text" class="form-control">
+                                        <input id="text3" name="text3" type="text" class="form-control" <?php echo $this->session->userdata('userbean')->telephone?>>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="text4" class="control-label col-xs-4">Employee No</label> 
                                     <div class="col-xs-8">
-                                        <input id="text4" name="text4" type="text" class="form-control">
+                                        <input id="text4" name="text4" type="text" class="form-control" <?php echo $this->session->userdata('userbean')->empno?>> 
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="text5" class="control-label col-xs-4">Status</label> 
                                     <div class="col-xs-8">
-                                        <input id="text5" name="text5" type="text" class="form-control">
+                                        <input id="text5" name="text5" type="text" class="form-control" <?php echo $this->session->userdata('userbean')->status_code?>>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="text6" class="control-label col-xs-4">Created Date</label> 
                                     <div class="col-xs-8">
-                                        <input id="text6" name="text6" type="text" class="form-control">
+                                        <input id="text6" name="text6" type="text" class="form-control" <?php echo $this->session->userdata('userbean')->created_date?>>
                                     </div>
                                 </div> 
                                 <div class="form-group row">

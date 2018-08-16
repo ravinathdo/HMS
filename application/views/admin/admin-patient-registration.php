@@ -108,50 +108,8 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-10">
-                    <div class="panel panel-success">
-                        <div class="panel-heading ">Patients</div>
-                        <div class="panel-body">
-                             <table id="example" class="display" cellspacing="0" width="100%">
-                        <thead>
-                            <tr>
-                                <th>Patient No</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Telephone</th>
-                                <th>Date of Birth</th>
-                                <th>Email</th>
-                                <th>Status</th>
-                                <th>Role</th>
-                                <th>Created Date</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            foreach ($patientList as $value) {
-                                ?>
-                                <tr>
-                                    <td><?= $value->id ?></td>
-                                    <td><?= $value->first_name ?></td>
-                                    <td><?= $value->last_name ?></td>
-                                    <td><?= $value->telephone ?></td>
-                                    <td><?= $value->dob ?></td>
-                                    <td><?= $value->email ?></td>
-                                    <td><?= $value->status_code ?></td>
-                                    <td><?= $value->user_role ?></td>
-                                    <td><?= $value->created_date ?></td>
-                                    <td><a href="admin_update_item.php?id=">Update</a></td>
-                                </tr>
-                                <?php
-                            }
-                            ?>
-
-
-                </div>
-            </div>
+           
+                          
             <div class="row">
                 <div class="col-md-2"> 
                 </div>
@@ -225,8 +183,6 @@
                     
                 </div>
                 
-            </div>
-        </div>
         <!----End-content----->
         <!---End-wrap---->
         <!---start-footer---->

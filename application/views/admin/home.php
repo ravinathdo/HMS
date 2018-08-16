@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="<?php echo base_url('css/responsiveslides.css') ?>">
         <script src="<?php echo base_url('js/jquery.min.js'); ?>"></script>		
         <script src="<?php echo base_url('js/responsiveslides.min.js'); ?>"></script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
         <script>
             // You can also use "$(window).load(function() {"
             $(function () {
@@ -64,14 +64,14 @@
                         <i class="fas fa-archive fa-5x img-thumbnail tile-icon"></i>
                     </a>
                     <a href="<?php echo base_url('Admin_Controller/loadPatientRegistration'); ?>">
-                        <img src="<?= base_url('/images/icon-patient.png') ?>"  alt="..." class="img-thumbnail tile-icon" title="Patient Registration">
+                        <i class="fas fa-user-tag fa-5x img-thumbnail tile-icon"></i>
                     </a>
-                    
+
                     <a href="<?php echo base_url('#'); ?>">
-                        <i class="far fa-address-book   fa-5x img-thumbnail tile-icon"></i>
+                        <i class="fas fa-address-book   fa-5x img-thumbnail tile-icon"></i>
                     </a>
-                    <a href="<?php echo base_url('#'); ?>">
-                        <img src="<?= base_url('/images/icon-profile.png') ?>" alt="..." title="Profile" class="img-thumbnail tile-icon">
+                    <a href="<?php echo base_url('User_Controller/loadProfile'); ?>">
+                        <i class="fas fa-user-cog fa-5x img-thumbnail tile-icon"></i>
                     </a>
 
                 </div>
@@ -79,7 +79,7 @@
                     <div class="panel panel-danger">
                         <div class="panel-heading ">Dash Board</div>
                         <div class="panel-body">
-                             <button type="button" class="btn btn-danger">10</button> Item request
+                            <button type="button" class="btn btn-danger">10</button> Item request
                         </div>
                     </div>
                 </div>
