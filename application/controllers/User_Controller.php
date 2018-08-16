@@ -77,7 +77,7 @@ class User_Controller extends CI_Controller {
             echo '---------';
             $login = $user->getAdminLogin($post_data);
             if ($login != null) {
-                echo 'User Found';
+                echo 'User Found ';
             } else {
                 echo 'user not found';
             }
