@@ -81,7 +81,8 @@ class User extends MY_Model {
     public function getDoctorLogin($formData) {
         $this->db->select('hms_doctor.*');
         $this->db->from('hms_doctor');
-        $pword = sha1($formData['pword']);
+        $pword = sha1($formData['pword']);        
+        echo $pword;
         $where = " nic = '" . $formData['nic'] . "' AND pword = '" . $pword . "' AND status_code = 'ACTIVE'";
         $this->db->where($where);
         $query = $this->db->get();

@@ -50,12 +50,13 @@ CREATE TABLE `hms_doctor` (
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `created_user` int(5) DEFAULT NULL,
   `user_role` varchar(20) DEFAULT 'DOCTOR',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `NewIndex1` (`nic`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 /*Data for the table `hms_doctor` */
 
-insert  into `hms_doctor`(`id`,`first_name`,`last_name`,`nic`,`pword`,`email`,`telephone`,`degree`,`specialist_id`,`doc_fee`,`slmc_no`,`status_code`,`category`,`created_date`,`created_user`,`user_role`) values (2,'Ravinath','Fernando','863512824dV','b24777061756485c930c12fba0d84d37ab356646','ravinathdo@gmail.com','222','dsfdsf',1,32432,'34234','ACTIVE','OPD','2018-07-27 23:27:35',1,'DOCTOR'),(3,'Ravinathc','Fernando','863512824ddV','b24777061756485c930c12fba0d84d37ab356646','ravinathdo@gmail.com','222','dsfdsf',1,32432,'34234','ACTIVE','OPD','2018-07-27 23:28:29',1,'DOCTOR'),(4,'Ravinathcc','Fernandoc','863512824V','b24777061756485c930c12fba0d84d37ab356646','ravinathdo@gmail.com','222','dsfdsf',1,32432,'34234','ACTIVE','OPD','2018-07-27 23:28:49',1,'DOCTOR'),(5,'dsfsdfsd','fsdfsdfsd','863512825V','7db0e2001b06bfe82272ce0260b2e85297b1e9c0','ravinathdos@gmail.com','0715833470','asdasdsadasd',2,1500,'5566','ACTIVE',NULL,'2018-08-13 15:24:59',1,'DOCTOR'),(6,'sadasdsa','dsadsad','863512826V','193fd28732d1fbd2a420e5456ac3befb1959313a','ravinathdo@gmail.com','0715833470','asdasdsadasd',1,3333,'5566','ACTIVE','OPD','2018-08-13 15:31:39',1,'DOCTOR');
+insert  into `hms_doctor`(`id`,`first_name`,`last_name`,`nic`,`pword`,`email`,`telephone`,`degree`,`specialist_id`,`doc_fee`,`slmc_no`,`status_code`,`category`,`created_date`,`created_user`,`user_role`) values (2,'Ravinath','Fernando','863512824dV','da39a3ee5e6b4b0d3255bfef95601890afd80709','ravinathdo@gmail.com','222','dsfdsf',1,1500,'34234','ACTIVE','OPD','2018-07-27 23:27:35',1,'DOCTOR'),(3,'Ravinathc','Fernando','863512824ddV','b24777061756485c930c12fba0d84d37ab356646','ravinathdo@gmail.com','222','dsfdsf',1,32432,'34234','ACTIVE','OPD','2018-07-27 23:28:29',1,'DOCTOR'),(4,'Ravinathcc','Fernandoc','863512824V','b24777061756485c930c12fba0d84d37ab356646','ravinathdo@gmail.com','222','dsfdsf',1,32432,'34234','ACTIVE','OPD','2018-07-27 23:28:49',1,'DOCTOR'),(5,'dsfsdfsd','fsdfsdfsd','863512825V','7db0e2001b06bfe82272ce0260b2e85297b1e9c0','ravinathdos@gmail.com','0715833470','asdasdsadasd',2,1500,'5566','ACTIVE',NULL,'2018-08-13 15:24:59',1,'DOCTOR'),(6,'sadasdsa','dsadsad','863512826V','193fd28732d1fbd2a420e5456ac3befb1959313a','ravinathdo@gmail.com','0715833470','asdasdsadasd',1,3333,'5566','ACTIVE','OPD','2018-08-13 15:31:39',1,'DOCTOR'),(7,'chamila','perera','888','eaa67f3a93d0acb08d8a5e8ff9866f51983b3c3b','chamila@gmail.com','078555','Bsc',2,2500,'88555','ACTIVE','OPD','2018-08-17 20:53:56',1,'DOCTOR'),(8,'sdsdsdsd','sdsdsd','2131321','3','aas@g.nn','','sdsadsadsa',2,22333,'44455','ACTIVE',NULL,'2018-08-17 22:20:36',1,'DOCTOR'),(9,'sdsdsdsd','sdsdsd','21313212','da39a3ee5e6b4b0d3255bfef95601890afd80709','aas@g.nn','','sdsadsadsa',2,55666,'44455','ACTIVE',NULL,'2018-08-17 22:21:43',1,'DOCTOR'),(10,'sssddff','ssdfsdfsdf','996','ae7b4b79bbda7972ec40d8cd085c7875087973cc','sadasd@afa.com','2222','wqsadsad',1,350,'44455','ACTIVE',NULL,'2018-08-17 23:19:51',1,'DOCTOR');
 
 /*Table structure for table `hms_doctor_appointment` */
 
@@ -209,11 +210,11 @@ CREATE TABLE `hms_patient` (
   `created_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `NewIndex1_email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 /*Data for the table `hms_patient` */
 
-insert  into `hms_patient`(`id`,`first_name`,`last_name`,`telephone`,`dob`,`email`,`pword`,`status_code`,`user_role`,`created_date`) values (1,NULL,NULL,NULL,NULL,'f',NULL,'ACTIVE','PATIENT',NULL),(2,'Ravinath','Fernando','333',NULL,'ff','sss','ACTIVE','PATIENT',NULL),(3,'Ravinath','Fernando','112312321',NULL,'fg','112233','ACTIVE','PATIENT',NULL),(4,'Ravinath','Fernando','112312321',NULL,'ggg','112233','ACTIVE','PATIENT',NULL),(5,'Ravinath','Fernando','213213',NULL,'h','12','ACTIVE','PATIENT',NULL),(6,'Ravinath','Fernando','345345',NULL,'hj','retret','ACTIVE','PATIENT',NULL),(7,'Ravinath','Fernando','3423432',NULL,'kk','1111','ACTIVE','PATIENT','2018-07-27 16:35:10'),(8,'Ravinath','Fernando','2222',NULL,'d','86f7e437faa5a7fce15d1ddcb9eaeaea377667b8','ACTIVE','PATIENT','2018-07-27 16:42:28'),(9,'         ','','',NULL,'kkl','78f8bb4c43c7c3e4e5883e8e9b18518c89d965ff','ACTIVE','PATIENT','2018-08-08 14:37:15'),(10,'kjkkkjk','','',NULL,'s','65aea98c57dcd2a1ffb0d35ca20603caaf7d9f03','ACTIVE','PATIENT','2018-08-08 14:39:39'),(11,'Ravinath','Fernando','0715833470',NULL,'ravinathdo@gmail.com','7c4a8d09ca3762af61e59520943dc26494f8941b','ACTIVE','PATIENT','2018-08-08 15:37:56'),(12,'sadsadsad','sadsad','34234234',NULL,'ravinathdoxxx@gmail.com','a','ACTIVE','PATIENT','2018-08-13 16:18:08'),(16,'adasdasd','asdasd','334444','2018-08-16','ravinathdoxxxxx@gmail.com','53608b35d62b0ae0ee4cfffcf1b4e1b7dc006cd6','ACTIVE','PATIENT','2018-08-13 21:00:10');
+insert  into `hms_patient`(`id`,`first_name`,`last_name`,`telephone`,`dob`,`email`,`pword`,`status_code`,`user_role`,`created_date`) values (1,NULL,NULL,NULL,NULL,'f',NULL,'ACTIVE','PATIENT',NULL),(2,'Ravinath','Fernando','333',NULL,'ff','sss','ACTIVE','PATIENT',NULL),(3,'Ravinath','Fernando','112312321',NULL,'fg','112233','ACTIVE','PATIENT',NULL),(4,'Ravinath','Fernando','112312321',NULL,'ggg','112233','ACTIVE','PATIENT',NULL),(5,'Ravinath','Fernando','213213',NULL,'h','12','ACTIVE','PATIENT',NULL),(6,'Ravinath','Fernando','345345',NULL,'hj','retret','ACTIVE','PATIENT',NULL),(7,'Ravinath','Fernando','3423432',NULL,'kk','1111','ACTIVE','PATIENT','2018-07-27 16:35:10'),(8,'Ravinath','Fernando','2222',NULL,'d','86f7e437faa5a7fce15d1ddcb9eaeaea377667b8','ACTIVE','PATIENT','2018-07-27 16:42:28'),(9,'         ','','',NULL,'kkl','78f8bb4c43c7c3e4e5883e8e9b18518c89d965ff','ACTIVE','PATIENT','2018-08-08 14:37:15'),(10,'kjkkkjk','','',NULL,'s','65aea98c57dcd2a1ffb0d35ca20603caaf7d9f03','ACTIVE','PATIENT','2018-08-08 14:39:39'),(11,'Ravinath','Fernando','0715833470',NULL,'ravinathdo@gmail.com','7c4a8d09ca3762af61e59520943dc26494f8941b','ACTIVE','PATIENT','2018-08-08 15:37:56'),(12,'sadsadsad','sadsad','34234234',NULL,'ravinathdoxxx@gmail.com','a','ACTIVE','PATIENT','2018-08-13 16:18:08');
 
 /*Table structure for table `hms_purchase` */
 
@@ -223,15 +224,17 @@ CREATE TABLE `hms_purchase` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `purchasing_item` varchar(50) DEFAULT NULL,
   `qty` int(5) DEFAULT NULL,
-  `status_code` varchar(20) DEFAULT NULL,
+  `status_code` varchar(20) DEFAULT 'PENDING',
   `request_by` int(5) DEFAULT NULL,
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `created_user` int(5) DEFAULT NULL,
   `amount` double(10,2) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `hms_purchase` */
+
+insert  into `hms_purchase`(`id`,`purchasing_item`,`qty`,`status_code`,`request_by`,`created_date`,`created_user`,`amount`) values (1,'Bed Sheet',25,'REJECT',2,'2018-08-15 20:33:28',2,NULL);
 
 /*Table structure for table `hms_specialist` */
 

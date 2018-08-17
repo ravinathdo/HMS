@@ -81,21 +81,22 @@
                                             <label for="nic" class="control-label col-xs-4">NIC <span class="mando-msg">*</span></label> 
                                             <div class="col-xs-8">
                                                 <input required="" id="nic" name="nic" type="text" class="form-control">
+                                                     Default password will be same as the NICl address
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="nic" class="control-label col-xs-4"></label> 
                                             <div class="col-xs-4">
-                                                <input id="email" name="email" type="text" class="form-control" placeholder="Email">
+                                                <span class="mando-msg">*</span><input id="email" name="email"  required="" type="email" class="form-control" placeholder="Email">
                                             </div>
                                             <div class="col-xs-3">
-                                                <input id="telephone" name="telephone" type="text" class="form-control" placeholder="Telephone">
+                                               <span class="mando-msg">*</span> <input id="telephone" required="" name="telephone" type="text" class="form-control" placeholder="Telephone">
                                             </div>
                                             <div class="col-xs-1">
                                                 <input type="checkbox" name="opd" value="OPD"> OPD
-
                                             </div>
                                         </div>
+                                       
                                         <div class="form-group">
                                             <label for="degree" class="control-label col-xs-4">Degree <span class="mando-msg">*</span></label> 
                                             <div class="col-xs-8">
@@ -139,7 +140,9 @@
 
 
                         </div>
-                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            
+                        </div>
                     </div>
 
 
@@ -153,8 +156,8 @@
                             <table id="example" class="display" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th>first_name</th>
-                                        <th>last_name</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
                                         <th>nic</th>
                                         <th>degree</th>
                                         <th>doc_fee</th>
@@ -173,6 +176,7 @@
                                             <td><?= $value->doc_fee ?></td>
                                             <td><?= $value->slmc_no ?></td>
                                             <td><?= $value->created_date ?></td>
+                                            <td> <a href="<?= base_url('Admin_Controller/loadDoctorUpdate/'.$value->id) ?>">update</a></td>
                                         </tr>
                                         <?php
                                     }

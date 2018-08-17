@@ -51,7 +51,7 @@
                 <div class="col-md-7">
                     <h2>Administrator</h2>
                     <a href="<?php echo base_url('Admin_Controller/loadDoctorRegistration'); ?>">
-                        <i class="fas fa-user-md fa-5x img-thumbnail tile-icon"></i>
+                        <i class="fas fa-user-md fa-5x img-thumbnail tile-icon"></i> Doctor Registration
                         <!--<img src="" alt="..." class="img-thumbnail tile-icon" title="Doctor Registration">-->
                     </a>
                     <a href="<?php echo base_url('Admin_Controller/loadUserRegistration'); ?>">

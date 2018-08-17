@@ -10,6 +10,28 @@ class Admin_Controller extends CI_Controller {
         $this->load->view('admin/admin-login', $data);
     }
 
+    public function updateProfile() {
+        //get the input data
+        $this->load->model(array('Doctor'));
+        $data['msg'] = '';
+        $doctor0 = new Doctor();
+
+        $doctor_id = $this->input->post('id');
+        $status_code = $this->input->post('status_code');
+        $doc_fee = $this->input->post('doc_fee');
+
+        //update ready
+        $updateArray = array('status_code' => $status_code, 'doc_fee' => $doc_fee);
+//        echo '===============';
+//        echo '<tt><pre>' . var_export($updateArray, TRUE) . '</pre></tt>';
+//        echo '===============';
+        $doctor0->updateDoctorStatus($updateArray, $doctor_id);
+
+        $data['docDetails'] = $doctor0->getDoctorDetails($doctor_id);
+
+        $this->load->view('admin/admin-doctor-update', $data);
+    }
+
     /**
      * All user login for HMS staff
      */
@@ -69,6 +91,39 @@ class Admin_Controller extends CI_Controller {
         $this->load->view('admin/home');
     }
 
+    public function restDoctorPassword() {
+        $this->load->model(array('Doctor'));
+        $doctor1 = new Doctor();
+        $data['msg'] = '';
+//        echo '===============';
+//        echo '<tt><pre>' . var_export($updateArray, TRUE) . '</pre></tt>';
+//        echo '===============';
+        $doctor_id = $this->input->post('doctor_id');
+        $doctor_nic = $this->input->post('doctor_nic');
+//        echo $doctor_nic;
+        $sha = sha1($doctor_nic);
+        
+        $updateArray = array('status_code' => 'ACTIVE', 'pword' => $sha);
+        $doctor1->resetPassword($updateArray, $doctor_id);
+
+        //reload doctor
+        $data['docDetails'] = $doctor1->getDoctorDetails($doctor_id);
+//        echo '<tt><pre>' . var_export($data['docDetails'], TRUE) . '</pre></tt>';
+        $data['msg'] = '<p class="text-success">Password reseted successfuly</p>';
+
+        $this->load->view('admin/admin-doctor-update', $data);
+    }
+
+    public function loadDoctorUpdate($doctor_id) {
+        $this->load->model(array('Doctor'));
+        $data['msg'] = '';
+        $doctor0 = new Doctor();
+
+        $data['docDetails'] = $doctor0->getDoctorDetails($doctor_id);
+
+        $this->load->view('admin/admin-doctor-update', $data);
+    }
+
     public function loadDoctorRegistration() {
         $this->load->model(array('Specialist', 'Doctor'));
         $specialist = new Specialist();
@@ -90,11 +145,13 @@ class Admin_Controller extends CI_Controller {
 
         $doctor = new Doctor();
         $doctor->getPostData();
+        echo '<tt><pre>' . var_export($doctor, TRUE) . '</pre></tt>';
+
+
         $doctor->created_user = $this->session->userdata('userbean')->id;
 
         $save = $doctor->save();
         $db_error = $this->db->error();
-//        echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
         if (!empty($db_error)) {
             $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
         } else {
@@ -102,8 +159,6 @@ class Admin_Controller extends CI_Controller {
         }
 
         $doctor_list = $doctor->get();
-
-
 
         $data['doctor_list'] = $doctor_list;
         $data['msg'] = '<p class="text-success">New Doctor Registered Successfuly</p>';
