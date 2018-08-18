@@ -29,6 +29,22 @@ class DoctorAppointment extends MY_Model {
     public $created_date;
     public $created_user;
 
+    public function getDoctorEarnings($doctor_id, $year_month) {
+        $this->db->select('hms_doctor_appointment.*');
+        $this->db->from('hms_doctor_appointment');
+        $where = " hms_doctor_appointment.doctor_id = '" . $doctor_id . "' AND hms_doctor_appointment.status_code = 'COMPLETE' "; 
+        $this->db->where($where);
+        $this->db->like('hms_doctor_appointment.appointment_date', $year_month);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+
     public function array_from_post($fields) {
         $data = array();
         foreach ($fields as $field) {

@@ -1,4 +1,4 @@
-<ul style="padding-left: 5px">
+<!--<ul style="padding-left: 5px">
     <li><a href="<?php echo base_url('Accountant_Controller/loadPurchasingItem'); ?>">
             <img src="<?= base_url('/images/icon-purchasing.png') ?>" alt="..." class="img-thumbnail menu-icon" title="Purchasing Items"> Purchasing Items
         </a></li>
@@ -11,5 +11,5 @@
     <li><a href="<?php echo base_url('Accountant_Controller/loadCostMaintain'); ?>">
             <img src="<?= base_url('/images/icon-cost.png') ?>" alt="..." class="img-thumbnail  menu-icon" title="Cost"> Cost
         </a></li>
-</ul>
+</ul>-->
 

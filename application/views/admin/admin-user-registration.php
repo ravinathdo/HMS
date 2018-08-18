@@ -169,7 +169,7 @@
                                     <td><?= $value->status_code ?></td>
                                     <td><?= $value->created_date ?></td>
                                     <td>
-                                        <a href="" class="btn btn-default btn-xs" >Rest</a>
+                                        <a href="<?= base_url('Admin_Controller/loadUpdateUserProfile/'.$value->id)   ?>" class="btn btn-default btn-xs" >Rest</a>
                                     </td>
                                     <?php
                                 }

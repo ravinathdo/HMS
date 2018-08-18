@@ -1,4 +1,4 @@
-<ul style="padding-left: 5px">
+<!--<ul style="padding-left: 5px">
     <li><a href="<?php echo base_url('Admin_Controller/loadDoctorRegistration'); ?>">
             <img src="<?= base_url('/images/icon-doctor.png') ?>" alt="..." class="img-thumbnail menu-icon" title="Doctor Registration"> Doctor Registration
         </a></li>
@@ -25,5 +25,5 @@
             <img src="<?= base_url('/images/icon-profile.png') ?>" alt="..." class="img-thumbnail menu-icon" title="Patient Details"> Profile
         </a>
     </li>
-</ul>
+</ul>-->
 

@@ -49,33 +49,31 @@
                     <?php $this->load->view('accountant/_tree_accountant'); ?>
                 </div>
                 <div class="col-md-5">
-
+                    <?= $msg ?>
                     <div class="panel panel-warning">
                         <div class="panel-heading ">
                             <h3> <img src="<?= base_url('/images/icon-cost.png') ?>" style="width: 30px" />  Cost Maintain </h3>
-
                         </div>
                         <div class="panel-body">
-
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" action="<?= base_url('Accountant_Controller/costMaintain') ?>" method="post">
                                 <div class="form-group">
                                     <label for="select" class="control-label col-xs-4">Description</label> 
                                     <div class="col-xs-8">
-                                        <input id="text2" name="text2" type="text" class="form-control">
+                                        <input id="text2" required="" name="description" type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="Amount" class="control-label col-xs-4">Amount</label> 
+                                    <label for="" class="control-label col-xs-4">Amount</label> 
                                     <div class="col-xs-8">
-                                        <input id="Amount" name="Amount" type="text" class="form-control">
+                                        <input id="Amount" required=""  name="amount" type="number" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="Amount" class="control-label col-xs-4">Transaction</label> 
                                     <div class="col-xs-8">
-                                        <select id="select" name="select" class="select form-control">
-                                            <option value="">Credit</option>
-                                            <option value="">Debit</option>
+                                        <select id="select" required=""  name="txn_type" class="select form-control">
+                                            <option value="Credit">Credit</option>
+                                            <option value="Debit">Debit</option>
                                         </select>
                                     </div>
                                 </div>
@@ -90,7 +88,6 @@
                     </div>
                 </div>
                 <div class="col-md-5">
-
                     <table class="table-bordered" style="width: 100%">
                         <tr>
                             <td>Date Time</td>
@@ -98,8 +95,19 @@
                             <td>Amount</td>
                             <td>Transaction</td>
                         </tr>
-                    </table>
+                        <?php 
+                        if($costList)
+                        foreach ($costList as $value) { ?>
+                            <tr>
+                                <td><?= $value->created_date ?></td>
+                                <td><?= $value->description ?></td>
+                                <td><?= $value->amount ?></td>
+                                <td><?= $value->txn_type ?></td>
+                            </tr>
+                        <?php }
+                        ?>
 
+                    </table>
                 </div>
             </div>
         </div>

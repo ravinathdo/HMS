@@ -49,68 +49,60 @@
                     <?php //$this->load->view('admin/_tree_admin'); ?>
                 </div>
                 <div class="col-md-5">
-
+                    <?php // echo '<tt><pre>' . var_export($userProfile, TRUE) . '</pre></tt>'; ?>
                     <div class="panel panel-warning">
-                        <div class="panel-heading ">
-                            <h3><img src="<?= base_url('/images/icon-profile.png') ?>" style="width: 30px" /> Profile</h3>
-
+                        <div class="panel-heading">
+                            <h3><img src="<?= base_url('/images/icon-profile.png') ?>" style="width: 30px" /> Patient Update </h3>
                         </div>
                         <div class="panel-body">
-<?= $msg ?>
-                            <form class="form-horizontal">
+                            <?= $msg ?>
+                            <form class="form-horizontal" action="<?= base_url('Admin_Controller/updatePatientProfile') ?>" method="post">
+                                <input type="hidden" name="id" value="<?= $userProfile[0]->id ?>" />
                                 <div class="form-group">
                                     <label for="text" class="control-label col-xs-4">First Name</label> 
                                     <div class="col-xs-8">
-                                        <input id="text" name="first_name" type="text" class="form-control"  value="<?php echo $this->session->userdata('userbean')->first_name?>">
+                                        <input id="text" name="first_name" type="text" class="form-control"  value="<?php echo $userProfile[0]->first_name ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="text1" class="control-label col-xs-4">Last Name</label> 
                                     <div class="col-xs-8">
-                                        <input id="text1" name="last_name" type="text" class="form-control"  value="<?php echo $this->session->userdata('userbean')->last_name?>">
+                                        <input id="text1" name="last_name" type="text" class="form-control"  value="<?php echo $userProfile[0]->last_name ?>" >
                                     </div>
                                 </div>
-                                
-                                
+
                                 <div class="form-group">
-                                    <label for="text2" class="control-label col-xs-4">NIC </label> 
+                                    <label for="" class="control-label col-xs-4">Date of Birth</label> 
                                     <div class="col-xs-8">
-                                        <input id="text2" name="nic" type="text" class="form-control" readonly="" value="<?php echo $this->session->userdata('userbean')->nic ?>" >
-                                    </div>
-                                </div>
-                                
-                                
-                                <div class="form-group">
-                                    <label for="" class="control-label col-xs-4">User Role</label> 
-                                    <div class="col-xs-8">
-                                        <input id="" name="" type="user_role" class="form-control" readonly="" value="<?php echo $this->session->userdata('userbean')->user_role?>">
+                                        <input id="" name="dob" type="date" class="form-control"  value="<?php echo $userProfile[0]->dob ?>" max="<?= $this->session->today?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="text3" class="control-label col-xs-4">Telephone</label> 
                                     <div class="col-xs-8">
-                                        <input id="text3" name="telephone" type="text" class="form-control" value="<?php echo $this->session->userdata('userbean')->telephone?>">
+                                        <input id="text3" name="telephone" type="text" class="form-control" value="<?php echo $userProfile[0]->telephone ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="text4" class="control-label col-xs-4">Employee No</label> 
+                                    <label for="text3" class="control-label col-xs-4">Email</label> 
                                     <div class="col-xs-8">
-                                        <input id="text4" name="empno" type="text" class="form-control"  value="<?php echo $this->session->userdata('userbean')->empno?>" > 
+                                        <input id="text3" name="email" type="text" readonly="" class="form-control" value="<?php echo $userProfile[0]->email ?>">
                                     </div>
                                 </div>
+                               
                                 <div class="form-group">
                                     <label for="text5" class="control-label col-xs-4">Status</label> 
                                     <div class="col-xs-8">
                                         <select class="form-control" name="status_code">
-                                            <option value="ACTIVE"  <?php if($this->session->userdata('userbean')->status_code == 'ACTIVE'){?> selected="" <?php } ?>  >ACTIVE</option>
-                                            <option value="DEACTIVE"  <?php if($this->session->userdata('userbean')->status_code == 'DEACTIVE'){?> selected="" <?php } ?>  >DEACTIVE</option>
+                                            <option value="ACTIVE"  <?php if ($userProfile[0]->status_code == 'ACTIVE') { ?> selected="" <?php } ?>  >ACTIVE</option>
+                                            <option value="DEACTIVE"  <?php if ($userProfile[0]->status_code == 'DEACTIVE') { ?> selected="" <?php } ?>  >DEACTIVE</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="text6" class="control-label col-xs-4">Created Date</label> 
                                     <div class="col-xs-8">
-                                        <input id="text6" name="text6" type="text" class="form-control" readonly="" value="<?php echo $this->session->userdata('userbean')->created_date?>">
+                                        <input id="text6" name="text6" type="text" class="form-control" readonly="" value="<?php echo $userProfile[0]->created_date ?>">
                                     </div>
                                 </div> 
                                 <div class="form-group row">
@@ -122,32 +114,20 @@
                         </div>
                     </div>
 
+
+
+
+
                 </div>
                 <div class="col-md-4">
 
-                    <h3>Change Password </h3>
-                    <form class="form-horizontal" action="<?= base_url('User_Controller/changePassword')?>"  method="post" >
-                        <div class="form-group">
-                            <label for="text" class="control-label col-xs-4">Old Password</label> 
-                            <div class="col-xs-8">
-                                <input id="text" name="old_password" type="password" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="text1" class="control-label col-xs-4">New Password</label> 
-                            <div class="col-xs-8">
-                                <input id="text1" name="new_password" type="password" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="text2" class="control-label col-xs-4">Retype Password</label> 
-                            <div class="col-xs-8">
-                                <input id="text2" name="retype_password" type="password" class="form-control">
-                            </div>
-                        </div> 
+                    <form class="form-horizontal" action="<?= base_url('Admin_Controller/resetPatientPassword') ?>"  method="post" >
+                        <input type="hidden" name="id" value="<?= $userProfile[0]->id ?>" />
+                        <input type="hidden" name="email" value="<?= $userProfile[0]->email ?>" />
+                        Password will be reset to same as the email
                         <div class="form-group row">
                             <div class="col-xs-offset-4 col-xs-8">
-                                <button name="submit" type="submit" class="btn btn-primary">Change Password</button>
+                                <button name="submit" type="submit" class="btn btn-primary">Reset Password</button>
                             </div>
                         </div>
                     </form>
@@ -159,7 +139,7 @@
         <!----End-content----->
         <!---End-wrap---->
         <!---start-footer---->
-                                <?php $this->load->view('_footer'); ?>
+        <?php $this->load->view('_footer'); ?>
 
         <!---End-footer---->
     </body>

@@ -57,26 +57,32 @@
                         </div>
                         <div class="panel-body">
 
-
-                            <form class="form-horizontal">
+                            <?= $msg ?>
+                            <form class="form-horizontal" action="<?= base_url('Accountant_Controller/setSalary') ?>" method="post">
                                 <div class="form-group">
                                     <label for="select" class="control-label col-xs-4">Employee</label> 
                                     <div class="col-xs-8">
-                                        <select id="select" name="select" class="select form-control">
+                                        <select id="emplyee_id" name="emplyee_id" required="" class="select form-control">
                                             <option value="">--select--</option>
+                                            <?php
+                                            foreach ($empList as $value) {
+                                                ?>
+                                                <option value="<?= $value->id ?>"><?= $value->empno ?> - <?= $value->first_name ?> <?= $value->last_name ?> [<?= $value->user_role ?>] </option>
+                                            <?php }
+                                            ?>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="Amount" class="control-label col-xs-4">Month</label> 
                                     <div class="col-xs-8">
-                                        <input id="Amount" name="Amount" type="text" class="form-control">
+                                        <input type="month" id="start" name="salary_month"  required="" />
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="text2" class="control-label col-xs-4">Salary Amount</label> 
                                     <div class="col-xs-8">
-                                        <input id="text2" name="text2" type="text" class="form-control">
+                                        <input id="text2" name="amount" type="number" required="" class="form-control">
                                     </div>
                                 </div> 
 
@@ -92,12 +98,19 @@
                 </div>
                 <div class="col-md-5">
 
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" action="<?= base_url('Accountant_Controller/getEmployeeSalaryList') ?>" method="post">
                         <div class="form-group">
                             <label for="select" class="control-label col-xs-4">Employee</label> 
                             <div class="col-xs-8">
-                                <select id="select" name="select" class="select form-control">
-                                  <option value="">--select--</option>
+                                <select id="emplyee_id" name="emplyee_id" required="" class="select form-control">
+                                    <option value="">--select--</option>
+                                    <?php
+                                    
+                                    foreach ($empList as $value) {
+                                        ?>
+                                        <option value="<?= $value->id ?>"><?= $value->empno ?> - <?= $value->first_name ?> <?= $value->last_name ?> [<?= $value->user_role ?>] </option>
+                                    <?php }
+                                    ?>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -117,7 +130,19 @@
                         <tr>
                             <td>Month-Year</td>
                             <td>Amount</td>
+                            <td></td>
                         </tr>
+                        <?php
+                        if( isset($empSalaryList) && $empSalaryList== TRUE)
+                        foreach ($empSalaryList as $value) { ?>
+                            <tr>
+                                <td><?= $value->salary_month ?></td>
+                                <td><?= $value->salary_amount ?></td>
+                                <td><?= $value->created_date ?></td>
+                            </tr>
+                            <?php
+                        }
+                        ?>
                     </table>
 
                 </div>

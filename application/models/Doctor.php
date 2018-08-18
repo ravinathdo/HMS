@@ -50,6 +50,10 @@ class Doctor extends MY_Model {
         $this->user_role = 'DOCTOR';
     }
 
+    
+   
+    
+
     function updateDoctorStatus($data, $id) {
         $this->db->where('hms_doctor.id', $id);
         return $this->db->update('hms_doctor', $data);

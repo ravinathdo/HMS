@@ -41,7 +41,7 @@ class User extends MY_Model {
         $this->last_name = $this->input->post('last_name');
         $this->nic = $this->input->post('nic');
         $this->pword = sha1($this->input->post('nic'));
-        $this->user_role =  $this->input->post('user_role');
+        $this->user_role = $this->input->post('user_role');
         $this->telephone = $this->input->post('telephone');
         $this->email = $this->input->post('email');
         $this->empno = $this->input->post('empno');
@@ -81,7 +81,7 @@ class User extends MY_Model {
     public function getDoctorLogin($formData) {
         $this->db->select('hms_doctor.*');
         $this->db->from('hms_doctor');
-        $pword = sha1($formData['pword']);        
+        $pword = sha1($formData['pword']);
         echo $pword;
         $where = " nic = '" . $formData['nic'] . "' AND pword = '" . $pword . "' AND status_code = 'ACTIVE'";
         $this->db->where($where);
@@ -92,6 +92,11 @@ class User extends MY_Model {
         } else {
             return FALSE;
         }
+    }
+
+    public function changePassword($dataArray, $id) {
+        $this->db->where('hms_user.id', $id);
+        return $this->db->update('hms_user', $dataArray);
     }
 
 }

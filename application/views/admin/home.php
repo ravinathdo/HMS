@@ -55,23 +55,22 @@
                         <!--<img src="" alt="..." class="img-thumbnail tile-icon" title="Doctor Registration">-->
                     </a>
                     <a href="<?php echo base_url('Admin_Controller/loadUserRegistration'); ?>">
-                        <i class="fas fa-users fa-5x img-thumbnail tile-icon"></i>
+                        <i class="fas fa-users fa-5x img-thumbnail tile-icon"></i> User Registration
                     </a>
                     <a href="<?php echo base_url('Admin_Controller/loadItemPurchesing'); ?>">
-                        <i class="fas fa-thermometer  fa-5x img-thumbnail tile-icon"></i>
+                        <i class="fas fa-thermometer  fa-5x img-thumbnail tile-icon"></i> Purchase Request
                     </a>
                     <a href="<?php echo base_url('Admin_Controller/itemPurcheseHistory'); ?>">
-                        <i class="fas fa-archive fa-5x img-thumbnail tile-icon"></i>
+                        <i class="fas fa-archive fa-5x img-thumbnail tile-icon"></i> Item Purchase
                     </a>
                     <a href="<?php echo base_url('Admin_Controller/loadPatientRegistration'); ?>">
-                        <i class="fas fa-user-tag fa-5x img-thumbnail tile-icon"></i>
+                        <i class="fas fa-user-tag fa-5x img-thumbnail tile-icon"></i> Patient Registration
                     </a>
-
                     <a href="<?php echo base_url('#'); ?>">
-                        <i class="fas fa-address-book   fa-5x img-thumbnail tile-icon"></i>
+                        <i class="fas fa-address-book   fa-5x img-thumbnail tile-icon"></i> Reports
                     </a>
                     <a href="<?php echo base_url('User_Controller/loadProfile'); ?>">
-                        <i class="fas fa-user-cog fa-5x img-thumbnail tile-icon"></i>
+                        <i class="fas fa-user-cog fa-5x img-thumbnail tile-icon"></i> Profile
                     </a>
 
                 </div>
@@ -79,7 +78,9 @@
                     <div class="panel panel-danger">
                         <div class="panel-heading ">Dash Board</div>
                         <div class="panel-body">
-                            <button type="button" class="btn btn-danger">10</button> Item request
+                            <button type="button" class="btn btn-danger">
+                                <?php echo $this->session->userdata('count_purchase');?>
+                            </button> Item request
                         </div>
                     </div>
                 </div>
