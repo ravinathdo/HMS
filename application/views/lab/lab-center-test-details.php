@@ -54,19 +54,20 @@
                             <h3> <img src="<?= base_url('/images/icon-lab-center.png') ?>" style="width: 30px" />  Lab Center Manage </h3>
                         </div>
                         <div class="panel-body">
-                            <form class="form-horizontal" action="<?php echo base_url('LAB_Controller/setCenter') ?>" method="post">
-                                    <div class="form-group">
-                                        <label for="text" class="control-label col-xs-4">Center Name</label> 
-                                        <div class="col-xs-8">
-                                            <input id="text" name="center_name" type="text" class="form-control">
-                                        </div>
+                            <?= $msg ?>
+                            <form class="form-horizontal" action="<?php echo  base_url('LAB_Controller/addCenterTest') ?>" method="post">
+                                <div class="form-group">
+                                    <label for="text" class="control-label col-xs-4">Center Name</label> 
+                                    <div class="col-xs-8">
+                                        <input id="text" name="center_name" type="text" class="form-control">
                                     </div>
-                                    <div class="form-group row">
-                                        <div class="col-xs-offset-4 col-xs-8">
-                                            <button name="submit" type="submit" class="btn btn-primary">Submit</button>
-                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-xs-offset-4 col-xs-8">
+                                        <button name="submit" type="submit" class="btn btn-primary">Submit</button>
                                     </div>
-                                </form>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -84,13 +85,11 @@
                                 foreach ($centerList as $value) {
                                     ?>
                                     <tr>
-                                        <td><?= $value->center_name ?></td>
-                                        <td><a href="<?php base_url('LAB_Controller/addCenterTest') ?>">Add Test Details</a></td>
+                                        <td><?= $value->center_name?></td>
+                                        <td><a href="<?php base_url('LAB_Controller/addCenterTest/'.$value->center_name)?>">Add Test Details</a></td>
                                     </tr>
                                 <?php }
                             ?>
-
-
                         </tbody>
                     </table>
 

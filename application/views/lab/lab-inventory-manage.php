@@ -54,17 +54,18 @@
                             <h3> <img src="<?= base_url('/images/icon-stock.png') ?>" style="width: 30px" />  Inventory Manage </h3>
                         </div>
                         <div class="panel-body">
-                            <form class="form-horizontal">
-                                <div class="form-group">
+                            <?= $msg ?>
+                            <form class="form-horizontal" action="<?php echo base_url('LAB_Controller/addInventoryItem'); ?>" method="post">
+                                <div class="form-group"> 
                                     <label for="text" class="control-label col-xs-4">Item Name</label> 
                                     <div class="col-xs-8">
-                                        <input id="text" name="text" type="text" class="form-control">
+                                        <input id="text" name="item_name" type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="text1" class="control-label col-xs-4">Qty</label> 
                                     <div class="col-xs-8">
-                                        <input id="text1" name="text1" type="text" class="form-control">
+                                        <input id="text1" name="qty" type="text" class="form-control">
                                     </div>
                                 </div> 
                                 <div class="form-group row">
@@ -77,31 +78,31 @@
                     </div>
                 </div>
                 <div class="col-md-5">
+                    <?php // echo '<tt><pre>' . var_export($allInventory, TRUE) . '</pre></tt>';?>
                     <table class="table-bordered" style="width: 100%" >
                         <thead>
-                            <tr>
-                                <th>s</th>
-                                <th></th>
-                                <th>s</th>
-                                <th></th>
+                            <tr style="font-weight: bold">
+                                <th>Item Name</th>
+                                <th>Qty</th>
+                                <th>Last Update</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>s</td>
-                                <td></td>
-                                <td>s</td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                            <?php
+                            if ($allInventory)
+                                foreach ($allInventory as $value) {
+                                    ?>
+                                    <tr>
+                                        <td><?= $value->item_name ?></td>
+                                        <td><?= $value->qty ?></td>
+                                        <td><?= $value->created_date ?></td>
+                                        <td><a href="<?php echo base_url('LAB_Controller/loadUpdateInventory/'.$value->id)?>">update</a></td>
+                                    </tr>
+                                    <?php
+                                }
+                            ?>
+
                         </tbody>
                     </table>
 

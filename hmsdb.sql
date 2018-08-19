@@ -172,10 +172,13 @@ CREATE TABLE `hms_inventory` (
   `qty` int(5) DEFAULT NULL,
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `created_user` int(5) DEFAULT NULL,
+  `updated_date` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Data for the table `hms_inventory` */
+
+insert  into `hms_inventory`(`id`,`item_name`,`qty`,`created_date`,`created_user`,`updated_date`) values (1,'Computex',25,'2018-08-19 20:36:39',1,'2018-08-19 09:26:29pm'),(2,'chair',241,'2018-08-19 21:33:09',5,NULL);
 
 /*Table structure for table `hms_lab_test` */
 
@@ -187,11 +190,11 @@ CREATE TABLE `hms_lab_test` (
   `center_name` varchar(20) DEFAULT NULL,
   `description` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 /*Data for the table `hms_lab_test` */
 
-insert  into `hms_lab_test`(`id`,`lab_test`,`center_name`,`description`) values (1,'blood test','Negombo','this is test for blood'),(2,'uren test','Colombo','This is urine test');
+insert  into `hms_lab_test`(`id`,`lab_test`,`center_name`,`description`) values (1,'blood test','Negombo','this is test for blood'),(2,'uren test','Colombo','This is urine test'),(3,NULL,'kandy',NULL),(4,NULL,'kandy',NULL),(5,NULL,'kandy',NULL);
 
 /*Table structure for table `hms_opd_appointment` */
 

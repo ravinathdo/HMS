@@ -5,6 +5,6 @@
     <ul>
         <li class="login"><a href="<?php echo base_url('Patient_Controller/loadPatientLogin'); ?>">Patient Login</a></li>
         <li class="login"><a href="<?php echo base_url('Doctor_Controller/loadDoctorLogin'); ?>">Doctor Login</a></li>
-        <li class="login"><a href="<?php echo base_url('Patient_Controller/loadPatientRegister'); ?>">Register Now</a></li>
+        <li class="login"><a href="<?php echo base_url('Patient_Controller/loadPatientRegister'); ?>">Sign up</a></li>
     </ul>
 </div>

@@ -51,49 +51,34 @@
                 <div class="col-md-5">
                     <div class="panel panel-warning">
                         <div class="panel-heading ">
-                            <h3> <img src="<?= base_url('/images/icon-lab-center.png') ?>" style="width: 30px" />  Lab Center Manage </h3>
+                            <h3> <img src="<?= base_url('/images/icon-stock.png') ?>" style="width: 30px" />  Inventory Manage </h3>
                         </div>
                         <div class="panel-body">
-                            <form class="form-horizontal" action="<?php echo base_url('LAB_Controller/setCenter') ?>" method="post">
-                                    <div class="form-group">
-                                        <label for="text" class="control-label col-xs-4">Center Name</label> 
-                                        <div class="col-xs-8">
-                                            <input id="text" name="center_name" type="text" class="form-control">
-                                        </div>
+                            <form class="form-horizontal" action="<?php echo base_url('LAB_Controller/updateInventory');?>" method="post">
+                                <input type="hidden" name="id" value="<?php echo $itemDetail[0]->id;?>" />
+                                <div class="form-group">
+                                    <label for="text" class="control-label col-xs-4">Item Name</label> 
+                                    <div class="col-xs-8">
+                                        <input id="text" name="item_name" type="text" class="form-control" value="<?php echo $itemDetail[0]->item_name;?>" >
                                     </div>
-                                    <div class="form-group row">
-                                        <div class="col-xs-offset-4 col-xs-8">
-                                            <button name="submit" type="submit" class="btn btn-primary">Submit</button>
-                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="text1" class="control-label col-xs-4">Qty</label> 
+                                    <div class="col-xs-8">
+                                        <input id="text1" name="qty" type="text" class="form-control" value="<?php echo $itemDetail[0]->qty;?>">
                                     </div>
-                                </form>
+                                </div> 
+                                <div class="form-group row">
+                                    <div class="col-xs-offset-4 col-xs-8">
+                                        <button name="submit" type="submit" class="btn btn-primary">Update</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-5">
-                    <table class="table-bordered" style="width: 100%" >
-                        <thead>
-                            <tr>
-                                <th>Center Name</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            if ($centerList)
-                                foreach ($centerList as $value) {
-                                    ?>
-                                    <tr>
-                                        <td><?= $value->center_name ?></td>
-                                        <td><a href="<?php base_url('LAB_Controller/addCenterTest') ?>">Add Test Details</a></td>
-                                    </tr>
-                                <?php }
-                            ?>
-
-
-                        </tbody>
-                    </table>
-
+                    
                 </div>
             </div>
         </div>

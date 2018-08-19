@@ -16,7 +16,7 @@ class HmsUtil {
     //put your code here
 
     public function getDateTime() {
-        date_default_timezone_set(" Asia/Colombo ");
+        date_default_timezone_set("Asia/Colombo");
         $dt = date("Y-m-d h:i:sa");
         return $dt;
     }
