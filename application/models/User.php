@@ -54,6 +54,7 @@ class User extends MY_Model {
         $pword = sha1($formData['pword']);
         $where = " email = '" . $formData['email'] . "' AND pword = '" . $pword . "' AND status_code = 'ACTIVE'";
         $this->db->where($where);
+        echo $where;
         $query = $this->db->get();
 
         if ($query->num_rows() > 0) {

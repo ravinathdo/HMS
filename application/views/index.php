@@ -33,8 +33,7 @@
                     <div class="navbar-right social-icons wow fadeInRight animated" data-wow-delay=".5s"> 
                         <ul>
                             <li ><a style="color:white" href="<?php echo base_url('Patient_Controller/loadPatientLogin'); ?>">Patient Login  | </a></li> 
-                            <li ><a style="color:white" href="<?php echo base_url('Doctor_Controller/loadDoctorLogin'); ?>">Doctor Login  | </a></li>
-                            <li ><a style="color:white" href="<?php echo base_url('Patient_Controller/loadPatientRegister'); ?>">Register Now</a> </li>
+                            <li ><a style="color:white" href="<?php echo base_url('Doctor_Controller/loadDoctorLogin'); ?>">Doctor Login  </a></li>
                             <li><a href="#" class="fa fa-facebook icon-border facebook"> </a></li>
                             <li><a href="#" class="fa fa-twitter icon-border twitter"> </a></li>
                             <li><a href="#" class="fa fa-google-plus icon-border googleplus"> </a></li> 

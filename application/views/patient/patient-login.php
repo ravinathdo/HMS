@@ -82,6 +82,9 @@
                         <div class="form-group row">
                             <div class="col-xs-offset-4 col-xs-8">
                                 <button name="submit" type="submit" class="btn btn-primary">Login</button>
+                                <a href="<?php echo base_url('Patient_Controller/loadPatientRegister')?>" class="btn btn-primary" > 
+                                Sign Up
+                                </a>
                             </div>
                         </div>
                     </form>

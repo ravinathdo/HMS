@@ -49,7 +49,7 @@ class Patient_Controller extends CI_Controller {
         $data['msg'] = '';
         $feedback = new Feedback();
         $feedback->deleteFeedback($feed_id);
-        
+
         $userFeedback = $feedback->getUserFeedback($this->session->userdata('userbean')->id);
         $data['userFeedback'] = $userFeedback;
 //        echo '<tt><pre>' . var_export($userFeedback, TRUE) . '</pre></tt>';
@@ -302,11 +302,13 @@ class Patient_Controller extends CI_Controller {
             $this->load->view('patient/patient-register', $data);
         } else {
 //            unset($patient['repword']);
-            $patient->pword = sha1($patient->pword);
-            $patient->save();
+            $pword = $patient->pword;
+            $patient->pword = sha1($pword);
+
+            
             $db_error = $this->db->error();
-//            echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
-            if (!empty($db_error)) {
+            echo '<tt><pre>' . var_export($patient, TRUE) . '</pre></tt>';
+            if ($db_error['code'] != 0) {
                 $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
             } else {
                 $data['msg'] = '<p class="text-success">New registration has been successful, please login ,<br> Patient Reg No ' . $patient->id . ' </p>';

@@ -85,7 +85,7 @@
                         <div class="form-group">
                             <label for="telephone" class="control-label col-xs-4">Telephone Number</label> 
                             <div class="col-xs-8">
-                                <input id="telephone" name="telephone" type="text" class="form-control">
+                                <input id="telephone" name="telephone" type="number" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
