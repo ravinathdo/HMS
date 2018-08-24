@@ -50,12 +50,26 @@ class Doctor extends MY_Model {
         $this->user_role = 'DOCTOR';
     }
 
+    
+   
+    
+
+    function updateDoctorStatus($data, $id) {
+        $this->db->where('hms_doctor.id', $id);
+        return $this->db->update('hms_doctor', $data);
+    }
+
     public function array_from_post($fields) {
         $data = array();
         foreach ($fields as $field) {
             $data[$field] = $this->input->post($field);
         }
         return $data;
+    }
+
+    public function resetPassword($restData, $id) {
+        $this->db->where('hms_doctor.id', $id);
+        return $this->db->update('hms_doctor', $restData);
     }
 
     /**
@@ -77,8 +91,6 @@ class Doctor extends MY_Model {
         }
     }
 
-    
-    
     public function getSpecializeDoctorsList($specialist_id) {
         $this->db->select('hms_doctor.*');
         $this->db->from('hms_doctor');
@@ -93,7 +105,6 @@ class Doctor extends MY_Model {
         }
     }
 
-    
     /**
      * Get the doctor by category
      * @param type $category
@@ -111,9 +122,6 @@ class Doctor extends MY_Model {
         } else {
             return FALSE;
         }
-        
     }
-  
-    
-    
+
 }

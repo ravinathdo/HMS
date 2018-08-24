@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User_Controller extends CI_Controller {
 
-    //put your code here
+    //put your code here sample
     public function logout() {
         $this->session->unset_userdata('userbean');
         $this->session->unset_userdata('logged_in');
@@ -24,11 +24,12 @@ class User_Controller extends CI_Controller {
         $this->load->view('');
     }
 
+    
+    
     public function loadProfile() {
 //        $this->load->model(array(''));
         $data['msg'] = '';
         $userbean = $this->session->userdata('userbean');
-        echo '<tt><pre>' . var_export($userbean, TRUE) . '</pre></tt>';
         // load according to user role
         if ($userbean->user_role == 'DOCTOR') {
             $this->load->view('doctor/user-profile', $data);
@@ -84,6 +85,40 @@ class User_Controller extends CI_Controller {
 
             $this->load->view('user-profile', $data);
         }
+    }
+
+    /**
+     * Collect the profile update information and update
+     */
+    public function changePassword() {
+        $data['msg'] = '';
+        $this->load->model(array('User'));
+        $user = new User();
+
+        $userbean = $this->session->userdata('userbean');
+
+        $old_password = $this->input->post('old_password');
+        $new_password = $this->input->post('new_password');
+        $retype_password = $this->input->post('retype_password');
+
+        //data array
+        $formData = array('nic' => $userbean->nic, 'pword' => $old_password);
+        $adminLogin = $user->getAdminLogin($formData);
+
+        if ($adminLogin) {
+            if (strlen($new_password) >= 6 && $new_password == $retype_password) {
+                //update password
+                $dataArray = array('pword'=> sha1($retype_password));
+                $user->changePassword($dataArray, $userbean->id);
+                 $data['msg'] = '<p class="text-success">Password Change Successfuly</p>';
+            } else {
+               $data['msg'] = '<p class="text-danger">invalid password constrains</p>';
+            }
+        } else {
+           $data['msg'] = '<p class="text-danger">invalid password</p>';
+        }
+        //load data again
+         $this->load->view('patient/user-profile', $data);
     }
 
     /**

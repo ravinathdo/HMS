@@ -49,34 +49,72 @@
                     <?php $this->load->view('accountant/_tree_accountant'); ?>
                 </div>
                 <div class="col-md-10">
-
+                    <?php // echo '<tt><pre>' . var_export($approvedList, TRUE) . '</pre></tt>'; ?>
+                    <?= $msg ?>
                     <div class="panel panel-warning">
                         <div class="panel-heading ">
                             <h3> <img src="<?= base_url('/images/icon-purchasing.png') ?>" style="width: 30px" />  Item Purchasing </h3>
-
-
-
-
                         </div>
                         <div class="panel-body">
                             <table class="table-bordered" style="width: 80%">
-                                <tr>
+                                <tr style="font-weight: bold">
                                     <td>Item name</td>
                                     <td>Qty</td>
                                     <td>Request By</td>
                                     <td>Status</td>
                                     <td></td>
                                 </tr>
-                                <tr>
-                                    <td>Bin</td>
-                                    <td>2</td>
+                                <?php 
+                                if($approvedList)
+                                foreach ($approvedList as $value) {
+                                    ?>
+                                    <tr>
+                                        <td><?= $value->purchasing_item ?></td>
+                                        <td><?= $value->qty ?></td>
+                                        <td><?= $value->status_code ?></td>
+                                        <td><?= $value->created_date ?></td>
+                                        <td>
+                                            <form action="<?= base_url('Accountant_Controller/purchaseItem') ?>" method="post">
+                                                <input type="text" name="amount" />
+                                                <input type="hidden" name="id" value="<?= $value->id ?>" />
+                                                <button type="submit" class="btn btn-success btn-xs">Purchase</button>
+                                            </form></td>
+                                    </tr>
+                                <?php }
+                                ?>
+                            </table>
+                        </div>
+                    </div>
+
+
+
+                    <div class="panel panel-success">
+                        <div class="panel-heading ">
+                            <h3> <img src="<?= base_url('/images/icon-purchasing.png') ?>" style="width: 30px" />  Item Purchasing History </h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table-bordered" style="width: 80%">
+                                <tr style="font-weight: bold">
+                                    <td>Item name</td>
+                                    <td>Qty</td>
+                                    <td>Status</td>
+                                    <td>Amount</td>
                                     <td></td>
-                                    <td>Approved</td>
-                                    <td><form>
-                                            <input type="text" />
-                                            <button type="button" class="btn btn-default btn-xs">Purchase</button>
-                                        </form></td>
                                 </tr>
+                                <?php 
+                                if($allList)
+                                foreach ($allList as $value) {
+                                    ?>
+                                    <tr>
+                                        <td><?= $value->purchasing_item ?></td>
+                                        <td><?= $value->qty ?></td>
+                                        <td><?= $value->status_code ?></td>
+                                        <td><?= $value->amount ?></td>
+                                        <td><?= $value->created_date ?></td>
+                                    </tr>
+                                <?php }
+                                ?>
+
                             </table>
                         </div>
                     </div>
@@ -87,58 +125,9 @@
         <!----End-content----->
         <!---End-wrap---->
         <!---start-footer---->
-        <div class="footer">
-            <div class="wrap">
-                <div class="footer-grids">
-                    <div class="footer-grid">
-                        <h3>OUR Profile</h3>
-                        <ul>
-                            <li><a href="#">Lorem ipsum dolor sit amet</a></li>
-                            <li><a href="#">Conse ctetur adipisicing</a></li>
-                            <li><a href="#">Elit sed do eiusmod tempor</a></li>
-                            <li><a href="#">Incididunt ut labore</a></li>
-                            <li><a href="#">Et dolore magna aliqua</a></li>
-                            <li><a href="#">Ut enim ad minim veniam</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-grid">
-                        <h3>Our Services</h3>
-                        <ul>
-                            <li><a href="#">Et dolore magna aliqua</a></li>
-                            <li><a href="#">Ut enim ad minim veniam</a></li>
-                            <li><a href="#">Quis nostrud exercitation</a></li>
-                            <li><a href="#">Ullamco laboris nisi</a></li>
-                            <li><a href="#">Ut aliquip ex ea commodo</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-grid">
-                        <h3>OUR FLEET</h3>
-                        <ul>
-                            <li><a href="#">Lorem ipsum dolor sit amet</a></li>
-                            <li><a href="#">Conse ctetur adipisicing</a></li>
-                            <li><a href="#">Elit sed do eiusmod tempor</a></li>
-                            <li><a href="#">Incididunt ut labore</a></li>
-                            <li><a href="#">Et dolore magna aliqua</a></li>
-                            <li><a href="#">Ut enim ad minim veniam</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-grid">
-                        <h3>CONTACTS</h3>
-                        <p>Lorem ipsum dolor sit amet ,</p>
-                        <p>Conse ctetur adip .</p>
-                        <p>ut labore Usa.</p>
-                        <span>(202)1234-56789</span>
-                    </div>
-                    <div class="clear"> </div>
-                </div>
-                <div class="clear"> </div>
-                <!---start-copy-right----->
-                <div class="copy-tight">
-                    <p>Copyright &copy; Medica. All Rights Reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
-                </div>
-                <!---End-copy-right----->
-            </div>
-        </div>
+                            <?php $this->load->view('_footer'); ?>
+
+        
         <!---End-footer---->
     </body>
 </html>

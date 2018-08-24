@@ -51,13 +51,13 @@
                 <div class="col-md-10">
                     <h2>Accountant</h2>
                     <a href="<?php echo base_url('Accountant_Controller/loadPurchasingItem'); ?>">
-                        <img src="<?= base_url('/images/icon-purchasing.png') ?>" alt="..." class="img-thumbnail tile-icon" title="Purchasing Items">
+                        <img src="<?= base_url('/images/icon-purchasing.png') ?>" alt="..." class="img-thumbnail tile-icon" title="Purchasing Items">Purchase Items
                     </a>
                     <a href="<?php echo base_url('Accountant_Controller/loadEmployeeSalary'); ?>">
-                        <img src="<?= base_url('/images/icon-employee.png') ?>" alt="..." class="img-thumbnail  tile-icon" title="View Stock">
+                        <img src="<?= base_url('/images/icon-employee.png') ?>" alt="..." class="img-thumbnail  tile-icon" title="">Employee Salary
                     </a>
                     <a href="<?php echo base_url('Accountant_Controller/loaddoctorSalary'); ?>">
-                        <img src="<?= base_url('/images/icon-doctor.png') ?>" alt="..." class="img-thumbnail  tile-icon" title="View Stock">
+                        <img src="<?= base_url('/images/icon-doctor.png') ?>" alt="..." class="img-thumbnail  tile-icon" title="">Doctor Payments
                     </a>
                     <a href="<?php echo base_url('Accountant_Controller/loadCostMaintain'); ?>">
                         <img src="<?= base_url('/images/icon-cost.png') ?>" alt="..." class="img-thumbnail  tile-icon" title="View Stock">
