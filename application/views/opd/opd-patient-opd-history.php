@@ -48,48 +48,47 @@
                 <div class="col-md-2"> 
                     <?php $this->load->view('opd/_tree_opd'); ?>
                 </div>
-                <div class="col-md-5">
-                    <div class="panel panel-warning">
-                        <div class="panel-heading ">
-                            <h3> <img src="<?= base_url('/images/icon-patient.png') ?>" style="width: 30px" />  Patient OPD history </h3>
-                        </div>
-                        <div class="panel-body">
-                            <form class="form-horizontal">
-                                <div class="form-group">
-                                    <label for="Amount" class="control-label col-xs-4">Patient No</label> 
-                                    <div class="col-xs-8">
-                                        <input id="Amount" name="Amount" type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="text" class="control-label col-xs-4">Date From</label> 
-                                    <div class="col-xs-8">
-                                        <input id="text" name="text" type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="text1" class="control-label col-xs-4">Date To</label> 
-                                    <div class="col-xs-8">
-                                        <input id="text1" name="text1" type="text" class="form-control">
-                                    </div>
-                                </div> 
-                                <div class="form-group row">
-                                    <div class="col-xs-offset-4 col-xs-8">
-                                        <button name="submit" type="submit" class="btn btn-primary">Submit</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-5">
+                
+                <div class="col-md-10">
 
                     <table class="table-bordered" style="width: 100%">
                         <tr>
-                            <td>Appointment Date</td>
+                            <td>Appointment No</td>
+                            <td>Appo. Date</td>
+                            <td>Patient Details</td>
                             <td>Status</td>
-                            <td>Fee</td>
+                            <td>Created Datetime</td>
                         </tr>
+                        <?php
+                        if ($opdAppoList != null)
+                            foreach ($opdAppoList as $value) {
+                                ?>
+                                <tr>
+                                    <td><?= $value->id ?></td>
+                                    <td><?= $value->appointment_date ?></td>
+                                    <td>[<?= $value->created_user ?>] <?= $value->first_name ?></td>
+                                    <td><?= $value->status_code ?>
+                                        <?php if($value->status_code == 'OPEN') { ?>
+                                        <form action="<?php echo base_url('OPD_Controller/wardPlacement') ?>" method="post">
+                                            <input type="hidden" name="patient_id" value="<?php echo $value->created_user; ?>" />
+                                            <input type="hidden" name="appointment_id" value="<?php echo $value->id; ?>" />
+                                            <select name="ward_id">
+                                                <option value="1">1 child ward</option>
+                                                <option  value="2">2 child ward</option>
+                                            </select>
+                                            <input type="submit" />
+                                        </form>
+                                        <a href="">Reject</a>
+                                        <?php  } ?>
+                                        
+                                        
+                                    </td>
+                                    <td><?= $value->created_date ?></td>
+                                </tr>
+                            <?php }
+                        ?>
+
+
                     </table>
                 </div>
             </div>

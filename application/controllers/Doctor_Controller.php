@@ -103,7 +103,7 @@ class Doctor_Controller extends CI_Controller {
         $user = new User();
 
         $post_data = $user->array_from_post(array('nic', 'pword'));
-        echo '<tt><pre>' . var_export($post_data, TRUE) . '</pre></tt>';        
+//        echo '<tt><pre>' . var_export($post_data, TRUE) . '</pre></tt>';        
         $login = $user->getDoctorLogin($post_data);
 
         if ($login != null) {

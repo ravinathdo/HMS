@@ -285,7 +285,7 @@ class Admin_Controller extends CI_Controller {
 
         $doctor = new Doctor();
         $doctor->getPostData();
-        echo '<tt><pre>' . var_export($doctor, TRUE) . '</pre></tt>';
+//        echo '<tt><pre>' . var_export($doctor, TRUE) . '</pre></tt>';
 
 
         $doctor->created_user = $this->session->userdata('userbean')->id;

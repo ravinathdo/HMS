@@ -51,10 +51,11 @@ class User extends MY_Model {
     public function getPatientLogin($formData) {
         $this->db->select('hms_patient.*');
         $this->db->from('hms_patient');
+//        echo $formData['pword'];
         $pword = sha1($formData['pword']);
         $where = " email = '" . $formData['email'] . "' AND pword = '" . $pword . "' AND status_code = 'ACTIVE'";
         $this->db->where($where);
-        echo $where;
+//        echo $where;
         $query = $this->db->get();
 
         if ($query->num_rows() > 0) {
@@ -70,6 +71,8 @@ class User extends MY_Model {
         $pword = sha1($formData['pword']);
         $where = " nic = '" . $formData['nic'] . "' AND pword = '" . $pword . "' AND status_code = 'ACTIVE'";
         $this->db->where($where);
+//                echo $where;
+
         $query = $this->db->get();
 
         if ($query->num_rows() > 0) {
@@ -83,7 +86,7 @@ class User extends MY_Model {
         $this->db->select('hms_doctor.*');
         $this->db->from('hms_doctor');
         $pword = sha1($formData['pword']);
-        echo $pword;
+//        echo $pword;
         $where = " nic = '" . $formData['nic'] . "' AND pword = '" . $pword . "' AND status_code = 'ACTIVE'";
         $this->db->where($where);
         $query = $this->db->get();

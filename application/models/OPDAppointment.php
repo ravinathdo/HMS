@@ -54,5 +54,9 @@ class OPDAppointment extends MY_Model {
     }
 
  
+    function updateOPDAppointment($data, $id) {
+        $this->db->where('hms_opd_appointment.id', $id);
+        return $this->db->update('hms_opd_appointment', $data);
+    }
 
 }

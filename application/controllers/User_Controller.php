@@ -90,7 +90,7 @@ class User_Controller extends CI_Controller {
     /**
      * Collect the profile update information and update
      */
-    public function changePassword() {
+    public function updateProfile() {
         $data['msg'] = '';
         $this->load->model(array('User'));
         $user = new User();

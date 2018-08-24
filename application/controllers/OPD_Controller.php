@@ -14,6 +14,28 @@
 class OPD_Controller extends CI_Controller {
 
     //put your code here
+    public function wardPlacement() {
+        $this->load->model(array('OPDAppointment'));
+        $data['msg'] = '';
+        //get opd appointment details 
+        $oPDAppointment0 = new OPDAppointment();
+
+
+        //change the status code -> approve 
+        $ward_id = $this->input->post('ward_id');
+        $appointment_id = $this->input->post('appointment_id');
+        $patient_id = $this->input->post('patient_id');
+
+        $oPDAppointment0->updateOPDAppointment(array('status_code'=>'ADMIT'), $appointment_id);
+        
+        //insert into 'hms_ward_patient' 
+        
+
+        $get = $oPDAppointment0->getOPDAppointmentList();
+        echo '<tt><pre>' . var_export($get, TRUE) . '</pre></tt>';
+        $data['opdAppoList'] = $get;
+        $this->load->view('opd/opd-patient-opd-history', $data);
+    }
 
     public function getOPDAppointment() {
         $this->load->model(array('OPDAppointment'));
@@ -32,21 +54,28 @@ class OPD_Controller extends CI_Controller {
         $this->load->view('opd/opd_appointment_detail', $data);
     }
 
-    
     public function loadListPatient() {
 //        $this->load->model(array(''));
         $data['msg'] = '';
         $this->load->view('opd/opd-list-patient', $data);
     }
-    
+
     public function loadPatientOpdHistory() {
-//        $this->load->model(array(''));
+        $this->load->model(array('OPDAppointment'));
         $data['msg'] = '';
+        //get opd appointment details 
+        $oPDAppointment0 = new OPDAppointment();
+
+        $get = $oPDAppointment0->getOPDAppointmentList();
+//        echo '<tt><pre>' . var_export($get, TRUE) . '</pre></tt>';
+        $data['opdAppoList'] = $get;
         $this->load->view('opd/opd-patient-opd-history', $data);
     }
+
     public function loadAmbulanceRequest() {
 //        $this->load->model(array(''));
         $data['msg'] = '';
         $this->load->view('opd/opd-ambulance-request', $data);
     }
+
 }

@@ -278,7 +278,18 @@ class Patient_Controller extends CI_Controller {
 
         //collect the post data from the page
         $patient->getPostData();
-
+//        
+//        $patient->first_name = $this->input->post('first_name');
+//        $patient->last_name = $this->input->post('last_name');
+//        $patient->telephone = $this->input->post('telephone');
+//        $patient->email = $this->input->post('email');
+//        $patient->dob = $this->input->post('dob');
+//        $patient->pword = sha1($this->input->post('pword'));
+////        $this->repword = $this->input->post('repword');
+//        $patient->status_code = 'ACTIVE';
+//        $patient->user_role = 'PATIENT';
+        
+        
         //---------form validation
         $this->load->library('form_validation');
         $this->form_validation->set_message('password_validation', 'Invlaid password length');
@@ -297,14 +308,19 @@ class Patient_Controller extends CI_Controller {
 //        echo '<tt><pre>' . var_export($patient, TRUE) . '</pre></tt>';
 
         $this->form_validation->set_error_delimiters('<p style="color:red">', '</p>');
+        
         if (!$this->form_validation->run()) {
             $data['msg'] = '';
             $this->load->view('patient/patient-register', $data);
         } else {
 //            unset($patient['repword']);
             $pword = $patient->pword;
+//               echo '<tt><pre>' . var_export($patient, TRUE) . '</pre></tt>';
+//            echo $pword;
+//            echo '<br>';
             $patient->pword = sha1($pword);
 
+            $patient->save();
             
             $db_error = $this->db->error();
             echo '<tt><pre>' . var_export($patient, TRUE) . '</pre></tt>';
