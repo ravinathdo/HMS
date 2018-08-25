@@ -53,11 +53,12 @@
                             <h3><img src="<?= base_url('/images/icon-ambulance.png') ?>" style="width: 30px" />     Ambulance</h3>
                         </div>
                         <div class="panel-body">
-                            <form class="form-horizontal">
+                            <?= $msg;?>
+                            <form class="form-horizontal" action="<?= base_url('Transport_Controller/setAmbulance') ?>" method="post">
                                 <div class="form-group">
                                     <label for="text" class="control-label col-xs-4">Vehicle Number</label> 
                                     <div class="col-xs-8">
-                                        <input id="text" name="text" type="text" class="form-control">
+                                        <input id="text" required="" name="vehicle_number" type="text" class="form-control">
                                     </div>
                                 </div> 
                                 <div class="form-group row">
@@ -73,10 +74,17 @@
                 <div class="col-md-5">
                     <h3>Ambulance Details</h3>
                     <table style="width: 50%">
-                        <tr>
-                            <td>CAP-4588</td>
-                            <td><a href="">View History</a></td>
-                        </tr>
+                        <?php
+                        if ($vehicleList != null)
+                            foreach ($vehicleList as $value) {
+                                ?>   
+                                <tr>
+                                    <td><?= $value->vehicle_number ?></td>
+                                    <td><a href="<?= base_url('Transport_Controller/viewTravelHistory/'.$value->id) ?>">Travel History</a></td>
+                                </tr>
+                                <?php }
+                        ?>
+
                     </table>
                 </div>
             </div>
@@ -84,7 +92,7 @@
         <!----End-content----->
         <!---End-wrap---->
         <!---start-footer---->
-          <?php $this->load->view('_footer'); ?>
+        <?php $this->load->view('_footer'); ?>
         <!---End-footer---->
     </body>
 </html>

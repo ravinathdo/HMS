@@ -72,3 +72,24 @@ $patient->save();
 
 
                         <span class="mando-msg">* fields are mandatory</span>
+
+
+
+
+
+<div class="form-group">
+                                    <label for="select" class="control-label col-xs-4">Vehicle Number</label> 
+                                    <div class="col-xs-8">
+
+                                        <select id="select" required="" name="vehicle_id" class="select form-control">
+                                            <?php
+                                            if ($vehicleLiat != null)
+                                                foreach ($vehicleLiat as $value) {
+                                                    ?>
+                                                    <option value="<?php echo $value->id ?>"><?php echo $value->vehicle_number ?></option>
+                                                <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+
+

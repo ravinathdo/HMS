@@ -54,31 +54,19 @@
                             <h3> <img src="<?= base_url('/images/icon-patient.png') ?>" style="width: 30px" /> Ambulance Request </h3>
                         </div>
                         <div class="panel-body">
-                            <form class="form-horizontal">
-                                <div class="form-group">
-                                    <label for="select" class="control-label col-xs-4">Vehicle Number</label> 
-                                    <div class="col-xs-8">
-                                        <select id="select" name="select" class="select form-control">
-                                            <option value="">--select--</option>
-                                        </select>
-                                    </div>
-                                </div>
+                            <?php echo $msg; ?>
+                            <form class="form-horizontal" action="<?php echo base_url('OPD_Controller/ambulanceRequest') ?>" method="post">
+
                                 <div class="form-group">
                                     <label for="text" class="control-label col-xs-4">Date Time</label> 
                                     <div class="col-xs-8">
-                                        <input id="text" name="text" type="text" class="form-control">
+                                        <input id="text" name="datetime_need" required="" type="datetime-local" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="text1" class="control-label col-xs-4">To</label> 
-                                    <div class="col-xs-8">
-                                        <input id="text1" name="text1" type="text" class="form-control">
-                                    </div>
-                                </div> 
-                                <div class="form-group">
                                     <label for="text1" class="control-label col-xs-4">Comment</label> 
                                     <div class="col-xs-8">
-                                        <textarea name="text1" type="text" class="form-control"></textarea>
+                                        <textarea name="comment" type="text" class="form-control"></textarea>
                                     </div>
                                 </div> 
                                 <div class="form-group row">
@@ -92,17 +80,41 @@
                 </div>
                 <div class="col-md-7">
 
-                    <table class="table-bordered" style="width: 100%">
-                        <tr>
-                            <td>ID</td>
-                            <td>Vehicle No</td>
-                            <td>Date Time</td>
-                            <td>To</td>
-                            <td>Comment</td>
-                            <td>Status</td>
-                            <td>Req Datetime</td>
-                        </tr>
-                    </table>
+
+                    <div class="panel panel-primary">
+                        <div class="panel-heading ">Request List</div>
+                        <div class="panel-body">
+
+                            <table class="table-bordered" style="width: 100%">
+                                <tr style="font-weight: bold">
+                                    <td>Req No</td>
+                                    <td>Request Date Time</td>
+                                    <td>Comment</td>
+                                    <td>Status</td>
+                                    <td>Vehicle No</td>
+                                    <td></td>
+                                </tr>
+                                <?php foreach ($myRequest as $value) {
+                                    ?> 
+                                    <tr>
+                                        <td><?= $value->id ?></td>
+                                        <td><?= $value->datetime_need ?></td>
+                                        <td><?= $value->comment ?></td>
+                                        <td><?= $value->status_code ?></td>
+                                        <td><?= $value->vehicle_no ?></td>
+                                        <td><?= $value->created_time ?></td>
+                                    </tr>
+                                <?php }
+                                ?>
+
+                            </table>
+
+                        </div>
+                    </div>
+
+
+
+
                 </div>
             </div>
         </div>
