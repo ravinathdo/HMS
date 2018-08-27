@@ -14,13 +14,87 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class Doctor_Controller extends CI_Controller {
 
+    public function changePassword() {
+
+        $this->load->model(array('User', 'Doctor'));
+        $user = new User();
+        $doctors = new Doctor();
+
+        $data['msg'] = '';
+        $old_password = $this->input->post('old_password');
+        $new_password = $this->input->post('new_password');
+        $retype_password = $this->input->post('retype_password');
+
+        $post_data = array('nic' => $this->session->userdata('userbean')->nic, 'pword' => $old_password);
+        $login = $user->getDoctorLogin($post_data);
+
+
+        //check the password is correct
+//        echo $new_password;
+//        echo '<br>';
+//        echo $retype_password;
+
+        if (strlen($new_password) >= 6 && ($new_password == $retype_password)) {
+            if ($login != null) {
+                //login success
+                //update the password
+                $updateData = array('pword' => sha1($new_password));
+                $doctors->updateDoctor($updateData, $this->session->userdata('userbean')->id);
+
+                $data['msg'] = '<p class="text-success">Password Reset successful</p>';
+            } else {
+                $data['msg'] = '<p class="text-danger">Invalid password</p>';
+            }
+        } else {
+            $data['msg'] = '<p class="text-danger">Invalid password constrains</p>';
+        }
+
+
+
+
+
+        //redirect to profile 
+        $this->load->view('doctor/user-profile', $data);
+    }
+
+    public function updateProfile() {
+        $this->load->model(array('Doctor'));
+        $data['msg'] = '';
+        $doctor = new Doctor();
+
+        $updateArray = array('email' => $this->input->post('email'),
+            'telephone' => $this->input->post('telephone'),
+            'degree' => $this->input->post('degree'));
+
+
+        //collect iputs 
+        //update input 
+        $doctor->updateDoctor($updateArray, $this->session->userdata('userbean')->id);
+        $db_error = $this->db->error();
+//        echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
+
+        if ($db_error['code'] == 0) {
+            $data['msg'] = '<p class="text-success">Profile updated successfuly</p>';
+            //session data update 
+            $this->session->userdata('userbean')->email = $this->input->post('email');
+            $this->session->userdata('userbean')->telephone = $this->input->post('telephone');
+            $this->session->userdata('userbean')->degree = $this->input->post('degree');
+        } else {
+            $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
+        }
+
+        //reload data from db
+//        echo 'doctor->updateProfile';
+        $this->load->view('doctor/user-profile', $data);
+    }
+
     public function loadPatientList() {
         $this->load->model(array('Patient'));
         $patient = new Patient();
         $data['msg'] = '';
         $patientList = $patient->get();
         $data['patientList'] = $patientList;
-        
+
         $this->load->view('doctor/doctor-patient-details', $data);
     }
 

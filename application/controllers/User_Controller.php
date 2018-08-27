@@ -41,6 +41,8 @@ class User_Controller extends CI_Controller {
         }
     }
 
+    
+    
     public function changePassword() {
         $this->load->model(array('User'));
         $user = new User();

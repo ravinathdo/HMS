@@ -68,7 +68,7 @@
                       <a href="<?php echo base_url('#'); ?>">
                         <img src="<?= base_url('/images/icon-report.png') ?>" alt="..." title="Report" class="img-thumbnail tile-icon">
                     </a>
-                    <a href="<?php echo base_url('#'); ?>">
+                    <a href="<?php echo base_url('User_Controller/loadProfile'); ?>">
                         <img src="<?= base_url('/images/icon-profile.png') ?>" alt="..." title="Profile" class="img-thumbnail tile-icon">
                     </a>
                 </div>

@@ -33,6 +33,11 @@ class Doctor extends MY_Model {
     public $created_date;
     public $created_user;
 
+    public function updateDoctor($data, $id) {
+        $this->db->where('hms_doctor.id', $id);
+        return $this->db->update('hms_doctor', $data);
+    }
+
     public function getPostData() {
         $this->first_name = $this->input->post('first_name');
         $this->last_name = $this->input->post('last_name');
@@ -49,10 +54,6 @@ class Doctor extends MY_Model {
         $this->status_code = 'ACTIVE';
         $this->user_role = 'DOCTOR';
     }
-
-    
-   
-    
 
     function updateDoctorStatus($data, $id) {
         $this->db->where('hms_doctor.id', $id);

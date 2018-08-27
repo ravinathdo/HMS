@@ -30,7 +30,7 @@
         </a>
     </li>
     <li> 
-        <a href="<?php echo base_url('#'); ?>">
+        <a href="<?php echo base_url('User_Controller/loadProfile'); ?>">
             <img src="<?= base_url('/images/icon-profile.png') ?>" alt="..." class="img-thumbnail menu-icon" title="Patient Details"> Profile
         </a>
     </li>

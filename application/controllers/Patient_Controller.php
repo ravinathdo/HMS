@@ -323,7 +323,7 @@ class Patient_Controller extends CI_Controller {
             $patient->save();
             
             $db_error = $this->db->error();
-            echo '<tt><pre>' . var_export($patient, TRUE) . '</pre></tt>';
+//            echo '<tt><pre>' . var_export($patient, TRUE) . '</pre></tt>';
             if ($db_error['code'] != 0) {
                 $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
             } else {
