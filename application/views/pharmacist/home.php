@@ -56,6 +56,12 @@
                     <a href="<?php echo base_url('Pharmacist_Controller/loadViewStock'); ?>">
                         <img src="<?= base_url('/images/icon-stock.png') ?>" alt="..." class="img-thumbnail  tile-icon" title="View Stock">
                     </a>
+                    <a href="<?php echo base_url('#'); ?>">
+                        <i class="fas fa-address-book   fa-5x img-thumbnail tile-icon"></i> Reports
+                    </a>
+                    <a href="<?php echo base_url('User_Controller/loadProfile'); ?>">
+                        <i class="fas fa-user-cog fa-5x img-thumbnail tile-icon"></i> Profile
+                    </a>
                 </div>
             </div>
         </div>

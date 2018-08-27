@@ -34,13 +34,7 @@
             <div class="top-nav">
                 <div class="wrap">
                     <ul>
-                        
-                        <?php 
-                        if($this->session->userdata('userbean')->user_role == 'PHARMACIST'){
-                             $this->load->view('pharmacist/_menu_pharmacist');
-                        }
-                        ?>
-                        
+                        <?php $this->load->view('_menu'); ?>
                         <div class="clear"> </div>
                     </ul>
                 </div>
@@ -52,27 +46,18 @@
         <div class="content">
             <div class="row">
                 <div class="col-md-2"> 
-                     <?php 
-                        if($this->session->userdata('userbean')->user_role == 'PHARMACIST'){
-                             $this->load->view('pharmacist/_tree_pharmacist');
-                        }
-                        ?>
-                    <?php // $this->load->view('admin/_tree_admin'); ?>
+                    <?php //$this->load->view('admin/_tree_admin'); ?>
                 </div>
                 <div class="col-md-5">
 
-                    
                     <div class="panel panel-warning">
                         <div class="panel-heading ">
                             <h3><img src="<?= base_url('/images/icon-profile.png') ?>" style="width: 30px" /> Profile</h3>
+
                         </div>
-                        
-                        <?php
-//                                                echo '<tt><pre>' . var_export($this->session->userdata('userbean'), TRUE) . '</pre></tt>';
-                        ?>
                         <div class="panel-body">
                             <?= $msg ?>
-                            <form class="form-horizontal" action="<?= base_url('User_Controller/updateProfileInfo') ?>" method="post">
+                            <form class="form-horizontal" action="<?= base_url() ?>" method="post">
                                 <input type="hidden" name="id" value="<?php echo $this->session->userdata('userbean')->id ?>" />
                                 <div class="form-group">
                                     <label for="text" class="control-label col-xs-4">First Name</label> 
@@ -109,21 +94,18 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="text3" class="control-label col-xs-4">Email</label> 
-                                    <div class="col-xs-8">
-                                        <input id="text3" name="email" type="text" class="form-control" value="<?php echo $this->session->userdata('userbean')->email ?>">
-                                    </div>
-                                </div>
-                                <div class="form-group">
                                     <label for="text3" class="control-label col-xs-4">Employee Number</label> 
                                     <div class="col-xs-8">
-                                        <input id="text4" name="empno" type="text" class="form-control"  value="<?php echo $this->session->userdata('userbean')->empno ?>"  readonly=""> 
+                                        <input id="text4" name="empno" type="text" class="form-control"  value="<?php echo $this->session->userdata('userbean')->empno ?>" > 
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="text5" class="control-label col-xs-4">Status</label> 
                                     <div class="col-xs-8">
-                                        <input id="text4" name="status_code" type="text" class="form-control"  value="<?php echo $this->session->userdata('userbean')->status_code ?>" readonly="" > 
+                                        <select class="form-control" name="status_code">
+                                            <option value="ACTIVE"  <?php if ($this->session->userdata('userbean')->status_code == 'ACTIVE') { ?> selected="" <?php } ?>  >ACTIVE</option>
+                                            <option value="DEACTIVE"  <?php if ($this->session->userdata('userbean')->status_code == 'DEACTIVE') { ?> selected="" <?php } ?>  >DEACTIVE</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -134,7 +116,7 @@
                                 </div> 
                                 <div class="form-group row">
                                     <div class="col-xs-offset-4 col-xs-8">
-                                        <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                                        <!--<button name="submit" type="submit" class="btn btn-primary">Submit</button>-->
                                     </div>
                                 </div>
                             </form>

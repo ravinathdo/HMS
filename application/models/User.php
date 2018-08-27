@@ -28,6 +28,11 @@ class User extends MY_Model {
     public $status_code;
     public $created_user;
 
+    public function updateUser($data, $id) {
+        $this->db->where('hms_user.id', $id);
+        return $this->db->update('hms_user', $data);
+    }
+
     public function array_from_post($fields) {
         $data = array();
         foreach ($fields as $field) {
