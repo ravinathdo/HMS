@@ -61,6 +61,7 @@
                             
                             <?php 
 //                            echo '<tt><pre>' . var_export($vehicleReqList, TRUE) . '</pre></tt>';
+                            if($vehicleReqList!=null)
                             foreach ($vehicleReqList as $value) {
                                 ?>
                                 <tr>

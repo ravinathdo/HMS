@@ -96,6 +96,7 @@
                                 </thead>
                                 <tbody>
                                     <?php
+                                    if($myRequestVehicles!=null)
                                     foreach ($myRequestVehicles as $value) {
                                         ?> 
                                         <tr>

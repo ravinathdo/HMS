@@ -65,6 +65,12 @@
                     <a href="<?php echo base_url('LAB_Controller/loadPatientList'); ?>">
                         <img src="<?= base_url('/images/icon-patient.png') ?>" alt="..." class="img-thumbnail tile-icon" title="Patient List">
                     </a>
+                    <a href="<?php echo base_url('#'); ?>">
+                        <i class="fas fa-address-book   fa-5x img-thumbnail tile-icon"></i> Reports
+                    </a>
+                    <a href="<?php echo base_url('User_Controller/loadProfile'); ?>">
+                        <i class="fas fa-user-cog fa-5x img-thumbnail tile-icon"></i> Profile
+                    </a>
                 </div>
             </div>
         </div>

@@ -55,7 +55,8 @@
                     </a>
                     <a href="<?php echo base_url('Transport_Controller/loadAmbulanceRequestList');?>">
                         <img src="<?= base_url('/images/icon-ambulance-request.png')?>"  alt="..." class="img-thumbnail tile-icon" title="Ambulance Request">
-                   <a href="<?php echo base_url('#'); ?>">
+                    </a>
+                    <a href="<?php echo base_url('#'); ?>">
                         <i class="fas fa-address-book   fa-5x img-thumbnail tile-icon"></i> Reports
                     </a>
                     <a href="<?php echo base_url('User_Controller/loadProfile'); ?>">

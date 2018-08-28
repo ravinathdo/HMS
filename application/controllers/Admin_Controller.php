@@ -80,8 +80,8 @@ class Admin_Controller extends CI_Controller {
         $user = new User();
         $data['userProfile'] = $user->getFromID($userid);
         //hms users
-        echo '<tt><pre>' . var_export($data['userProfile'], TRUE) . '</pre></tt>';
-        $this->load->view('admin/admin-patient-update', $data);
+//        echo '<tt><pre>' . var_export($data['userProfile'], TRUE) . '</pre></tt>';
+        $this->load->view('admin/admin-user-update', $data);
     }
 
     public function updateUserProfile() {

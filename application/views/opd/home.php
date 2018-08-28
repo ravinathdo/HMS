@@ -59,11 +59,11 @@
                     <a href="<?php echo base_url('OPD_Controller/loadAmbulanceRequest'); ?>">
                         <img src="<?= base_url('/images/icon-ambulance.png') ?>" alt="..." class="img-thumbnail tile-icon" title="Ambulance Request">
                     </a>
-                       <a href="<?php echo base_url('#'); ?>">
-                        <img src="<?= base_url('/images/icon-report.png') ?>" alt="..." title="Report" class="img-thumbnail tile-icon">
-                    </a>
                     <a href="<?php echo base_url('#'); ?>">
-                        <img src="<?= base_url('/images/icon-profile.png') ?>" alt="..." title="Profile" class="img-thumbnail tile-icon">
+                        <i class="fas fa-address-book   fa-5x img-thumbnail tile-icon"></i> Reports
+                    </a>
+                    <a href="<?php echo base_url('User_Controller/loadProfile'); ?>">
+                        <i class="fas fa-user-cog fa-5x img-thumbnail tile-icon"></i> Profile
                     </a>
                 </div>
                 <div class="col-md-3">

@@ -54,9 +54,8 @@
                             <h3> <img src="<?= base_url('/images/icon-item.png') ?>" style="width: 30px" />  Item Request </h3>
                         </div>
                         <div class="panel-body">
-                            <?php echo '<tt><pre>' . var_export($myRequestItems, TRUE) . '</pre></tt>';?>
-                            
-                            <form class="form-horizontal">
+                            <?= $msg; ?>
+                            <form class="form-horizontal" action="<?php echo base_url('LAB_Controller/setItemRequest') ?>" method="post">
                                 <div class="form-group">
                                     <label for="text" class="control-label col-xs-4">Item Name</label> 
                                     <div class="col-xs-8">
@@ -81,29 +80,28 @@
                 <div class="col-md-5">
                     <table class="table-bordered" style="width: 100%" >
                         <thead>
-                            <tr>
-                                <th>s</th>
-                                <th></th>
-                                <th>s</th>
-                                <th></th>
-                                <th></th>
+                            <tr style="font-weight: bold">
+                                <th>Item</th>
+                                <th>Qty</th>
+                                <th>Status</th>
+                                <th>Date Time</th>
+                                <th>Amount</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>s</td>
-                                <td></td>
-                                <td>s</td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Center One</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                            <?php foreach ($myRequestItems as $value) {
+                                ?>
+                                <tr>
+                                    <td><?= $value->purchasing_item ?></td>
+                                    <td><?= $value->qty ?></td>
+                                    <td><?= $value->status_code ?></td>
+                                    <td><?= $value->created_date ?></td>
+                                    <td><?= $value->amount ?></td>
+                                </tr>
+                            <?php }
+                            ?>
+
+
                         </tbody>
                     </table>
 

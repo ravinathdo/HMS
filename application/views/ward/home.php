@@ -57,10 +57,10 @@
                         <img src="<?= base_url('/images/icon-ambulance-request.png') ?>" alt="..." class="img-thumbnail tile-icon" title="Ambulance Request">
                     </a>
                     <a href="<?php echo base_url('#'); ?>">
-                        <img src="<?= base_url('/images/icon-hms-users.png') ?>" alt="..." class="img-thumbnail tile-icon" title="Staff Manage">
+                        <i class="fas fa-address-book   fa-5x img-thumbnail tile-icon"></i> Reports
                     </a>
-                    <a href="<?php echo base_url('#'); ?>">
-                        <img src="<?= base_url('/images/icon-patient-list.png') ?>" alt="..." class="img-thumbnail tile-icon" title="Approve Patients">
+                    <a href="<?php echo base_url('User_Controller/loadProfile'); ?>">
+                        <i class="fas fa-user-cog fa-5x img-thumbnail tile-icon"></i> Profile
                     </a>
                 </div>
             </div>

@@ -94,7 +94,9 @@
                                     <td>Vehicle No</td>
                                     <td></td>
                                 </tr>
-                                <?php foreach ($myRequest as $value) {
+                                <?php
+                                if($myRequest!=null)
+                                foreach ($myRequest as $value) {
                                     ?> 
                                     <tr>
                                         <td><?= $value->id ?></td>

@@ -52,7 +52,7 @@
                     <div class="row">
                         <?= $msg ?>
                         <div class="col-md-6">
-                            <h3>Doctor Details update</h3>
+                            <h4>Doctor Details update</h4>
                             <input type="hidden" name="doctor_id"/>
                             <form class="form-horizontal" action="<?= base_url('Admin_Controller/updateProfile') ?>" method="post">
                                 <input type="hidden" name="id" value="<?= $docDetails[0]->id ?>"/>

@@ -18,6 +18,42 @@ class LAB_Controller extends CI_Controller {
         $this->load->view('lab/home');
     }
 
+    public function setLabCost() {
+        $this->load->model(array('Cost'));
+        $data['msg'] = '';
+        $userid = $this->session->userdata('userbean')->id;
+
+        $costo = new Cost();
+
+        $costo->description = $this->input->post('description');
+        $costo->amount = $this->input->post('amount');
+        $costo->txn_type = $this->input->post('txn_type');
+        $costo->created_user = $userid;
+
+        $costo->save();
+        $db_error = $this->db->error();
+        if ($db_error['code'] == 0) {
+            $data['msg'] = '<p class="text-success"> Cost created </p>';
+        } else {
+            $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
+        }
+
+        //get my item request
+        $data['myCostList'] = $costo->getMyCost($userid);
+        $this->load->view('lab/lab-cost-maintain', $data);
+    }
+
+    public function loadCostManagement() {
+        $this->load->model(array('Cost'));
+        $data['msg'] = '';
+        $userid = $this->session->userdata('userbean')->id;
+
+        $costo = new Cost();
+        //get my item request
+        $data['myCostList'] = $costo->getMyCost($userid);
+        $this->load->view('lab/lab-cost-maintain', $data);
+    }
+
     public function getTestDetailsForCenters($center_name) {
         $this->load->model(array('LabTest', 'Center'));
         $data['msg'] = '';
@@ -128,7 +164,6 @@ class LAB_Controller extends CI_Controller {
      */
     public function setCenter() {
         //add center test
-        echo 'xxxxxxxxxxxxxxxxxxx';
         $this->load->model(array('LabTest', 'Center'));
         //load center test details
         $center = new Center();
@@ -138,14 +173,12 @@ class LAB_Controller extends CI_Controller {
 
         $db_error = $this->db->error();
         echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
+
         if ($db_error['code'] == 0) {
             $data['msg'] = '<p class="text-success">New registration has been successful </p>';
         } else {
             $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
         }
-
-
-
 
         echo '<tt><pre>' . var_export($center, TRUE) . '</pre></tt>';
         $data['centerList'] = $center->get();
@@ -168,6 +201,33 @@ class LAB_Controller extends CI_Controller {
         $this->load->view('lab/lab-center-test-details', $data);
     }
 
+    public function setItemRequest() {
+        $this->load->model(array('Purchase'));
+        $data['msg'] = '';
+        $userid = $this->session->userdata('userbean')->id;
+
+        $purchase = new Purchase();
+
+        $purchase->purchasing_item = $this->input->post('purchasing_item');
+        $purchase->qty = $this->input->post('qty');
+        $purchase->created_user = $userid;
+        $purchase->request_by = $userid;
+        $purchase->status_code = 'PENDING';
+
+        $purchase->save();
+        $db_error = $this->db->error();
+//        echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
+        if ($db_error['code'] == 0) {
+            $data['msg'] = '<p class="text-success">New Item request successful </p>';
+        } else {
+            $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
+        }
+
+        //get my item request
+        $data['myRequestItems'] = $purchase->getMyPurchaseRequest($userid);
+        $this->load->view('lab/lab-item-request', $data);
+    }
+
     public function loadItemRequest() {
         $this->load->model(array('Purchase'));
         $data['msg'] = '';
@@ -176,12 +236,7 @@ class LAB_Controller extends CI_Controller {
         $purchase = new Purchase();
         //get my item request
         $data['myRequestItems'] = $purchase->getMyPurchaseRequest($userid);
-                
         $this->load->view('lab/lab-item-request', $data);
-    }
-
-    public function loadCostManagement() {
-        $this->load->view('lab/lab-cost-maintain');
     }
 
     public function loadPatientList() {

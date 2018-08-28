@@ -47,15 +47,16 @@
             <div class="row">
                 <div class="col-md-2">  <?php $this->load->view('transport/_tree_transport'); ?></div>
                 <div class="col-md-8">
-                    <?php echo '<tt><pre>' . var_export($reqAllList, TRUE) . '</pre></tt>'; ?>
+                    <?php // echo '<tt><pre>' . var_export($reqAllList, TRUE) . '</pre></tt>'; ?>
                     <div class="panel panel-warning">
                         <div class="panel-heading ">
-                            <h3><img src="<?= base_url('/images/icon-ambulance-request.png') ?>" style="width: 30px" />  Ambulance Request</h3>
+                            <h4>  Ambulance Request</h4>
                         </div>
                         <div class="panel-body">
                             <?php $msg ?>
                             <table style="width: 100%">
                                 <?php
+                                if($reqAllList!=null)
                                 foreach ($reqAllList as $value) {
                                     ?>
                                     <tr>

@@ -23,6 +23,20 @@ class Cost extends MY_Model {
     public $txn_type;
     public $created_user;
 
+    public function getMyCost($user_id) {
+        $this->db->select('hms_cost.*');
+        $this->db->from('hms_cost');
+        $where = " created_user = '" . $user_id . "'";
+        $this->db->where($where);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+
     public function getPostData() {
         $this->description = $this->input->post('description');
         $this->amount = $this->input->post('amount');

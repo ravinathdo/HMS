@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="<?php echo base_url('css/responsiveslides.css') ?>">
         <script src="<?php echo base_url('js/jquery.min.js'); ?>"></script>		
         <script src="<?php echo base_url('js/responsiveslides.min.js'); ?>"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
         <script>
             // You can also use "$(window).load(function() {"
@@ -53,7 +54,7 @@
                     <div class="panel panel-warning">
                         <div class="panel-heading ">
 
-                            <h3> <img src="<?= base_url('/images/icon-hms-users.png') ?>" style="width: 30px" /> User Registration</h3>
+                            <h4>  User Registration</h4>
 
                         </div>
                         <div class="panel-body">

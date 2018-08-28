@@ -19,6 +19,13 @@
                 });
             });
         </script>
+        
+        <script>
+window.location.hash="no-back-button";
+window.location.hash="Again-No-back-button";//again because google chrome don't insert first hash into history
+window.onhashchange=function(){window.location.hash="no-back-button";}
+</script>
+
     </head>
     <body>
         <!---start-wrap---->
@@ -43,16 +50,78 @@
         <!---End-header---->
 
         <!----start-content----->
-        <div class="content">
+        <div class="content" style="min-height: 500px">
             <div class="row">
                 <div class="col-md-2"> 
                     <?php $this->load->view('admin/_tree_admin'); ?>
                 </div>
                 <div class="col-md-7">
                     <h2>Administrator</h2>
-                    <a href="<?php echo base_url('Admin_Controller/loadDoctorRegistration'); ?>">
+                    <table border="0" style="width: 100%;padding: 5px">
+                        <tbody>
+                            <tr style="text-align: center">
+                                <td>
+                                    <a href="<?php echo base_url('Admin_Controller/loadDoctorRegistration'); ?>">
+                                        <i class="fas fa-user-md fa-5x  tile-icon"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="<?php echo base_url('Admin_Controller/loadUserRegistration'); ?>">
+                                        <i class="fas fa-users  fa-5x  tile-icon"></i>
+                                    </a>
+                                </td>
+                                <td> <a href="<?php echo base_url('Admin_Controller/loadItemPurchesing'); ?>">
+                                        <i class="fas fa-thermometer  fa-5x "></i> 
+                                    </a></td>
+                                <td><a href="<?php echo base_url('Admin_Controller/itemPurcheseHistory'); ?>">
+                                        <i class="fas fa-archive fa-5x "></i>
+                                    </a></td>
+                                <td> <a href="<?php echo base_url('Admin_Controller/loadPatientRegistration'); ?>">
+                                        <i class="fas fa-user-tag fa-5x"></i>
+                                    </a></td>
+                            </tr>
+                            <tr style="text-align: center">
+                                <td>Doctor Registration</td>
+                                <td>User Registration</td>
+                                <td>Purchase Request</td>
+                                <td>Item Purchase</td>
+                                <td>Patient Registration</td>
+                            </tr>
+
+
+
+                            <tr style="text-align: center">
+                                <td colpan="5">&nbsp;</td>
+                            </tr>
+
+
+                            <tr style="text-align: center">
+                                <td><a href="<?php echo base_url('#'); ?>">
+                                        <i class="fas fa-address-book   fa-5x"></i>
+                                    </a></td>
+                                <td><a href="<?php echo base_url('User_Controller/loadProfile'); ?>">
+                                        <i class="fas fa-user-cog fa-5x"></i>
+                                    </a></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr style="text-align: center">
+                                <td>Reports</td>
+                                <td>Profile</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+
+
+                        </tbody>
+                    </table>
+
+
+<!--                    <a href="<?php echo base_url('Admin_Controller/loadDoctorRegistration'); ?>">
                         <i class="fas fa-user-md fa-5x img-thumbnail tile-icon"></i> Doctor Registration
-                        <!--<img src="" alt="..." class="img-thumbnail tile-icon" title="Doctor Registration">-->
                     </a>
                     <a href="<?php echo base_url('Admin_Controller/loadUserRegistration'); ?>">
                         <i class="fas fa-users fa-5x img-thumbnail tile-icon"></i> User Registration
@@ -71,7 +140,7 @@
                     </a>
                     <a href="<?php echo base_url('User_Controller/loadProfile'); ?>">
                         <i class="fas fa-user-cog fa-5x img-thumbnail tile-icon"></i> Profile
-                    </a>
+                    </a>-->
 
                 </div>
                 <div class="col-md-3">
@@ -79,7 +148,7 @@
                         <div class="panel-heading ">Dash Board</div>
                         <div class="panel-body">
                             <button type="button" class="btn btn-danger">
-                                <?php echo $this->session->userdata('count_purchase');?>
+                                <?php echo $this->session->userdata('count_purchase'); ?>
                             </button> Item request
                         </div>
                     </div>
@@ -88,7 +157,9 @@
 
             <div class="row">
                 <div class="col-md-2"></div>
-                <div class="col-md-5"><img src="<?= base_url('/images/_chart_3.png') ?>"</div>
+                <div class="col-md-5">
+                    <!--<img src="<?= base_url('/images/_chart_3.png') ?>"/>-->
+                </div>
                 <div class="col-md-5"></div>
             </div>
         </div>

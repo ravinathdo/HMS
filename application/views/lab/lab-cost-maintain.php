@@ -56,26 +56,26 @@
 
                         </div>
                         <div class="panel-body">
-
-                            <form class="form-horizontal">
+                            <?= $msg ?>
+                            <form class="form-horizontal" action="<?= base_url('LAB_Controller/setLabCost') ?>" method="post">
                                 <div class="form-group">
                                     <label for="select" class="control-label col-xs-4">Description</label> 
                                     <div class="col-xs-8">
-                                        <input id="text2" name="text2" type="text" class="form-control">
+                                        <input id="text2" name="description"  required="" type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="Amount" class="control-label col-xs-4">Amount</label> 
                                     <div class="col-xs-8">
-                                        <input id="Amount" name="Amount" type="text" class="form-control">
+                                        <input id="Amount" name="amount" type="text" required="" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="Amount" class="control-label col-xs-4">Transaction</label> 
                                     <div class="col-xs-8">
-                                        <select id="select" name="select" class="select form-control">
-                                            <option value="">Credit</option>
-                                            <option value="">Debit</option>
+                                        <select id="select" name="txn_type" required="" class="select form-control">
+                                            <option value="Credit">Credit</option>
+                                            <option value="Debit">Debit</option>
                                         </select>
                                     </div>
                                 </div>
@@ -92,12 +92,25 @@
                 <div class="col-md-5">
 
                     <table class="table-bordered" style="width: 100%">
-                        <tr>
+                        <tr style="font-weight: bold">
                             <td>Date Time</td>
                             <td>Description</td>
                             <td>Amount</td>
                             <td>Transaction</td>
                         </tr>
+                        <?php foreach ($myCostList as $value) {
+                            ?>
+                            <tr>
+                                <td><?= $value->created_date ?></td>
+                                <td><?= $value->description ?></td>
+                                <td><?= $value->amount ?></td>
+                                <td><?= $value->txn_type ?></td>
+                            </tr>
+                            <?php }
+                        ?>
+
+
+
                     </table>
 
                 </div>
@@ -106,7 +119,7 @@
         <!----End-content----->
         <!---End-wrap---->
         <!---start-footer---->
-       <?php $this->load->view('_footer'); ?>
+        <?php $this->load->view('_footer'); ?>
         <!---End-footer---->
     </body>
 </html>
