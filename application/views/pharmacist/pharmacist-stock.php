@@ -54,11 +54,11 @@
                             <h3> <img src="<?= base_url('/images/icon-stock.png') ?>" style="width: 30px" />  Manage Stock </h3>
                         </div>
                         <div class="panel-body">
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" action="<?= base_url('Pharmacist_Controller/viewStock') ?>" method="post">
                                 <div class="form-group">
                                     <label for="text" class="control-label col-xs-4">Min Qty</label> 
                                     <div class="col-xs-8">
-                                        <input id="text" name="text" type="text" class="form-control">
+                                        <input id="text" name="qty" type="text" class="form-control">
                                     </div>
                                 </div>
                                 
@@ -83,22 +83,29 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Panadol</td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-default btn-xs">Update</button>
-                                </td>
-                            </tr>
+                            <?php 
+                            if($drugList != null)
+                            foreach ($drugList as $value) {
+                                ?>
+                                <tr>
+                                    <td><?= $value->drug_name ?></td>
+                                    <td><?= $value->qty ?></td>
+                                    <td><?= $value->price ?></td>
+                                    <td><a href="<?= base_url('Pharmacist_Controller/loadUpdateDrug/'.$value->id)?>" class="btn btn-default btn-xs">update</a>
+                                    </td>
+                                </tr>
+
+                            <?php }
+                            ?>
+
                         </tbody>
                     </table>
                     <link href="<?= base_url('css/jquery.dataTables.min.css') ?>" rel="stylesheet" type="text/css"/>
                     <script src="<?= base_url('js/jquery.dataTables.min.js') ?>" type="text/javascript"></script>
                     <script type="text/javascript">
-                        $(document).ready(function () {
-                            $('#example').DataTable();
-                        });
+            $(document).ready(function () {
+                $('#example').DataTable();
+            });
                     </script>
                     
                     

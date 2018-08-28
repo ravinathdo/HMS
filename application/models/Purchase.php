@@ -28,6 +28,22 @@ class Purchase extends MY_Model {
     /**
      * Return the count of pending purchase request
      */
+    
+    public function getMyPurchaseRequest($requester_id) {
+        $this->db->select('hms_purchase.*');
+        $this->db->from('hms_purchase');
+        $where = " request_by = '" . $requester_id . "'";
+        $this->db->where($where);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+    
+    
     public function getPurchaseRequestCount() {
         $this->db->select('hms_purchase.*');
         $this->db->from('hms_purchase');

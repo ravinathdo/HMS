@@ -21,9 +21,59 @@ class VehicleRequest extends MY_Model {
     public $request_by;
     public $comment;
     public $status_code;
-    public $vehicle_no;
-    public $datetime_need;
+    public $vehicle_id;
     public $created_user;
+
+    
+    public function getMyVehicleRequest() {
+        $this->db->select('hms_vehicle_request.*');
+        $this->db->from('hms_vehicle_request');
+        $where = " doctor_id = '" . $doctor_id . "'";
+        $this->db->where($where);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+    
+    
+    function updateVehicle($data, $id) {
+        $this->db->where('hms_vehicle_request.id', $id);
+        return $this->db->update('hms_vehicle_request', $data);
+    }
+
+    public function getRequestHistory($vid) {
+        $this->db->select('hms_vehicle_request.*,hms_user.first_name,hms_user.user_role,hms_vehicle.vehicle_number');
+        $this->db->from('hms_vehicle_request');
+        $where = " vehicle_id = '" . $vid . "'";
+        $this->db->where($where);
+        $this->db->join('hms_user', 'hms_user.id = hms_vehicle_request.request_by');
+        $this->db->join('hms_vehicle', 'hms_vehicle.id = hms_vehicle_request.vehicle_id');
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function getAllRequest() {
+        $this->db->select('hms_vehicle_request.*,hms_user.first_name,hms_user.user_role,hms_user.telephone,hms_vehicle.vehicle_number');
+        $this->db->from('hms_vehicle_request');
+        $this->db->join('hms_user', 'hms_user.id = hms_vehicle_request.request_by');
+        $this->db->join('hms_vehicle', 'hms_vehicle.id = hms_vehicle_request.vehicle_id');
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
 
     public function getMyRequest($user_id) {
         $this->db->select('hms_vehicle_request.*');

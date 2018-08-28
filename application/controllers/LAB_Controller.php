@@ -18,6 +18,43 @@ class LAB_Controller extends CI_Controller {
         $this->load->view('lab/home');
     }
 
+    public function getTestDetailsForCenters($center_name) {
+        $this->load->model(array('LabTest', 'Center'));
+        $data['msg'] = '';
+        $labTest1 = new LabTest();
+        $center = new Center();
+
+        $data['centerList'] = $center->get();
+        $labCenterDetails = $labTest1->getLabCenterDetails($center_name);
+        $data['labCenterDetails'] = $labCenterDetails;
+        $this->load->view('lab/lab-center-test-details', $data);
+    }
+
+    public function addCenterTestDetails() {
+        $this->load->model(array('LabTest', 'Center'));
+
+        $labTest0 = new LabTest();
+        $center = new Center();
+
+        $labTest0->center_name = $this->input->post('center_name');
+        $labTest0->lab_test = $this->input->post('lab_test');
+        $labTest0->description = $this->input->post('description');
+
+        $labTest0->save();
+
+        $db_error = $this->db->error();
+        echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
+        if ($db_error['code'] == 0) {
+            $data['msg'] = '<p class="text-success">New test detail created </p>';
+        } else {
+            $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
+        }
+
+        $data['msg'] = '';
+        $data['centerList'] = $center->get();
+        $this->load->view('lab/lab-center-details', $data);
+    }
+
     public function loadInventoryManage() {
         $this->load->model(array('Inventory'));
         $data['msg'] = '';
@@ -132,7 +169,15 @@ class LAB_Controller extends CI_Controller {
     }
 
     public function loadItemRequest() {
-        $this->load->view('lab/lab-item-request');
+        $this->load->model(array('Purchase'));
+        $data['msg'] = '';
+        $userid = $this->session->userdata('userbean')->id;
+
+        $purchase = new Purchase();
+        //get my item request
+        $data['myRequestItems'] = $purchase->getMyPurchaseRequest($userid);
+                
+        $this->load->view('lab/lab-item-request', $data);
     }
 
     public function loadCostManagement() {

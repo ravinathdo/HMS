@@ -54,17 +54,19 @@
                             <h3> <img src="<?= base_url('/images/icon-item.png') ?>" style="width: 30px" />  Item Request </h3>
                         </div>
                         <div class="panel-body">
+                            <?php echo '<tt><pre>' . var_export($myRequestItems, TRUE) . '</pre></tt>';?>
+                            
                             <form class="form-horizontal">
                                 <div class="form-group">
-                                    <label for="text" class="control-label col-xs-4">Center Name</label> 
+                                    <label for="text" class="control-label col-xs-4">Item Name</label> 
                                     <div class="col-xs-8">
-                                        <input id="text" name="text" type="text" class="form-control">
+                                        <input id="text" name="purchasing_item"  type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="text1" class="control-label col-xs-4">Description</label> 
+                                    <label for="text1" class="control-label col-xs-4">Qty</label> 
                                     <div class="col-xs-8">
-                                        <input id="text1" name="text1" type="text" class="form-control">
+                                        <input id="text1" name="qty" type="number" class="form-control">
                                     </div>
                                 </div> 
                                 <div class="form-group row">

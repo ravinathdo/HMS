@@ -38,6 +38,24 @@
                         <?php 
                         if($this->session->userdata('userbean')->user_role == 'PHARMACIST'){
                              $this->load->view('pharmacist/_menu_pharmacist');
+                        } else 
+                        if($this->session->userdata('userbean')->user_role == 'TRANSPORT'){
+                             $this->load->view('transport/_menu_transport');
+                        } else 
+                        if($this->session->userdata('userbean')->user_role == 'OPD'){
+                             $this->load->view('opd/_menu_opd');
+                        } else 
+                        if($this->session->userdata('userbean')->user_role == 'ACCOUNTANT'){
+                             $this->load->view('accountant/_menu_accountant');
+                        }else 
+                        if($this->session->userdata('userbean')->user_role == 'LAB'){
+                             $this->load->view('lab/_menu_lab');
+                        }else 
+                        if($this->session->userdata('userbean')->user_role == 'WARD'){
+                             $this->load->view('ward/_menu_ward');
+                        }else 
+                        if($this->session->userdata('userbean')->user_role == 'ADMIN'){
+                             $this->load->view('admin/_menu_admin');
                         }
                         ?>
                         
@@ -52,9 +70,28 @@
         <div class="content">
             <div class="row">
                 <div class="col-md-2"> 
+                    
                      <?php 
                         if($this->session->userdata('userbean')->user_role == 'PHARMACIST'){
                              $this->load->view('pharmacist/_tree_pharmacist');
+                        } else 
+                        if($this->session->userdata('userbean')->user_role == 'TRANSPORT'){
+                             $this->load->view('transport/_tree_transport');
+                        } else 
+                        if($this->session->userdata('userbean')->user_role == 'OPD'){
+                             $this->load->view('opd/_tree_opd');
+                        } else 
+                        if($this->session->userdata('userbean')->user_role == 'ACCOUNTANT'){
+                             $this->load->view('accountant/_tree_accountant');
+                        }else 
+                        if($this->session->userdata('userbean')->user_role == 'LAB'){
+                             $this->load->view('lab/_tree_lab');
+                        }else 
+                        if($this->session->userdata('userbean')->user_role == 'WARD'){
+                             $this->load->view('ward/_tree_ward');
+                        }else 
+                        if($this->session->userdata('userbean')->user_role == 'ADMIN'){
+                             $this->load->view('admin/_tree_admin');
                         }
                         ?>
                     <?php // $this->load->view('admin/_tree_admin'); ?>

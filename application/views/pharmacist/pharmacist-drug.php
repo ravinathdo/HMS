@@ -54,23 +54,25 @@
                             <h3> <img src="<?= base_url('/images/icon-drug.png') ?>" style="width: 30px" />  Manage Drug </h3>
                         </div>
                         <div class="panel-body">
-                            <form class="form-horizontal">
+                                                    <span class="mando-msg">* fields are mandatory</span>
+
+                            <form class="form-horizontal" action="<?= base_url('Pharmacist_Controller/addDrug') ?>" method="post">
                                 <div class="form-group">
-                                    <label for="text" class="control-label col-xs-4">Drug Name</label> 
+                                    <label for="text" class="control-label col-xs-4">Drug Name <span class="mando-msg">*</span></label> 
                                     <div class="col-xs-8">
-                                        <input id="text" name="text" type="text" class="form-control">
+                                        <input id="text" name="drug_name"  required="" type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="text1" class="control-label col-xs-4">Qty</label> 
+                                    <label for="text1" class="control-label col-xs-4">Qty <span class="mando-msg">*</span></label> 
                                     <div class="col-xs-8">
-                                        <input id="text1" name="text1" type="text" class="form-control">
+                                        <input id="text1" name="qty"  required="" type="number" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="text2" class="control-label col-xs-4">Price</label> 
+                                    <label for="text2" class="control-label col-xs-4">Price <span class="mando-msg">*</span></label> 
                                     <div class="col-xs-8">
-                                        <input id="text2" name="text2" type="text" class="form-control">
+                                        <input id="text2" name="price" required="" type="text" class="form-control">
                                     </div>
                                 </div> 
                                 <div class="form-group row">
@@ -83,7 +85,7 @@
                     </div>
                 </div>
                 <div class="col-md-5">
-                    
+                    <?php // echo '<tt><pre>' . var_export($drugList, TRUE) . '</pre></tt>'; ?>
                     <table id="example" class="display" cellspacing="0" width="100%">
                         <thead>
                             <tr>
@@ -94,32 +96,37 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Panadol</td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-default btn-xs">Update</button>
-                                </td>
-                            </tr>
+                            <?php foreach ($drugList as $value) {
+                                ?>
+                                <tr>
+                                    <td><?= $value->drug_name ?></td>
+                                    <td><?= $value->qty ?></td>
+                                    <td><?= $value->price ?></td>
+                                    <td><a href="<?= base_url('Pharmacist_Controller/loadUpdateDrug/'.$value->id)?>" class="btn btn-default btn-xs">update</a>
+                                    </td>
+                                </tr>
+
+                            <?php }
+                            ?>
+
                         </tbody>
                     </table>
                     <link href="<?= base_url('css/jquery.dataTables.min.css') ?>" rel="stylesheet" type="text/css"/>
                     <script src="<?= base_url('js/jquery.dataTables.min.js') ?>" type="text/javascript"></script>
                     <script type="text/javascript">
-                        $(document).ready(function () {
-                            $('#example').DataTable();
-                        });
+            $(document).ready(function () {
+                $('#example').DataTable();
+            });
                     </script>
-                    
-                    
+
+
                 </div>
             </div>
         </div>
         <!----End-content----->
         <!---End-wrap---->
         <!---start-footer---->
-                  <?php $this->load->view('_footer'); ?>
+        <?php $this->load->view('_footer'); ?>
 
         <!---End-footer---->
     </body>

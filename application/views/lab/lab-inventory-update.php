@@ -59,13 +59,13 @@
                                 <div class="form-group">
                                     <label for="text" class="control-label col-xs-4">Item Name</label> 
                                     <div class="col-xs-8">
-                                        <input id="text" name="item_name" type="text" class="form-control" value="<?php echo $itemDetail[0]->item_name;?>" >
+                                        <input id="text" name="item_name" type="text"  required="" class="form-control" value="<?php echo $itemDetail[0]->item_name;?>" >
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="text1" class="control-label col-xs-4">Qty</label> 
                                     <div class="col-xs-8">
-                                        <input id="text1" name="qty" type="text" class="form-control" value="<?php echo $itemDetail[0]->qty;?>">
+                                        <input id="text1" name="qty" type="number"   required=""  class="form-control" value="<?php echo $itemDetail[0]->qty;?>">
                                     </div>
                                 </div> 
                                 <div class="form-group row">

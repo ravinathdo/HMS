@@ -26,7 +26,7 @@
         <div class="header">
             <div class="main-header">
                 <div class="wrap">
-                    <?php $this->load->view('lab/_head_lab'); ?>
+                    <?php $this->load->view('ward/_head_ward'); ?>
                     <div class="clear"> </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
             <div class="top-nav">
                 <div class="wrap">
                     <ul>
-                        <?php $this->load->view('lab/_menu_lab'); ?>
+                        <?php $this->load->view('ward/_menu_ward'); ?>
                         <div class="clear"> </div>
                     </ul>
                 </div>
@@ -46,43 +46,38 @@
         <div class="content">
             <div class="row">
                 <div class="col-md-2"> 
-                    <?php $this->load->view('lab/_tree_lab'); ?>
+                    <?php $this->load->view('ward/_tree_ward'); ?>
                 </div>
-                <div class="col-md-5">
-
-
-
-                    <?php
-                    if($labCenterDetails!=null)
-                    foreach ($labCenterDetails as $value) {
-                        echo '<tt><pre><b> '. $value->center_name.' - '.  $value->lab_test .' </b><br>'
-                                .  $value->description.'   <br></pre></tt>';
-                    }
-                    ?>
-
+                <div class="col-md-6">
+                   
+                    <div class="panel panel-warning">
+                        <div class="panel-heading ">Member Registration</div>
+                        <div class="panel-body">
+                             <?= $msg ?>
+                    <form class="form-horizontal" action="<?= base_url('WARD_Controller/purchaseItems') ?>" method="post">
+                        <div class="form-group">
+                            <label for="" class="control-label col-xs-4">Item to purchase</label> 
+                            <div class="col-xs-8">
+                                <input id="" name="purchasing_item" type="text" class="form-control" required="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="text1" class="control-label col-xs-4">Quantity</label> 
+                            <div class="col-xs-8">
+                                <input id="text1" name="qty" type="text" class="form-control" required="">
+                            </div>
+                        </div> 
+                        <div class="form-group row">
+                            <div class="col-xs-offset-4 col-xs-8">
+                                <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                        </div>
+                    </div>
 
                 </div>
-                <div class="col-md-5">
-                    <table class="table-bordered" style="width: 100%" >
-                        <thead>
-                            <tr>
-                                <th>Center Name</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            if ($centerList)
-                                foreach ($centerList as $value) {
-                                    ?>
-                                    <tr>
-                                        <td><?= $value->center_name ?></td>
-                                        <td><a href="<?php echo base_url('LAB_Controller/getTestDetailsForCenters/'.$value->center_name) ?>">View Center Test Details</a></td>
-                                    </tr>
-                                <?php }
-                            ?>
-                        </tbody>
-                    </table>
+                <div class="col-md-6">
 
                 </div>
             </div>
@@ -91,6 +86,7 @@
         <!---End-wrap---->
         <!---start-footer---->
         <?php $this->load->view('_footer'); ?>
+
         <!---End-footer---->
     </body>
 </html>

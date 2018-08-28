@@ -26,7 +26,7 @@
         <div class="header">
             <div class="main-header">
                 <div class="wrap">
-                    <?php $this->load->view('lab/_head_lab'); ?>
+                    <?php $this->load->view('ward/_head_ward'); ?>
                     <div class="clear"> </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
             <div class="top-nav">
                 <div class="wrap">
                     <ul>
-                        <?php $this->load->view('lab/_menu_lab'); ?>
+                        <?php $this->load->view('ward/_menu_ward'); ?>
                         <div class="clear"> </div>
                     </ul>
                 </div>
@@ -46,26 +46,24 @@
         <div class="content">
             <div class="row">
                 <div class="col-md-2"> 
-                    <?php $this->load->view('lab/_tree_lab'); ?>
+                    <?php $this->load->view('ward/_tree_ward'); ?>
                 </div>
-                <div class="col-md-5">
-                    <div class="panel panel-warning">
-                        <div class="panel-heading ">
-                            <h3> <img src="<?= base_url('/images/icon-stock.png') ?>" style="width: 30px" />  Inventory Manage </h3>
-                        </div>
+                <div class="col-md-4">
+
+
+                    <div class="panel panel-success">
+                        <div class="panel-heading ">Ambulance Request</div>
                         <div class="panel-body">
-                            <?= $msg ?>
-                            <form class="form-horizontal" action="<?php echo base_url('LAB_Controller/addInventoryItem'); ?>" method="post">
-                                <div class="form-group"> 
-                                    <label for="text" class="control-label col-xs-4">Item Name</label> 
-                                    <div class="col-xs-8">
-                                        <input id="text" name="item_name" type="text" required="" class="form-control">
-                                    </div>
+
+                            <?= $msg; ?>
+                            <form class="form-horizontal" action="<?= base_url('WARD_Controller/ambulanaceRequest') ?>" method="post" >
+                                <div class="form-group">
+                                    <label for="" class="control-label col-xs-12">Request From Transport Manager</label> 
                                 </div>
                                 <div class="form-group">
-                                    <label for="text1" class="control-label col-xs-4">Qty</label> 
+                                    <label for="textarea" class="control-label col-xs-4">Text Area</label> 
                                     <div class="col-xs-8">
-                                        <input id="text1" name="qty" type="number" required="" class="form-control">
+                                        <textarea required="" id="textarea"  name="comment" cols="40" rows="5" class="form-control"></textarea>
                                     </div>
                                 </div> 
                                 <div class="form-group row">
@@ -76,35 +74,49 @@
                             </form>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-5">
-                    <?php // echo '<tt><pre>' . var_export($allInventory, TRUE) . '</pre></tt>';?>
-                    <table class="table-bordered" style="width: 100%" >
-                        <thead>
-                            <tr style="font-weight: bold">
-                                <th>Item Name</th>
-                                <th>Qty</th>
-                                <th>Last Update</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            if ($allInventory)
-                                foreach ($allInventory as $value) {
-                                    ?>
-                                    <tr>
-                                        <td><?= $value->item_name ?></td>
-                                        <td><?= $value->qty ?></td>
-                                        <td><?= $value->created_date ?></td>
-                                        <td><a href="<?php echo base_url('LAB_Controller/loadUpdateInventory/'.$value->id)?>">update</a></td>
-                                    </tr>
-                                    <?php
-                                }
-                            ?>
 
-                        </tbody>
-                    </table>
+
+
+                </div>
+                <div class="col-md-6">
+
+
+                    <div class="panel panel-warning">
+                        <div class="panel-heading ">Member Registration</div>
+                        <div class="panel-body">
+
+                            <table border="1" style="width: 100%" class="table-bordered">
+                                <thead>
+                                    <tr style="font-weight: bold">
+                                        <th>ID</th>
+                                        <th>Comment</th>
+                                        <th>Status</th>
+                                        <th>Created Date Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    foreach ($myRequestVehicles as $value) {
+                                        ?> 
+                                        <tr>
+                                            <td><?= $value->id ?></td>
+                                            <td><?= $value->comment ?></td>
+                                            <td><?= $value->status_code ?></td>
+                                            <td><?= $value->created_time ?></td>
+                                        </tr>
+                                        <?php
+                                    }
+                                    ?>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+
+
 
                 </div>
             </div>
@@ -112,7 +124,7 @@
         <!----End-content----->
         <!---End-wrap---->
         <!---start-footer---->
-        <?php $this->load->view('_footer'); ?>
+                    <?php $this->load->view('_footer'); ?>
         <!---End-footer---->
     </body>
 </html>

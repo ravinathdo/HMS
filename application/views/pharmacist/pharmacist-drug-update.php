@@ -26,7 +26,7 @@
         <div class="header">
             <div class="main-header">
                 <div class="wrap">
-                    <?php $this->load->view('lab/_head_lab'); ?>
+                    <?php $this->load->view('pharmacist/_head_pharmacist'); ?>
                     <div class="clear"> </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
             <div class="top-nav">
                 <div class="wrap">
                     <ul>
-                        <?php $this->load->view('lab/_menu_lab'); ?>
+                        <?php $this->load->view('pharmacist/_menu_pharmacist'); ?>
                         <div class="clear"> </div>
                     </ul>
                 </div>
@@ -46,26 +46,35 @@
         <div class="content">
             <div class="row">
                 <div class="col-md-2"> 
-                    <?php $this->load->view('lab/_tree_lab'); ?>
+                    <?php $this->load->view('pharmacist/_tree_pharmacist'); ?>
                 </div>
                 <div class="col-md-5">
                     <div class="panel panel-warning">
                         <div class="panel-heading ">
-                            <h3> <img src="<?= base_url('/images/icon-stock.png') ?>" style="width: 30px" />  Inventory Manage </h3>
+                            <h3><img src="<?= base_url('/images/icon-drug.png') ?>" style="width: 30px" /> Update Drug </h3>
                         </div>
                         <div class="panel-body">
+                            <span class="mando-msg">* fields are mandatory</span>
                             <?= $msg ?>
-                            <form class="form-horizontal" action="<?php echo base_url('LAB_Controller/addInventoryItem'); ?>" method="post">
-                                <div class="form-group"> 
-                                    <label for="text" class="control-label col-xs-4">Item Name</label> 
+                            <form class="form-horizontal" action="<?= base_url('Pharmacist_Controller/updateDrug') ?>" method="post">
+                                <input  name="id"  required="" type="hidden" class="form-control" value="<?= $drugDetail->id ?>"/>
+
+                                <div class="form-group">
+                                    <label for="text" class="control-label col-xs-4">Drug Name <span class="mando-msg">*</span></label> 
                                     <div class="col-xs-8">
-                                        <input id="text" name="item_name" type="text" required="" class="form-control">
+                                        <input  name="drug_name"  required="" type="text" class="form-control" value="<?= $drugDetail->drug_name ?>"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="text1" class="control-label col-xs-4">Qty</label> 
+                                    <label for="text1" class="control-label col-xs-4">Qty <span class="mando-msg">*</span></label> 
                                     <div class="col-xs-8">
-                                        <input id="text1" name="qty" type="number" required="" class="form-control">
+                                        <input id="text1" name="qty"  required="" type="number" class="form-control" value="<?= $drugDetail->qty ?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="text2" class="control-label col-xs-4">Price <span class="mando-msg">*</span></label> 
+                                    <div class="col-xs-8">
+                                        <input id="text2" name="price" required="" type="text" class="form-control" value="<?= $drugDetail->price ?>">
                                     </div>
                                 </div> 
                                 <div class="form-group row">
@@ -78,33 +87,8 @@
                     </div>
                 </div>
                 <div class="col-md-5">
-                    <?php // echo '<tt><pre>' . var_export($allInventory, TRUE) . '</pre></tt>';?>
-                    <table class="table-bordered" style="width: 100%" >
-                        <thead>
-                            <tr style="font-weight: bold">
-                                <th>Item Name</th>
-                                <th>Qty</th>
-                                <th>Last Update</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            if ($allInventory)
-                                foreach ($allInventory as $value) {
-                                    ?>
-                                    <tr>
-                                        <td><?= $value->item_name ?></td>
-                                        <td><?= $value->qty ?></td>
-                                        <td><?= $value->created_date ?></td>
-                                        <td><a href="<?php echo base_url('LAB_Controller/loadUpdateInventory/'.$value->id)?>">update</a></td>
-                                    </tr>
-                                    <?php
-                                }
-                            ?>
 
-                        </tbody>
-                    </table>
+
 
                 </div>
             </div>
@@ -113,6 +97,7 @@
         <!---End-wrap---->
         <!---start-footer---->
         <?php $this->load->view('_footer'); ?>
+
         <!---End-footer---->
     </body>
 </html>

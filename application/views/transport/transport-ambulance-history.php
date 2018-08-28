@@ -47,42 +47,35 @@
             <div class="row">
                 <div class="col-md-2">  <?php $this->load->view('transport/_tree_transport'); ?></div>
                 <div class="col-md-8">
-                    <?php echo '<tt><pre>' . var_export($reqAllList, TRUE) . '</pre></tt>'; ?>
-                    <div class="panel panel-warning">
-                        <div class="panel-heading ">
-                            <h3><img src="<?= base_url('/images/icon-ambulance-request.png') ?>" style="width: 30px" />  Ambulance Request</h3>
-                        </div>
-                        <div class="panel-body">
-                            <?php $msg ?>
-                            <table style="width: 100%">
-                                <?php
-                                foreach ($reqAllList as $value) {
-                                    ?>
-                                    <tr>
-                                        <td><?= $value->vehicle_number ?></td>
-                                        <td><a href=""><?= $value->status_code ?></a>  
-                                            <?php
-                                            if ($value->status_code != 'COMPLETE') {
-                                                ?>
-                                                <a href="<?php echo base_url('Transport_Controller/updateTravelStatus/' . $value->id . '/ACCEPT') ?>" class="btn btn-success btn-xs" >Accept</a>
-                                                <a href="<?php echo base_url('Transport_Controller/updateTravelStatus/' . $value->id . '/REJECT') ?>" class="btn btn-danger btn-xs">Reject</a>
-                                                <?php
-                                            }
-                                            ?>
-                                        </td>
-                                        <td><a href=""><?= $value->first_name ?> [<?= $value->telephone ?>] <?= $value->user_role ?></a></td>
-                                    </tr>
-                                    <?php
-                                }
+
+                    <table border="0" style="width: 100%" class="table-bordered">
+                        <thead>
+                            <tr style="font-weight: bold">
+                                <th>Created Time</th>
+                                <th>Comment</th>
+                                <th>Status Code</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <?php 
+//                            echo '<tt><pre>' . var_export($vehicleReqList, TRUE) . '</pre></tt>';
+                            foreach ($vehicleReqList as $value) {
                                 ?>
+                                <tr>
+                                    <td><?= $value->created_time ?></td>
+                                    <td><?= $value->comment ?></td>
+                                    <td><?= $value->status_code ?></td>
+                                    <td><?= $value->first_name ?><?= $value->user_role ?></td>
+                                </tr>
+                            <?php }
+                            ?>
+                        </tbody>
+                    </table>
 
 
-                            </table>
 
-
-
-                        </div>
-                    </div>
                 </div>
 
             </div>

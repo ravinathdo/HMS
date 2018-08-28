@@ -50,7 +50,7 @@
                 </div>
                 <div class="col-md-10">
                     <h2>WARD</h2>
-                    <a href="<?php echo base_url('WARD_Controller/loadWardManage'); ?>">
+                    <a href="<?php echo base_url('WARD_Controller/loadPurchaseItems'); ?>">
                         <img src="<?= base_url('/images/icon-ward.png') ?>" alt="..." class="img-thumbnail tile-icon" title="Purchasing Items">
                     </a>
                     <a href="<?php echo base_url('#'); ?>">

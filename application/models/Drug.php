@@ -16,9 +16,29 @@ class Drug extends MY_Model {
     //put your code here
     const DB_TABLE = 'hms_drug';
     const DB_TABLE_PK = 'id';
-    
+
     public $id;
     public $drug_name;
     public $qty;
-    
+    public $price;
+
+    public function getFillterStock($qty) {
+        $this->db->select('hms_drug.*');
+        $this->db->from('hms_drug');
+        $where = " qty <= '" . $qty . "'";
+        $this->db->where($where);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+
+    function updateDrug($data, $id) {
+        $this->db->where('hms_drug.id', $id);
+        return $this->db->update('hms_drug', $data);
+    }
+
 }

@@ -21,7 +21,20 @@ class LabTest extends MY_Model {
     public $lab_test;
     public $center_name;
     public $description;
-    
+
+    public function loadCenterTestDetails($center_name) {
+        $this->db->select('hms_lab_test.*');
+        $this->db->from('hms_lab_test');
+        $where = " center_name = '" . $center_name . "'";
+        $this->db->where($where);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
 
     public function getLabCenterDetails($center_name) {
         $this->db->select('hms_lab_test.*');
@@ -34,8 +47,7 @@ class LabTest extends MY_Model {
             return $query->result();
         } else {
             return FALSE;
-        }  
+        }
     }
-    
-    
+
 }
