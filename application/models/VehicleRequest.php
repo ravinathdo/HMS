@@ -25,6 +25,21 @@ class VehicleRequest extends MY_Model {
     public $created_user;
 
     
+    
+    public function getVehicleFromStatus($status_code) {
+        $this->db->select('hms_vehicle_request.*');
+        $this->db->from('hms_vehicle_request');
+        $where = " status_code = '" . $status_code . "'";
+        $this->db->where($where);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+    
     public function getMyVehicleRequest() {
         $this->db->select('hms_vehicle_request.*');
         $this->db->from('hms_vehicle_request');

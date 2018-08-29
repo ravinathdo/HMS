@@ -288,8 +288,6 @@ class Patient_Controller extends CI_Controller {
 ////        $this->repword = $this->input->post('repword');
 //        $patient->status_code = 'ACTIVE';
 //        $patient->user_role = 'PATIENT';
-        
-        
         //---------form validation
         $this->load->library('form_validation');
         $this->form_validation->set_message('password_validation', 'Invlaid password length');
@@ -308,7 +306,7 @@ class Patient_Controller extends CI_Controller {
 //        echo '<tt><pre>' . var_export($patient, TRUE) . '</pre></tt>';
 
         $this->form_validation->set_error_delimiters('<p style="color:red">', '</p>');
-        
+
         if (!$this->form_validation->run()) {
             $data['msg'] = '';
             $this->load->view('patient/patient-register', $data);
@@ -321,7 +319,7 @@ class Patient_Controller extends CI_Controller {
             $patient->pword = sha1($pword);
 
             $patient->save();
-            
+
             $db_error = $this->db->error();
 //            echo '<tt><pre>' . var_export($patient, TRUE) . '</pre></tt>';
             if ($db_error['code'] != 0) {
@@ -347,8 +345,9 @@ class Patient_Controller extends CI_Controller {
     }
 
     public function patientLogin() {
-        $this->load->model(array('User'));
+        $this->load->model(array('User', 'DoctorAppointment'));
         $user = new User();
+        $docappo = new DoctorAppointment();
 
         $post_data = $user->array_from_post(array('email', 'pword'));
         $login = $user->getPatientLogin($post_data);
@@ -363,6 +362,14 @@ class Patient_Controller extends CI_Controller {
                 'logged_in' => TRUE,
                 'today' => $today
             );
+
+
+            //get my appointment count
+            $newdata['appin_count'] = $docappo->getMyAppointmentCount($newdata['userbean']->id, 'OPEN');
+            echo '<tt><pre>' . var_export($newdata['appin_count'], TRUE) . '</pre></tt>';
+
+
+
             $this->session->set_userdata($newdata);
             $this->load->view('patient/home');
         } else {
@@ -372,6 +379,13 @@ class Patient_Controller extends CI_Controller {
     }
 
     public function loadHome() {
+        $this->load->model(array('User', 'DoctorAppointment'));
+
+        $docappo = new DoctorAppointment();
+       
+        
+        
+//        $this->session->set_userdata($userbean);
         $this->load->view('patient/home');
     }
 

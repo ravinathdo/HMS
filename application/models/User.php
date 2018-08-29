@@ -53,6 +53,10 @@ class User extends MY_Model {
         $this->status_code = 'ACTIVE';
     }
 
+    
+    
+    
+    
     public function getPatientLogin($formData) {
         $this->db->select('hms_patient.*');
         $this->db->from('hms_patient');

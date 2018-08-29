@@ -5,6 +5,9 @@
     <li><a href="<?php echo base_url('Transport_Controller/loadAmbulanceRequestList'); ?>">
         <img src="<?= base_url('/images/icon-ambulance-request.png') ?>"  alt="..." class="img-thumbnail menu-icon" title="Ambulance Request"> Ambulance Request
     </a></li>
+    <li><a href="<?php echo base_url('Transport_Controller/getPendingVehicleRequest'); ?>">
+        <img src="<?= base_url('/images/icon-ambulance-request.png') ?>"  alt="..." class="img-thumbnail menu-icon" title="Ambulance Request"> Pending Request
+    </a></li>
     <li><a href="<?php echo base_url('Transport_Controller/#'); ?>">
         <img src="<?= base_url('/images/icon-report.png') ?>"  alt="..." class="img-thumbnail menu-icon" title="Ambulance Request"> Reports
     </a></li>

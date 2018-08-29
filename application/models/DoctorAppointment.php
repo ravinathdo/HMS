@@ -29,6 +29,24 @@ class DoctorAppointment extends MY_Model {
     public $created_date;
     public $created_user;
 
+    /**
+     * patient appointment count 
+     * @param type $patient_id
+     */
+    public function getMyAppointmentCount($patient_id,$status_code) {
+        $this->db->select('hms_doctor_appointment.*');
+        $this->db->from('hms_doctor_appointment');
+        $where = " created_user = '" . $patient_id . "' AND status_code = 'OPEN'";
+        $this->db->where($where);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return FALSE;
+        }
+    }
+    
     public function getDoctorEarnings($doctor_id, $year_month) {
         $this->db->select('hms_doctor_appointment.*');
         $this->db->from('hms_doctor_appointment');

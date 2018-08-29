@@ -13,13 +13,67 @@
  */
 class Transport_Controller extends CI_Controller {
 
+    public function approveRequest() {
+        $this->load->model(array('Vehicle', 'VehicleRequest'));
+        $data['msg'] = '';
+        $vehicleRequest = new VehicleRequest();
+        $vehicle = new Vehicle();
+
+        $id = $this->input->post('req_id');
+        //collect data
+        $updateArray = array('status_code' => 'COMPLETE', 'vehicle_id' => $this->input->post('vehicle_id'));
+
+        $vehicleRequest->updateVehicle($updateArray, $id);
+        $db_error = $this->db->error();
+        
+        echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
+        if ($db_error['code'] == 0) {
+            $data['msg'] = '<p class="text-success">update successful </p>';
+        } else {
+            $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
+        }
+
+        $allVehicles = $vehicle->get();
+        $data['vehicleAllList'] = $allVehicles;
+
+        $vehicleFromStatus = $vehicleRequest->getVehicleFromStatus('PENDING');
+        $data['pendingRequest'] = $vehicleFromStatus;
+
+
+        echo '<tt><pre>' . var_export($data['vehicleAllList'], TRUE) . '</pre></tt>';
+
+        $this->load->view('transport/transport-ambulance-pending-requet', $data);
+    }
+
+    public function getPendingVehicleRequest() {
+        $this->load->model(array('Vehicle', 'VehicleRequest'));
+        $data['msg'] = '';
+        $vehicleRequest = new VehicleRequest();
+        $vehicle = new Vehicle();
+        $allVehicles = $vehicle->get();
+
+        $data['vehicleAllList'] = $allVehicles;
+
+        $vehicleFromStatus = $vehicleRequest->getVehicleFromStatus('PENDING');
+        $data['pendingRequest'] = $vehicleFromStatus;
+
+
+        echo '<tt><pre>' . var_export($data['vehicleAllList'], TRUE) . '</pre></tt>';
+
+        $this->load->view('transport/transport-ambulance-pending-requet', $data);
+    }
+
     //put your code here
     public function viewTravelHistory($vehicleID) {
         $data['msg'] = '';
-        $this->load->model(array('VehicleRequest'));
+        $this->load->model(array('Vehicle', 'VehicleRequest'));
         $vehicleReq = new VehicleRequest();
+        $vehicle = new Vehicle();
 
         $data['vehicleReqList'] = $vehicleReq->getRequestHistory($vehicleID);
+        $allVehicles = $vehicle->get();
+        $data['vehicleAllList'] = $allVehicles;
+
 
         $this->load->view('transport/transport-ambulance-history', $data);
     }
@@ -55,7 +109,7 @@ class Transport_Controller extends CI_Controller {
         $vehicleReq = new VehicleRequest();
         $reqAllList = $vehicleReq->getAllRequest();
         $data['reqAllList'] = $reqAllList;
-
+        echo '<tt><pre>' . var_export($data['reqAllList'], TRUE) . '</pre></tt>';
         $this->load->view('transport/transport-ambulance-requet', $data);
     }
 

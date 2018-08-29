@@ -48,6 +48,7 @@ class WARD_Controller extends CI_Controller {
         $vehicleRequest->status_code = 'PENDING';
         $vehicleRequest->request_by = $id;
         $vehicleRequest->created_user = $id;
+        $vehicleRequest->vehicle_id = 0;
         
         
         $vehicleRequest->save();
@@ -58,6 +59,12 @@ class WARD_Controller extends CI_Controller {
         } else {
             $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
         }
+        
+        
+        $myRequestVehicles = $vehicleRequest->getMyRequest($id);
+        
+        $data['myRequestVehicles'] = $myRequestVehicles;
+        
         
         $this->load->view('ward/ward-ambulance-request', $data);
     }
@@ -72,8 +79,15 @@ class WARD_Controller extends CI_Controller {
     }
 
     public function loadPurchaseItems() {
-        $this->load->model(array('Ward'));
+        $this->load->model(array('Ward','Purchase'));
         $data['msg'] = '';
+        $purchase0 = new Purchase();
+        
+        //get my items
+        $id = $this->session->userdata('userbean')->id;
+        $myPurchase = $purchase0->getMyPurchase($id);
+        $data['myPurchase'] = $myPurchase;
+        
         $this->load->view('ward/ward-manage-purchase', $data);
     }
 
