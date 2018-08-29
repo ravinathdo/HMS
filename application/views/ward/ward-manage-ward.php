@@ -8,7 +8,6 @@
         <link rel="stylesheet" href="<?php echo base_url('css/responsiveslides.css') ?>">
         <script src="<?php echo base_url('js/jquery.min.js'); ?>"></script>		
         <script src="<?php echo base_url('js/responsiveslides.min.js'); ?>"></script>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
         <script>
             // You can also use "$(window).load(function() {"
@@ -27,7 +26,7 @@
         <div class="header">
             <div class="main-header">
                 <div class="wrap">
-                    <?php $this->load->view('doctor/_head_doctor'); ?>
+                    <?php $this->load->view('ward/_head_ward'); ?>
                     <div class="clear"> </div>
                 </div>
             </div>
@@ -35,7 +34,7 @@
             <div class="top-nav">
                 <div class="wrap">
                     <ul>
-                        <?php $this->load->view('doctor/_menu_doctor'); ?>
+                        <?php $this->load->view('ward/_menu_ward'); ?>
                         <div class="clear"> </div>
                     </ul>
                 </div>
@@ -47,31 +46,37 @@
         <div class="content">
             <div class="row">
                 <div class="col-md-2"> 
-                    <?php $this->load->view('doctor/_tree_doctor'); ?>
+                    <?php $this->load->view('ward/_tree_ward'); ?>
                 </div>
                 <div class="col-md-5">
-                    <?= $msg ?>
+
                     <div class="panel panel-warning">
-                        <div class="panel-heading ">My Availability</div>
+                        <div class="panel-heading ">Ward Creation</div>
                         <div class="panel-body">
-                            <form class="form-horizontal" action="<?php echo base_url('Doctor_Controller/availability'); ?>" method="post">
+                            <?= $msg ?>
+                            <form class="form-horizontal" action="<?= base_url('WARD_Controller/wardCreation') ?>" method="post">
                                 <div class="form-group">
-                                    <label for="day_available" class="control-label col-xs-4">Day</label> 
+                                    <label for="text" class="control-label col-xs-4">Ward Name</label> 
                                     <div class="col-xs-8">
-                                        <select id="day_available" name="day_available" class="select form-control">
-                                            <option value="Sunday">Sunday</option>
-                                            <option value="Monday">Monday</option>
-                                            <option value="Wednesday">Wednesday</option>
-                                            <option value="Thursday">Thursday</option>
-                                            <option value="Friday">Friday</option>
-                                            <option value="Saturday">Saturday</option>
-                                        </select>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-address-card"></i>
+                                            </div> 
+                                            <input id="text" name="ward_name" type="text" required="" class="form-control">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="time_available" class="control-label col-xs-4">Time</label> 
+                                    <label for="select" class="control-label col-xs-4">Doctor</label> 
                                     <div class="col-xs-8">
-                                        <input id="time_available" name="time_available" required="" type="time" class="form-control">
+                                        <select id="select" name="doctor_incharge" required="" class="select form-control">
+                                            <option value="">--select--</option>
+                                            <?php foreach ($doctorList as $value) {
+                                                ?>
+                                                <option value="<?= $value->id ?>">Dr.<?= $value->first_name ?> <?= $value->last_name ?></option>
+                                            <?php }
+                                            ?>
+                                        </select>
                                     </div>
                                 </div> 
                                 <div class="form-group row">
@@ -82,22 +87,39 @@
                             </form>
                         </div>
                     </div>
+
+
                 </div>
                 <div class="col-md-5">
 
-                    <table class="table-bordered" style="width: 50%">
-                        <?php
-                        if($docAvilabilityList!=null)
-                        foreach ($docAvilabilityList as $value) {
-                            ?>
+
+                    <table border="0" class="table-bordered" style="width: 100%" >
+                        <thead>
                             <tr>
-                                <td><?= $value->day_available ?></td>
-                                <td><?= $value->time_available ?></td>
+                                <th>Ward No</th>
+                                <th>Ward Name</th>
+                                <th>Doctor incharge</th>
                             </tr>
+                        </thead>
+                        <tbody>
                             <?php
-                        }
-                        ?>
+//                            echo '<tt><pre>' . var_export(, TRUE) . '</pre></tt>';
+                            if ($wardList != null)
+                                foreach ($wardList as $value) {
+                                    ?>
+                                    <tr>
+                                        <td><?= $value->ward_no ?></td>
+                                        <td><?= $value->ward_name ?></td>
+                                        <td><?= $value->first_name ?> <?= $value->last_name ?></td>
+                                    </tr>
+                                    <?php
+                                }
+                            ?>
+
+                        </tbody>
                     </table>
+
+
 
                 </div>
             </div>
@@ -105,8 +127,7 @@
         <!----End-content----->
         <!---End-wrap---->
         <!---start-footer---->
-             <?php $this->load->view('_footer'); ?>
-
+        <?php $this->load->view('_footer'); ?>
         <!---End-footer---->
     </body>
 </html>

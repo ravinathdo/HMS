@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="<?php echo base_url('css/responsiveslides.css') ?>">
         <script src="<?php echo base_url('js/jquery.min.js'); ?>"></script>		
         <script src="<?php echo base_url('js/responsiveslides.min.js'); ?>"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
         <script>
             // You can also use "$(window).load(function() {"
@@ -100,9 +101,9 @@
 
                 </div>
                 <div class="col-md-6">
-                    <table border="1" class="table-bordered table-condensed table-hover">
+                    <table border="1" class="table-bordered table-condensed table-hover" style="width: 100%">
                         <thead>
-                            <tr>
+                            <tr style="font-weight: bold">
                                 <th>Ward No</th>
                                 <th>Patient</th>
                                 <th>Admit Date</th>
@@ -110,7 +111,6 @@
                             </tr>
                         </thead>
                         <tbody>
-
                             <?php
 //                            echo '<tt><pre>' . var_export($doctorWardPatient, TRUE) . '</pre></tt>';
                             if ($doctorWardPatient)

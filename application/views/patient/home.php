@@ -44,7 +44,7 @@
         <!---End-header---->
 
         <!----start-content----->
-        <div class="content">
+        <div class="content" style="min-height: 500px">
             <div class="row">
                 <div class="col-md-2">
                     <?php $this->load->view('patient/_tree_patient'); ?>
@@ -57,66 +57,66 @@
 
 
                     <table border="0">
-                        <tr>
-                            <th> 
+                        <tr style="text-align: center">
+                            <td> 
                                 <a href="<?php echo base_url('Patient_Controller/loadSearchDoctors'); ?>">
                                     <i class="fas fa-user-md fa-5x  tile-icon"></i>
                                 </a>
-                            </th>
-                            <th> 
+                            </td>
+                            <td> 
                                 <a href="<?php echo base_url('Patient_Controller/loadOPDAppointment'); ?>">
                                     <i class="fas fa-user-tie fa-5x  tile-icon"></i>
                                 </a>
-                            </th>
-                            <th><a href="<?php echo base_url('Patient_Controller/loadAppointment'); ?>">
+                            </td>
+                            <td><a href="<?php echo base_url('Patient_Controller/loadAppointment'); ?>">
                                     <i class="far fa-calendar-alt fa-5x  tile-icon"></i>
-                                </a></th>
-                            <th>
+                                </a></td>
+                            <td>
                                 <a href="<?php echo base_url('Patient_Controller/loadMyAppointment'); ?>">
                                     <i class="fas fa-calendar-check  fa-5x  tile-icon"></i>
-                                </a></th>
-                            <th><a href="<?php echo base_url('Patient_Controller/loadViewLabTestCenters'); ?>">
+                                </a></td>
+                            <td><a href="<?php echo base_url('Patient_Controller/loadViewLabTestCenters'); ?>">
                                     <i class="fas fa-vials  fa-5x  tile-icon"></i>
-                    </a></th>
-                            <th> <a href="<?php echo base_url('Patient_Controller/loadFeedback'); ?>">
+                    </a></td>
+                            <td> <a href="<?php echo base_url('Patient_Controller/loadFeedback'); ?>">
                                     <i class="fas fa-comments  fa-5x  tile-icon"></i>
-                    </a></th>
+                    </a></td>
                         </tr>
 
-                        <tr>
-                            <th>View Specialist Doctors</th>
-                            <th>OPD Appointment</th>
-                            <th>Doctor Clinic Appointment</th>
-                            <th>My Appointment</th>
-                            <th>Lab Tests</th>
-                            <th>Feedback</th>
+                        <tr  style="text-align: center">
+                            <td>View Specialist Doctors</td>
+                            <td>OPD Appointment</td>
+                            <td>Doctor Clinic Appointment</td>
+                            <td>My Appointment</td>
+                            <td>Lab Tests</td>
+                            <td>Feedback</td>
                         </tr>
                         
                         
-                        <tr>
-                            <th> 
-                                <a href="<?php echo base_url('Patient_Controller/loadSearchDoctors'); ?>">
+                        <tr  style="text-align: center">
+                            <td> 
+                                <a href="<?php echo base_url('Patient_Controller/loadReports'); ?>">
                                     <i class="fas fa-file-word fa-5x  tile-icon"></i>
                                 </a>
-                            </th>
-                            <th> 
-                                <a href="<?php echo base_url('Patient_Controller/loadOPDAppointment'); ?>">
+                            </td>
+                            <td> 
+                                <a href="<?php echo base_url('Patient_Controller/loadProfile'); ?>">
                                     <i class="fas fa-users-cog fa-5x  tile-icon"></i>
                                 </a>
-                            </th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
 
-                        <tr>
-                            <th>Reports</th>
-                            <th>Profile</th>
-                              <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
+                        <tr style="text-align: center">
+                            <td>Reports</td>
+                            <td>Profile</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                     </table>
 
@@ -136,26 +136,21 @@
                     
 
                    
-                    <a href="<?php echo base_url('Patient_Controller/loadReports'); ?>">
-                        <img src="<?= base_url('/images/icon-report.png') ?>" alt="..." title="Report" class="img-thumbnail tile-icon">
-                    </a>
-                    <a href="<?php echo base_url('User_Controller/loadProfile'); ?>">
-                        <img src="<?= base_url('/images/icon-profile.png') ?>" alt="..." title="Profile" class="img-thumbnail tile-icon">
-                    </a>
-                    <br>
-                    <br>
+                    
                 </div>
                 <div class="col-md-3">
                     <div class="panel panel-success">
                         <div class="panel-heading ">Dash Board</div>
                         <div class="panel-body">
-                            <!--<button type="button" class="btn btn-primary">5</button> New Appointment-->
+                            <button type="button" class="btn btn-primary">
+                                <?php echo $this->session->userdata('appin_count') ?>
+                            </button> New Appointment
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="row">
+<!--            <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-5">
                     <img src="<?= base_url('images/_chart_1.jpg'); ?>"/>
@@ -163,7 +158,7 @@
                 <div class="col-md-5">
                     <img src="<?= base_url('images/_chart_2.png'); ?>"/>
                 </div>
-            </div>
+            </div>-->
         </div>
         <!----End-content----->
         <!---End-wrap---->

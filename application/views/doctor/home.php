@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="<?php echo base_url('css/responsiveslides.css') ?>">
         <script src="<?php echo base_url('js/jquery.min.js'); ?>"></script>		
         <script src="<?php echo base_url('js/responsiveslides.min.js'); ?>"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
         <script>
             // You can also use "$(window).load(function() {"
@@ -43,56 +44,101 @@
         <!---End-header---->
 
         <!----start-content----->
-        <div class="content">
+        <div class="content" style="min-height: 500px">
             <div class="row">
                 <div class="col-md-2"> 
                     <?php $this->load->view('doctor/_tree_doctor'); ?>
                 </div>
                 <div class="col-md-6">
                     <h2>Doctor</h2>
-                    <a href="<?php echo base_url('Doctor_Controller/loadAvailability'); ?>">
-                        <img src="<?= base_url('/images/icon-doctor.png') ?>" alt="..." class="img-thumbnail tile-icon" title="My Availability">
-                    </a>
-                    <a href="<?php echo base_url('Doctor_Controller/getAppointmentList');?>/<?php echo $this->session->userdata('userbean')->id ?>">
-                        <img src="<?= base_url('/images/icon-manage-applointment.png') ?>" alt="..." class="img-thumbnail tile-icon" title="Manage Appointment">
-                    </a>
-                    <a href="<?php echo base_url('Doctor_Controller/loadDrugDetails');?>">
-                        <img src="<?= base_url('/images/icon-drug.png') ?>" alt="..." class="img-thumbnail tile-icon" title="Drug Availability">
-                    </a>
-                    <a href="<?php echo base_url('Doctor_Controller/loadWard');?>">
-                        <img src="<?= base_url('/images/icon-ward.png') ?>" alt="..." class="img-thumbnail tile-icon" title="Ward">
-                    </a>
-                    <a href="<?php echo base_url('Doctor_Controller/loadPatientList');?>">
-                        <img src="<?= base_url('/images/icon-patient.png') ?>" alt="..." class="img-thumbnail tile-icon" title="Patient Details">
-                    </a>
-                      <a href="<?php echo base_url('#'); ?>">
-                        <img src="<?= base_url('/images/icon-report.png') ?>" alt="..." title="Report" class="img-thumbnail tile-icon">
-                    </a>
-                    <a href="<?php echo base_url('User_Controller/loadProfile'); ?>">
-                        <img src="<?= base_url('/images/icon-profile.png') ?>" alt="..." title="Profile" class="img-thumbnail tile-icon">
-                    </a>
+                    <table border="0">
+                        <tbody>
+                            <tr style="text-align: center">
+                                <td>
+                                    <a href="<?php echo base_url('Doctor_Controller/loadAvailability'); ?>">
+                                        <i class="fas fa-user-md  fa-5x  tile-icon"></i> 
+                                    </a>
+                                </td>
+                                <td> <a href="<?php echo base_url('Doctor_Controller/getAppointmentList'); ?>/<?php echo $this->session->userdata('userbean')->id ?>">
+                                        <i class="fas fa-calendar-minus fa-5x  tile-icon"></i>
+                                    </a></td>
+                                <td> <a href="<?php echo base_url('Doctor_Controller/loadDrugDetails'); ?>">
+                                        <i class="fas fa-capsules  fa-5x  tile-icon"></i>
+                                    </a></td>
+                                <td><a href="<?php echo base_url('Doctor_Controller/loadWard'); ?>">
+                                        <i class="fas fa-hospital  fa-5x  tile-icon"></i>
+                                    </a></td>
+                                <td> <a href="<?php echo base_url('Doctor_Controller/loadPatientList'); ?>">
+                                        <i class="fas fa-user  fa-5x  tile-icon"></i> 
+                                    </a></td>
+                                <td></td>
+                            </tr>
+                            <tr style="text-align: center">
+                                <td>My Availability</td>
+                                <td>Manage Appointment</td>
+                                <td>Drug Availability</td>
+                                <td>Ward</td>
+                                <td>Patient Details</td>
+                                <td></td>
+                            </tr>
+
+
+                            <tr style="text-align: center">
+                                <td>
+                                    <a href="<?php echo base_url('#'); ?>">
+                                        <i class="fas fa-file-word fa-5x  tile-icon"></i>
+                                    </a>
+                                </td>
+                                <td><a href="<?php echo base_url('User_Controller/loadProfile'); ?>">
+                                        <i class="fas fa-users-cog fa-5x  tile-icon"></i>
+
+                                    </a> </td>
+                                <td> </td>
+                                <td></td>
+                                <td> </td>
+                                <td></td>
+                            </tr>
+                            <tr style="text-align: center">
+                                <td>Reports</td>
+                                <td>Profile</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+
+
+
+
+
+
+
                 </div>
                 <div class="col-md-4">
                     <div class="panel panel-danger">
                         <div class="panel-heading ">Dash Board</div>
                         <div class="panel-body">
-                            <button type="button" class="btn btn-default btn-xs">20-08-2018</button>
-                            <button type="button" class="btn btn-default btn-xs">22-08-2018</button>
+                            <!--                            <button type="button" class="btn btn-default btn-xs">20-08-2018</button>
+                                                        <button type="button" class="btn btn-default btn-xs">22-08-2018</button>-->
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
+<!--            <div class="row">
                 <div class="col-md-2"> </div>
                 <div class="col-md-6"> 
-                <img src="<?= base_url('/images/_chart_3.jpg') ?>"/></div>
+                    <img src="<?= base_url('/images/_chart_3.jpg') ?>"/></div>
                 <div class="col-md-6"> </div>
-            </div>
+            </div>-->
         </div>
         <!----End-content----->
         <!---End-wrap---->
         <!---start-footer---->
-                 <?php $this->load->view('_footer'); ?>
+        <?php $this->load->view('_footer'); ?>
         <!---End-footer---->
     </body>
 </html>

@@ -130,7 +130,7 @@ class Doctor_Controller extends CI_Controller {
 
         $wardPatient0->save();
         $db_error = $this->db->error();
-        echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
+//        echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
         if (!empty($db_error)) {
             if ($db_error['code'] == 0) {
                 $data['msg'] = '<p class="text-success">Patient admit has been success</p>';
@@ -139,7 +139,7 @@ class Doctor_Controller extends CI_Controller {
             }
         }
 
-        echo '<tt><pre>' . var_export($wardPatient0, TRUE) . '</pre></tt>';
+//        echo '<tt><pre>' . var_export($wardPatient0, TRUE) . '</pre></tt>';
 
         $wardList = $ward->getDoctorWards($doctor_id);
         $data['wardList'] = $wardList;
@@ -248,7 +248,7 @@ class Doctor_Controller extends CI_Controller {
      * get the details of the appointment 
      * @param type $param
      */
-    public function getAppointmentDetail($appo_id) {
+    public function getAppointmentDetail($appo_id,$patient_id) {
         //echo 'Appointment ID:'.$appo_id;
         $this->load->model(array('DoctorAppointment', 'Patient'));
         $doctorAppointment = new DoctorAppointment();
@@ -256,9 +256,10 @@ class Doctor_Controller extends CI_Controller {
         $data['appointmentDetail'] = $doctorAppointment->getAppointmentDetails($appo_id)[0];
         //echo '<tt><pre>' . var_export($data['appointmentDetail'], TRUE) . '</pre></tt>';
         //get patient history
-        $patientMedicalHistory = $patient->getPatientMedicalHistory(8);
+        $patientMedicalHistory = $patient->getPatientMedicalHistory($patient_id);
         //echo '<tt><pre>' . var_export($patientMedicalHistory, TRUE) . '</pre></tt>';
         $data['patientMedicalHistory'] = $patientMedicalHistory;
+        
         $this->load->view('doctor/doctor-appointment-view', $data);
     }
 
@@ -273,14 +274,14 @@ class Doctor_Controller extends CI_Controller {
     public function completeAppointment() {
         $this->load->model(array('DoctorAppointment'));
         $doctorAppointment = new DoctorAppointment();
-        $array_from_post = $doctorAppointment->array_from_post(array('appo_id', 'comment'));
+        $array_from_post = $doctorAppointment->array_from_post(array('appo_id', 'comment','patient_id'));
         echo '<tt><pre>' . var_export($array_from_post, TRUE) . '</pre></tt>';
         echo 'Updating.....';
         $doctorAppointment->setAppointmentCompete($array_from_post['appo_id'], $array_from_post['comment']);
 
 
         //get appoinment details again
-        redirect('/Doctor_Controller/getAppointmentDetail/' . $array_from_post['appo_id']);
+        redirect('/Doctor_Controller/getAppointmentDetail/' . $array_from_post['appo_id'].'/'.$array_from_post['patient_id']);
     }
 
     public function rejectAppointment() {

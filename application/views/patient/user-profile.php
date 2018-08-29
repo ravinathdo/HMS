@@ -46,74 +46,60 @@
         <div class="content">
             <div class="row">
                 <div class="col-md-2"> 
-                    <?php //$this->load->view('admin/_tree_admin'); ?>
+                    <?php $this->load->view('patient/_tree_patient'); ?>
                 </div>
                 <div class="col-md-5">
 
                     <div class="panel panel-warning">
                         <div class="panel-heading ">
-                            <h3><img src="<?= base_url('/images/icon-profile.png') ?>" style="width: 30px" /> Profile</h3>
+                            <h4> Profile</h4>
 
                         </div>
                         <div class="panel-body">
-
-                            <form class="form-horizontal">
+                            <?= $msg ?>
+                            <form class="form-horizontal" action="<?= base_url('Patient_Controller/updateProfile') ?>" method="post">
                                 <div class="form-group">
                                     <label for="text" class="control-label col-xs-4">First Name</label> 
                                     <div class="col-xs-8">
-                                        <input id="text" name="text" type="text" class="form-control" readonly="" value="<?php echo $this->session->userdata('userbean')->first_name ?>">
+                                        <input id="text" name="first_name" type="text" class="form-control"  value="<?php echo $this->session->userdata('userbean')->first_name ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="text1" class="control-label col-xs-4">Last Name</label> 
                                     <div class="col-xs-8">
-                                        <input id="text1" name="text1" type="text" class="form-control" readonly="" value="<?php echo $this->session->userdata('userbean')->last_name?>">
+                                        <input id="text1" name="last_name" type="text" class="form-control"  value="<?php echo $this->session->userdata('userbean')->last_name ?>">
                                     </div>
                                 </div>
-                                
-                                
-                                <div class="form-group">
-                                    <label for="text2" class="control-label col-xs-4">NIC</label> 
-                                    <div class="col-xs-8">
-                                        <input id="text2" name="text2" type="text" class="form-control" value="<?php echo $this->session->userdata('userbean')->last_name ?>">
-                                    </div>
-                                </div>
-                                
-                                
+
                                 <div class="form-group">
                                     <label for="" class="control-label col-xs-4">User Role</label> 
                                     <div class="col-xs-8">
-                                        <input id="" name="" type="text" class="form-control" readonly="" value="<?php echo $this->session->userdata('userbean')->user_role?>">
+                                        <input id="" name="" type="text" class="form-control" readonly="" value="<?php echo $this->session->userdata('userbean')->user_role ?>">
                                     </div>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="text3" class="control-label col-xs-4">Telephone</label> 
                                     <div class="col-xs-8">
-                                        <input id="text3" name="text3" type="text" class="form-control" value="<?php echo $this->session->userdata('userbean')->telephone ?>">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="text3" class="control-label col-xs-4">Telephone</label> 
-                                    <div class="col-xs-8">
-                                        <input id="text3" name="text3" type="text" class="form-control" value="<?php echo $this->session->userdata('userbean')->telephone ?>">
+                                        <input id="text3" name="telephone" type="text" class="form-control" value="<?php echo $this->session->userdata('userbean')->telephone ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="text4" class="control-label col-xs-4">Email</label> 
                                     <div class="col-xs-8">
-                                        <input id="text4" name="text4" type="text" class="form-control" value="<?php echo $this->session->userdata('userbean')->email ?>">
+                                        <input id="text4" name="text4" type="text" class="form-control" readonly="" value="<?php echo $this->session->userdata('userbean')->email ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="text5" class="control-label col-xs-4">Status</label> 
                                     <div class="col-xs-8">
-                                        <input id="text5" name="text5" type="text" class="form-control" value="<?php echo $this->session->userdata('userbean')->status_code ?>">
+                                        <input id="text5" name="text5" type="text" class="form-control" readonly="" value="<?php echo $this->session->userdata('userbean')->status_code ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="text6" class="control-label col-xs-4">Created Date</label> 
                                     <div class="col-xs-8">
-                                        <input id="text6" name="text6" type="text" class="form-control" value="<?php echo $this->session->userdata('userbean')->created_date ?>">
+                                        <input id="text6" name="text6" type="text" readonly="" class="form-control" value="<?php echo $this->session->userdata('userbean')->created_date ?>">
                                     </div>
                                 </div> 
                                 <div class="form-group row">
@@ -133,23 +119,24 @@
                 <div class="col-md-4">
 
                     <h3>Change Password</h3>
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" action="<?= base_url('Patient_Controller/changePassword') ?>" method="post">
+
                         <div class="form-group">
                             <label for="text" class="control-label col-xs-4">Old Password</label> 
                             <div class="col-xs-8">
-                                <input id="text" name="text" type="text" class="form-control">
+                                <input id="text" name="old_password" type="password" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="text1" class="control-label col-xs-4">New Password</label> 
                             <div class="col-xs-8">
-                                <input id="text1" name="text1" type="text" class="form-control">
+                                <input id="text1" name="new_password" type="password" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="text2" class="control-label col-xs-4">Retype Password</label> 
                             <div class="col-xs-8">
-                                <input id="text2" name="text2" type="text" class="form-control">
+                                <input id="text2" name="retype_password" type="password" class="form-control">
                             </div>
                         </div> 
                         <div class="form-group row">

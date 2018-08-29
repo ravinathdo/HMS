@@ -36,4 +36,17 @@ class Ward extends MY_Model {
     }
     
     
+    public function getWardDetailsList() {
+        $this->db->select('hms_ward.*,hms_doctor.first_name,hms_doctor.last_name');
+        $this->db->from('hms_ward');
+        $this->db->join('hms_doctor','hms_doctor.id = hms_ward.doctor_incharge');
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+    
 }

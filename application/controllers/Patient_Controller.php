@@ -16,6 +16,87 @@ require_once(APPPATH . 'libraries/DoctorPayment.php');
 
 class Patient_Controller extends CI_Controller {
 
+    public function changePassword() {
+
+        $this->load->model(array('User', 'Patient'));
+        $user = new User();
+        $patient = new Patient();
+
+        $data['msg'] = '';
+        $old_password = $this->input->post('old_password');
+        $new_password = $this->input->post('new_password');
+        $retype_password = $this->input->post('retype_password');
+//$post_data = $user->array_from_post(array('email', 'pword'));
+        $post_data = array('email' => $this->session->userdata('userbean')->email, 'pword' => $old_password);
+        $login = $user->getPatientLogin($post_data);
+
+
+        //check the password is correct
+//        echo $new_password;
+//        echo '<br>';
+//        echo $retype_password;
+//        echo $new_password;
+
+        if (strlen($new_password) >= 6 && ($new_password == $retype_password)) {
+            if ($login != null) {
+                //login success
+                //update the password
+                $updateData = array('pword' => sha1($new_password));
+                $patient->updatePatient($updateData, $this->session->userdata('userbean')->id);
+
+                $data['msg'] = '<p class="text-success">Password Reset successful</p>';
+            } else {
+                $data['msg'] = '<p class="text-danger">Invalid password</p>';
+            }
+        } else {
+            $data['msg'] = '<p class="text-danger">Invalid password constrains</p>';
+        }
+
+
+
+
+
+        //redirect to profile 
+        $this->load->view('patient/user-profile', $data);
+    }
+
+    public function updateProfile() {
+        $this->load->model(array('Patient'));
+        $data['msg'] = '';
+        $patient = new Patient();
+
+        $updateArray = array(
+            'first_name' => $this->input->post('first_name'),
+            'last_name' => $this->input->post('last_name'),
+            'telephone' => $this->input->post('telephone'));
+
+
+        //collect iputs 
+        //update input 
+        $patient->updatePatient($updateArray, $this->session->userdata('userbean')->id);
+        $db_error = $this->db->error();
+//        echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
+
+        if ($db_error['code'] == 0) {
+            $data['msg'] = '<p class="text-success">Profile updated successfuly</p>';
+            //session data update 
+            $this->session->userdata('userbean')->first_name = $this->input->post('first_name');
+            $this->session->userdata('userbean')->telephone = $this->input->post('telephone');
+            $this->session->userdata('userbean')->last_name = $this->input->post('last_name');
+        } else {
+            $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
+        }
+
+        //reload data from db
+//        echo 'doctor->updateProfile';
+        $this->load->view('patient/user-profile', $data);
+    }
+
+    public function loadProfile() {
+        $data['msg'] = '';
+        $this->load->view('patient/user-profile', $data);
+    }
+
     public function loadFeedback() {
         $this->load->model(array('Feedback'));
         $data['msg'] = '';
@@ -366,7 +447,7 @@ class Patient_Controller extends CI_Controller {
 
             //get my appointment count
             $newdata['appin_count'] = $docappo->getMyAppointmentCount($newdata['userbean']->id, 'OPEN');
-            echo '<tt><pre>' . var_export($newdata['appin_count'], TRUE) . '</pre></tt>';
+//            echo '<tt><pre>' . var_export($newdata['appin_count'], TRUE) . '</pre></tt>';
 
 
 
@@ -382,9 +463,7 @@ class Patient_Controller extends CI_Controller {
         $this->load->model(array('User', 'DoctorAppointment'));
 
         $docappo = new DoctorAppointment();
-       
-        
-        
+
 //        $this->session->set_userdata($userbean);
         $this->load->view('patient/home');
     }

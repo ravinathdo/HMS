@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="<?php echo base_url('css/responsiveslides.css') ?>">
         <script src="<?php echo base_url('js/jquery.min.js'); ?>"></script>		
         <script src="<?php echo base_url('js/responsiveslides.min.js'); ?>"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
         <script>
             // You can also use "$(window).load(function() {"
@@ -49,9 +50,11 @@
                     <?php $this->load->view('doctor/_tree_doctor'); ?>
                 </div>
                 <div class="col-md-10">
-                    <h3>Appointment List</h3>
-
-                    <table id="example" class="display" cellspacing="0" width="100%">
+                    
+                    <div class="panel panel-warning">
+                        <div class="panel-heading "><h3>Appointment List</h3></div>
+                        <div class="panel-body">
+                            <table id="example" class="display" cellspacing="0" width="100%">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -71,7 +74,7 @@
                                         <td><?= $value->appointment_date ?></td>
                                         <td><?= $value->doctor_fee ?></td>
                                         <td><?= $value->status_code ?></td>
-                                        <td><a href="<?= base_url('Doctor_Controller/getAppointmentDetail')?>/<?= $value->id ?>">view</a> </td>
+                                        <td><a href="<?= base_url('Doctor_Controller/getAppointmentDetail')?>/<?= $value->id ?>/<?= $value->created_user ?>">view</a> </td>
                                     </tr>
                                     <?php
                                 }
@@ -85,6 +88,13 @@
                 $('#example').DataTable();
             });
                     </script>
+                        </div>
+                    </div>
+                    
+                    
+                    
+
+                    
 
                 </div>
             </div>
