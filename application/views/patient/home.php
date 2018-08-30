@@ -56,7 +56,7 @@
 
 
 
-                    <table border="0">
+                    <table border="0" style="padding: 13px">
                         <tr style="text-align: center">
                             <td> 
                                 <a href="<?php echo base_url('Patient_Controller/loadSearchDoctors'); ?>">
@@ -85,10 +85,10 @@
 
                         <tr  style="text-align: center">
                             <td>View Specialist Doctors</td>
-                            <td>OPD Appointment</td>
-                            <td>Doctor Clinic Appointment</td>
-                            <td>My Appointment</td>
-                            <td>Lab Tests</td>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;OPD Appointment</td>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;Doctor Clinic Appointment</td>
+                            <td>&nbsp;&nbsp;My Appointment</td>
+                            <td>&nbsp;&nbsp;Lab Tests</td>
                             <td>Feedback</td>
                         </tr>
                         
