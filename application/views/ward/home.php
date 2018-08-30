@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="<?php echo base_url('css/responsiveslides.css') ?>">
         <script src="<?php echo base_url('js/jquery.min.js'); ?>"></script>		
         <script src="<?php echo base_url('js/responsiveslides.min.js'); ?>"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
         <script>
             // You can also use "$(window).load(function() {"
@@ -48,27 +49,66 @@
                 <div class="col-md-2"> 
                     <?php $this->load->view('ward/_tree_ward'); ?>
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-8">
                     <h2>WARD</h2>
-                    <a href="<?php echo base_url('WARD_Controller/loadPurchaseItems'); ?>">
-                        <img src="<?= base_url('/images/icon-ward.png') ?>" alt="..." class="img-thumbnail tile-icon" title="Purchasing Items">
-                    </a>
-                    <a href="<?php echo base_url('#'); ?>">
-                        <img src="<?= base_url('/images/icon-ambulance-request.png') ?>" alt="..." class="img-thumbnail tile-icon" title="Ambulance Request">
-                    </a>
-                    <a href="<?php echo base_url('#'); ?>">
-                        <i class="fas fa-address-book   fa-5x img-thumbnail tile-icon"></i> Reports
-                    </a>
-                    <a href="<?php echo base_url('User_Controller/loadProfile'); ?>">
-                        <i class="fas fa-user-cog fa-5x img-thumbnail tile-icon"></i> Profile
-                    </a>
+
+
+                    <table border="0" style="width: 100%">
+                        <tbody >
+                            <tr style="text-align: center">
+                                <td><a href="<?php echo base_url('WARD_Controller/loadPurchaseItems'); ?>">
+                                        <i class="fas fa-notes-medical fa-5x"></i> 
+                                    </a></td>
+                                <td><a href="<?php echo base_url('WARD_Controller/loadAmbulanaceRequest'); ?>">
+                                        <i class="fas fa-ambulance fa-5x"></i> 
+                                    </a></td>
+                                <td><a href="<?php echo base_url('WARD_Controller/loadApproveAdmintPatients'); ?>">
+                                        <i class="fas fa-user-tag fa-5x"></i> 
+                                    </a></td>
+                                <td><a href="<?php echo base_url('WARD_Controller/loadWardCreation'); ?>">
+                                        <i class="fas fa-hospital fa-5x"></i> 
+                                    </a></td>
+                                <td><a href="<?php echo base_url('Transport_Controller/#'); ?>">
+                                        <i class="fas fa-user-cog fa-5x "></i>  
+                                    </a></td>
+                                <td><a href="<?php echo base_url('User_Controller/loadProfile'); ?>">
+                                        <i class="fab fa-algolia fa-5x"></i> 
+                                    </a></td>
+                            </tr>
+                            <tr style="text-align: center">
+                                <td>Purchasing Items</td>
+                                <td>Ambulance Request</td>
+                                <td>Approve Patients</td>
+                                <td>Ward Creation</td>
+                                <td>Reports</td>
+                                <td>Profile</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 </div>
+                <div class="col-md-4"></div>
             </div>
         </div>
         <!----End-content----->
         <!---End-wrap---->
         <!---start-footer---->
-                  <?php $this->load->view('_footer'); ?>
+        <?php $this->load->view('_footer'); ?>
 
         <!---End-footer---->
     </body>

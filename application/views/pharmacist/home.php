@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="<?php echo base_url('css/responsiveslides.css') ?>">
         <script src="<?php echo base_url('js/jquery.min.js'); ?>"></script>		
         <script src="<?php echo base_url('js/responsiveslides.min.js'); ?>"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
         <script>
             // You can also use "$(window).load(function() {"
@@ -43,32 +44,55 @@
         <!---End-header---->
 
         <!----start-content----->
-        <div class="content">
+        <div class="content" style="min-height: 400px">
             <div class="row">
                 <div class="col-md-2"> 
                     <?php $this->load->view('pharmacist/_tree_pharmacist'); ?>
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-8">
                     <h2>Pharmacist</h2>
-                    <a href="<?php echo base_url('Pharmacist_Controller/loadManageDrug'); ?>">
-                        <img src="<?= base_url('/images/icon-drug.png') ?>" alt="..." class="img-thumbnail tile-icon" title="Manage Drug">
-                    </a>
-                    <a href="<?php echo base_url('Pharmacist_Controller/loadViewStock'); ?>">
-                        <img src="<?= base_url('/images/icon-stock.png') ?>" alt="..." class="img-thumbnail  tile-icon" title="View Stock">
-                    </a>
-                    <a href="<?php echo base_url('#'); ?>">
-                        <i class="fas fa-address-book   fa-5x img-thumbnail tile-icon"></i> Reports
-                    </a>
-                    <a href="<?php echo base_url('User_Controller/loadProfile'); ?>">
-                        <i class="fas fa-user-cog fa-5x img-thumbnail tile-icon"></i> Profile
-                    </a>
+                    <table border="0" style="width: 100%"> 
+                        <tbody>
+                            <tr style="text-align: center">
+                                <td><a href="<?php echo base_url('Pharmacist_Controller/loadManageDrug'); ?>">
+                                        <i class="fas fa-pills fa-5x"></i> 
+                                    </a></td>
+                                <td><a href="<?php echo base_url('Pharmacist_Controller/loadViewStock'); ?>">
+                                        <i class="fab fa-stack-overflow fa-5x"></i>
+                                    </a></td>
+                                <td><a href="<?php echo base_url('#'); ?>">
+                                        <i class="fas fa-address-book   fa-5x img-thumbnail tile-icon"></i> 
+                                    </a></td>
+                                <td><a href="<?php echo base_url('User_Controller/loadProfile'); ?>">
+                                        <i class="fas fa-user-cog fa-5x img-thumbnail tile-icon"></i> 
+                                    </a></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr style="text-align: center">
+                                <td>Manage Drug</td>
+                                <td>View Stock</td>
+                                <td>Reports</td>
+                                <td>Profile</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+
+
+
                 </div>
+                            <div class="col-md-4">
+                            </div>
             </div>
         </div>
         <!----End-content----->
         <!---End-wrap---->
         <!---start-footer---->
-                 <?php $this->load->view('_footer'); ?>
+        <?php $this->load->view('_footer'); ?>
 
         <!---End-footer---->
     </body>

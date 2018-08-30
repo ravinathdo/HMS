@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="<?php echo base_url('css/responsiveslides.css') ?>">
         <script src="<?php echo base_url('js/jquery.min.js'); ?>"></script>		
         <script src="<?php echo base_url('js/responsiveslides.min.js'); ?>"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
         <script>
             // You can also use "$(window).load(function() {"
@@ -53,7 +54,7 @@
                             <h3><img src="<?= base_url('/images/icon-ambulance.png') ?>" style="width: 30px" />     Ambulance</h3>
                         </div>
                         <div class="panel-body">
-                            <?= $msg;?>
+                            <?= $msg; ?>
                             <form class="form-horizontal" action="<?= base_url('Transport_Controller/setAmbulance') ?>" method="post">
                                 <div class="form-group">
                                     <label for="text" class="control-label col-xs-4">Vehicle Number</label> 
@@ -80,9 +81,9 @@
                                 ?>   
                                 <tr>
                                     <td><?= $value->vehicle_number ?></td>
-                                    <td><a href="<?= base_url('Transport_Controller/viewTravelHistory/'.$value->id) ?>">Travel History</a></td>
+                                    <td><a href="<?= base_url('Transport_Controller/viewTravelHistory/' . $value->id) ?>">Travel History</a></td>
                                 </tr>
-                                <?php }
+                            <?php }
                         ?>
 
                     </table>

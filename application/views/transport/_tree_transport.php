@@ -1,17 +1,7 @@
-<ul style="padding-left: 5px;font-weight: bold">
-    <li><a href="<?php echo base_url('Transport_Controller/loadAmbulance'); ?>">
-        <img src="<?= base_url('/images/icon-ambulance.png') ?>" alt="..." class="img-thumbnail menu-icon" title="Ambulance Manage"> Ambulance Manage
-    </a></li>
-    <li><a href="<?php echo base_url('Transport_Controller/loadAmbulanceRequestList'); ?>">
-        <img src="<?= base_url('/images/icon-ambulance-request.png') ?>"  alt="..." class="img-thumbnail menu-icon" title="Ambulance Request"> Ambulance Request
-    </a></li>
-    <li><a href="<?php echo base_url('Transport_Controller/getPendingVehicleRequest'); ?>">
-        <img src="<?= base_url('/images/icon-ambulance-request.png') ?>"  alt="..." class="img-thumbnail menu-icon" title="Ambulance Request"> Pending Request
-    </a></li>
-    <li><a href="<?php echo base_url('Transport_Controller/#'); ?>">
-        <img src="<?= base_url('/images/icon-report.png') ?>"  alt="..." class="img-thumbnail menu-icon" title="Ambulance Request"> Reports
-    </a></li>
-    <li><a href="<?php echo base_url('User_Controller/loadProfile'); ?>">
-        <img src="<?= base_url('/images/icon-profile.png') ?>"  alt="..." class="img-thumbnail menu-icon" title="Ambulance Request"> Profile
-    </a></li>
+<ul style="padding-left: 5px;">
+    <li><tt><pre><a href="<?php echo base_url('Transport_Controller/loadAmbulance'); ?>"><i class="fas fa-ambulance "></i> Ambulance Manage</a></pre></tt></li>
+    <li><tt><pre><a href="<?php echo base_url('Transport_Controller/loadAmbulanceRequestList'); ?>"><i class="fas fa-headset "></i> Ambulance Request</a></pre></tt></li>
+    <li><tt><pre><a href="<?php echo base_url('Transport_Controller/getPendingVehicleRequest'); ?>"><i class="fas fa-address-book    "></i> Pending Request</a></pre></tt></li>
+    <li><tt><pre><a href="<?php echo base_url('Transport_Controller/#'); ?>"><i class="fas fa-user-cog "></i> Reports</a></pre></tt></li>
+    <li><tt><pre><a href="<?php echo base_url('User_Controller/loadProfile'); ?>"><i class="fab fa-algolia "></i> Profile</a></pre></tt></li>
 </ul>
