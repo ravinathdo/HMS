@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="<?php echo base_url('css/responsiveslides.css') ?>">
         <script src="<?php echo base_url('js/jquery.min.js'); ?>"></script>		
         <script src="<?php echo base_url('js/responsiveslides.min.js'); ?>"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
         <script>
             // You can also use "$(window).load(function() {"
@@ -48,29 +49,71 @@
                 <div class="col-md-2"> 
                     <?php $this->load->view('lab/_tree_lab'); ?>
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-8">
                     <h2>LAB</h2>
-                    <a href="<?php echo base_url('LAB_Controller/loadInventoryManage'); ?>">
-                        <img src="<?= base_url('/images/icon-stock.png') ?>" alt="..." class="img-thumbnail tile-icon" title="Inventory Items">
-                    </a>
-                    <a href="<?php echo base_url('LAB_Controller/loadLabCenterManage'); ?>">
-                        <img src="<?= base_url('/images/icon-lab-center.png') ?>" alt="..." class="img-thumbnail tile-icon" title="Centers">
-                    </a>
-                    <a href="<?php echo base_url('LAB_Controller/loadItemRequest'); ?>">
-                        <img src="<?= base_url('/images/icon-item.png') ?>" alt="..." class="img-thumbnail tile-icon" title="Items Request">
-                    </a>
-                    <a href="<?php echo base_url('LAB_Controller/loadCostManagement'); ?>">
-                        <img src="<?= base_url('/images/icon-cost.png') ?>" alt="..." class="img-thumbnail tile-icon" title="Cost Management">
-                    </a>
-                    <a href="<?php echo base_url('LAB_Controller/loadPatientList'); ?>">
-                        <img src="<?= base_url('/images/icon-patient.png') ?>" alt="..." class="img-thumbnail tile-icon" title="Patient List">
-                    </a>
-                    <a href="<?php echo base_url('#'); ?>">
-                        <i class="fas fa-address-book   fa-5x img-thumbnail tile-icon"></i> Reports
-                    </a>
-                    <a href="<?php echo base_url('User_Controller/loadProfile'); ?>">
-                        <i class="fas fa-user-cog fa-5x img-thumbnail tile-icon"></i> Profile
-                    </a>
+                    <table border="0" style="width: 100%">
+                        <tbody>
+                            <tr style="text-align: center">
+                                <td><a href="<?php echo base_url('LAB_Controller/loadInventoryManage'); ?>">
+                        <i class="fas fa-vials fa-5x"></i> 
+                    </a></td>
+                                <td><a href="<?php echo base_url('LAB_Controller/loadLabCenterManage'); ?>">
+                        <i class="fas fa-hospital fa-5x"></i> 
+                    </a></td>
+                                <td><a href="<?php echo base_url('LAB_Controller/loadItemRequest'); ?>">
+                       <i class="fas fa-tags fa-5x"></i> 
+                    </a></td>
+                                <td><a href="<?php echo base_url('LAB_Controller/loadCostManagement'); ?>">
+                       <i class="fas fa-money-bill-alt fa-5x"></i> 
+                    </a></td>
+                                <td><a href="<?php echo base_url('LAB_Controller/loadPatientList'); ?>">
+                      <i class="fas fa-user-tag fa-5x"></i> 
+                    </a></td>
+                                <td><a href="<?php echo base_url('#'); ?>">
+                        <i class="fas fa-address-book fa-5x"></i> 
+                    </a></td>
+                            </tr>
+                            <tr style="text-align: center">
+                                <td>Inventory Items </td>
+                                <td>Centers</td>
+                                <td>Items Request</td>
+                                <td>Cost Management</td>
+                                <td>Patient List</td>
+                                <td>Reports</td>
+                            </tr>
+                            <tr style="text-align: center">
+                                <td><a href="<?php echo base_url('User_Controller/loadProfile'); ?>">
+                        <i class="fas fa-user-cog fa-5x img-thumbnail tile-icon"></i> 
+                    </a></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr style="text-align: center">
+                                <td>Profile</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </div>
+                <div class="col-md-4">
+                    
                 </div>
             </div>
         </div>
