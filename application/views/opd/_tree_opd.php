@@ -1,18 +1,8 @@
 <ul style="padding-left: 5px">
-    <li><a href="<?php echo base_url('OPD_Controller/loadListPatient'); ?>">
-            <img src="<?= base_url('/images/icon-patient.png') ?>" alt="..." class="img-thumbnail menu-icon" title="Patient Details"> Patient Details
-        </a></li>
-    <li><a href="<?php echo base_url('OPD_Controller/loadPatientOpdHistory'); ?>">
-            <img src="<?= base_url('/images/icon-opd-applointment.png') ?>" alt="..." class="img-thumbnail menu-icon" title="OPD Appointment"> OPD Appointment
-        </a></li>
-    <li><a href="<?php echo base_url('OPD_Controller/loadAmbulanceRequest'); ?>">
-            <img src="<?= base_url('/images/icon-ambulance.png') ?>" alt="..." class="img-thumbnail menu-icon" title="Ambulance Request"> Ambulance Request
-        </a></li>
-    <li><a href="<?php echo base_url('Transport_Controller/#'); ?>">
-        <img src="<?= base_url('/images/icon-report.png') ?>"  alt="..." class="img-thumbnail menu-icon" title="Ambulance Request"> Reports
-    </a></li>
-    <li><a href="<?php echo base_url('User_Controller/loadProfile'); ?>">
-        <img src="<?= base_url('/images/icon-profile.png') ?>"  alt="..." class="img-thumbnail menu-icon" title="Ambulance Request"> Profile
-    </a></li>
+    <li><tt><pre><a href="<?php echo base_url('OPD_Controller/loadListPatient'); ?>"><i class="fas fa-user-tag   "></i> Patient Details</a></pre></tt></li>
+    <li><tt><pre><a href="<?php echo base_url('OPD_Controller/loadPatientOpdHistory'); ?>"><i class="fas fa-calendar-plus   "></i> OPD Appointment</a></pre></tt></li>
+    <li><tt><pre><a href="<?php echo base_url('OPD_Controller/loadAmbulanceRequest'); ?>"><i class="fas fa-ambulance   "></i> Ambulance Request</a></pre></tt></li>
+    <li><tt><pre><a href="<?php echo base_url('Transport_Controller/#'); ?>"><i class="fas fa-address-book "></i> Reports</a></pre></tt></li>
+    <li><tt><pre><a href="<?php echo base_url('User_Controller/loadProfile'); ?>"><i class="fas fa-user-cog "></i> Profile</a></pre></tt></li>
 </ul>
 

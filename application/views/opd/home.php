@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="<?php echo base_url('css/responsiveslides.css') ?>">
         <script src="<?php echo base_url('js/jquery.min.js'); ?>"></script>		
         <script src="<?php echo base_url('js/responsiveslides.min.js'); ?>"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
         <script>
             // You can also use "$(window).load(function() {"
@@ -50,27 +51,51 @@
                 </div>
                 <div class="col-md-7">
                     <h3>OPD Home</h3>
-                    <a href="<?php echo base_url('OPD_Controller/loadListPatient'); ?>">
-                        <img src="<?= base_url('/images/icon-patient.png') ?>" alt="..." class="img-thumbnail tile-icon" title="Patient Details">
-                    </a>
-                    <a href="<?php echo base_url('OPD_Controller/loadPatientOpdHistory'); ?>">
-                        <img src="<?= base_url('/images/icon-opd-applointment.png') ?>" alt="..." class="img-thumbnail tile-icon" title="OPD Appointment">
-                    </a>
-                    <a href="<?php echo base_url('OPD_Controller/loadAmbulanceRequest'); ?>">
-                        <img src="<?= base_url('/images/icon-ambulance.png') ?>" alt="..." class="img-thumbnail tile-icon" title="Ambulance Request">
-                    </a>
-                    <a href="<?php echo base_url('#'); ?>">
-                        <i class="fas fa-address-book   fa-5x img-thumbnail tile-icon"></i> Reports
-                    </a>
-                    <a href="<?php echo base_url('User_Controller/loadProfile'); ?>">
-                        <i class="fas fa-user-cog fa-5x img-thumbnail tile-icon"></i> Profile
-                    </a>
+
+                    <table border="0" style="width: 100%">
+                        <tbody>
+                            <tr style="text-align: center">
+                                <td><a href="<?php echo base_url('OPD_Controller/loadListPatient'); ?>">
+                                        <i class="fas fa-user-tag fa-5x  tile-icon"></i> 
+                                    </a></td>
+                                <td><a href="<?php echo base_url('OPD_Controller/loadPatientOpdHistory'); ?>">
+                                        <i class="fas fa-calendar-plus fa-5x  tile-icon"></i>
+                                    </a></td>
+                                <td><a href="<?php echo base_url('OPD_Controller/loadAmbulanceRequest'); ?>">
+                                        <i class="fas fa-ambulance fa-5x  tile-icon"></i> 
+                                    </a></td>
+                                <td><a href="<?php echo base_url('#'); ?>">
+                                        <i class="fas fa-address-book   fa-5x"></i>
+                                    </a></td>
+                                <td><a href="<?php echo base_url('User_Controller/loadProfile'); ?>">
+                                        <i class="fas fa-user-cog fa-5x"></i>
+                                    </a></td>
+                                <td></td>
+                            </tr>
+                            <tr style="text-align: center">
+                                <td>Patient Details</td>
+                                <td>OPD Appointment</td>
+                                <td>Ambulance Request</td>
+                                <td>Profile</td>
+                                <td>Item Request</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+
+
+
+
+
+
                 </div>
                 <div class="col-md-3">
                     <div class="panel panel-warning">
                         <div class="panel-heading ">Dash Board</div>
                         <div class="panel-body">
-                            <button type="button" class="btn btn-primary">12</button>   Item Request
+                            <!--<button type="button" class="btn btn-primary">12</button>-->   
                         </div>
                     </div>
                 </div>
