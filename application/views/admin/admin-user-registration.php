@@ -80,7 +80,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="select" class="control-label col-xs-4">User Role x</label> 
+                                    <label for="select" class="control-label col-xs-4">User Role</label> 
                                     <div class="col-xs-8">
                                         <select id="select" name="user_role" required="" class="select form-control">
                                             <option value="">--select--</option>

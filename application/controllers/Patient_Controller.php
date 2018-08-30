@@ -299,9 +299,9 @@ class Patient_Controller extends CI_Controller {
     }
 
     public function rejectAppointment($appo_id) {
-        echo 'x';
-        echo $appo_id;
-        echo 'x';
+//        echo 'x';
+//        echo $appo_id;
+//        echo 'x';
         $this->load->model(array('DoctorAppointment'));
         //collect data into array 
         $doctorAppointment = new DoctorAppointment();
@@ -309,8 +309,8 @@ class Patient_Controller extends CI_Controller {
         $newData = array('status_code' => 'REJECT');
         $doctorAppointment->rejectAppointment($newData, $appo_id);
 
-        echo 'rejectAppointment';
-//        redirect('Patient_Controller/loadMyAppointment');
+//        echo 'rejectAppointment';
+        redirect('Patient_Controller/loadMyAppointment');
     }
 
     public function setAppointment() {

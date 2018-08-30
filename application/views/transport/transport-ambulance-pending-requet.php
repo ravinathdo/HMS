@@ -90,7 +90,7 @@
                                                 </form>
                                                
                                             </td>
-                                            <td> <a href="<?php echo base_url('')?>" class="btn btn-danger btn-xs">Reject</a></td>
+                                            <td> <a href="<?php echo base_url('Transport_Controller/rejectRequest/'.$value->id )?>" class="btn btn-danger btn-xs">Reject</a></td>
                                         </tr>
                                         <?php
                                     }

@@ -1,0 +1,71 @@
+Admin
+•	Doctor Registration
+•	OPD Doctor Registration 
+•	Doctor Update 
+•	User Registration 
+•	Item Purchase > Accept
+•	View Item purchase request by LAB
+•	Purchase History 
+•	Patient Registration 
+•	Profile
+Patient 
+•	Search Doctor
+•	View Doctor Availability 
+•	OPD Appointment Placement 
+•	OPD Appointment view 
+•	Clinic Appointment 
+•	My Appointment View 
+•	My Appointment Reject 
+•	View Lab Test
+•	Feedback
+•	Profile
+OPB
+•	Patient Details 
+•	View OPD Appointment 
+•	Approve OPD appointment to the ward 
+•	Reject OPD appointment 
+•	Ambulance Request 
+•	Ambulance Request history 
+•	Profile
+Accountant 
+•	View purchase item history 
+•	Set employee salary 
+•	View employee salary 
+•	Place doctor salary for the appointment 
+•	Set cost 
+•	Profile 
+LAB
+•	Add items 
+•	Update items 
+•	Center Creation 
+•	Center Test Details placement with cost 
+•	Request Items 
+•	Cost records management 
+•	View Patient List
+•	Profile
+Transport 
+•	Add vehicle details 
+•	View Vehicle travel history 
+•	View Transport request history 
+•	Approve/Reject Transport request 
+•	Profile
+PHARMACIST
+•	Add / update drug information 
+•	View min stock 
+•	Profile 
+WARD
+•	Set purchase item request > then it is approved by the admin > then accountant able to complete with the cost 
+•	List view of requested item status 
+•	Make ambulance request 
+•	Approve patient from OPD appointment 
+•	Create wards and Assign Doctors for ward 
+•	Profile 
+Doctor 
+•	Doctor availability 
+•	Manage patient request appointment ,open appointment can be ‘accept’ or reject ‘
+•	Check drug availability 
+•	View Wards belongs to the doctor
+•	Admit patient on his wards 
+•	View Patient details 
+•	Profile 
+

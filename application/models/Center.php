@@ -15,6 +15,8 @@ class Center extends MY_Model {
 
     //put your code here
     const DB_TABLE = 'hms_center';
-    const DB_TABLE_PK = 'center_name';
+    const DB_TABLE_PK = 'id';
     
+    public $id;
+    public $center_name;
 }

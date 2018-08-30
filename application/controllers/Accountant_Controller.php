@@ -125,6 +125,8 @@ class Accountant_Controller extends CI_Controller {
         $purchase = new Purchase();
         $data['approvedList'] = $purchase->getPurchaseList('ACCEPT');
         $data['allList'] = $purchase->get();
+        
+         $data['pendingList'] = $purchase->getPurchaseList('PENDING');
         $this->load->view('accountant/acountant-item-purchase', $data);
     }
 

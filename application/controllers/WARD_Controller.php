@@ -193,6 +193,8 @@ class WARD_Controller extends CI_Controller {
             $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
         }
 
+        
+        $data['myPurchase']= $purchase->get();
         $this->load->view('ward/ward-manage-purchase', $data);
     }
 

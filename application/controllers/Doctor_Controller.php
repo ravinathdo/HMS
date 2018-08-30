@@ -267,7 +267,9 @@ class Doctor_Controller extends CI_Controller {
         //get the doctor id from get 
         $this->load->model(array('DoctorAppointment'));
         $doctorAppointment = new DoctorAppointment();
+//        echo '<tt><pre>' . var_export($doctor_id, TRUE) . '</pre></tt>';
         $data['docAppointmentList'] = $doctorAppointment->getDocAppointmentList($doctor_id);
+//        echo '<tt><pre>' . var_export($data['docAppointmentList'], TRUE) . '</pre></tt>';
         $this->load->view('doctor/doctor-appointment', $data);
     }
 

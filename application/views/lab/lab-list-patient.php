@@ -50,18 +50,44 @@
                     <?php $this->load->view('lab/_tree_lab'); ?>
                 </div>
                 <div class="col-md-10">
-                    <div class="panel panel-warning">
+                      <div class="panel panel-warning">
                         <div class="panel-heading ">
                             <h3> <img src="<?= base_url('/images/icon-patient.png') ?>" style="width: 30px" />  Patient List </h3>
                         </div>
                         <div class="panel-body">
-                               <table class="table-bordered" style="width: 100%">
-                                <tr>
-                                    <td>No</td>
-                                    <td>First Name</td>
-                                    <td></td>
-                                </tr>
+                            <?php // echo '<tt><pre>' . var_export($patientList, TRUE) . '</pre></tt>'; ?>
+                            <table id="example" class="display" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Patient No</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Telephone</th>
+                                        <th>Date of Birth</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($patientList as $value) {
+                                        ?>
+                                        <tr>
+                                            <td><?= $value->id ?></td>
+                                            <td><?=  $value->first_name ?></td>
+                                            <td><?= $value->last_name ?></td>
+                                            <td><?= $value->telephone ?></td>
+                                            <td><?= $value->dob ?></td>
+                                        </tr>
+                                    <?php }
+                                    ?>
+
+                                </tbody>
                             </table>
+                            <link href="<?php echo base_url('css/jquery.dataTables.min.css'); ?>" rel="stylesheet" type="text/css"/>
+                            <script src="<?php echo base_url('js/jquery.dataTables.min.js'); ?>" type="text/javascript"></script>
+                            <script type="text/javascript">
+            $(document).ready(function () {
+                $('#example').DataTable();
+            });
+                            </script>
                         </div>
                     </div>
                 </div>

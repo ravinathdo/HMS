@@ -171,20 +171,19 @@ class LAB_Controller extends CI_Controller {
 
         $center->center_name = $this->input->post('center_name');
         $center->save();
-
+//        echo '<tt><pre>' . var_export($center, TRUE) . '</pre></tt>';
         $db_error = $this->db->error();
-        echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
+//        echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
 
         if ($db_error['code'] == 0) {
-            $data['msg'] = '<p class="text-success">New registration has been successful </p>';
+            $data['msg'] = '<p class="text-success">New Center created successfuly</p>';
         } else {
             $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
         }
 
-        echo '<tt><pre>' . var_export($center, TRUE) . '</pre></tt>';
+//        echo '<tt><pre>' . var_export($center, TRUE) . '</pre></tt>';
         $data['centerList'] = $center->get();
 
-        $data['msg'] = '<p class="text-success">New Center created successfuly</p>';
         $this->load->view('lab/lab-center-details', $data);
     }
 
@@ -241,7 +240,11 @@ class LAB_Controller extends CI_Controller {
     }
 
     public function loadPatientList() {
-        $this->load->view('lab/lab-list-patient');
+        $this->load->model(array('Patient'));
+        $data['msg'] = '';
+        $patient = new Patient();
+        $data['patientList'] = $patient->get();
+        $this->load->view('lab/lab-list-patient',$data);
     }
 
 }

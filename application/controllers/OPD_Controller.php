@@ -13,6 +13,25 @@
  */
 class OPD_Controller extends CI_Controller {
 
+    public function rejectAppointment($id) {
+        $this->load->model(array('OPDAppointment', 'Ward'));
+        $data['msg'] = '';
+        //get opd appointment details 
+        $oPDAppointment0 = new OPDAppointment();
+
+        $ward = new Ward();
+        $data['wardList'] = $ward->get();
+$updateArray = array('status_code'=>'REJECT' );
+        $oPDAppointment0->updateOPDAppointment($updateArray, $id);
+
+        $data['msg'] = '<p class="text-danger">Appointment Rejected</p>';
+
+        $get = $oPDAppointment0->getOPDAppointmentList();
+//        echo '<tt><pre>' . var_export($get, TRUE) . '</pre></tt>';
+        $data['opdAppoList'] = $get;
+        $this->load->view('opd/opd-patient-opd-history', $data);
+    }
+
     //put your code here
     public function wardPlacement() {
         $this->load->model(array('OPDAppointment'));
@@ -32,7 +51,7 @@ class OPD_Controller extends CI_Controller {
 
 
         $get = $oPDAppointment0->getOPDAppointmentList();
-        echo '<tt><pre>' . var_export($get, TRUE) . '</pre></tt>';
+//        echo '<tt><pre>' . var_export($get, TRUE) . '</pre></tt>';
         $data['opdAppoList'] = $get;
         $this->load->view('opd/opd-patient-opd-history', $data);
     }
@@ -111,7 +130,7 @@ class OPD_Controller extends CI_Controller {
         $vehicleRequest->save();
 
         $db_error = $this->db->error();
-//        echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
+        echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
         if ($db_error['code'] == 0) {
             $data['msg'] = '<p class="text-success">New request created successful </p>';
         } else {
@@ -125,7 +144,5 @@ class OPD_Controller extends CI_Controller {
         $data['myRequest'] = $vehicleRequest->getMyRequest($user_id);
         $this->load->view('opd/opd-ambulance-request', $data);
     }
-
-    
 
 }

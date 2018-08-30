@@ -13,6 +13,29 @@
  */
 class Transport_Controller extends CI_Controller {
 
+    public function rejectRequest($id) {
+        $this->load->model(array('Vehicle', 'VehicleRequest'));
+        $data['msg'] = '';
+        $vehicleRequest = new VehicleRequest();
+        $vehicle = new Vehicle();
+
+        $updateData = array('status_code'=>'REJECT');
+        $vehicleRequest->updateVehicle($updateData, $id);
+        $db_error = $this->db->error();
+//        echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
+        if ($db_error['code'] == 0) {
+            $data['msg'] = '<p class="text-success">update successful </p>';
+        } else {
+            $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
+        }
+         $allVehicles = $vehicle->get();
+        $data['vehicleAllList'] = $allVehicles;
+
+        $vehicleFromStatus = $vehicleRequest->getVehicleFromStatus('PENDING');
+        $data['pendingRequest'] = $vehicleFromStatus;
+        $this->load->view('transport/transport-ambulance-pending-requet', $data);
+    }
+
     public function approveRequest() {
         $this->load->model(array('Vehicle', 'VehicleRequest'));
         $data['msg'] = '';
@@ -25,8 +48,8 @@ class Transport_Controller extends CI_Controller {
 
         $vehicleRequest->updateVehicle($updateArray, $id);
         $db_error = $this->db->error();
-        
-        echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
+
+//        echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
         if ($db_error['code'] == 0) {
             $data['msg'] = '<p class="text-success">update successful </p>';
         } else {
@@ -40,7 +63,7 @@ class Transport_Controller extends CI_Controller {
         $data['pendingRequest'] = $vehicleFromStatus;
 
 
-        echo '<tt><pre>' . var_export($data['vehicleAllList'], TRUE) . '</pre></tt>';
+//        echo '<tt><pre>' . var_export($data['vehicleAllList'], TRUE) . '</pre></tt>';
 
         $this->load->view('transport/transport-ambulance-pending-requet', $data);
     }
@@ -58,7 +81,7 @@ class Transport_Controller extends CI_Controller {
         $data['pendingRequest'] = $vehicleFromStatus;
 
 
-        echo '<tt><pre>' . var_export($data['vehicleAllList'], TRUE) . '</pre></tt>';
+//        echo '<tt><pre>' . var_export($data['vehicleAllList'], TRUE) . '</pre></tt>';
 
         $this->load->view('transport/transport-ambulance-pending-requet', $data);
     }
@@ -109,7 +132,7 @@ class Transport_Controller extends CI_Controller {
         $vehicleReq = new VehicleRequest();
         $reqAllList = $vehicleReq->getAllRequest();
         $data['reqAllList'] = $reqAllList;
-        echo '<tt><pre>' . var_export($data['reqAllList'], TRUE) . '</pre></tt>';
+//        echo '<tt><pre>' . var_export($data['reqAllList'], TRUE) . '</pre></tt>';
         $this->load->view('transport/transport-ambulance-requet', $data);
     }
 

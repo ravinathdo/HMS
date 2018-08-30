@@ -51,7 +51,7 @@
                 </div>
 
                 <div class="col-md-10">
-
+<?= $msg; ?>
                     <div class="panel panel-warning">
                         <div class="panel-heading ">Appointment Request</div>
                         <div class="panel-body">
@@ -86,7 +86,7 @@
                                                         </select>
                                                         <input type="submit" />
                                                     </form>
-                                                    <a href="">Reject</a>
+                                                <a href="<?= base_url('OPD_Controller/rejectAppointment/'.$value->id)?>">Reject</a>
                                                 <?php } ?>
 
 

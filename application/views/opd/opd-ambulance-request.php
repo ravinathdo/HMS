@@ -104,7 +104,7 @@
                                         <td><?= $value->datetime_need ?></td>
                                         <td><?= $value->comment ?></td>
                                         <td><?= $value->status_code ?></td>
-                                        <td><?= $value->vehicle_no ?></td>
+                                        <td><?= $value->vehicle_id ?></td>
                                         <td><?= $value->created_time ?></td>
                                     </tr>
                                 <?php }
