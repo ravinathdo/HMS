@@ -56,7 +56,7 @@
                     <?php
                     if($labCenterDetails!=null)
                     foreach ($labCenterDetails as $value) {
-                        echo '<tt><pre><b> '. $value->center_name.' - '.  $value->lab_test .' </b><br>'
+                        echo '<tt><pre><b> '. $value->center_name.' - '.  $value->lab_test . '[Rs'. $value->test_cost .'] </b><br>'
                                 .  $value->description.'   <br></pre></tt>';
                     }
                     ?>

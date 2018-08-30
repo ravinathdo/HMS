@@ -111,6 +111,12 @@
                                         <textarea id="textarea" name="description" cols="40" rows="5" class="form-control"></textarea>
                                     </div>
                                 </div> 
+                                <div class="form-group">
+                                    <label for="textarea" class="control-label col-xs-4">Cost</label> 
+                                    <div class="col-xs-8">
+                                        <input id="" name="test_cost" required="" type="number" class="form-control">
+                                    </div>
+                                </div> 
                                 <div class="form-group row">
                                     <div class="col-xs-offset-4 col-xs-8">
                                         <button name="submit" type="submit" class="btn btn-primary">Submit</button>
@@ -137,7 +143,7 @@
                                     ?>
                                     <tr>
                                         <td><?= $value->center_name ?></td>
-                                        <td><a href="<?php echo base_url('LAB_Controller/getTestDetailsForCenters/'.$value->center_name) ?>">View Center Test Details</a></td>
+                                        <td><a href="<?php echo base_url('LAB_Controller/getTestDetailsForCenters/' . $value->center_name) ?>">View Center Test Details</a></td>
                                     </tr>
                                 <?php }
                             ?>

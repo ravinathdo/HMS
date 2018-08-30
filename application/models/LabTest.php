@@ -21,6 +21,7 @@ class LabTest extends MY_Model {
     public $lab_test;
     public $center_name;
     public $description;
+    public $test_cost;
 
     public function loadCenterTestDetails($center_name) {
         $this->db->select('hms_lab_test.*');

@@ -75,18 +75,19 @@ class LAB_Controller extends CI_Controller {
         $labTest0->center_name = $this->input->post('center_name');
         $labTest0->lab_test = $this->input->post('lab_test');
         $labTest0->description = $this->input->post('description');
+        $labTest0->test_cost = $this->input->post('test_cost');
 
         $labTest0->save();
 
         $db_error = $this->db->error();
-        echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
+//        echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
         if ($db_error['code'] == 0) {
             $data['msg'] = '<p class="text-success">New test detail created </p>';
         } else {
             $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
         }
 
-        $data['msg'] = '';
+//        $data['msg'] = '';
         $data['centerList'] = $center->get();
         $this->load->view('lab/lab-center-details', $data);
     }

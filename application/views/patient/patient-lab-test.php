@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="<?php echo base_url('css/responsiveslides.css') ?>">
         <script src="<?php echo base_url('js/jquery.min.js'); ?>"></script>		
         <script src="<?php echo base_url('js/responsiveslides.min.js'); ?>"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
         <script>
             // You can also use "$(window).load(function() {"
@@ -49,7 +50,7 @@
                                         <?php $this->load->view('patient/_tree_patient'); ?>
 
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-4">
 
                     <div class="panel panel-warning">
                         <div class="panel-heading ">
@@ -84,16 +85,13 @@
                     </div>
 
                 </div>
-                <div class="col-md-5">
-
-                    
-                    
-                    
+                <div class="col-md-6">
 
                     <table class="table-bordered" id="example" style="width: 100%">
                         <thead>
                             <tr>
                                 <td>Test</td>
+                                <td>Cost</td>
                                 <td>Center Name</td>
                                 <td>Description</td>
                             </tr></thead>
@@ -103,6 +101,7 @@
                                 ?> 
                                 <tr>
                                     <td><?= $value->lab_test ?></td>
+                                    <td>Rs.<?= $value->test_cost ?></td>
                                     <td><?= $value->center_name ?></td>
                                     <td><?= $value->description ?></td>
                                 </tr>
