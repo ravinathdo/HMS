@@ -50,12 +50,13 @@
                     <?php $this->load->view('pharmacist/_tree_pharmacist'); ?>
                 </div>
                 <div class="col-md-5">
+                    <?= $msg ?>
                     <div class="panel panel-warning">
                         <div class="panel-heading ">
                             <h3> <img src="<?= base_url('/images/icon-drug.png') ?>" style="width: 30px" />  Manage Drug </h3>
                         </div>
                         <div class="panel-body">
-                                                    <span class="mando-msg">* fields are mandatory</span>
+                            <span class="mando-msg">* fields are mandatory</span>
 
                             <form class="form-horizontal" action="<?= base_url('Pharmacist_Controller/addDrug') ?>" method="post">
                                 <div class="form-group">
@@ -68,6 +69,21 @@
                                     <label for="text1" class="control-label col-xs-4">Qty <span class="mando-msg">*</span></label> 
                                     <div class="col-xs-8">
                                         <input id="text1" name="qty"  required="" type="number" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="text1" class="control-label col-xs-4"> <span class="mando-msg">*</span></label> 
+                                    <div class="col-xs-8">
+                                        <select name="mesure">
+                                            <option value="L">L</option>
+                                            <option  value="mm">mm</option>
+                                            <option  value="cm">cm</option>
+                                            <option  value="m">m</option>
+                                            <option  value="g">g</option>
+                                            <option  value="kg">kg</option>
+                                            <option  value="bottle">bottle</option>
+                                            <option  value="nos">nos</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -101,9 +117,9 @@
                                 ?>
                                 <tr>
                                     <td><?= $value->drug_name ?></td>
-                                    <td><?= $value->qty ?></td>
+                                    <td><?= $value->qty ?> <?= $value->mesure ?></td>
                                     <td><?= $value->price ?></td>
-                                    <td><a href="<?= base_url('Pharmacist_Controller/loadUpdateDrug/'.$value->id)?>" class="btn btn-default btn-xs">update</a>
+                                    <td><a href="<?= base_url('Pharmacist_Controller/loadUpdateDrug/' . $value->id) ?>" class="btn btn-default btn-xs">update</a>
                                     </td>
                                 </tr>
 

@@ -117,6 +117,7 @@ CREATE TABLE `hms_drug` (
   `drug_name` varchar(50) DEFAULT NULL,
   `qty` int(5) DEFAULT NULL,
   `price` decimal(10,2) DEFAULT NULL,
+  `mesure` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

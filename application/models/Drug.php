@@ -21,6 +21,7 @@ class Drug extends MY_Model {
     public $drug_name;
     public $qty;
     public $price;
+    public $mesure;
 
     public function getFillterStock($qty) {
         $this->db->select('hms_drug.*');

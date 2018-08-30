@@ -62,10 +62,19 @@ class Pharmacist_Controller extends CI_Controller {
         $drug->drug_name = $this->input->post('drug_name');
         $drug->qty = $this->input->post('qty');
         $drug->price = $this->input->post('price');
+        $drug->mesure = $this->input->post('mesure');
 
         //reload
         $drug->save();
 
+         $db_error = $this->db->error();
+//            echo '<tt><pre>' . var_export($db_error, TRUE) . '</pre></tt>';
+        if ($db_error['code'] == 0) {
+            $data['msg'] = '<p class="text-success">New record created successful </p>';
+        } else {
+            $data['msg'] = '<p class="text-error"> Invalid or duplicate entry found </p>';
+        }
+        
         $drugList = $drug->get();
         $data['drugList'] = $drugList;
         $this->load->view('pharmacist/pharmacist-drug', $data);
