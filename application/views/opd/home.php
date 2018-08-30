@@ -76,8 +76,8 @@
                                 <td>Patient Details</td>
                                 <td>OPD Appointment</td>
                                 <td>Ambulance Request</td>
+                                <td>Reports</td>
                                 <td>Profile</td>
-                                <td>Item Request</td>
                                 <td></td>
                             </tr>
                         </tbody>

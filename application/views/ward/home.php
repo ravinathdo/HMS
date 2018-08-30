@@ -109,7 +109,6 @@
         <!---End-wrap---->
         <!---start-footer---->
         <?php $this->load->view('_footer'); ?>
-
         <!---End-footer---->
     </body>
 </html>
