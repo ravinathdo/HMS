@@ -21,6 +21,10 @@ class DoctorAvailability extends MY_Model {
     public $day_available;
     public $time_available;
 
+    public function deleteAvailability($id,$day_available) {
+        $this->db->delete('hms_doctor_availability', array('doctor_id' => $id,'day_available'=>$day_available)); 
+    }
+
     public function array_from_post($fields) {
         $data = array();
         foreach ($fields as $field) {
@@ -34,16 +38,11 @@ class DoctorAvailability extends MY_Model {
         $this->time_available = $this->input->post('time_available');
     }
 
-    
-    
-    
-    
-    
     public function getDocAvailability($doctor_id) {
         $this->db->select('hms_doctor_availability.*');
         $this->db->from('hms_doctor_availability');
         $where = " doctor_id = " . $doctor_id . "";
-        
+
         $this->db->where($where);
         $query = $this->db->get();
 
@@ -53,12 +52,12 @@ class DoctorAvailability extends MY_Model {
             return FALSE;
         }
     }
-    
-        public function checkDocAvailability($doctor_id,$day_available) {
+
+    public function checkDocAvailability($doctor_id, $day_available) {
         $this->db->select('hms_doctor_availability.*');
         $this->db->from('hms_doctor_availability');
-        $where = " doctor_id = " . $doctor_id . " AND day_available = '".$day_available."'";
-        
+        $where = " doctor_id = " . $doctor_id . " AND day_available = '" . $day_available . "'";
+
         $this->db->where($where);
         $query = $this->db->get();
 

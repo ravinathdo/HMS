@@ -93,6 +93,7 @@
                             <tr>
                                 <td><?= $value->day_available ?></td>
                                 <td><?= $value->time_available ?></td>
+                                <td><a href="<?=  base_url('Doctor_Controller/cancleAvailability/'.$value->doctor_id.'/'.$value->day_available)?>"><i class="fas fa-window-close"></i></a></td>
                             </tr>
                             <?php
                         }
